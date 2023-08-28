@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 510 -400 830 -190 {flags=graph
-y1=-0.00041986
-y2=0.00161796
+y1=-600.0e-6
+y2=1.5e-3
 ypos1=-400.0e-6
 ypos2=600.0e-6
 
@@ -24,25 +24,6 @@ dataset=-1
 unitx=1
 logy=0
 divy=10}
-B 2 930 -550 1730 -150 {flags=graph
-y1=-0.000922023
-y2=0.00465943
-ypos1=-400.0e-6
-ypos2=600.0e-6
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=1.5e-6
-divx=5
-subdivx=1
-node=te
-color=4
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
 N 190 -310 190 -280 {
 lab=TE}
 N 190 -310 410 -310 {
@@ -59,10 +40,14 @@ N 190 -190 190 -180 {
 lab=0}
 N 410 -200 410 -190 {
 lab=0}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="SINE(0 1.5 1000 0 0 0 1000)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL (0 0 
++ 0.25u 1.8
++ 0.5u 0
++ 0.75u -1.8
++ 1.0u 0.0)"}
 C {devices/code_shown.sym} 190 -90 0 0 {name=SIMULATE
 only_toplevel=false 
-value=".tran 10n 1m"}
+value=".tran 0.1n 1.5u"}
 C {devices/gnd.sym} 190 -180 0 0 {name=l2 lab=0}
 C {devices/lab_wire.sym} 300 -310 0 0 {name=l1 sig_type=std_logic lab=TE}
 C {sky130_fd_pr/reram_cell.sym} 410 -250 0 0 {name=R0

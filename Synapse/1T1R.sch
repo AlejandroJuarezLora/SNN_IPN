@@ -31,8 +31,8 @@ node="bl
 sl
 wl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-3.50404e+12
-y2=1.32673e+12
+y1=-2.33125e+14
+y2=2.36565e+14
 ypos1=0
 ypos2=2
 divy=5
@@ -50,7 +50,7 @@ logx=0
 logy=0
 color=7
 node="\\"memristancia; bl be - i(vwl) /\\""}
-B 2 1130 370 1930 770 {flags=graph
+B 2 1930 -540 2730 -140 {flags=graph
 y1=-0.000200084
 y2=0.000464911
 ypos1=0
@@ -71,7 +71,7 @@ logy=0
 
 color=10
 node=i(v1)}
-B 2 2360 170 3160 570 {flags=graph
+B 2 1940 -100 2740 300 {flags=graph
 y1=-0.000200084
 y2=0.000464911
 ypos1=0
@@ -128,9 +128,8 @@ value="
 *.options savecurrents
 .control
   * Modify according to your specific location
-  pre_osdi $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_module.osdi
   save all
-  tran 50n 2m
+  tran 100n 2m
   write 1T1R.raw
 .endc
 
@@ -166,8 +165,16 @@ tclcommand="xschem raw_read $netlist_dir/1T1R.raw tran"
 C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=wl}
 C {devices/lab_pin.sym} 670 -370 0 0 {name=be sig_type=std_logic lab=be}
 C {devices/vsource.sym} 670 -340 0 0 {name=V1 value=0}
-C {sky130_fd_pr/reram_cell.sym} 670 -410 0 0 {name=R1
+C {sky130_fd_pr/reram_cell.sym} 670 -410 2 0 {name=R1
 model=reram_cell
-Tfilament_0=3.3e-9
+Tfilament_0=3.38e-9
 spiceprefix=X
 }
+C {devices/code.sym} 730 130 0 0 {name=MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.inc $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_cell.spice
+"
+spice_ignore=false}

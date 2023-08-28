@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 -230 10 570 410 {flags=graph
+B 2 -80 -10 720 390 {flags=graph
 y1=-0.520564
 
 ypos1=0
