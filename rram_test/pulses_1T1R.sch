@@ -5,16 +5,16 @@ K {}
 V {}
 S {}
 E {}
-B 2 1100 -540 1900 -140 {flags=graph
-y1=-1.9279
-y2=5.21878
+B 2 1100 -520 1900 -120 {flags=graph
+y1=-2.68799
+y2=8.26811
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.002
+x2=8e-06
 divx=5
 subdivx=1
 
@@ -23,23 +23,20 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="6 4 10"
+color="6 4 7"
 node="bl
-
-
-
-sl
-wl"}
+wl
+sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-2.33125e+14
-y2=2.36565e+14
+y1=3.07076e+06
+y2=3.32711e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.002
+x2=8e-06
 divx=5
 subdivx=1
 
@@ -49,65 +46,23 @@ unitx=1
 logx=0
 logy=0
 color=7
-node="\\"memristancia; bl be - i(vwl) /\\""}
-B 2 1930 -540 2730 -140 {flags=graph
-y1=-0.000200084
-y2=0.000464911
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.002
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-color=10
-node=i(v1)}
-B 2 1940 -100 2740 300 {flags=graph
-y1=-0.000200084
-y2=0.000464911
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.002
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-color=10
-node=i(v1)}
+node="\\"memristancia; bl te - i(v1) /\\""}
 N 360 -130 360 -90 {
 lab=GND}
-N 360 -90 670 -90 {
+N 480 -90 670 -90 {
 lab=GND}
 N 670 -130 670 -90 {
 lab=GND}
 N 480 -130 480 -90 {
 lab=GND}
 N 360 -480 360 -190 {
-lab=bl}
+lab=BL}
 N 360 -480 670 -480 {
-lab=bl}
+lab=BL}
 N 670 -480 670 -440 {
-lab=bl}
+lab=BL}
 N 670 -230 670 -190 {
-lab=sl}
+lab=SL}
 N 670 -260 750 -260 {
 lab=GND}
 N 750 -260 750 -90 {
@@ -115,22 +70,24 @@ lab=GND}
 N 670 -90 750 -90 {
 lab=GND}
 N 480 -260 630 -260 {
-lab=wl}
+lab=WL}
 N 480 -260 480 -190 {
-lab=wl}
+lab=WL}
 N 670 -380 670 -370 {
-lab=be}
+lab=te}
 N 670 -310 670 -290 {
 lab=#net1}
+N 360 -90 480 -90 {
+lab=GND}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 *.options savecurrents
 .control
-  * Modify according to your specific location
+  
   save all
-  tran 100n 2m
-  write 1T1R.raw
+  tran 50n 8u
+  write pulses_1T1R.raw
 .endc
 
 " }
@@ -152,22 +109,15 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="SINE(1.5 1.5 1k 0 0)"}
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value=3}
-C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0n 0 30n 0 50n 0)"}
+C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PULSE(0 3 0 1n 1n 5u 10u)"}
+C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value=0}
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} 360 -480 0 0 {name=bl sig_type=std_logic lab=bl}
-C {devices/lab_pin.sym} 670 -210 0 0 {name=sl sig_type=std_logic lab=sl}
-C {devices/launcher.sym} 1060 -580 0 0 {name=h5
-descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/1T1R.raw tran"
-}
-C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=wl}
-C {devices/lab_pin.sym} 670 -370 0 0 {name=be sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=WL}
+C {devices/lab_pin.sym} 670 -370 0 0 {name=be sig_type=std_logic lab=te}
 C {devices/vsource.sym} 670 -340 0 0 {name=V1 value=0}
 C {sky130_fd_pr/reram_cell.sym} 670 -410 2 0 {name=R1
 model=reram_cell
-Tfilament_0=3.38e-9
+Tfilament_0=3.3e-9
 spiceprefix=X
 }
 C {devices/code.sym} 730 130 0 0 {name=MODELS
@@ -178,3 +128,10 @@ value="
 .inc $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_cell.spice
 "
 spice_ignore=false}
+C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
+C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PULSE(0 2 0 1n 1n 98n 200n)"}
+C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
+C {devices/launcher.sym} 880 -500 0 0 {name=h5
+descr="load waves" 
+tclcommand="xschem raw_read $netlist_dir/pulses_1T1R.raw tran"
+}
