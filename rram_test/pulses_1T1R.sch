@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=8e-06
+x1=-4.52054e-07
+x2=6.73556e-06
 divx=5
 subdivx=1
 
@@ -28,15 +28,15 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=3.07076e+06
-y2=3.32711e+06
+y1=-574639
+y2=4.23236e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=8e-06
+x1=-4.52054e-07
+x2=6.73556e-06
 divx=5
 subdivx=1
 
@@ -64,11 +64,7 @@ lab=BL}
 N 670 -230 670 -190 {
 lab=SL}
 N 670 -260 750 -260 {
-lab=GND}
-N 750 -260 750 -90 {
-lab=GND}
-N 670 -90 750 -90 {
-lab=GND}
+lab=SL}
 N 480 -260 630 -260 {
 lab=WL}
 N 480 -260 480 -190 {
@@ -79,6 +75,10 @@ N 670 -310 670 -290 {
 lab=#net1}
 N 360 -90 480 -90 {
 lab=GND}
+N 670 -210 750 -210 {
+lab=SL}
+N 750 -260 750 -210 {
+lab=SL}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -86,7 +86,7 @@ value="
 .control
   
   save all
-  tran 50n 8u
+  tran 1n 10u
   write pulses_1T1R.raw
 .endc
 
@@ -96,8 +96,8 @@ model=sky130_fd_pr_reram__reram_module
 spice_ignore=true}
 C {sky130_fd_pr/corner.sym} 860 130 0 0 {name=CORNER only_toplevel=true corner=tt}
 C {sky130_fd_pr/nfet_01v8.sym} 650 -260 0 0 {name=M1
-L=1
-W=1
+L=0.15
+W=7
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -109,8 +109,8 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PULSE(0 3 0 1n 1n 5u 10u)"}
-C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value=0}
+C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value=2.95}
+C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PULSE(0.1 0 0.2u 10n 10n 0.1u 0.2u)"}
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 670 -370 0 0 {name=be sig_type=std_logic lab=te}
@@ -129,7 +129,7 @@ value="
 "
 spice_ignore=false}
 C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
-C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PULSE(0 2 0 1n 1n 98n 200n)"}
+C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PULSE(0 2 0.2u 10n 10n 0.1u 0.2u)"}
 C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
 C {devices/launcher.sym} 880 -500 0 0 {name=h5
 descr="load waves" 
