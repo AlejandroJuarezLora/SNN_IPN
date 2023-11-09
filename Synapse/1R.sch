@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-0.0811586
-y2=2.68538
+y1=-0.561459
+y2=2.20508
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.001
+x1=-5.84091e-05
+x2=0.00100034
 divx=5
 subdivx=1
 
@@ -30,15 +30,15 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=2.7189e+06
-y2=3.14873e+06
+y1=400000
+y2=3.3e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.001
+x1=-5.84091e-05
+x2=0.00100034
 divx=5
 subdivx=1
 
