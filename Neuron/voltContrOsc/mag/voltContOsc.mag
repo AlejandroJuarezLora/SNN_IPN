@@ -1,0 +1,90 @@
+magic
+tech sky130B
+magscale 1 2
+timestamp 1698529635
+<< viali >>
+rect 127 1158 161 1192
+rect 1038 600 1072 634
+rect 588 -21 622 13
+<< metal1 >>
+rect 115 1194 173 1198
+rect 8 1192 173 1194
+rect 8 1158 127 1192
+rect 161 1158 173 1192
+rect 8 1155 173 1158
+rect 8 1002 47 1155
+rect 115 1152 173 1155
+rect 350 1007 381 1097
+rect 8 963 119 1002
+rect 337 996 343 1007
+rect 202 965 343 996
+rect 8 652 47 963
+rect 337 955 343 965
+rect 395 996 401 1007
+rect 395 965 546 996
+rect 395 955 401 965
+rect 609 963 732 997
+rect 339 828 370 831
+rect 143 798 603 828
+rect 8 613 117 652
+rect 339 634 370 798
+rect 8 287 47 613
+rect 203 603 547 634
+rect 698 630 732 963
+rect 1026 634 1084 640
+rect 1026 633 1038 634
+rect 698 629 867 630
+rect 619 596 867 629
+rect 926 600 1038 633
+rect 1072 600 1084 634
+rect 619 595 732 596
+rect 138 448 598 478
+rect 8 248 119 287
+rect 343 283 374 448
+rect 190 252 534 283
+rect 698 281 732 595
+rect 1026 594 1084 600
+rect 879 330 915 504
+rect 615 247 732 281
+rect 337 117 343 126
+rect 141 87 343 117
+rect 337 74 343 87
+rect 395 117 401 126
+rect 395 87 601 117
+rect 395 74 401 87
+rect 576 13 634 19
+rect 698 13 732 247
+rect 576 -21 588 13
+rect 622 -21 732 13
+rect 576 -27 634 -21
+<< via1 >>
+rect 343 955 395 1007
+rect 343 74 395 126
+<< metal2 >>
+rect 343 1007 395 1013
+rect 343 949 395 955
+rect 351 132 387 949
+rect 343 126 395 132
+rect 343 68 395 74
+use sky130_fd_pr__nfet_01v8_9HPPAM  sky130_fd_pr__nfet_01v8_9HPPAM_0
+timestamp 1698529635
+transform 1 0 580 0 1 582
+box -211 -635 211 635
+use sky130_fd_pr__nfet_01v8_B9CNTR  sky130_fd_pr__nfet_01v8_B9CNTR_0
+timestamp 1698529635
+transform 1 0 897 0 1 611
+box -211 -279 211 279
+use sky130_fd_pr__pfet_01v8_ZPUQXV  sky130_fd_pr__pfet_01v8_ZPUQXV_0
+timestamp 1698529635
+transform -1 0 156 0 1 582
+box -211 -649 211 649
+<< labels >>
+flabel metal1 879 330 915 504 0 FreeSans 480 0 0 0 vin
+port 1 nsew
+flabel metal1 926 600 1038 633 0 FreeSans 480 0 0 0 gnd
+port 4 nsew
+flabel metal1 350 1007 381 1097 0 FreeSans 480 0 0 0 vout
+port 2 nsew
+flabel metal1 8 248 47 1194 0 FreeSans 480 0 0 0 vdd
+port 3 nsew
+<< end >>

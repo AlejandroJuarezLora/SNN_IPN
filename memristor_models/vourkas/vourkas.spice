@@ -1,0 +1,19 @@
+.subckt vourkas plus minus PARAMS:
++rmin=100 rmax=390 rinit=390 alpha=1e6
++beta=10 gamma=0.1 vtr=1.5 vtl=-1.5
++yo=0.0001 m=82 fo=310 lo=5
+*
+Cr r 0 1 IC={rinit}
+Raux r 0 1e12
+
+Gr 0 r value={dr_dt(V(plus)-V(minus))*(st_f(V(plus)-V(minus))*st_f(V(r)-rmin)+st_f(-(V(plus)-V(minus)))*st_f(rmax-V(r)))}
+
+Gpm plus minus value={(V(plus)-V(minus))/((fo*exp(2*L(V(r))))/L(V(r)))}
+
+.func dr_dt(y)={-alpha*((y-vtl)/(gamma+abs(y-vtl)))*st_f(-y+vtl)-beta*y*st_f(y-vtl)*st_f(-y+vtr)-alpha*((y-vtr)/(gamma+abs(y-vtr)))*st_f(y-vtr)}
+
+.func st_f(y)={1/(exp(-y/yo)+1)}
+
+.func L(y)={lo-lo*m/y}
+
+.ends memristor_vourkas

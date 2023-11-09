@@ -1,4 +1,4 @@
-v {xschem version=3.1.0 file_version=1.2
+v {xschem version=3.4.3 file_version=1.2
 }
 G {}
 K {}
@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-9.8845e-07
-x2=9.90166e-05
+x1=-6.55176e-06
+x2=0.000126158
 divx=5
 subdivx=1
 node=vout
@@ -32,8 +32,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-9.8845e-07
-x2=9.90166e-05
+x1=-6.55176e-06
+x2=0.000126158
 divx=5
 subdivx=1
 
@@ -52,8 +52,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-9.8845e-07
-x2=9.90166e-05
+x1=-6.55176e-06
+x2=0.000126158
 divx=5
 subdivx=1
 node=vg4
@@ -64,26 +64,6 @@ logx=0
 logy=0
 y1=-0.149533
 y2=1.16557}
-B 2 2350 -950 3150 -550 {flags=graph
-y1=-0.00018194
-y2=0.000118057
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-9.8845e-07
-x2=9.90166e-05
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-color=4
-node=m.xm7.msky130_fd_pr__nfet_01v8#dbody}
 N 390 -440 860 -440 {
 lab=Vm}
 N 860 -440 860 -430 {
@@ -279,7 +259,7 @@ C {devices/gnd.sym} 460 -210 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 960 -200 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} 1320 -340 0 1 {name=p2 sig_type=std_logic lab=Vout
 }
-C {devices/vsource.sym} 30 -380 0 0 {name=Vspk value=1}
+C {devices/vsource.sym} 30 -380 0 0 {name=Vspk value=2}
 C {devices/gnd.sym} 30 -330 0 0 {name=l5 lab=GND}
 C {devices/lab_pin.sym} 580 -440 1 0 {name=p4 sig_type=std_logic lab=Vm}
 C {sky130_fd_pr/corner.sym} 890 -650 0 0 {name=CORNER only_toplevel=true corner=tt}
