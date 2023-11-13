@@ -14,12 +14,12 @@
 * SPDX-License-Identifier: Apache-2.0
 
 
-.subckt sky130_fd_pr_reram__reram_cell TE BE Tfilament_0=3.3e-9 area_ox=0.1024e-12
-N1 TE BE nFilament sky130_fd_pr_reram__reram_model
+.subckt sky130_smooth TE BE Tfilament_0=3.3e-9 area_ox=0.1024e-12
+N1 TE BE nFilament sky130_smooth_model
 .ic v(nFilament)={Tfilament_0*1.0e9}
-.ends sky130_fd_pr_reram__reram_cell
+.ends sky130_smooth
 
-.model sky130_fd_pr_reram__reram_model sky130_fd_pr_reram__reram_module area_ox=0.1024e-12
+.model sky130_smooth_model sky130_smooth_module area_ox=0.1024e-12
 + area_ox = 0.1024e-12
 + Tox = 5.0
 + Tfilament_max = 4.9
@@ -38,7 +38,8 @@ N1 TE BE nFilament sky130_fd_pr_reram__reram_model
 + t_step  = 1.0e-9 
 + smoothing = 1e-7
 + Kclip = 200
++ maxslope = 1e15
 
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky130_fd_pr_reram__reram_module.osdi
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky130_smooth.osdi
 .endc

@@ -30,8 +30,8 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=2.7189e+06
-y2=3.14873e+06
+y1=2700
+y2=3.3e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -68,7 +68,7 @@ N 410 -200 410 -100 {
 lab=0}
 N 190 -100 410 -100 {
 lab=0}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(1.75 0.1 0 10n 10n 1u 2u)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(1.8 0.1 0 10n 10n 1u 2u)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {sky130_fd_pr/reram_cell.sym} 300 -310 3 0 {name=R0
 model=reram_cell

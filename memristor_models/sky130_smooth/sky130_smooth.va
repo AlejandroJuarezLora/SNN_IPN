@@ -18,7 +18,7 @@
 `include "disciplines.vams"
 
 
-module sky130_fd_pr_reram__reram_module(TE, BE, nFilament);
+module sky130_smooth_module(TE, BE, nFilament);
     inout TE; // top electrode
     inout BE; // bottom electrode
     inout nFilament; // filament state
@@ -51,6 +51,7 @@ module sky130_fd_pr_reram__reram_module(TE, BE, nFilament);
     parameter real t_step              = 1.0e-9     from (0:inf);                         // maximum time step [seconds]
     parameter real smoothing = 1e-7 from (0:inf);                                         // smoothing for limit step
     parameter real Kclip = 200 from (0:inf);                                              // clip between max/min
+    parameter real maxslope = 1e15 from (0:inf);
 
     // ==================================================
 
@@ -68,13 +69,40 @@ module sky130_fd_pr_reram__reram_module(TE, BE, nFilament);
     real t_previous;             // previous time step [s]
     real t_delta;                // difference between current vs. previous time step
 
+    
+
     analog function real smoothstep;
+        input x, smoothing;
+        real  x, smoothing;
+        begin
+            smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
+        end
+    endfunction // smoothstep
+
+    analog function real safeexp;
+        input x, maxslope;
+        real x, maxslope, breakpoint;
+        begin
+            breakpoint = log(maxslope);
+            safeexp = exp(x*(x <= breakpoint))*(x <= breakpoint) + (x>breakpoint)*(maxslope + maxslope*(x-breakpoint));
+        end
+    endfunction
+
+    analog function real safesinh;
+        input x, maxslope;
+        real  x, maxslope;
+        begin
+            safesinh = 0.5*(safeexp(x, maxslope) - safeexp(-x, maxslope)); 
+        end
+    endfunction
+
+    analog function real smoothabs;
         input x, smoothing;
         real x, smoothing;
         begin
-           smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
+            smoothabs = sqrt(x*x + smoothing) - sqrt(smoothing);
         end
-    endfunction // smoothstep
+    endfunction // smoothabs
 
     // core equations
     analog begin
@@ -83,14 +111,14 @@ module sky130_fd_pr_reram__reram_module(TE, BE, nFilament);
         Temperature_current = V(nT, BE);
         gamma = gamma_k0 + gamma_k1 * pow((Tox - Tfilament_current), 3);
         kT_over_q = (`P_K * Temperature_current) / `P_Q;
-        Tfilament_dTdt = velocity_k1 * (exp(-Eact_generation    / kT_over_q) * exp( gamma * a0/Tox * V(TE,BE) / kT_over_q) -
-                                        exp(-Eact_recombination / kT_over_q) * exp(-gamma * a0/Tox * V(TE,BE) / kT_over_q));
+        Tfilament_dTdt = velocity_k1 * (safeexp(-Eact_generation    / kT_over_q,maxslope) * safeexp( gamma * a0/Tox * V(TE,BE) / kT_over_q, maxslope) -
+                                        safeexp(-Eact_recombination / kT_over_q, maxslope) * safeexp(-gamma * a0/Tox * V(TE,BE) / kT_over_q, maxslope));
         Fw1 = smoothstep(Tfilament_min-Tfilament_current, smoothing);
         Fw2 = smoothstep(Tfilament_current-Tfilament_max, smoothing);
         I(nFilament, BE) <+ Tfilament_dTdt + (limexp(Kclip*(Tfilament_min-Tfilament_current)) - Tfilament_dTdt) * Fw1 + (-limexp(Kclip*(Tfilament_current-Tfilament_max)) - Tfilament_dTdt) * Fw2;
         I(nFilament, BE) <+ ddt(-1.0e-9*Tfilament_current);
-        I(TE,BE) <+ I_k1 * exp(-(Tox - Tfilament_current)/(Tox - Tfilament_ref)) * sinh( V(TE,BE)/V_ref );
-        I(nT, BE) <+ abs(V(TE,BE)*I(TE,BE))/C_thermal + (Temperature_0-Temperature_current)/tau_thermal;
+        I(TE,BE) <+ I_k1 * safeexp(-(Tox - Tfilament_current)/(Tox - Tfilament_ref), maxslope) * safesinh( V(TE,BE)/V_ref , maxslope);
+        I(nT, BE) <+ smoothabs(V(TE,BE)*I(TE,BE), smoothing)/C_thermal + (Temperature_0-Temperature_current)/tau_thermal;
         I(nT, BE) <+ ddt(-Temperature_current);
     end
 endmodule
