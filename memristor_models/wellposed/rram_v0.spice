@@ -5,22 +5,22 @@ N1 TE BE rram_v0_model
 .ends rram_v0
 
 .model rram_v0_model rram_v0_va
-+ g0 = 0.25 
-+ V0 = 0.25 
-+ Vel0 = 10 
++ g0 = 0.25  
++ V0 = 0.25  
 + I0 = 1e-3 
-+ Beta = 0.8 
++ maxGap = 1.7 
++ minGap = 0.2 
++ Vel0 = 10  
++ Beta0 = 0.8 
 + gamma0 = 16 
 + Ea = 0.6 
-+ a0 = 0.25 
-+ tox = 12
-+ maxGap = 1.7 
-+ minGap = 0.2
++ a0 = 0.25
++ tox = 12 
++ maxslope = 1e15 
 + smoothing = 1e-8 
-+ maxslope = 1e15
 + GMIN = 1e-12 
-+ Kclip = 50
++ Kclip = 50 
 
 .control
-pre_osdi /foss/pdks/sky130B/libs.tech/ngspice/rram_v0.osdi
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
 .endc

@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-3
-y2=3
+y1=0.1
+y2=2
 ypos1=0
 ypos2=2
 divy=5
@@ -27,11 +27,12 @@ logy=0
 
 
 
-color=4
-node=te}
+color="4 7"
+node="te
+be"}
 B 2 660 -410 1460 -10 {flags=graph
-y1=0.056
-y2=160000
+y1=-208914
+y2=3.30352e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -49,59 +50,17 @@ logx=0
 logy=0
 
 color=4
-node="\\"memristancia;0 te - i(v1) /\\""}
-B 2 -170 -980 630 -580 {flags=graph
-y1=-0.0025
-y2=1.1
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.008
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node=n.xr2.n1#ns
-color=4
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
-B 2 670 -1250 1470 -850 {flags=graph
-y1=-54
-y2=0.09
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.008
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node=i(v1)
-color=4
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
+node="\\"memristancia;be te - i(v1) /\\""}
 N 190 -310 190 -280 {
 lab=TE}
 N 190 -220 190 -190 {
-lab=0}
+lab=net}
 N 190 -190 190 -180 {
-lab=0}
+lab=net}
 N 190 -310 270 -310 {
 lab=TE}
 N 330 -310 410 -310 {
-lab=TE}
+lab=BE}
 N 190 -120 190 -90 {
 lab=0}
 N 410 -200 410 -100 {
@@ -109,16 +68,10 @@ lab=0}
 N 190 -100 410 -100 {
 lab=0}
 N 410 -310 410 -270 {
-lab=TE}
+lab=BE}
 N 410 -210 410 -200 {
 lab=0}
-N 410 -220 410 -210 {
-lab=0}
-N 270 -310 330 -310 {
-lab=TE}
-N 190 -180 190 -120 {
-lab=0}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -3 4m 3 8m -3)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(0.1 2 0 10n 10n 2u 4u 1000)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {sky130_fd_pr/reram_cell.sym} 350 -660 3 0 {name=R0
 model=reram_cell
@@ -144,16 +97,24 @@ C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 10u 8m
+.tran 1u 8000u
 .control
 	save all
 	run
-	write tb_rram_v0.raw
+	write tb_1R_rram_v0.raw
 .endc
 
 " }
+C {devices/res.sym} 190 -150 0 0 {name=R1
+value=1k
+footprint=1206
+device=resistor
+m=1}
 C {devices/lab_wire.sym} 190 -310 0 0 {name=l3 sig_type=std_logic lab=TE}
-C {sky130_fd_pr/rram_v0.sym} 410 -250 0 0 {name=R2
+C {devices/lab_wire.sym} 190 -200 0 0 {name=l1 sig_type=std_logic lab=net}
+C {devices/vsource.sym} 410 -240 0 0 {name=V2 value="PULSE(0.1 2 4000u 10n 10n 2u 4u 1000)"}
+C {devices/lab_wire.sym} 410 -310 0 0 {name=l4 sig_type=std_logic lab=BE}
+C {sky130_fd_pr/rram_v0.sym} 300 -310 3 0 {name=R2
 model=rram_v0
 spiceprefix=X
 }
