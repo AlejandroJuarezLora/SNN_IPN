@@ -1,69 +1,65 @@
 `include "constants.vams"
 `include "disciplines.vams"
 
-module rram_v0_va(t, b);
-    inout t, b;
-    electrical t, b, ns;
+module rram_v0_va(p, n);
+    inout p, n;
+    electrical p, n, ns;
     parameter real g0 = 0.25 from (0:inf); 
     parameter real V0 = 0.25 from (0:inf); 
-    parameter real Vel0 = 10 from (0:inf); 
-    parameter real I0 = 1e-3 from (0:inf); 
-    parameter real Beta = 0.8 from (0:inf); 
-    parameter real gamma0 = 16 from (0:inf); 
-    parameter real Ea = 0.6 from (0:inf); 
-    parameter real a0 = 0.25 from (0:inf); 
-    parameter real tox = 12 from (0:inf);
-    parameter real maxGap = 1.7 from (0:inf); 
+    parameter real I0 = 1e-3 from (0:inf);
+    parameter real maxGap = 1.7 from (0:inf);
     parameter real minGap = 0.2 from (0:inf);
+    parameter real Vel0 = 10 from (0:inf); 
+    parameter real Beta0 = 0.8 from (0:inf);
+    parameter real gamma0 = 16 from (0:inf);
+    parameter real Ea = 0.6 from (0:inf);
+    parameter real a0 = 0.25 from (0:inf);
+    parameter real tox = 12 from (0:inf);
     parameter real maxslope = 1e15 from (0:inf);
-    parameter real smoothing = 1e-8 from (0:inf); 
-    parameter real GMIN = 1e-12 from (0:inf); 
+    parameter real smoothing = 1e-8 from (0:inf);
+    parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    real s, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
 
-    analog function real smoothstep;
-        input x, smoothing;
-        real  x, smoothing;
-        begin
-            smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
-        end
-    endfunction // smoothstep
+  real s, f1, f2, Fw1, Fw2, clip_0, clip_1, Gap, gamma_of_Gap;
 
-    analog function real safeexp;
-        input x, maxslope;
-        real x, maxslope, breakpoint;
-        begin
-            breakpoint = log(maxslope);
-            safeexp = exp(x*(x <= breakpoint))*(x <= breakpoint) + (x>breakpoint)*(maxslope + maxslope*(x-breakpoint));
-        end
-    endfunction
+  analog function real smoothstep;
+      input x, smoothing;
+      real  x, smoothing;
+      begin
+          smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
+      end
+  endfunction // smoothstep
 
-    analog function real safesinh;
-        input x, maxslope;
-        real  x, maxslope;
-        begin
-            safesinh = 0.5*(safeexp(x, maxslope) - safeexp(-x, maxslope)); 
-        end
-    endfunction
+//   analog function real safeexp;
+//       input x, maxslope;
+//       real x, maxslope, breakpoint;
+//       begin
+//           breakpoint = log(maxslope);
+//           safeexp = exp(x*(x <= breakpoint))*(x <= breakpoint) + (x>breakpoint)*(maxslope + maxslope*(x-breakpoint));
+//       end
+//   endfunction
 
-    analog begin
-        s = V(ns, b);
-        Gap = s*minGap + (1 - s)*maxGap;
+//   analog function real safesinh;
+//       input x, maxslope;
+//       real  x, maxslope;
+//       begin
+//           safesinh = 0.5*(safeexp(x, maxslope) - safeexp(-x, maxslope)); 
+//       end
+//   endfunction
 
-
-        f1 = I0 * safeexp(-(Gap)/g0, maxslope) * safesinh(V(t, b)/V0, maxslope);
-        I(t, b) <+ f1 + GMIN*V(t, b);
-        
-        Gamma = gamma0 - Beta * pow(Gap, 3);
-        
-        f2 = 1e9 * (maxGap - minGap)* Vel0 * safeexp(-Ea/$vt, maxslope) * safesinh(V(t, b)*Gamma*a0/tox/$vt, maxslope);
-        f2 = 1e-9 * f2;
-        Fw1 = smoothstep(0 - s, smoothing);
-        Fw2 = smoothstep(s - 1, smoothing);
-        clip_minGap = (safeexp(Kclip*(0 - s), maxslope) - f2) * Fw1; 
-        clip_maxGap = (-safeexp(Kclip*(s - 1), maxslope) - f2) * Fw2;
-        
-        I(ns, b) <+ f2 + clip_minGap + clip_maxGap;
-        I(ns, b) <+ ddt(-1e-9*s);
-    end
+  analog begin
+    s = V(ns, n);
+    f1 = I0 * limexp(-(s*minGap+(1-s)*maxGap)/g0) * sinh(V(p, n)/V0);
+    I(p, n) <+ f1 + GMIN*V(p, n);
+    Gap = s*minGap+(1-s)*maxGap;
+    gamma_of_Gap = gamma0 - Beta0 * pow(Gap, 3); 
+    // f2 = (maxGap-minGap) * Vel0*safeexp(-Ea/$vt, maxslope) * safesinh(V(p, n)*gamma_of_Gap*a0/tox/$vt, maxslope);
+    f2 = (maxGap-minGap) * Vel0*limexp(-Ea/$vt) * sinh(V(p, n)*gamma_of_Gap*a0/tox/$vt);
+    Fw1 = smoothstep(0-s, smoothing);
+    Fw2 = smoothstep(s-1, smoothing);
+    clip_0 = (limexp(Kclip*(0-s)) - f2) * Fw1;
+    clip_1 = (-limexp(Kclip*(s-1)) - f2) * Fw2;
+    I(ns, n) <+ f2 + clip_0 + clip_1;
+    I(ns, n) <+ ddt(-1e-9*s);
+  end
 endmodule
