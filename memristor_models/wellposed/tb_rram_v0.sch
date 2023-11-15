@@ -30,8 +30,8 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=0.056
-y2=160000
+y1=1.57605e+08
+y2=1.08532e+09
 ypos1=0
 ypos2=2
 divy=5
@@ -51,8 +51,8 @@ logy=0
 color=4
 node="\\"memristancia;0 te - i(v1) /\\""}
 B 2 -170 -980 630 -580 {flags=graph
-y1=-0.0025
-y2=1.1
+y1=3.31812
+y2=3.35291
 ypos1=0
 ypos2=2
 divy=5
@@ -64,7 +64,7 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node=n.xr2.n1#ns
+node=n.xr2.n1#ngap
 color=4
 dataset=-1
 unitx=1
@@ -116,7 +116,7 @@ N 410 -220 410 -210 {
 lab=0}
 N 270 -310 330 -310 {
 lab=TE}
-N 190 -180 190 -120 {
+N 190 -180 190 -110 {
 lab=0}
 C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -3 4m 3 8m -3)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
