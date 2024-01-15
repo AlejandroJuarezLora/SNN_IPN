@@ -17,27 +17,26 @@
 `include "constants.vams"
 `include "disciplines.vams"
 
-
-module sky130_smooth_module(TE, BE, nFilament);
+module sky130_fd_pr_reram__reram_cell(TE, BE);
     inout TE; // top electrode
     inout BE; // bottom electrode
-    inout nFilament; // filament state
-    electrical TE, BE, nFilament, nT;
+    electrical TE, BE;
 
     // ==================================================
     // input parameters
     // --------------------------------------------------
     // physical area and thickness
     parameter real area_ox             = 0.1024e-12 from (0:inf);                         // area of TE/BE overlap [meters^2]
-    parameter real Tox                 = 5.0     from (0:inf);                         // thickness of oxide between TE and BE [nano meters]
-    parameter real Tfilament_max       = 4.9     from (0:inf);                         // maximum thickness of conductive filament (for minimum resistance) [nano meters]
-    parameter real Tfilament_min       = 3.3     from (0:inf);                         // minimum thickness of conductive filament (for maximum resistance) [nano meters]
+    parameter real Tox                 = 5.0e-9     from (0:inf);                         // thickness of oxide between TE and BE [meters]
+    parameter real Tfilament_max       = 4.9e-9     from (0:inf);                         // maximum thickness of conductive filament (for minimum resistance) [meters]
+    parameter real Tfilament_min       = 3.3e-9     from (0:inf);                         // minimum thickness of conductive filament (for maximum resistance) [meters]
+    parameter real Tfilament_0         = 3.3e-9     from [Tfilament_min:Tfilament_max];   // initial thickness of conductive filament (at t=0 for transient simulation) [meters]
     // activation energy
     parameter real Eact_generation     = 1.501      from (0:inf);                         // activation energy for vacancy generation [eV]
     parameter real Eact_recombination  = 1.500      from (0:inf);                         // activation energy for vacancy recombination [eV]
     // calibration parameters: I-V
     parameter real I_k1                = 6.140e-5   from (0:inf);                         // current calibration parameter [Amps]
-    parameter real Tfilament_ref       = 4.7249  from (0:inf);                         // filament thickness calibration parameter [nano meters]
+    parameter real Tfilament_ref       = 4.7249e-9  from (0:inf);                         // filament thickness calibration parameter [meters]
     parameter real V_ref               = 0.430      from (0:inf);                         // voltage calibration parameter [Volts]
     // calibration parameters: filament growth
     parameter real velocity_k1         = 150        from (0:inf);                         // velocity calibration parameter [meters/second]
@@ -48,77 +47,57 @@ module sky130_smooth_module(TE, BE, nFilament);
     parameter real C_thermal           = 3.1825e-16 from (0:inf);                         // effective thermal capacitance [Joules/Kelvin]
     parameter real tau_thermal         = 0.23e-9    from (0:inf);                         // effective thermal time constant [seconds]
     // simulation control
-    parameter real t_step              = 1.0e-6     from (0:inf);                         // maximum time step [seconds]
-    parameter real smoothing = 1e-8 from (0:inf);                                         // smoothing for limit step
-    parameter real Kclip = 200 from (0:inf);                                              // clip between max/min
-    parameter real maxslope = 1e15 from (0:inf);
-
+    parameter real t_step              = 1.0e-9     from (0:inf);                         // maximum time step [seconds]
     // ==================================================
 
     // internal parameters
-    real a0 = 0.25;           // atomic distance [nm]
+    real a0 = 0.25e-9;           // atomic distance [m]
     real Tfilament_current;      // current filament thickness [m]
     real Tfilament_dTdt;         // current filament thickness, derivative w.r.t. time [m/s]
     real gamma;                  // local enhancement factor
     real Temperature_current;    // current temperature
     real kT_over_q;              // e.g., 0.0259 at 300 degrees K [eV]
-    real Fw1, Fw2;               // calculate limit step
 
     // transient simulation parameters
     real t_current;              // current time step [s]
     real t_previous;             // previous time step [s]
     real t_delta;                // difference between current vs. previous time step
 
-    
-
-    analog function real smoothstep;
-        input x, smoothing;
-        real  x, smoothing;
+    // local functions
+    analog function real soft_minmax;
+        input x, xmin, xmax;
+        real x, xmin, xmax;
+        real p = 10;
         begin
-            smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
+            if (x > xmax) begin
+                soft_minmax = xmax;
+            end else if (x < xmin) begin
+                soft_minmax = xmin;
+            end else begin
+                soft_minmax = x;
+            end
         end
-    endfunction // smoothstep
-
-    analog function real safeexp;
-        input x, maxslope;
-        real x, maxslope, breakpoint;
-        begin
-            breakpoint = log(maxslope);
-            safeexp = exp(x*(x <= breakpoint))*(x <= breakpoint) + (x>breakpoint)*(maxslope + maxslope*(x-breakpoint));
-        end
-    endfunction
-
-    analog function real safesinh;
-        input x, maxslope;
-        real  x, maxslope;
-        begin
-            safesinh = 0.5*(safeexp(x, maxslope) - safeexp(-x, maxslope)); 
-        end
-    endfunction
-
-    analog function real smoothabs;
-        input x, smoothing;
-        real x, smoothing;
-        begin
-            smoothabs = sqrt(x*x + smoothing) - sqrt(smoothing);
-        end
-    endfunction // smoothabs
+    endfunction // soft_minmax
 
     // core equations
     analog begin
+        @(initial_step) begin
+            // initial condition
+            Temperature_current = Temperature_0;
+            Tfilament_current = Tfilament_0;
+	end
         $bound_step(t_step); // bound maximum time step
-        Tfilament_current = V(nFilament, BE);
-        Temperature_current = V(nT, BE);
-        gamma = gamma_k0 + gamma_k1 * pow((Tox - Tfilament_current), 3);
-        kT_over_q = (`P_K * Temperature_current) / `P_Q;
-        Tfilament_dTdt = velocity_k1 * (safeexp(-Eact_generation    / kT_over_q, maxslope) * safeexp( gamma * a0/Tox * V(TE,BE) / kT_over_q, maxslope) -
-                                        safeexp(-Eact_recombination / kT_over_q, maxslope) * safeexp(-gamma * a0/Tox * V(TE,BE) / kT_over_q, maxslope));
-        Fw1 = smoothstep(Tfilament_min-Tfilament_current, smoothing);
-        Fw2 = smoothstep(Tfilament_current-Tfilament_max, smoothing);
-        I(nFilament, BE) <+ Tfilament_dTdt + (safeexp(Kclip*(Tfilament_min-Tfilament_current),maxslope) - Tfilament_dTdt) * Fw1 + (-safeexp(Kclip*(Tfilament_current-Tfilament_max),maxslope) - Tfilament_dTdt) * Fw2;
-        I(nFilament, BE) <+ ddt(-1.0e-9*Tfilament_current);
-        I(TE,BE) <+ I_k1 * safeexp(-(Tox - Tfilament_current)/(Tox - Tfilament_ref),maxslope) * safesinh( V(TE,BE)/V_ref, maxslope);
-        I(nT, BE) <+ smoothabs(V(TE,BE)*I(TE,BE), smoothing)/C_thermal + (Temperature_0-Temperature_current)/tau_thermal;
-        I(nT, BE) <+ ddt(-Temperature_current);
+        t_current = $abstime; // current time
+        t_delta = t_current - t_previous;
+        gamma = gamma_k0 + gamma_k1 * pow((Tox - Tfilament_current)/1.0e-9, 3);
+	kT_over_q = (`P_K * Temperature_current) / `P_Q;
+        Tfilament_dTdt = velocity_k1 * (exp(-Eact_generation    / kT_over_q) * exp( gamma * a0/Tox * V(TE,BE) / kT_over_q) -
+                                        exp(-Eact_recombination / kT_over_q) * exp(-gamma * a0/Tox * V(TE,BE) / kT_over_q));
+        Tfilament_current = Tfilament_current + Tfilament_dTdt * t_delta; // 1st-order update to filament thickness
+        Tfilament_current = soft_minmax(Tfilament_current, Tfilament_min, Tfilament_max); // bound filament thickness
+        I(TE,BE) <+ I_k1 * exp(-(Tox - Tfilament_current)/(Tox - Tfilament_ref)) * sinh( V(TE,BE)/V_ref );
+        Temperature_current = (Temperature_current + t_delta * (abs(V(TE,BE)*I(TE,BE)) / C_thermal + Temperature_0/tau_thermal))
+                              / (1 + t_delta/tau_thermal); // 1st-order update to temperature
+	t_previous = $abstime; // current time step is previous time step for next iteration
     end
 endmodule
