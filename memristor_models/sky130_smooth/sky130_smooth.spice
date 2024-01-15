@@ -35,8 +35,8 @@ N1 TE BE nFilament sky130_smooth_model
 + Temperature_0 = 300
 + C_thermal = 3.1825e-16
 + tau_thermal = 0.23e-9
-+ t_step  = 1.0e-9 
-+ smoothing = 1e-7
++ t_step  = 1.0e-6 
++ smoothing = 1e-8
 + Kclip = 200
 + maxslope = 1e15
 
