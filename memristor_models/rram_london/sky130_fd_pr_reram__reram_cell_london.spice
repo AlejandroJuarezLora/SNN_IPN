@@ -15,10 +15,10 @@
 * SPDX-License-Identifier: Apache-2.0
 
 
-.subckt sky130_fd_pr_reram__reram_cell BE TE
-R0 BE TE 0.000000
+.subckt sky130_fd_pr_reram__reram_cell_london TE BE
+R0 TE BE 0.000000
 .ends
 
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky130_fd_pr_reram__reram_cell.osdi
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky130_fd_pr_reram__reram_cell_london.osdi
 .endc
