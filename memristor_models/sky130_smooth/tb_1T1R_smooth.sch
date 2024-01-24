@@ -1,4 +1,4 @@
-v {xschem version=3.4.3 file_version=1.2
+v {xschem version=3.4.5 file_version=1.2
 }
 G {}
 K {}
@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1120 -500 1920 -100 {flags=graph
-y1=-2.16237
-y2=5.76303
+y1=-2.19342
+y2=3.72949
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-3.36622e-09
-x2=5.66338e-08
+x1=0
+x2=6e-08
 divx=5
 subdivx=1
 
@@ -47,6 +47,27 @@ logx=0
 logy=0
 color=7
 node="\\"memristancia; bl te - i(v1) /\\""}
+B 2 1100 -930 1900 -530 {flags=graph
+y1=3.3
+y2=6.4
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=6e-08
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+color=4
+node=xr2.nfilament}
 N 360 -130 360 -90 {
 lab=GND}
 N 360 -90 670 -90 {
@@ -62,7 +83,7 @@ lab=BL}
 N 670 -230 670 -190 {
 lab=SL}
 N 670 -260 750 -260 {
-lab=SL}
+lab=GND}
 N 480 -260 630 -260 {
 lab=WL}
 N 480 -260 480 -190 {
@@ -72,9 +93,11 @@ lab=#net1}
 N 670 -420 670 -370 {
 lab=te}
 N 750 -260 750 -200 {
-lab=SL}
-N 670 -200 750 -200 {
-lab=SL}
+lab=GND}
+N 750 -200 750 -90 {
+lab=GND}
+N 670 -90 750 -90 {
+lab=GND}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -105,9 +128,9 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0 0 8n 0 9n 1.4 21n 1.4 22n 0 28n 0 29n 3 41n 3 42n 0)"
+C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0 0 8n 0 9n 1.4 21n 1.4 29n 3 41n 3 42n 0)"
 }
-C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0.1 8n 0.1 15n 3 22n 0.1)"}
+C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 8n 0.1 15n 3 22n 0)"}
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 930 -130 0 0 {name=h5
 descr="load waves" 
