@@ -28,8 +28,8 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-0.000486758
-y2=0.00141405
+y1=44000
+y2=3.4e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -47,6 +47,28 @@ logx=0
 logy=0
 color=7
 node="\\"memristancia; bl te - i(v1) /\\""}
+B 2 1110 -930 1910 -530 {flags=graph
+y1=-5.88751e-05
+y2=1.91249e-05
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=6e-08
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+color=4
+node=n.xr1.n1#flow(te,be)}
 N 360 -130 360 -90 {
 lab=GND}
 N 360 -90 670 -90 {
@@ -76,6 +98,8 @@ lab=GND}
 N 750 -200 750 -90 {
 lab=GND}
 N 670 -90 750 -90 {
+lab=GND}
+N 350 -90 360 -90 {
 lab=GND}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
