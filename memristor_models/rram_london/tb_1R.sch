@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 660 -810 1460 -410 {flags=graph
-y1=0
-y2=2.5
+y1=-0.216668
+y2=2.18335
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0012
+x2=0.001
 divx=5
 subdivx=1
 
@@ -31,15 +31,15 @@ color="4 7"
 node="te
 be"}
 B 2 660 -410 1460 -10 {flags=graph
-y1=0
-y2=0.0011
+y1=-31729.3
+y2=379768
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0012
+x2=0.001
 divx=5
 subdivx=1
 
@@ -50,11 +50,30 @@ logx=0
 logy=0
 
 color=4
-node="\\"memristancia;te i(@r.xr1.r0[i]) /\\""}
+node="\\"memristancia[Ohms];0 te - i(v1) /\\""}
+B 2 -250 -50 550 350 {flags=graph
+y1=0
+y2=0.0023
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.001
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+color=4
+node=n.xr1.n1#flow(te,be)}
 N 190 -310 190 -280 {
 lab=TE}
-N 190 -220 190 -190 {
-lab=0}
 N 190 -190 190 -180 {
 lab=0}
 N 190 -310 270 -310 {
@@ -75,7 +94,9 @@ N 190 -180 190 -120 {
 lab=0}
 N 410 -270 410 -210 {
 lab=0}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(0 2 0 10n 10n 5u 10u)"}
+N 190 -280 190 -250 {
+lab=TE}
+C {devices/vsource.sym} 190 -220 0 1 {name=V1 value="PULSE(0 2 0 10n 10n 5u 10u)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -96,7 +117,7 @@ C {devices/code.sym} 310 -620 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1n 1200u
+.tran 1n 1000u
 .control
 	save all
 	run

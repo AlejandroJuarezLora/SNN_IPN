@@ -120,19 +120,13 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_cell.spice
+.inc $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_cell_london.spice
 "
 spice_ignore=false}
 C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0 0 28n 0 35n 3 42n 0)"}
 C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
-C {sky130_fd_pr/sky130_smooth.sym} 920 -430 2 0 {name=R2
-model=sky130_smooth
-Tfilament_0=3.3e-9
-spiceprefix=X
-spice_ignore=true
-}
-C {sky130_fd_pr/sky130_fd_pr_reram__reram_cell.sym} 670 -450 2 0 {name=R1
-model=sky130_fd_pr_reram__reram_cell
+C {sky130_fd_pr/sky130_fd_pr_reram__reram_cell_london.sym} 670 -450 2 0 {name=R1
+model=sky130_fd_pr_reram__reram_cell_london
 spiceprefix=X
 }

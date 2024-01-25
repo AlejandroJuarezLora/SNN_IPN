@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.00310241
+x1=0.000210805
+x2=0.00269273
 divx=5
 subdivx=1
 
@@ -31,15 +31,15 @@ color="4 7"
 node="te
 be"}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-290000
-y2=3.4e+06
+y1=-24755
+y2=431676
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.00310241
+x1=0.000210805
+x2=0.00269273
 divx=5
 subdivx=1
 

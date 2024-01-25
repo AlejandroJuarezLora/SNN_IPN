@@ -16,9 +16,14 @@
 
 
 .subckt sky130_fd_pr_reram__reram_cell_london TE BE
-R0 TE BE 0.000000
-.ends
+N1 TE BE sky130_fd_pr_reram__reram_cell_london_model
+.ends sky130_fd_pr_reram__reram_cell_london
+
+
+
+.model sky130_fd_pr_reram__reram_cell_london_model sky130_fd_pr_reram__reram_cell_london_va 
 
 .control
 pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky130_fd_pr_reram__reram_cell_london.osdi
 .endc
+
