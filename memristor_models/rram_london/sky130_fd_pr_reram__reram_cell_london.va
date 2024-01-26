@@ -20,7 +20,7 @@
 module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
     inout TE; // top electrode
     inout BE; // bottom electrode
-    electrical TE, BE, gap;
+    electrical TE, BE;
 
     // ==================================================
     // input parameters
@@ -62,7 +62,6 @@ module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
     real t_current;              // current time step [s]
     real t_previous;             // previous time step [s]
     real t_delta;                // difference between current vs. previous time step
-    real gap;
 
     // local functions
     analog function real soft_minmax;
@@ -86,12 +85,12 @@ module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
             // initial condition
             Temperature_current = Temperature_0;
             Tfilament_current = Tfilament_0;
-	end
+	    end
         $bound_step(t_step); // bound maximum time step
         t_current = $abstime; // current time
         t_delta = t_current - t_previous;
         gamma = gamma_k0 + gamma_k1 * pow((Tox - Tfilament_current)/1.0e-9, 3);
-	kT_over_q = (`P_K * Temperature_current) / `P_Q;
+	    kT_over_q = (`P_K * Temperature_current) / `P_Q;
         Tfilament_dTdt = velocity_k1 * (exp(-Eact_generation    / kT_over_q) * exp( gamma * a0/Tox * V(TE,BE) / kT_over_q) -
                                         exp(-Eact_recombination / kT_over_q) * exp(-gamma * a0/Tox * V(TE,BE) / kT_over_q));
         Tfilament_current = Tfilament_current + Tfilament_dTdt * t_delta; // 1st-order update to filament thickness
@@ -99,6 +98,6 @@ module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
         I(TE,BE) <+ I_k1 * exp(-(Tox - Tfilament_current)/(Tox - Tfilament_ref)) * sinh( V(TE,BE)/V_ref );
         Temperature_current = (Temperature_current + t_delta * (abs(V(TE,BE)*I(TE,BE)) / C_thermal + Temperature_0/tau_thermal))
                               / (1 + t_delta/tau_thermal); // 1st-order update to temperature
-	t_previous = $abstime; // current time step is previous time step for next iteration
+	    t_previous = $abstime; // current time step is previous time step for next iteration
     end
 endmodule
