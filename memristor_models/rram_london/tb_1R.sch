@@ -6,7 +6,7 @@ V {}
 S {}
 E {}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-2.41667
+y1=-1.41668
 y2=1.58332
 ypos1=0
 ypos2=2
@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0012
+x2=0.00075
 divx=5
 subdivx=1
 
@@ -28,17 +28,17 @@ logy=0
 
 
 color=4
-node="\\"DiferenciaVolt[V];be te - \\""}
+node="\\"DiferenciaVolt[V];te be - \\""}
 B 2 660 -410 1460 -10 {flags=graph
-y1=518582
-y2=3.67467e+06
+y1=410000
+y2=3.4e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0012
+x2=0.00075
 divx=5
 subdivx=1
 
@@ -51,15 +51,15 @@ logy=0
 color=4
 node="\\"memristancia[Ohms];be te - i(v1) /\\""}
 B 2 660 -10 1460 390 {flags=graph
-y1=-2.38898e-07
-y2=5.96112e-06
+y1=-2.3428e-05
+y2=2.33849e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0012
+x2=0.00075
 divx=5
 subdivx=1
 
@@ -72,15 +72,15 @@ logy=0
 color=4
 node=n.xr1.n1#flow(te,be)}
 B 2 -730 -720 70 -320 {flags=graph
-y1=-0.519959
-y2=1.73104
+y1=-0.12916
+y2=2.12184
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0012
+x2=0.00075
 divx=5
 subdivx=1
 
@@ -99,8 +99,6 @@ node="be
 te"}
 N 190 -310 190 -280 {
 lab=TE}
-N 190 -190 190 -180 {
-lab=0}
 N 190 -310 270 -310 {
 lab=TE}
 N 330 -310 410 -310 {
@@ -113,15 +111,13 @@ N 410 -310 410 -270 {
 lab=BE}
 N 410 -210 410 -200 {
 lab=0}
-N 190 -280 190 -250 {
-lab=TE}
-N 410 -140 410 -100 {
+N 190 -130 190 -120 {
 lab=0}
-N 190 -180 190 -120 {
+N 190 -220 190 -190 {
+lab=#net1}
+N 410 -200 410 -100 {
 lab=0}
-N 410 -200 410 -140 {
-lab=0}
-C {devices/vsource.sym} 190 -220 0 1 {name=V1 value="SINE(1.2 0.75 50000 0 0 0)"
+C {devices/vsource.sym} 190 -250 0 1 {name=V1 value="SINE(0.9 0.75 50000 0 0 0)"
 }
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
@@ -143,7 +139,7 @@ C {devices/code.sym} 310 -620 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1n 10000u
+.tran 1n 1000u
 .control
 	save all
 	run
@@ -171,4 +167,6 @@ C {devices/vsource.sym} 410 -240 0 1 {name=V2 value="SINE(0.9 0.75 50000 0 0 180
 }
 C {devices/vsource.sym} 390 20 0 1 {name=V6 value="PWL(0 0.2 599u 0.2 600u -0.2)"
 spice_ignore=true
+}
+C {devices/vsource.sym} 190 -160 0 1 {name=V5 value="PWL(0 0.5 749u 0.5 750u 0)"
 }
