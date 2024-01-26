@@ -20,7 +20,7 @@
 module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
     inout TE; // top electrode
     inout BE; // bottom electrode
-    electrical TE, BE;
+    electrical TE, BE, gap;
 
     // ==================================================
     // input parameters
@@ -62,6 +62,7 @@ module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
     real t_current;              // current time step [s]
     real t_previous;             // previous time step [s]
     real t_delta;                // difference between current vs. previous time step
+    real gap;
 
     // local functions
     analog function real soft_minmax;
