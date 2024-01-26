@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.000210805
-x2=0.00269273
+x1=-0.000143388
+x2=0.00584006
 divx=5
 subdivx=1
 
@@ -31,15 +31,15 @@ color="4 7"
 node="te
 be"}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-24755
-y2=431676
+y1=-8908.12
+y2=447522
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.000210805
-x2=0.00269273
+x1=-0.000143388
+x2=0.00584006
 divx=5
 subdivx=1
 
@@ -51,6 +51,57 @@ logy=0
 
 color=4
 node="\\"memristancia;be te - i(v1) /\\""}
+B 2 1470 -810 2270 -410 {flags=graph
+y1=-3.12651e-05
+y2=4.3941e-05
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-0.000143388
+x2=0.00584006
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+
+
+
+color=4
+node=n.xr2.n1#flow(te,be)}
+B 2 1460 -410 2260 -10 {flags=graph
+y1=3.2
+y2=6
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-0.000143388
+x2=0.00584006
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+
+
+
+
+color=4
+node=xr2.nfilament}
 N 190 -310 190 -280 {
 lab=TE}
 N 190 -220 190 -190 {
