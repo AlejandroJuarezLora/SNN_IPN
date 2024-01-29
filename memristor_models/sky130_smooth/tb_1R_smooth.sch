@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 660 -810 1460 -410 {flags=graph
-y1=0.1
+y1=0
 y2=2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000143388
-x2=0.00584006
+x1=0
+x2=0.003
 divx=5
 subdivx=1
 
@@ -31,15 +31,15 @@ color="4 7"
 node="te
 be"}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-8908.12
-y2=447522
+y1=0
+y2=3.4e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000143388
-x2=0.00584006
+x1=0
+x2=0.003
 divx=5
 subdivx=1
 
@@ -52,15 +52,15 @@ logy=0
 color=4
 node="\\"memristancia;be te - i(v1) /\\""}
 B 2 1470 -810 2270 -410 {flags=graph
-y1=-3.12651e-05
-y2=4.3941e-05
+y1=-3.2e-13
+y2=1.2e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000143388
-x2=0.00584006
+x1=0
+x2=0.003
 divx=5
 subdivx=1
 
@@ -77,15 +77,15 @@ logy=0
 color=4
 node=n.xr2.n1#flow(te,be)}
 B 2 1460 -410 2260 -10 {flags=graph
-y1=3.2
-y2=6
+y1=3.26754
+y2=3.51243
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000143388
-x2=0.00584006
+x1=0
+x2=0.003
 divx=5
 subdivx=1
 
@@ -124,7 +124,7 @@ N 410 -210 410 -200 {
 lab=0}
 N 190 -180 190 -120 {
 lab=0}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(0 1.8 0 10n 10n 50u 100u 30)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(0 2 0 10n 10n 5u 10u 100)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -145,7 +145,7 @@ C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 6000u
+.tran 1u 3000u
 .control
 	save all
 	run
@@ -159,5 +159,5 @@ model=sky130_smooth
 Tfilament_0=3.3e-9
 spiceprefix=X
 }
-C {devices/vsource.sym} 410 -240 0 0 {name=V2 value="PULSE(0 1.8 3000u 10n 10n 50u 100u 30)"}
+C {devices/vsource.sym} 410 -240 0 0 {name=V2 value="PULSE(0 2 1000u 10n 10n 5u 10u 100)"}
 C {devices/lab_wire.sym} 360 -310 0 0 {name=l4 sig_type=std_logic lab=BE}
