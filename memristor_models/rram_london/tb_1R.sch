@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.17894e-05
-x2=0.00105179
+x1=0
+x2=0.0015
 divx=5
 subdivx=1
 
@@ -30,15 +30,15 @@ logy=0
 color=4
 node="\\"DiferenciaVolt[V];te be - \\""}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-826387
-y2=2.5736e+06
+y1=0
+y2=3.4e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.17894e-05
-x2=0.00105179
+x1=0
+x2=0.0015
 divx=5
 subdivx=1
 
@@ -51,15 +51,15 @@ logy=0
 color=4
 node="\\"memristancia[Ohms];be te - i(v1) /\\""}
 B 2 660 -10 1460 390 {flags=graph
-y1=-8.67934e-05
-y2=0.0022199
+y1=-6.7e-06
+y2=0.0023
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.17894e-05
-x2=0.00105179
+x1=0
+x2=0.0015
 divx=5
 subdivx=1
 
@@ -71,7 +71,7 @@ logy=0
 
 color=4
 node=n.xr1.n1#flow(te,be)}
-B 2 -730 -720 70 -320 {flags=graph
+B 2 -770 -760 30 -360 {flags=graph
 y1=0.15
 y2=2.2
 ypos1=0
@@ -79,8 +79,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.17894e-05
-x2=0.00105179
+x1=0
+x2=0.0015
 divx=5
 subdivx=1
 
@@ -110,17 +110,19 @@ lab=0}
 N 410 -310 410 -270 {
 lab=BE}
 N 410 -210 410 -200 {
-lab=#net1}
+lab=0}
 N 190 -130 190 -120 {
 lab=0}
 N 190 -220 190 -190 {
-lab=#net2}
+lab=0}
 N 410 -200 410 -170 {
-lab=#net1}
+lab=0}
 N 410 -110 410 -100 {
 lab=0}
-C {devices/vsource.sym} 190 -250 0 1 {name=V1 value="SINE(0.9 0.75 50000 0 0 0)"
-}
+N 190 -190 190 -130 {
+lab=0}
+N 410 -170 410 -110 {
+lab=0}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -160,17 +162,7 @@ model=sky130_fd_pr_reram__reram_cell_london
 spiceprefix=X
 }
 C {devices/lab_wire.sym} 390 -310 0 0 {name=l1 sig_type=std_logic lab=	BE}
-C {devices/vsource.sym} 260 170 0 1 {name=V3 value="PULSE(0 2 0 10n 10n 5u 10u 50)"
-spice_ignore=true}
-C {devices/vsource.sym} 300 260 0 1 {name=V4 value="PULSE(0 1.6 500u 10n 10n 5u 10u 50)"
-spice_ignore=true
-}
-C {devices/vsource.sym} 410 -240 0 1 {name=V2 value="SINE(0.9 0.75 50000 0 0 180)"
-}
-C {devices/vsource.sym} 290 70 0 1 {name=V6 value="PWL(0 0.2 599u 0.2 600u -0.2)"
-spice_ignore=true
-}
-C {devices/vsource.sym} 190 -160 0 1 {name=V5 value="PWL(0 0.5 749u 0.5 750u 0)"
-}
-C {devices/vsource.sym} 410 -140 0 1 {name=V7 value="PWL(0 0 749u 0 750u 0.5)"
-}
+C {devices/vsource.sym} 190 -250 0 1 {name=V1 value="PULSE(0 2 0 10n 10n 5u 10u 75)"
+spice_ignore=false}
+C {devices/vsource.sym} 410 -240 0 1 {name=V2 value="PULSE(0 2 750u 10n 10n 5u 10u 75)"
+spice_ignore=false}
