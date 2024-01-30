@@ -1,4 +1,4 @@
-v {xschem version=3.4.3 file_version=1.2
+v {xschem version=3.4.5 file_version=1.2
 }
 G {}
 K {}
@@ -6,19 +6,20 @@ V {}
 S {}
 E {}
 B 2 1510 -690 2310 -290 {flags=graph
-y1=-0.205507
-y2=1.12416
+y1=-0.384131
+y2=4.33578
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-6.55176e-06
-x2=0.000126158
+x1=1e-09
+x2=0.0002
 divx=5
 subdivx=1
-node=vout
-color=4
+node="vout
+v1"
+color="4 7"
 dataset=-1
 unitx=1
 logx=0
@@ -32,8 +33,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-6.55176e-06
-x2=0.000126158
+x1=1e-09
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -52,8 +53,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-6.55176e-06
-x2=0.000126158
+x1=1e-09
+x2=0.0002
 divx=5
 subdivx=1
 node=vg4
@@ -62,8 +63,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-y1=-0.149533
-y2=1.16557}
+y1=-0.59
+y2=1.1}
 N 390 -440 860 -440 {
 lab=Vm}
 N 860 -440 860 -430 {
@@ -99,17 +100,17 @@ lab=GND}
 N 1280 -260 1280 -220 {
 lab=GND}
 N 1060 -400 1060 -310 {
-lab=#net2}
+lab=V1}
 N 1060 -350 1210 -350 {
-lab=#net2}
+lab=V1}
 N 1210 -350 1210 -290 {
-lab=#net2}
+lab=V1}
 N 1210 -290 1240 -290 {
-lab=#net2}
+lab=V1}
 N 1210 -400 1210 -350 {
-lab=#net2}
+lab=V1}
 N 1210 -400 1240 -400 {
-lab=#net2}
+lab=V1}
 N 1280 -370 1280 -320 {
 lab=Vout}
 N 1280 -290 1290 -290 {
@@ -142,11 +143,7 @@ N 30 -350 30 -330 {
 lab=GND}
 N 990 -280 1020 -280 {
 lab=Vg4}
-N 990 -320 990 -280 {
-lab=Vg4}
-N 780 -320 990 -320 {
-lab=Vg4}
-N 780 -320 780 -280 {
+N 780 -300 990 -300 {
 lab=Vg4}
 N 860 -280 880 -280 {
 lab=GND}
@@ -196,6 +193,32 @@ N 920 -440 920 -410 {
 lab=Vm}
 N 860 -440 920 -440 {
 lab=Vm}
+N 990 -430 1020 -430 {
+lab=#net2}
+N 960 -470 960 -460 {
+lab=VDD}
+N 960 -470 1060 -470 {
+lab=VDD}
+N 960 -400 960 -380 {
+lab=#net2}
+N 1010 -430 1010 -390 {
+lab=#net2}
+N 960 -390 1010 -390 {
+lab=#net2}
+N 780 -300 780 -280 {
+lab=Vg4}
+N 990 -300 990 -280 {
+lab=Vg4}
+N 940 -430 970 -430 {
+lab=VDD}
+N 940 -470 940 -430 {
+lab=VDD}
+N 940 -470 960 -470 {
+lab=VDD}
+N 1060 -430 1090 -440 {
+lab=VDD}
+N 1090 -470 1090 -440 {
+lab=VDD}
 C {devices/title.sym} 170 -50 0 0 {name=l1 author="Stefan Schippers"}
 C {sky130_fd_pr/pfet_01v8.sym} 440 -390 0 0 {name=M1
 L=10
@@ -253,7 +276,9 @@ mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/isource.sym} 1060 -430 0 0 {name=I2 value=100nA}
+C {devices/isource.sym} 1270 -590 0 0 {name=I2 value=10nA
+
+spice_ignore=true}
 C {devices/isource.sym} 460 -250 0 0 {name=I1 value=10nA}
 C {devices/gnd.sym} 460 -210 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 960 -200 0 0 {name=l3 lab=GND}
@@ -267,7 +292,7 @@ C {devices/code.sym} 580 -670 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value=".options savecurrents
-.tran 100n 100u uic
+.tran 100n 200u uic
 .save all
 .control
 	run
@@ -279,14 +304,36 @@ C {devices/vdd.sym} 30 -440 0 0 {name=l6 lab=VDD}
 C {devices/vdd.sym} 1170 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 340 -340 0 0 {name=C1
 m=1
-value=1p
+value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}
 C {devices/isource.sym} 220 -470 0 0 {name=Iin value=100nA}
 C {devices/vdd.sym} 220 -500 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 620 -330 3 0 {name=p1 sig_type=std_logic lab=Vg4}
-C {devices/launcher.sym} 1230 -1230 0 0 {name=h5
+C {devices/launcher.sym} 330 -730 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/Neurona_Simulacion.raw tran"
 }
+C {devices/lab_pin.sym} 1140 -350 1 1 {name=p3 sig_type=std_logic lab=V1
+}
+C {sky130_fd_pr/pfet_01v8.sym} 1040 -430 0 0 {name=M8
+L=1
+W=1
+nf=1
+mult=1
+model=pfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet_01v8.sym} 980 -430 0 1 {name=M9
+L=1
+W=1
+nf=1
+mult=1
+model=pfet_01v8
+spiceprefix=X
+}
+C {devices/isource.sym} 960 -350 0 0 {name=I3 value=10nA
+
+spice_ignore=false}
+C {devices/gnd.sym} 960 -320 0 0 {name=l9 lab=GND}

@@ -28,8 +28,8 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-2.44513e+09
-y2=4.26362e+08
+y1=-663474
+y2=2.67553e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -69,16 +69,10 @@ logy=0
 
 color=4
 node=n.xr1.n1#flow(te,be)}
-N 360 -130 360 -90 {
-lab=GND}
-N 360 -90 670 -90 {
-lab=GND}
 N 670 -130 670 -90 {
 lab=GND}
 N 480 -130 480 -90 {
 lab=GND}
-N 360 -480 360 -190 {
-lab=BL}
 N 360 -480 670 -480 {
 lab=BL}
 N 670 -230 670 -190 {
@@ -99,8 +93,10 @@ N 750 -200 750 -90 {
 lab=GND}
 N 670 -90 750 -90 {
 lab=GND}
-N 350 -90 360 -90 {
-lab=GND}
+N 360 -480 360 -380 {
+lab=BL}
+N 360 -320 360 -90 {}
+N 360 -90 670 -90 {}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -128,9 +124,9 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0 0 8n 0 9n 1.4 21n 1.4 22n 0 28n 0 29n 3 41n 3 42n 0)"
+C {devices/vsource.sym} 480 -160 0 1 {name=Vwl value="PWL(0 0 8n 0 9n 1.4 21n 1.4 22n 0 28n 0 29n 3 41n 3 42n 0)"
 }
-C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 8n 0 15n 3 22n 0)"}
+C {devices/vsource.sym} 360 -350 0 0 {name=Vbl value="PWL(0 0 8n 0 15n 3 22n 0)"}
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 930 -130 0 0 {name=h5
 descr="load waves" 
@@ -150,7 +146,7 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0 0 28n 0 35n 3 42n 0)"}
 C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
-C {sky130_fd_pr/rram_v0.sym} 670 -450 0 0 {name=R2
+C {sky130_fd_pr/rram_v0.sym} 670 -450 2 0 {name=R2
 model=rram_v0
 spiceprefix=X
 }

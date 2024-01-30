@@ -16,7 +16,7 @@ openvaf rram_v0.va
 #rm openvaf
 
 # Update spice netlist according to env
-sed -i "s|/foss/pdks|$PDK_ROOT|g" rram_v0.spice
+#sed -i "s|/foss/pdks|$PDK_ROOT|g" rram_v0.spice
 
 # Copy model, spice file and example netlist
 sudo mkdir -p ${PDK_ROOT}/sky130B/libs.tech/ngspice
