@@ -1,4 +1,4 @@
-v {xschem version=3.4.3 file_version=1.2
+v {xschem version=3.4.5 file_version=1.2
 
 * Copyright 2021 Stefan Frederik Schippers
 * 
@@ -42,3 +42,4 @@ T {@name} 15 -13.75 0 0 0.2 0.2 {}
 T {@model} 15 2.5 0 0 0.2 0.2 {}
 T {TE} 10 -28.75 0 0 0.2 0.2 {}
 T {BE} 10 28.75 2 1 0.2 0.2 {}
+T {wellpsd} 60 0 0 0 0.4 0.4 {}
