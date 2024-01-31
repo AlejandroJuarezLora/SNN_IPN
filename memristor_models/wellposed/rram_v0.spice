@@ -19,7 +19,7 @@ N1 TE BE rram_v0_model
 + maxslope = 1e12
 + smoothing = 1e-8
 + GMIN = 1e-12
-+ Kclip = 200
++ Kclip = 50
 
 
 .control
