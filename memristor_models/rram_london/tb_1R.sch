@@ -152,11 +152,6 @@ value="
 
 " }
 C {devices/lab_wire.sym} 200 -310 0 0 {name=l3 sig_type=std_logic lab=TE}
-C {sky130_fd_pr/sky130_smooth.sym} 460 -660 3 0 {name=R2
-model=sky130_smooth
-Tfilament_0=3.3e-9
-spiceprefix=X
-spice_ignore=true}
 C {sky130_fd_pr/sky130_fd_pr_reram__reram_cell_london.sym} 300 -310 3 0 {name=R1
 model=sky130_fd_pr_reram__reram_cell_london
 spiceprefix=X

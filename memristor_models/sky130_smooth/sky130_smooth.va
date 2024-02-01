@@ -49,9 +49,9 @@ module sky130_smooth_module(TE, BE, nFilament);
     parameter real tau_thermal         = 0.23e-9    from (0:inf);                         // effective thermal time constant [seconds]
     // simulation control
     parameter real t_step              = 1.0e-9     from (0:inf);                         // maximum time step [seconds]
-    parameter real smoothing = 1e-9 from (0:inf);                                         // smoothing for limit step
-    parameter real Kclip = 200 from (0:inf);                                              // clip between max/min
-    parameter real maxslope = 1e12 from (0:inf);
+    parameter real smoothing = 1e-8 from (0:inf);                                         // smoothing for limit step
+    parameter real Kclip = 50 from (0:inf);                                              // clip between max/min
+    parameter real maxslope = 1e15 from (0:inf);
 
     // ==================================================
 
@@ -68,8 +68,6 @@ module sky130_smooth_module(TE, BE, nFilament);
     real t_current;              // current time step [s]
     real t_previous;             // previous time step [s]
     real t_delta;                // difference between current vs. previous time step
-
-    
 
     analog function real smoothstep;
         input x, smoothing;
