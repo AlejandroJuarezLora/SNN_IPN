@@ -89,7 +89,7 @@ module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
         $bound_step(t_step); // bound maximum time step
         t_current = $abstime; // current time
         t_delta = t_current - t_previous;
-        gamma = gamma_k0 - gamma_k1 * pow((Tox - Tfilament_current)/1.0e-9, 3);
+        gamma = gamma_k0 + gamma_k1 * pow((Tox - Tfilament_current)/1.0e-9, 3);
 	    kT_over_q = (`P_K * Temperature_current) / `P_Q;
         Tfilament_dTdt = velocity_k1 * (exp(-Eact_generation    / kT_over_q) * exp( gamma * a0/Tox * V(TE,BE) / kT_over_q) -
                                         exp(-Eact_recombination / kT_over_q) * exp(-gamma * a0/Tox * V(TE,BE) / kT_over_q));

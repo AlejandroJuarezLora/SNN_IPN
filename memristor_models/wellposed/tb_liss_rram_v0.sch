@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.01
 divx=5
 subdivx=1
 
@@ -30,7 +30,7 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=7800
+y1=830
 y2=3.3e+06
 ypos1=0
 ypos2=2
@@ -38,7 +38,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.01
 divx=5
 subdivx=1
 
@@ -59,7 +59,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.01
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -82,7 +82,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.01
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -102,8 +102,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.5
-x2=0.5
+x1=-2
+x2=2
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -123,8 +123,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.5
-x2=0.5
+x1=-2
+x2=2
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -185,7 +185,7 @@ C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 8m
+.tran 1u 10m
 .control
 	save all
 	run
