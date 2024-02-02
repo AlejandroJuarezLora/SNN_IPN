@@ -5,58 +5,16 @@ K {}
 V {}
 S {}
 E {}
-B 2 670 -740 1470 -340 {flags=graph
+B 2 660 -810 1460 -410 {flags=graph
 y1=0
-y2=12000
+y2=2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-color=4
-node="\\"memristancia[Ohms];0 te - i(v1) /\\""}
-B 2 660 -310 1460 90 {flags=graph
-y1=-0.0025
-y2=8.9e-22
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.008
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-color=4
-node=i(v1)}
-B 2 -770 -760 30 -360 {flags=graph
-y1=-0.347221
-y2=2.15275
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.008
+x2=0.003
 divx=5
 subdivx=1
 
@@ -69,18 +27,40 @@ logy=0
 
 
 
-color=4
-node=te}
-B 2 -780 -120 20 280 {flags=graph
-y1=0.078
-y2=0.15
+color="4 7"
+node="te
+be"}
+B 2 660 -410 1460 -10 {flags=graph
+y1=0
+y2=3.4e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.003
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+color=4
+node="\\"memristancia;be te - i(v1) /\\""}
+B 2 1470 -810 2270 -410 {flags=graph
+y1=-4.17238e-05
+y2=3.05945e-05
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.003
 divx=5
 subdivx=1
 
@@ -91,36 +71,60 @@ logx=0
 logy=0
 
 
+
+
+
 color=4
-node=n.xr3.n1#ngap}
+node=n.xr2.n1#flow(te,be)}
+B 2 1460 -410 2260 -10 {flags=graph
+y1=3.2
+y2=6
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.003
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+
+
+
+
+color=4
+node=xr2.nfilament}
 N 190 -310 190 -280 {
 lab=TE}
+N 190 -220 190 -190 {
+lab=0}
+N 190 -190 190 -180 {
+lab=0}
 N 190 -310 270 -310 {
 lab=TE}
+N 330 -310 410 -310 {
+lab=BE}
 N 190 -120 190 -90 {
+lab=0}
+N 410 -200 410 -100 {
 lab=0}
 N 190 -100 410 -100 {
 lab=0}
 N 410 -310 410 -270 {
-lab=TE}
+lab=BE}
 N 410 -210 410 -200 {
 lab=0}
-N 190 -130 190 -120 {
+N 190 -180 190 -120 {
 lab=0}
-N 190 -220 190 -190 {
-lab=0}
-N 410 -200 410 -170 {
-lab=0}
-N 410 -110 410 -100 {
-lab=0}
-N 410 -170 410 -110 {
-lab=0}
-N 270 -310 350 -310 {
-lab=TE}
-N 350 -310 410 -310 {
-lab=TE}
-N 190 -190 190 -130 {
-lab=0}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PULSE(0 2 0 1u 1u 50u 100u 15)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -129,39 +133,31 @@ set rawfile [file tail [file rootname [xschem get schname]]]
 xschem raw_read $netlist_dir/$\{rawfile\}.raw
 unset rawfile
 "}
-C {devices/code.sym} 170 -620 0 0 {name=MODELS
+C {devices/code.sym} 180 -480 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
+
 .inc $::SKYWATER_MODELS/rram_v0.spice
 "
 spice_ignore=false}
-C {devices/code.sym} 310 -620 0 0 {name=NGSPICE
+C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 4m
+.tran 1u 3m
 .control
 	save all
 	run
-	write tb_well_pulses.raw
+	write tb_pulses_uk.raw
 .endc
 
 " }
-C {devices/lab_wire.sym} 320 -310 0 0 {name=l3 sig_type=std_logic lab=TE}
-C {sky130_fd_pr/sky130_smooth.sym} 460 -660 3 0 {name=R2
-model=sky130_smooth
-Tfilament_0=3.3e-9
-spiceprefix=X
-spice_ignore=true}
-C {sky130_fd_pr/sky130_fd_pr_reram__reram_cell_london.sym} -180 -110 3 0 {name=R1
+C {devices/lab_wire.sym} 200 -310 0 0 {name=l3 sig_type=std_logic lab=TE}
+C {devices/vsource.sym} 410 -240 0 0 {name=V2 value="PULSE(0 2 1500u 1u 1u 50u 100u 15)"}
+C {devices/lab_wire.sym} 360 -310 0 0 {name=l4 sig_type=std_logic lab=BE}
+C {sky130_fd_pr/sky130_fd_pr_reram__reram_cell_london.sym} 300 -310 3 0 {name=R1
 model=sky130_fd_pr_reram__reram_cell_london
-spiceprefix=X
-spice_ignore=true}
-C {devices/vsource.sym} 190 -250 0 1 {name=V1 value="PULSE(0 2 0 1u 1u 50u 100u)"
-spice_ignore=false}
-C {sky130_fd_pr/rram_v0.sym} 410 -240 0 0 {name=R3
-model=rram_v0
 spiceprefix=X
 }
