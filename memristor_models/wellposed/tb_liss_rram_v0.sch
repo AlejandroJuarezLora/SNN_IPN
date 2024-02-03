@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 -720 -1220 80 -820 {flags=graph
+B 2 1460 -410 2260 -10 {flags=graph
 y1=-2
 y2=2
 ypos1=0
@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.01
+x2=0.017
 divx=5
 subdivx=1
 
@@ -30,7 +30,7 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=830
+y1=788.924
 y2=3.3e+06
 ypos1=0
 ypos2=2
@@ -38,7 +38,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.01
+x2=0.017
 divx=5
 subdivx=1
 
@@ -50,16 +50,16 @@ logy=0
 
 color=4
 node="\\"memristancia;0 te - i(v1) /\\""}
-B 2 -720 -410 80 -10 {flags=graph
-y1=0.081
+B 2 1460 -810 2260 -410 {flags=graph
+y1=0.16
 y2=1.8
 ypos1=0
 ypos2=2
 divy=5
-subdivy=1
+subdivy=4
 unity=1
 x1=0
-x2=0.01
+x2=0.017
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -71,32 +71,12 @@ unitx=1
 logx=0
 logy=0
 
+
 color=4
-node=n.xr1.n1#ngap}
-B 2 -720 -810 80 -410 {flags=graph
-y1=-0.0024
-y2=1.3e-05
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.01
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node=\\"i(v1)\\"
-color=4
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
+node="\\"filament [nm]; n.xr1.n1#ns 0.2 * 1 n.xr1.n1#ns - 1.7 * +\\""}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-2.53755e-05
-y2=4.65245e-05
+y1=-3.47033e-05
+y2=2.45194e-05
 ypos1=0
 ypos2=2
 divy=5
@@ -115,16 +95,16 @@ unitx=1
 logx=0
 logy=0
 sweep=TE}
-B 2 670 -1220 1470 -820 {flags=graph
-y1=0.078
-y2=1.8
+B 2 650 -1230 1450 -830 {flags=graph
+y1=-2.9e-05
+y2=0.0026
 ypos1=0
 ypos2=2
 divy=5
-subdivy=1
+subdivy=4
 unity=1
-x1=-2
-x2=2
+x1=0
+x2=0.017
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -135,9 +115,10 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
+
 color=4
-node=n.xr1.n1#ngap
-sweep=te}
+node="\\"corriente[A]; 0 i(v1) -\\""
+sweep=time}
 N 190 -310 190 -280 {
 lab=TE}
 N 190 -220 190 -190 {
@@ -164,7 +145,7 @@ N 190 -180 190 -110 {
 lab=0}
 N 270 -310 330 -310 {
 lab=TE}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -185,7 +166,7 @@ C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 10m
+.tran 100n 16m
 .control
 	save all
 	run

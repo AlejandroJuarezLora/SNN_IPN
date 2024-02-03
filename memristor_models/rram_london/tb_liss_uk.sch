@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.016
 divx=5
 subdivx=1
 
@@ -38,7 +38,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.016
 divx=5
 subdivx=1
 
@@ -50,48 +50,51 @@ logy=0
 
 color=4
 node="\\"memristancia;0 te - i(v1) /\\""}
-B 2 -680 -530 120 -130 {flags=graph
-y1=-0.0023
-y2=6.7e-06
+B 2 660 -1010 1460 -610 {flags=graph
+y1=-1.26989e-05
+y2=1.18102e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.008
+x2=0.016
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node=\\"i(v1)\\"
+node="\\"Corriente[A];0 i(v1) -\\""
 color=4
 dataset=-1
 unitx=1
 logx=0
 logy=0
 }
-B 2 680 -1020 1480 -620 {flags=graph
-y1=-0.000189648
-y2=0.000217858
+B 2 -670 -560 130 -160 {flags=graph
+y1=-35
+y2=-2.6
 ypos1=0
 ypos2=2
 divy=5
-subdivy=4
+subdivy=8
 unity=1
 x1=-2
 x2=2
 divx=5
-subdivx=1
+subdivx=4
 xlabmag=1.0
 ylabmag=1.0
-node=n.xr1.n1#flow(te,be)
-color=4
+
+
 dataset=-1
 unitx=1
 logx=0
-logy=0
-sweep=TE}
+logy=1
+sweep=TE
+
+color=4
+node=n.xr1.n1#flow(te,be)}
 N 190 -310 190 -280 {
 lab=TE}
 N 190 -220 190 -190 {
@@ -118,7 +121,7 @@ N 190 -180 190 -110 {
 lab=0}
 N 270 -310 330 -310 {
 lab=TE}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -139,7 +142,7 @@ C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 8m
+.tran 1u 16m
 .control
 	save all
 	run

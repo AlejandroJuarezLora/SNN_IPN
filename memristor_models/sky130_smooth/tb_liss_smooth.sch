@@ -77,8 +77,8 @@ logy=0
 color=4
 node=xr2.nfilament}
 B 2 1460 -410 2260 -10 {flags=graph
-y1=3.2
-y2=5
+y1=-3.28444e-09
+y2=1.65555e-08
 ypos1=0
 ypos2=2
 divy=5
@@ -100,8 +100,10 @@ logy=0
 
 
 
+
 color=4
-node=xr2.nfilament}
+node=n.xr2.n1#flow(te,be)
+sweep=te}
 N 190 -310 190 -280 {
 lab=TE}
 N 190 -220 190 -190 {
@@ -122,7 +124,7 @@ N 190 -180 190 -120 {
 lab=0}
 N 190 -310 410 -310 {
 lab=TE}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2)"}
+C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"}
 C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 520 -420 0 0 {name=h1
 descr="Load I-V" 
@@ -143,7 +145,7 @@ C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 8m
+.tran 1u 16m
 .control
 	save all
 	run
