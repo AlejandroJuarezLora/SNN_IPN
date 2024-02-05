@@ -28,8 +28,8 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-65000
-y2=3.4e+06
+y1=-1.77906e+06
+y2=3.71417e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -48,8 +48,8 @@ logy=0
 color=7
 node="\\"memristancia; bl be - i(Vread) / \\""}
 B 2 1120 -930 1920 -530 {flags=graph
-y1=-8.9e-06
-y2=8.9e-06
+y1=-2.9e-05
+y2=0.00057
 ypos1=0
 ypos2=2
 divy=5
@@ -70,18 +70,20 @@ logy=0
 
 color=4
 node=i(vread)}
-B 2 120 -910 920 -510 {flags=graph
-y1=3.2
-y2=5.4
+B 2 130 -900 930 -500 {flags=graph
+y1=-1.3
+y2=1.7
 ypos1=0
 ypos2=2
 divy=5
-subdivy=1
+subdivy=4
 unity=1
 x1=0
 x2=0.005
 divx=5
 subdivx=1
+xlabmag=1.0
+ylabmag=1.0
 
 
 dataset=-1
@@ -90,10 +92,8 @@ logx=0
 logy=0
 
 
-
-
 color=4
-node=xr1.nfilament}
+node="\\"filament [nm]; n.xr1.n1#ns 0.2 * 1 n.xr1.n1#ns - 1.7 * +\\""}
 N 360 -130 360 -90 {
 lab=GND}
 N 360 -90 670 -90 {
@@ -137,7 +137,7 @@ value="
   * Modify according to your specific location
   save all
   tran 1u 5000u
-  write tb_1T1R_smooth.raw
+  write tb_1T1R_rram_v0.raw
 .endc
 
 " }
@@ -162,24 +162,23 @@ C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 1000u 0 1500u 2 20
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 930 -130 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_1T1R_smooth.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_1T1R_rram_v0.raw tran"
 }
 C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 670 -400 0 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0n 0 3000u 0 3500u 2 4000u 0 5000u 0)"}
 C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
-C {devices/vsource.sym} 670 -340 0 0 {name=Vread value=0}
-C {devices/code.sym} 700 120 0 0 {name=MODELS
+C {devices/code.sym} 730 130 0 0 {name=MODELS1
 only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/sky130_smooth.spice
+.inc $::SKYWATER_MODELS/rram_v0.spice
 "
 spice_ignore=false}
-C {sky130_fd_pr/sky130_smooth.sym} 670 -450 2 0 {name=R1
-model=sky130_smooth
-Tfilament_0=3.3e-9
+C {devices/vsource.sym} 670 -340 0 0 {name=Vread value=0}
+C {sky130_fd_pr/rram_v0.sym} 670 -450 0 0 {name=R1
+model=rram_v0
 spiceprefix=X
 }
