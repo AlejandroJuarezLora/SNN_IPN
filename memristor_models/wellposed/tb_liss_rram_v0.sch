@@ -75,8 +75,8 @@ logy=0
 color=4
 node="\\"filament [nm]; n.xr1.n1#ns 0.2 * 1 n.xr1.n1#ns - 1.7 * +\\""}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-3.47033e-05
-y2=2.45194e-05
+y1=-2.6478e-05
+y2=3.27447e-05
 ypos1=0
 ypos2=2
 divy=5
@@ -95,8 +95,8 @@ unitx=1
 logx=0
 logy=0
 sweep=TE}
-B 2 650 -1230 1450 -830 {flags=graph
-y1=-2.9e-05
+B 2 -140 -810 660 -410 {flags=graph
+y1=-8.9e-06
 y2=0.0026
 ypos1=0
 ypos2=2
@@ -119,42 +119,42 @@ logy=0
 color=4
 node="\\"corriente[A]; 0 i(v1) -\\""
 sweep=time}
-N 190 -310 190 -280 {
+N 130 -170 130 -140 {
 lab=TE}
-N 190 -220 190 -190 {
+N 130 -80 130 -50 {
 lab=0}
-N 190 -190 190 -180 {
+N 130 -50 130 -40 {
 lab=0}
-N 190 -310 270 -310 {
+N 130 -170 210 -170 {
 lab=TE}
-N 330 -310 410 -310 {
+N 270 -170 350 -170 {
 lab=TE}
-N 190 -120 190 -90 {
+N 130 20 130 50 {
 lab=0}
-N 410 -200 410 -100 {
+N 350 -60 350 40 {
 lab=0}
-N 190 -100 410 -100 {
+N 130 40 350 40 {
 lab=0}
-N 410 -310 410 -270 {
+N 350 -170 350 -130 {
 lab=TE}
-N 410 -210 410 -200 {
+N 350 -70 350 -60 {
 lab=0}
-N 410 -220 410 -210 {
+N 350 -80 350 -70 {
 lab=0}
-N 190 -180 190 -110 {
+N 130 -40 130 30 {
 lab=0}
-N 270 -310 330 -310 {
+N 210 -170 270 -170 {
 lab=TE}
-C {devices/vsource.sym} 190 -250 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"}
-C {devices/gnd.sym} 190 -90 0 0 {name=l2 lab=0}
-C {devices/launcher.sym} 520 -420 0 0 {name=h1
+C {devices/vsource.sym} 130 -110 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"}
+C {devices/gnd.sym} 130 50 0 0 {name=l2 lab=0}
+C {devices/launcher.sym} 540 -200 0 0 {name=h1
 descr="Load I-V" 
 tclcommand="
 set rawfile [file tail [file rootname [xschem get schname]]]
 xschem raw_read $netlist_dir/$\{rawfile\}.raw
 unset rawfile
 "}
-C {devices/code.sym} 180 -480 0 0 {name=MODELS
+C {devices/code.sym} 480 -40 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -162,7 +162,7 @@ value="
 .inc $::SKYWATER_MODELS/rram_v0.spice
 "
 spice_ignore=false}
-C {devices/code.sym} 320 -480 0 0 {name=NGSPICE
+C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
@@ -174,8 +174,8 @@ value="
 .endc
 
 " }
-C {devices/lab_wire.sym} 190 -310 0 0 {name=l3 sig_type=std_logic lab=TE}
-C {sky130_fd_pr/rram_v0.sym} 410 -240 0 0 {name=R1
+C {devices/lab_wire.sym} 130 -170 0 0 {name=l3 sig_type=std_logic lab=TE}
+C {sky130_fd_pr/rram_v0.sym} 350 -100 0 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }

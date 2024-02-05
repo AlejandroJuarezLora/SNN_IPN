@@ -8,7 +8,7 @@ module rram_v0_va(t, b);
     parameter real V0 = 0.430 from (0:inf);   // voltage calibration parameter [Volts]
     parameter real I0 = 6.140e-5 from (0:inf); // current calibration parameter [Amps]
     parameter real maxGap = 1.7 from (0:inf); //Tox - Tfilament_min = 5.0 - 3.3 // minimum thickness of conductive filament (for maximum resistance) [nano meters]
-    parameter real minGap = 0.2 from (0:inf); //Tox - Tfilament_max = 5.0 - 4.9 // maximum thickness of conductive filament (for minimum resistance) [nano meters]
+    parameter real minGap = 0.1 from (0:inf); //Tox - Tfilament_max = 5.0 - 4.9 // maximum thickness of conductive filament (for minimum resistance) [nano meters]
     parameter real Vel0 = 150 from (0:inf); 
     parameter real Beta0 = -1.25 from (-inf:inf);
     parameter real gamma0 = 16.5 from (0:inf);
@@ -18,36 +18,19 @@ module rram_v0_va(t, b);
     parameter real maxslope = 1e15 from (0:inf);
     parameter real smoothing = 1e-8 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
-    parameter real Kclip = 50 from (0:inf);
+    parameter real Kclip = 200 from (0:inf);
 
  
     real s, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
 
 
-    analog function real dsmoothclip;
-        input x, smoothing;
-        real  x, smoothing;
-        begin
-            dsmoothclip = 0.5 * (x/sqrt(x*x + smoothing)) + 0.5;
-        end
-    endfunction // dsmoothclip
-
-    analog function real smoothstep;
-        input x, smoothing;
-        real  x, smoothing;
-        begin
-            smoothstep = dsmoothclip(x, smoothing);
-        end
-    endfunction // smoothstep
-
-
-//   analog function real smoothstep;
-//       input x, smoothing;
-//       real  x, smoothing;
-//       begin
-//           smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
-//       end
-//   endfunction // smoothstep
+  analog function real smoothstep;
+      input x, smoothing;
+      real  x, smoothing;
+      begin
+          smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
+      end
+  endfunction // smoothstep
 
   analog function real safeexp;
       input x, maxslope;

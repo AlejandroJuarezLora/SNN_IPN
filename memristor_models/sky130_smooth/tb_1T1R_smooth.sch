@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1120 -500 1920 -100 {flags=graph
-y1=-2.19342
-y2=3.72949
+y1=0
+y2=3
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=6e-08
+x2=0.005
 divx=5
 subdivx=1
 
@@ -28,15 +28,15 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-691668
-y2=4.07228e+06
+y1=-65000
+y2=3.4e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=6e-08
+x2=0.005
 divx=5
 subdivx=1
 
@@ -46,17 +46,17 @@ unitx=1
 logx=0
 logy=0
 color=7
-node="\\"memristancia; bl te - i(v1) /\\""}
-B 2 1100 -930 1900 -530 {flags=graph
-y1=3.3
-y2=6.4
+node="\\"memristancia; bl be - i(Vread) / \\""}
+B 2 1120 -930 1920 -530 {flags=graph
+y1=-8.9e-06
+y2=8.9e-06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=6e-08
+x2=0.005
 divx=5
 subdivx=1
 
@@ -66,8 +66,34 @@ unitx=1
 logx=0
 logy=0
 
+
+
 color=4
-node=xr2.nfilament}
+node=i(vread)}
+B 2 120 -910 920 -510 {flags=graph
+y1=3.2
+y2=5.4
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.005
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+
+
+color=4
+node=xr1.nfilament}
 N 360 -130 360 -90 {
 lab=GND}
 N 360 -90 670 -90 {
@@ -77,8 +103,6 @@ lab=GND}
 N 480 -130 480 -90 {
 lab=GND}
 N 360 -480 360 -190 {
-lab=BL}
-N 360 -480 670 -480 {
 lab=BL}
 N 670 -230 670 -190 {
 lab=SL}
@@ -90,11 +114,17 @@ N 480 -260 480 -190 {
 lab=WL}
 N 670 -310 670 -290 {
 lab=#net1}
+N 560 -480 670 -480 {
+lab=BL}
+N 360 -480 500 -480 {
+lab=BL}
+N 500 -480 560 -480 {
+lab=BL}
 N 670 -420 670 -370 {
-lab=te}
-N 750 -260 750 -200 {
+lab=be}
+N 750 -260 750 -210 {
 lab=GND}
-N 750 -200 750 -90 {
+N 750 -210 750 -90 {
 lab=GND}
 N 670 -90 750 -90 {
 lab=GND}
@@ -102,17 +132,15 @@ C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 *.options savecurrents
+.save @m.xm1.msky130_fd_pr__nfet_01v8[id]
 .control
   * Modify according to your specific location
   save all
-  tran 1n 60n
+  tran 1u 5000u
   write tb_1T1R_smooth.raw
 .endc
 
 " }
-C {sky130_fd_pr/reram.sym} 920 -410 0 0 {name=N1
-model=sky130_fd_pr_reram__reram_module
-spice_ignore=true}
 C {sky130_fd_pr/corner.sym} 860 130 0 0 {name=CORNER only_toplevel=true corner=tt}
 C {sky130_fd_pr/nfet_01v8.sym} 650 -260 0 0 {name=M1
 L=0.15
@@ -128,18 +156,21 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0 0 8n 0 9n 1.4 21n 1.4 29n 3 41n 3 42n 0)"
+C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0n 0 800u 0 900u 1 2100u 1 2200u 0 2800u 0 2900u 3 4100u 3 4200u 0 5000u 0)"
 }
-C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 8n 0.1 15n 3 22n 0)"}
+C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 1000u 0 1500u 2 2000u 0)"}
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 930 -130 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_1T1R_smooth.raw tran"
 }
 C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=WL}
-C {devices/lab_pin.sym} 670 -400 0 0 {name=be sig_type=std_logic lab=te}
-C {devices/vsource.sym} 670 -340 0 0 {name=V1 value=0}
-C {devices/code.sym} 730 130 0 0 {name=MODELS
+C {devices/lab_pin.sym} 670 -400 0 0 {name=be sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
+C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0n 0 3000u 0 3500u 2 4000u 0 5000u 0)"}
+C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
+C {devices/vsource.sym} 670 -340 0 0 {name=Vread value=0}
+C {devices/code.sym} 700 120 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -147,17 +178,7 @@ value="
 .inc $::SKYWATER_MODELS/sky130_smooth.spice
 "
 spice_ignore=false}
-C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
-C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0 0 28n 0 35n 3 42n 0)"}
-C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
-C {devices/code_shown.sym} -320 -220 0 0 {name=NGSPICE1
-only_toplevel=true
-value="
-** vwl PWL(0 0 8n 0 9n 1.4 21n 1.4 22n 0 28n 0 29n 3 41n 3 42n 0)
-
-" 
-spice_ignore=true}
-C {sky130_fd_pr/sky130_smooth.sym} 670 -450 2 0 {name=R2
+C {sky130_fd_pr/sky130_smooth.sym} 670 -450 2 0 {name=R1
 model=sky130_smooth
 Tfilament_0=3.3e-9
 spiceprefix=X
