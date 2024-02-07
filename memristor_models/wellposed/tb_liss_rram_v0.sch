@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.017
+x2=0.016
 divx=5
 subdivx=1
 
@@ -30,7 +30,7 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=788.924
+y1=790
 y2=3.3e+06
 ypos1=0
 ypos2=2
@@ -38,7 +38,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.017
+x2=0.016
 divx=5
 subdivx=1
 
@@ -59,7 +59,7 @@ divy=5
 subdivy=4
 unity=1
 x1=0
-x2=0.017
+x2=0.016
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -75,8 +75,8 @@ logy=0
 color=4
 node="\\"filament [nm]; n.xr1.n1#ns 0.2 * 1 n.xr1.n1#ns - 1.7 * +\\""}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-2.6478e-05
-y2=3.27447e-05
+y1=-2.64685e-05
+y2=2.80894e-05
 ypos1=0
 ypos2=2
 divy=5
@@ -96,15 +96,15 @@ logx=0
 logy=0
 sweep=TE}
 B 2 -140 -810 660 -410 {flags=graph
-y1=-8.9e-06
-y2=0.0026
+y1=-5.8e-05
+y2=0.027
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
 x1=0
-x2=0.017
+x2=0.016
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -166,7 +166,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 100n 16m
+.tran 1u 16m
 .control
 	save all
 	run

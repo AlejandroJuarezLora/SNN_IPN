@@ -28,7 +28,7 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-65000
+y1=15000
 y2=3.4e+06
 ypos1=0
 ypos2=2
@@ -49,7 +49,7 @@ color=7
 node="\\"memristancia; bl be - i(Vread) / \\""}
 B 2 1120 -930 1920 -530 {flags=graph
 y1=-6.6e-06
-y2=0.0002
+y2=0.00013
 ypos1=0
 ypos2=2
 divy=5
@@ -138,7 +138,7 @@ C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 1000u 0 1500u 2 20
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 930 -130 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_1T1R_rram_v0.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_1T1R_uk.raw tran"
 }
 C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 670 -400 0 0 {name=be sig_type=std_logic lab=be}

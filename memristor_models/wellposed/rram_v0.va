@@ -55,7 +55,7 @@ module rram_v0_va(t, b);
     Gap = s*minGap + (1-s)*maxGap;
     f1 = I0 * safeexp(-(Gap)/g0, maxslope) * safesinh(V(t, b)/V0,maxslope);
     I(t,b) <+ f1 + GMIN*V(t, b);
-    Gamma = gamma0 - Beta0 * pow(Gap, 3);
+    Gamma = gamma0 + Beta0 * pow(Gap, 3);
     f2 = (maxGap - minGap) * Vel0 * safeexp(-Ea/$vt, maxslope)*safesinh(V(t, b)*Gamma*a0/tox/$vt, maxslope);
     Fw1 = smoothstep(0-s, smoothing);
     Fw2 = smoothstep(s-1, smoothing);
