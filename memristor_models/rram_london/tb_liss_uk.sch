@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 1050 -960 1850 -560 {flags=graph
+B 2 250 -960 1050 -560 {flags=graph
 y1=-2
 y2=2
 ypos1=0
@@ -30,7 +30,7 @@ logy=0
 color=4
 node=te}
 B 2 250 -560 1050 -160 {flags=graph
-y1=890
+y1=1600
 y2=3.4e+06
 ypos1=0
 ypos2=2
@@ -50,9 +50,9 @@ logy=0
 
 color=4
 node="\\"memristancia;0 te - i(v1) /\\""}
-B 2 240 -960 1040 -560 {flags=graph
-y1=-1.71657e-05
-y2=2.43883e-05
+B 2 1050 -960 1850 -560 {flags=graph
+y1=-0.000132398
+y2=0.0010743
 ypos1=0
 ypos2=2
 divy=5
@@ -72,8 +72,8 @@ logx=0
 logy=0
 }
 B 2 1050 -560 1850 -160 {flags=graph
-y1=-0.0023
-y2=6.7e-06
+y1=-1.27593e-05
+y2=1.44137e-05
 ypos1=0
 ypos2=2
 divy=5

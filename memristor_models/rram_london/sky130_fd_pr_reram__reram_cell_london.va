@@ -64,18 +64,29 @@ module sky130_fd_pr_reram__reram_cell_london_va(TE, BE);
     real t_delta;                // difference between current vs. previous time step
 
     // local functions
+    // analog function real soft_minmax;
+    //     input x, xmin, xmax;
+    //     real x, xmin, xmax;
+    //     real p = 10;
+    //     begin
+    //         if (x > xmax) begin
+    //             soft_minmax = xmax;
+    //         end else if (x < xmin) begin
+    //             soft_minmax = xmin;
+    //         end else begin
+    //             soft_minmax = x;
+    //         end
+    //     end
+    // endfunction // soft_minmax
+
     analog function real soft_minmax;
         input x, xmin, xmax;
-        real x, xmin, xmax;
-        real p = 10;
+        real x, c,  xmin, xmax;
+        real b = 30;
         begin
-            if (x > xmax) begin
-                soft_minmax = xmax;
-            end else if (x < xmin) begin
-                soft_minmax = xmin;
-            end else begin
-                soft_minmax = x;
-            end
+            c = xmin + ((xmax - xmin)/2);
+            soft_minmax = xmax + (xmin-xmax)/(1 + pow((x/c), b));
+            
         end
     endfunction // soft_minmax
 

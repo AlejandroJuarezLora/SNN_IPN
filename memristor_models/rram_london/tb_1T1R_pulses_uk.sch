@@ -7,14 +7,14 @@ S {}
 E {}
 B 2 1120 -500 1920 -100 {flags=graph
 y1=0
-y2=3
+y2=4
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.03
+x2=1.6e-05
 divx=5
 subdivx=1
 
@@ -23,20 +23,20 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="6 4 7"
+color="6 7 4"
 node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-1.2943e+06
-y2=3.49959e+06
+y1=-471694
+y2=3.60687e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.03
+x2=1.6e-05
 divx=5
 subdivx=1
 
@@ -46,17 +46,17 @@ unitx=1
 logx=0
 logy=0
 color=7
-node="\\"mem1; bl be - i(Vread) / \\""}
+node="\\"memristancia [Ohms]; bl be - i(vread) /\\""}
 B 2 1120 -930 1920 -530 {flags=graph
-y1=-0.000213089
-y2=0.00183484
+y1=-4.7e-06
+y2=0.0018
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.03
+x2=1.6e-05
 divx=5
 subdivx=1
 
@@ -72,14 +72,10 @@ color=4
 node=n.xr2.n1#flow(te,be)}
 N 360 -130 360 -90 {
 lab=GND}
-N 360 -90 670 -90 {
+N 360 -30 670 -30 {
 lab=GND}
-N 670 -130 670 -90 {
+N 480 -70 480 -30 {
 lab=GND}
-N 480 -130 480 -90 {
-lab=GND}
-N 360 -480 360 -190 {
-lab=BL}
 N 670 -230 670 -190 {
 lab=SL}
 N 670 -260 750 -260 {
@@ -102,7 +98,27 @@ N 750 -260 750 -210 {
 lab=GND}
 N 750 -210 750 -90 {
 lab=GND}
-N 670 -90 750 -90 {
+N 670 -30 750 -30 {
+lab=GND}
+N 360 -240 360 -190 {
+lab=BL}
+N 360 -480 360 -300 {
+lab=BL}
+N 670 -40 670 -30 {
+lab=GND}
+N 670 -130 670 -100 {
+lab=GND}
+N 360 -300 360 -240 {
+lab=BL}
+N 480 -130 480 -120 {
+lab=GND}
+N 750 -90 750 -30 {
+lab=GND}
+N 670 -100 670 -40 {
+lab=GND}
+N 480 -120 480 -70 {
+lab=GND}
+N 360 -90 360 -30 {
 lab=GND}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
@@ -112,7 +128,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 1u 30m
+  tran 1n 16u
   write tb_1T1R_pulses_uk.raw
 .endc
 
@@ -132,10 +148,10 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value=3
+C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0 1.7 8u 1.7 8.001u 2.5)"
 }
-C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PULSE(0 2 0 10n 10n 500u 1000u 15)"}
-C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
+C {devices/vsource.sym} 360 -160 0 1 {name=Vbl value="PULSE(0 2.4 0 10n 10n 200n 400n 20)"}
+C {devices/gnd.sym} 550 -30 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 840 20 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_1T1R_pulses_uk.raw tran"
@@ -157,4 +173,4 @@ value="
 "
 spice_ignore=false}
 C {devices/vsource.sym} 670 -340 0 0 {name=Vread value=0}
-C {devices/vsource.sym} 670 -160 0 0 {name=Vsl1 value="PULSE(0 2 15m 10n 10n 500u 1000u)"}
+C {devices/vsource.sym} 670 -160 0 0 {name=Vsl1 value="PULSE(0 4 8u 10n 10n 200n 400n)"}
