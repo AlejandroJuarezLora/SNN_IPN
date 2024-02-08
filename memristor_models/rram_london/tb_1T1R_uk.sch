@@ -28,8 +28,8 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=15000
-y2=3.4e+06
+y1=4100
+y2=3.8e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -46,10 +46,10 @@ unitx=1
 logx=0
 logy=0
 color=7
-node="\\"memristancia; bl be - i(Vread) / \\""}
+node="\\"memristancia; be te - i(Vread) / \\""}
 B 2 1120 -930 1920 -530 {flags=graph
-y1=-6.6e-06
-y2=0.00013
+y1=-4.2e-06
+y2=0.00046
 ypos1=0
 ypos2=2
 divy=5
@@ -89,13 +89,7 @@ lab=WL}
 N 480 -260 480 -190 {
 lab=WL}
 N 670 -310 670 -290 {
-lab=#net1}
-N 560 -480 670 -480 {
-lab=BL}
-N 360 -480 500 -480 {
-lab=BL}
-N 500 -480 560 -480 {
-lab=BL}
+lab=be}
 N 670 -420 670 -370 {
 lab=be}
 N 750 -260 750 -210 {
@@ -104,6 +98,12 @@ N 750 -210 750 -90 {
 lab=GND}
 N 670 -90 750 -90 {
 lab=GND}
+N 360 -480 480 -480 {
+lab=BL}
+N 540 -480 670 -480 {
+lab=te}
+N 670 -370 670 -310 {
+lab=be}
 C {devices/code_shown.sym} 70 80 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -132,7 +132,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value="PWL(0n 0 800u 0 900u 1 2100u 1 2200u 0 2800u 0 2900u 3 4100u 3 4200u 0 5000u 0)"
+C {devices/vsource.sym} 480 -160 0 0 {name=Vwl value=3
 }
 C {devices/vsource.sym} 360 -160 0 0 {name=Vbl value="PWL(0 0 1000u 0 1500u 2 2000u 0)"}
 C {devices/gnd.sym} 550 -90 0 0 {name=l1 lab=GND}
@@ -141,7 +141,7 @@ descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/tb_1T1R_uk.raw tran"
 }
 C {devices/lab_pin.sym} 530 -260 1 0 {name=wl sig_type=std_logic lab=WL}
-C {devices/lab_pin.sym} 670 -400 0 0 {name=be sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 620 -480 1 0 {name=be sig_type=std_logic lab=te}
 C {devices/lab_pin.sym} 360 -460 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/vsource.sym} 670 -160 0 0 {name=Vsl value="PWL(0n 0 3000u 0 3500u 2 4000u 0 5000u 0)"}
 C {devices/lab_pin.sym} 670 -210 2 0 {name=wl1 sig_type=std_logic lab=SL}
@@ -157,4 +157,5 @@ value="
 .inc $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_cell_london.spice
 "
 spice_ignore=false}
-C {devices/vsource.sym} 670 -340 0 0 {name=Vread value=0}
+C {devices/vsource.sym} 510 -480 1 0 {name=Vread value=0.2}
+C {devices/lab_pin.sym} 670 -370 0 0 {name=be1 sig_type=std_logic lab=be}
