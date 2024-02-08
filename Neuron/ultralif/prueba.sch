@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 1210 -700 2010 -300 {flags=graph
+B 2 1100 -580 1900 -180 {flags=graph
 
 
 ypos1=0
@@ -136,9 +136,6 @@ mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/isource.sym} 1270 -590 0 0 {name=I2 value=10nA
-
-spice_ignore=true}
 C {devices/isource.sym} 460 -250 0 0 {name=I1 value=10nA}
 C {devices/gnd.sym} 460 -210 0 0 {name=l2 lab=GND}
 C {devices/vsource.sym} 250 -350 0 0 {name=Vin value="PWL(0 0.2 1000u 0.7 2000u 0.2)"}
