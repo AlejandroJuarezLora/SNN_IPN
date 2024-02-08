@@ -28,8 +28,8 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=2.96408e+06
-y2=3.56773e+06
+y1=-3.7e-18
+y2=3.6e+06
 ypos1=0
 ypos2=2
 divy=5
