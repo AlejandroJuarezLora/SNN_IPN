@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-05
+x2=3e-05
 divx=5
 subdivx=1
 
@@ -28,15 +28,15 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=-3.7e-18
-y2=3.6e+06
+y1=2.49055e+06
+y2=4.05524e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-05
+x2=3e-05
 divx=5
 subdivx=1
 
@@ -56,7 +56,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-05
+x2=3e-05
 divx=5
 subdivx=1
 
@@ -72,15 +72,15 @@ logy=0
 color=6
 node=i(vread)}
 B 2 130 -840 930 -440 {flags=graph
-y1=3.08392
-y2=4.04578
+y1=2.575
+y2=6.175
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
 x1=0
-x2=2e-05
+x2=3e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -128,10 +128,8 @@ lab=BL}
 N 400 -350 540 -350 {
 lab=be}
 N 230 -120 230 -60 {
-lab=BL}
+lab=#net1}
 N 230 -350 230 -180 {
-lab=BL}
-N 230 -180 230 -120 {
 lab=BL}
 C {devices/code_shown.sym} 100 160 0 0 {name=NGSPICE
 only_toplevel=true
@@ -140,7 +138,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 1n 20u
+  tran 1n 30u
   write tb_1T1R_pulses_rram_v0.raw
 .endc
 
@@ -160,7 +158,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 350 -30 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 2.8)"
+C {devices/vsource.sym} 350 -30 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 2.7 19.9 2.7 20u 2)"
 }
 C {devices/vsource.sym} 230 -30 0 1 {name=Vbl value="PULSE(0 2 0 5n 5n 200n 400n 25)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
@@ -172,7 +170,7 @@ C {devices/lab_pin.sym} 400 -130 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 470 -350 1 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 230 -330 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/lab_pin.sym} 540 -80 2 0 {name=wl1 sig_type=std_logic lab=SL}
-C {devices/vsource.sym} 370 -350 1 0 {name=Vread value="PWL(0 0.1 9.9u 0.1 10u -0.1)"}
+C {devices/vsource.sym} 370 -350 1 0 {name=Vread value="PWL(0 0.1 9.9u 0.1 10u -0.1 19.9 -0.1 20u 0.1)"}
 C {devices/code.sym} 740 130 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
@@ -186,4 +184,5 @@ model=rram_v0
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 540 -230 2 0 {name=be1 sig_type=std_logic lab=te}
-C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2 10u 5n 5n 200n 400n)"}
+C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.4 10u 5n 5n 200n 400n 25)"}
+C {devices/vsource.sym} 230 -150 0 1 {name=Vbl1 value="PULSE(0 2 20u 5n 5n 200n 400n 25)"}
