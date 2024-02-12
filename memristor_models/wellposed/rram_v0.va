@@ -55,8 +55,8 @@ module rram_v0_va(t, b);
     clip_maxGap = (-limexp(Kclip*(Gap-maxGap)) - ddt_Gap) * Fw2;
     I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;
     I(nGap, b) <+ ddt(-1e-9*Gap);
-    // I(t,b) <+ I0 * limexp(-(Gap)/g0) * sinh(V(t, b)/V0) + GMIN*V(t, b);
-    I(t,b) <+ I0 * limexp(-(Gap)/g0) * sinh(V(t, b)/V0);
+    I(t,b) <+ I0 * limexp(-(Gap)/g0) * sinh(V(t, b)/V0) + GMIN*V(t, b);
+    
     
   end
 endmodule
