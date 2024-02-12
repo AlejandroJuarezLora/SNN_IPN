@@ -28,8 +28,8 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=2.49055e+06
-y2=4.05524e+06
+y1=-1.67582e+06
+y2=4.92594e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -48,8 +48,8 @@ logy=0
 color=4
 node="\\"mem1;te be - i(Vread) / \\""}
 B 2 1120 -930 1920 -530 {flags=graph
-y1=-9.80199e-06
-y2=2.34033e-06
+y1=-7.05328e-06
+y2=1.99888e-05
 ypos1=0
 ypos2=2
 divy=5
@@ -158,7 +158,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 350 -30 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 2.7 19.9 2.7 20u 2)"
+C {devices/vsource.sym} 350 -30 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 2.8 19.9 2.8 20u 2)"
 }
 C {devices/vsource.sym} 230 -30 0 1 {name=Vbl value="PULSE(0 2 0 5n 5n 200n 400n 25)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
