@@ -30,8 +30,8 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=22
-y2=3.5e+06
+y1=110
+y2=3.7e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -75,8 +75,8 @@ logy=0
 color=4
 node="\\"gap [nm]; 5 n.xr1.n1#ngap -\\""}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-0.000677499
-y2=0.00221024
+y1=-0.000599878
+y2=0.00145238
 ypos1=0
 ypos2=2
 divy=5
@@ -88,8 +88,8 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="\\"0 i(v1) -\\""
-color=4
+node="\\"Current vs Voltage; 0 i(v1) -\\""
+color=7
 dataset=-1
 unitx=1
 logx=0
@@ -123,27 +123,25 @@ sweep=time}
 N 130 -170 130 -140 {
 lab=TE}
 N 130 -50 130 -40 {
-lab=0}
+lab=#net1}
 N 130 -170 210 -170 {
 lab=TE}
 N 270 -170 350 -170 {
 lab=TE}
-N 130 20 130 50 {
-lab=0}
-N 130 40 350 40 {
-lab=0}
 N 350 -170 350 -130 {
 lab=TE}
-N 130 -40 130 30 {
-lab=0}
 N 210 -170 270 -170 {
 lab=TE}
 N 130 -140 130 -110 {
 lab=TE}
-N 350 -70 350 40 {
-lab=0}
+N 130 -30 350 -30 {
+lab=#net1}
+N 130 -40 130 -30 {
+lab=#net1}
+N 350 -70 350 -30 {
+lab=#net1}
 C {devices/vsource.sym} 130 -80 0 1 {name=V1 value="PWL(0 -3 4u 3 8u -3 12u 3 16u -3)"}
-C {devices/gnd.sym} 130 50 0 0 {name=l2 lab=0}
+C {devices/gnd.sym} 130 -30 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} 540 -200 0 0 {name=h1
 descr="Load I-V" 
 tclcommand="
