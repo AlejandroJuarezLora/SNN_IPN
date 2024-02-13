@@ -4,20 +4,6 @@
 module rram_v0_va(t, b);
     inout t, b;
     electrical t, b, nGap;
-    // parameter real g0 = 0.25 from (0:inf); 
-    // parameter real V0 = 0.25 from (0:inf); 
-    // parameter real Vel0 = 10 from (0:inf); 
-    // parameter real I0 = 1e-3 from (0:inf); 
-    // parameter real Beta0 = 0.8 from (0:inf); 
-    // parameter real gamma0 = 16 from (0:inf); 
-    // parameter real Ea = 0.6 from (0:inf); 
-    // parameter real a0 = 0.25 from (0:inf); 
-    // parameter real tox = 12 from (0:inf);
-    // parameter real maxGap = 1.7 from (0:inf); 
-    // parameter real minGap = 0.1 from (0:inf);
-    // parameter real smoothing = 1e-8 from (0:inf); 
-    // parameter real GMIN = 1e-12 from (0:inf); 
-    // parameter real Kclip = 50 from (0:inf);
 
     parameter real g0 = 0.271 from (0:inf);  //Tox - Tfilament_ref = 5.0 - 4.7249 (Tox - filament thickness calibration parameter)[nano meters]
     parameter real V0 = 0.430 from (0:inf);   // voltage calibration parameter [Volts]
@@ -48,7 +34,7 @@ module rram_v0_va(t, b);
   analog begin
     Gap = V(nGap, b);
     Gamma = gamma0 + Beta0 * pow(Gap, 3);
-    ddt_Gap = - Vel0 * limexp(-Ea/$vt)*sinh(V(t, b)*Gamma*a0/(tox*$vt));
+    ddt_Gap = -Vel0 * limexp(-Ea/$vt)*sinh(V(t, b)*Gamma*a0/(tox*$vt));
     Fw1 = smoothstep(minGap-Gap, smoothing);
     Fw2 = smoothstep(Gap-maxGap, smoothing);
     clip_minGap = (limexp(Kclip*(minGap-Gap)) - ddt_Gap) * Fw1; 
@@ -56,7 +42,5 @@ module rram_v0_va(t, b);
     I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;
     I(nGap, b) <+ ddt(-1e-9*Gap);
     I(t,b) <+ I0 * limexp(-(Gap)/g0) * sinh(V(t, b)/V0) + GMIN*V(t, b);
-    
-    
   end
 endmodule
