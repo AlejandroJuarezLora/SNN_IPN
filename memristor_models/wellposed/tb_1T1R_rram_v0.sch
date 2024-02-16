@@ -7,7 +7,7 @@ S {}
 E {}
 B 2 1120 -500 1920 -100 {flags=graph
 y1=0
-y2=3
+y2=3.3
 ypos1=0
 ypos2=2
 divy=5
@@ -28,7 +28,7 @@ node="bl
 wl
 sl"}
 B 2 1120 -90 1920 310 {flags=graph
-y1=2400
+y1=1100
 y2=3.6e+06
 ypos1=0
 ypos2=2
@@ -48,8 +48,8 @@ logy=0
 color=4
 node="\\"mem1;te be - i(Vread) / \\""}
 B 2 1120 -930 1920 -530 {flags=graph
-y1=-0.00062
-y2=8.5e-06
+y1=-4e-05
+y2=0.0016
 ypos1=0
 ypos2=2
 divy=5
@@ -72,8 +72,8 @@ logy=0
 color=6
 node=i(vread)}
 B 2 130 -840 930 -440 {flags=graph
-y1=0.19
-y2=4.8
+y1=0.078
+y2=4.1
 ypos1=0
 ypos2=2
 divy=5
@@ -94,7 +94,7 @@ logy=0
 
 
 color=4
-node="\\"ThicknessFill [nm]; 5 n.xr1.n1#ngap -\\""}
+node="\\"Gap [nm]; n.xr1.n1#ngap \\""}
 N 230 0 230 40 {
 lab=GND}
 N 230 40 540 40 {
@@ -157,10 +157,10 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 350 -30 0 0 {name=Vwl value=1.4
+C {devices/vsource.sym} 350 -30 0 0 {name=Vwl value="PWL(0 1.7 2.4u 1.7 2.7u 3.3)"
 
 }
-C {devices/vsource.sym} 230 -30 0 0 {name=Vbl value="PWL(0 0 1u 0 1.5u 3 2u 0)"}
+C {devices/vsource.sym} 230 -30 0 0 {name=Vbl value="PWL(0 0 1u 0 1.5u 2.4 2u 0)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 840 20 0 0 {name=h5
 descr="load waves" 
@@ -170,8 +170,8 @@ C {devices/lab_pin.sym} 400 -130 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 490 -350 3 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 230 -330 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/lab_pin.sym} 540 -80 2 0 {name=wl1 sig_type=std_logic lab=SL}
-C {devices/vsource.sym} 370 -350 1 0 {name=Vread value=0.1}
-C {devices/vsource.sym} 540 -30 0 0 {name=Vsl value="PWL(0n 0 3u 0 3.5u 3 4u 0)"}
+C {devices/vsource.sym} 370 -350 1 0 {name=Vread value=0.0001}
+C {devices/vsource.sym} 540 -30 0 0 {name=Vsl value="PWL(0n 0 3u 0 3.5u 2.4 4u 0)"}
 C {devices/code.sym} 740 130 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
