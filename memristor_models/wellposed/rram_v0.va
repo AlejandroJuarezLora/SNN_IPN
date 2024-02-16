@@ -9,7 +9,7 @@ module rram_v0_va(t, b);
     parameter real V0 = 0.430 from (0:inf);   // voltage calibration parameter [Volts]
     parameter real I0 = 6.140e-5 from (0:inf); // current calibration parameter [Amps]
     parameter real maxGap = 1.7 from (0:inf); //Tox - Tfilament_min = 5.0 - 3.3 // minimum thickness of conductive filament (for maximum resistance) [nano meters]
-    parameter real minGap = 0.1 from (0:inf); //Tox - Tfilament_max = 5.0 - 4.9 // maximum thickness of conductive filament (for minimum resistance) [nano meters]
+    parameter real minGap = 0.1 from (0:inf); //Tox - Tfilament_max = 5.0 - 4. // maximum thickness of conductive filament (for minimum resistance) [nano meters]
     parameter real Vel0 = 150 from (0:inf); 
     parameter real Beta0 = -1.25 from (-inf:inf);
     parameter real gamma0 = 16.5 from (0:inf);
