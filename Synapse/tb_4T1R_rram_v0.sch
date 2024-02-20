@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1220 -1300 2020 -900 {flags=graph
-y1=-726762
-y2=3.41799e+06
+y1=15000
+y2=3.6e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0002
+x2=0.0001
 divx=5
 subdivx=1
 
@@ -24,17 +24,18 @@ unitx=1
 logx=0
 logy=0
 color=4
-node="\\"Memristance Value [Ohms];te be - i(Vread) / \\""}
+node="\\"Memristance Value [Ohms];te be - i(Vread) / \\""
+linewidth_mult=4}
 B 2 -390 -1280 410 -880 {flags=graph
-y1=-2.6369e-05
-y2=5.46989e-05
+y1=-0.00019
+y2=0.00016
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0002
+x2=0.0001
 divx=5
 subdivx=1
 
@@ -48,33 +49,10 @@ logy=0
 
 
 color=6
-node=i(vread)}
+node="\\"Current Memristor [A];i(vread)\\""
+linewidth_mult=4}
 B 2 420 -1300 1220 -900 {flags=graph
-y1=-2
-y2=1.8
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.0002
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-
-
-
-color=6
-node="\\"Reward Signal [V]; r\\""}
-B 2 1220 -900 2020 -500 {flags=graph
-y1=-0.5
+y1=-3
 y2=2
 ypos1=0
 ypos2=2
@@ -82,7 +60,32 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0002
+x2=0.0001
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+
+
+color=6
+node="\\"Reward Signal [V]; r\\""
+linewidth_mult=4}
+B 2 1220 -900 2020 -500 {flags=graph
+y1=-0.76
+y2=3
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.0001
 divx=5
 subdivx=1
 
@@ -95,17 +98,17 @@ logy=0
 
 color="4 6"
 node="\\"Vpost - Vpre [V]; vpost vpre -\\"
-\\"Threshold voltage [V]; 1.5\\""}
+\\"Memristor threshold [V]; 1.5\\""}
 B 2 1220 -500 2020 -100 {flags=graph
-y1=-1
-y2=1
+y1=-1.5
+y2=1.5
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.0002
+x2=0.0001
 divx=5
 subdivx=1
 
@@ -234,7 +237,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 1n 200u
+  tran 1n 100u
   write tb_4T1R_rram_v0.raw
 .endc
 
@@ -287,14 +290,14 @@ spiceprefix=X
 C {devices/lab_pin.sym} 200 -800 1 0 {name=p2 sig_type=std_logic lab=R}
 C {devices/lab_pin.sym} 160 -630 0 0 {name=p3 sig_type=std_logic lab=vpre}
 C {devices/lab_pin.sym} 720 -630 2 0 {name=p4 sig_type=std_logic lab=vpost}
-C {devices/vsource.sym} 160 -570 0 1 {name=V1 value="PWL(0 0 25u 0 45u 1 55u -1 75u 0 125u 0 145u 1 155u -1 175u 0)"}
-C {devices/vsource.sym} 720 -580 0 0 {name=V2 value="PWL(0 0 35u 0 55u 1 65u -1 85u 0 135u 0 155u 1 165u -1 185u 0)"}
+C {devices/vsource.sym} 160 -570 0 1 {name=V1 value="PWL(0 0 12.5u 0 22.5u 1.5 27.5u -1.5 37.5u 0 62.5u 0 72.5u 1.5 77.5u -1.5 87.5u 0)"}
+C {devices/vsource.sym} 720 -580 0 0 {name=V2 value="PWL(0 0 17.5u 0 27.5u 1.5 32.5u -1.5 42.5u 0 67.5u 0 77.5u 1.5 82.5u -1.5 92.5u 0)"}
 C {devices/lab_pin.sym} 430 -640 3 0 {name=p5 sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 510 -640 3 0 {name=p6 sig_type=std_logic lab=te}
 C {devices/gnd.sym} 160 -500 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 100 -690 0 0 {name=l3 lab=GND}
-C {devices/vsource.sym} 380 -640 1 1 {name=vread value=0.0001}
-C {devices/vsource.sym} 100 -750 0 1 {name=vr1 value="PWL(0 -2 98u -2 102u 1.7)"
+C {devices/vsource.sym} 380 -640 1 1 {name=vread value=1e-5}
+C {devices/vsource.sym} 100 -750 0 1 {name=vr1 value="PWL(0 -3 49u -3 51u 2)"
 spice_ignore=false}
 C {sky130_fd_pr/pfet_01v8.sym} 270 -520 1 1 {name=M1
 L=0.15
