@@ -1,4 +1,4 @@
-v {xschem version=3.4.3 file_version=1.2
+v {xschem version=3.4.5 file_version=1.2
 }
 G {}
 K {}
@@ -30,7 +30,7 @@ lab=GND}
 N 345 -170 380 -170 {
 lab=vout}
 C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/voltContrOsc/sch/voltContrOsc.sym} 260 -170 0 0 {name=x1}
-C {devices/vsource.sym} 100 -120 0 0 {name=V1 value=0.5}
+C {devices/vsource.sym} 100 -120 0 0 {name=V1 value=0.3}
 C {devices/vsource.sym} 10 -120 0 0 {name=V2 value=2}
 C {devices/gnd.sym} 140 -50 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 380 -170 2 0 {name=p1 sig_type=std_logic lab=vout}
@@ -66,7 +66,7 @@ C {devices/code_shown.sym} 600 -370 0 0 {name=DC_SWEEP only_toplevel=false value
 spice_ignore=true}
 C {devices/code_shown.sym} 900 -340 0 0 {name=DC_SWEEP1 only_toplevel=false value=
 "
-*.tran 10n 50u 
+*.tran 10n 5u 
 .save vout V1 V2
 .control
 	tran 10n 50u
