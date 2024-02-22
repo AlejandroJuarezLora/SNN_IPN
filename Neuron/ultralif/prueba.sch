@@ -23,8 +23,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-y1=9.9908e-09
-y2=1.00199e-08
+y1=9.98889e-09
+y2=1.00238e-08
 
 
 sim_type=tran
@@ -122,7 +122,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 840 -400 0 0 {name=M3
 L=1
-W=50
+W=90
 nf=1
 mult=2
 model=pfet_01v8
