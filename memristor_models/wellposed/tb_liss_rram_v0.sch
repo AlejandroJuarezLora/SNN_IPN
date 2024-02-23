@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 1460 -410 2260 -10 {flags=graph
-y1=-2.89701
-y2=2.86299
+y1=-3
+y2=3
 ypos1=0
 ypos2=2
 divy=5
@@ -30,8 +30,8 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-286822
-y2=3.17518e+06
+y1=190
+y2=2.9e+06
 ypos1=0
 ypos2=2
 divy=5
@@ -75,14 +75,14 @@ logy=0
 color=4
 node="\\"gap [nm]; 5 n.xr1.n1#ngap -\\""}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-0.000129626
-y2=0.000173168
+y1=-0.000187036
+y2=0.000274136
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-2
+x1=-3
 
 divx=5
 subdivx=1
@@ -95,11 +95,14 @@ unitx=1
 logx=0
 logy=0
 sweep=TE
-x2=2
-linewidth_mult=3}
+
+linewidth_mult=3
+
+digital=0
+x2=3}
 B 2 -140 -810 660 -410 {flags=graph
-y1=-5.6e-05
-y2=0.0022
+y1=-0.000140821
+y2=0.000176225
 ypos1=0
 ypos2=2
 divy=5
@@ -161,7 +164,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1n 16m
+.tran 1u 16m
 .control
 	save all
 	run

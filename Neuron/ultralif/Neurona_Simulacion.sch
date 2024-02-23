@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 1290 -460 2090 -60 {flags=graph
-y1=-0.121023
-y2=2
+y1=-0.0071
+y2=1.6
 ypos1=-0.319016
 ypos2=2.49867
 divy=5
@@ -26,8 +26,8 @@ logy=0
 digital=0
 linewidth_mult=3.5}
 B 2 1290 -860 2090 -460 {flags=graph
-y1=0.190995
-y2=1.94705
+y1=0.00019
+y2=1.5
 ypos1=0
 ypos2=2
 divy=5
@@ -63,8 +63,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-y1=-0.72
-y2=1}
+y1=0.69
+y2=0.7}
 B 2 1290 -1260 2090 -860 {flags=graph
 y1=2.17444e-08
 y2=1.41183e-07
