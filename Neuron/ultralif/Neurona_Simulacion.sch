@@ -309,7 +309,7 @@ value="
 	write Neurona_Simulacion.raw
 .endc
 "}
-C {devices/vdd.sym} 220 -410 0 0 {name=l6 lab=VDD}
+C {devices/vdd.sym} 220 -410 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 1040 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 420 -340 0 0 {name=C1
 m=1

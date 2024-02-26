@@ -82,8 +82,6 @@ N 560 -400 560 -360 {
 lab=GND}
 N 370 -400 370 -360 {
 lab=GND}
-N 250 -750 250 -460 {
-lab=BL}
 N 560 -500 560 -460 {
 lab=SL}
 N 560 -530 640 -530 {
@@ -108,7 +106,11 @@ N 250 -750 360 -750 {
 lab=BL}
 N 420 -750 560 -750 {
 lab=be}
-C {devices/code_shown.sym} 80 -130 0 0 {name=NGSPICE
+N 250 -570 250 -400 {
+lab=GND}
+N 250 -750 250 -630 {
+lab=BL}
+C {devices/code_shown.sym} 200 -190 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 *.options savecurrents
@@ -139,7 +141,7 @@ spiceprefix=X
 C {devices/vsource.sym} 370 -430 0 0 {name=Vwl value="PWL(0 1.7 24u 1.7 25u 3)"
 
 }
-C {devices/vsource.sym} 250 -430 0 0 {name=Vbl value="PWL(0 0 10u 0 15u 3 20u 0)"}
+C {devices/vsource.sym} 250 -600 0 0 {name=Vbl value="PWL(0 0 10u 0 15u 3 20u 0)"}
 C {devices/gnd.sym} 440 -360 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 860 -380 0 0 {name=h5
 descr="load waves" 

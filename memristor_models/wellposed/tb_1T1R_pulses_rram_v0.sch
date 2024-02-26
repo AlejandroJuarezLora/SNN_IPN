@@ -97,7 +97,8 @@ logy=0
 
 
 color=4
-node="\\"ThicknessFill [nm]; 5 n.xr1.n1#ngap -\\""}
+node="\\"ThicknessFill [nm]; 5 n.xr1.n1#ngap -\\""
+linewidth_mult=3.5}
 N 230 0 230 40 {
 lab=GND}
 N 230 40 540 40 {
@@ -123,19 +124,19 @@ lab=GND}
 N 540 -240 540 -180 {
 lab=te}
 N 230 -350 340 -350 {
-lab=BL}
+lab=#net1}
 N 400 -350 540 -350 {
 lab=be}
-N 230 -350 230 -180 {
-lab=BL}
 N 230 -180 230 -120 {
-lab=BL}
+lab=#net2}
 N 290 -130 350 -130 {
 lab=WL}
 N 290 -130 290 -20 {
 lab=WL}
 N 230 -60 230 0 {
 lab=GND}
+N 230 -120 230 -60 {}
+N 230 -350 230 -240 {}
 C {devices/code_shown.sym} 100 160 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -165,7 +166,7 @@ spiceprefix=X
 }
 C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 3)"
 }
-C {devices/vsource.sym} 230 -90 0 1 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500n 1000n 10)"}
+C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500n 1000n 10)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 840 20 0 0 {name=h5
 descr="load waves" 
