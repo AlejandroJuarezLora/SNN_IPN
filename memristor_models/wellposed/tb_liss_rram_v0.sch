@@ -72,17 +72,18 @@ logx=0
 logy=0
 
 
-color=4
-node="\\"gap [nm]; 5 n.xr1.n1#ngap -\\""}
+color=6
+node="\\"Thickness [nm]; 5 n.xr1.n1#ngap -\\""
+linewidth_mult=3}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-0.000187036
-y2=0.000274136
+y1=-0.000107036
+y2=0.000200136
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-3
+x1=-1.5
 
 divx=5
 subdivx=1
@@ -99,7 +100,7 @@ sweep=TE
 linewidth_mult=3
 
 digital=0
-x2=3}
+x2=1.5}
 B 2 -140 -810 660 -410 {flags=graph
 y1=-0.000140821
 y2=0.000176225
@@ -177,5 +178,5 @@ C {sky130_fd_pr/rram_v0.sym} 350 -100 0 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }
-C {devices/vsource.sym} 130 -80 0 1 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"
+C {devices/vsource.sym} 130 -80 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"
 spice_ignore=false}

@@ -23,8 +23,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=4
-node="\\"Memristance Value [Ohms];te be - i(Vread) / \\""
+color=6
+node="\\"STDP Memristance Value [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
 B 2 -470 -1250 330 -850 {flags=graph
 y1=-0.00012
@@ -48,12 +48,13 @@ logy=0
 
 
 
-color=6
-node="\\"Current Memristor [A];i(vread)\\""
+color="6 7"
+node="\\"Current Memristor in STDP [A];i(vread)\\"
+\\"Current Memristor in RSTDP [A];i(vread1)\\""
 linewidth_mult=4}
 B 2 330 -1250 1130 -850 {flags=graph
-y1=-1.95834
-y2=3.04166
+y1=-0.33053
+y2=2.26147
 ypos1=0
 ypos2=2
 divy=5
@@ -73,8 +74,9 @@ logy=0
 
 
 
-color=6
-node="\\"Reward Signal [V]; r\\""
+color="6 7"
+node="\\"STDP Reward Signal [V]; r\\"
+\\"RSTDP Reward Signal [V]; r2\\""
 linewidth_mult=4}
 B 2 1220 -900 2020 -500 {flags=graph
 y1=-1.2
@@ -98,8 +100,8 @@ logy=0
 
 color="4 6 7"
 node="\\"BE - TE [V]; be te -\\"
-\\"Pos threshold [V]; 0.9\\"
-\\"Neg threshold [V]; -0.7\\""}
+\\"Rmem threshold [V]; 0.9\\"
+\\"Rmem threshold [V]; -0.7\\""}
 B 2 1160 -490 1960 -90 {flags=graph
 y1=-0.443569
 y2=2.14843
@@ -120,7 +122,7 @@ logx=0
 logy=0
 
 
-color="4 7"
+color="6 7"
 node="\\"Vpost; vpost\\"
 \\"Vpre; vpre\\""}
 B 2 1160 330 1960 730 {flags=graph
@@ -141,8 +143,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=4
-node="\\"Memristance Value [Ohms];te2 be2 - i(Vread1) / \\""
+color=7
+node="\\"RSTDP Memristance Value [Ohms];te2 be2 - i(Vread1) / \\""
 linewidth_mult=4}
 B 2 360 330 1160 730 {flags=graph
 y1=-1.95834
@@ -195,8 +197,8 @@ color=6
 node="\\"Current Memristor [A];i(vread1)\\""
 linewidth_mult=4}
 B 2 1160 -90 1960 310 {flags=graph
-y1=0.36
-y2=2.96
+y1=-1
+y2=1.1
 ypos1=0
 ypos2=2
 divy=5
@@ -479,7 +481,7 @@ C {devices/lab_pin.sym} 200 -800 1 0 {name=p2 sig_type=std_logic lab=R}
 C {devices/lab_pin.sym} 160 -630 0 0 {name=p3 sig_type=std_logic lab=vpre}
 C {devices/lab_pin.sym} 720 -630 2 0 {name=p4 sig_type=std_logic lab=vpost}
 C {devices/vsource.sym} 160 -570 0 1 {name=V1 value="PWL(0 0.9 12.5u 0.9 22.5u 1.8 27.5u 0 37.5u 0.9 62.5u 0.9 72.5u 1.8 77.5u 0 87.5u 0.9 100u 0.9 112.5u 0.9 122.5u 1.8 127.5u 0 137.5u 0.9 162.5u 0.9 172.5u 1.8 177.5u 0 187.5u 0.9)"}
-C {devices/vsource.sym} 720 -580 0 0 {name=V2 value="PWL(0 0.9 17.5u 0.9 27.5u 1.8 32.5u -0 42.5u 0.9 67.5u 0.9 77.5u 1.8 82.5u 0 92.5u 0.9 100u 0.9 117.5u 0.9 127.5u 1.8 132.5u -0 142.5u 0.9 167.5u 0.9 177.5u 1.8 182.5u 0 192.5u 0.9)"}
+C {devices/vsource.sym} 720 -580 0 1 {name=V2 value="PWL(0 0.9 17.5u 0.9 27.5u 1.8 32.5u -0 42.5u 0.9 67.5u 0.9 77.5u 1.8 82.5u 0 92.5u 0.9 100u 0.9 117.5u 0.9 127.5u 1.8 132.5u -0 142.5u 0.9 167.5u 0.9 177.5u 1.8 182.5u 0 192.5u 0.9)"}
 C {devices/lab_pin.sym} 430 -640 3 0 {name=p5 sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 510 -640 3 0 {name=p6 sig_type=std_logic lab=te}
 C {devices/gnd.sym} 160 -500 0 0 {name=l2 lab=GND}
@@ -559,7 +561,7 @@ C {devices/lab_pin.sym} 180 -140 1 0 {name=p1 sig_type=std_logic lab=R2}
 C {devices/lab_pin.sym} 140 30 0 0 {name=p7 sig_type=std_logic lab=vpre2}
 C {devices/lab_pin.sym} 700 30 2 0 {name=p8 sig_type=std_logic lab=vpost2}
 C {devices/vsource.sym} 140 90 0 1 {name=V3 value="PWL(0 0.9 12.5u 0.9 22.5u 1.8 27.5u 0 37.5u 0.9 62.5u 0.9 72.5u 1.8 77.5u 0 87.5u 0.9 100u 0.9 112.5u 0.9 122.5u 1.8 127.5u 0 137.5u 0.9 162.5u 0.9 172.5u 1.8 177.5u 0 187.5u 0.9)"}
-C {devices/vsource.sym} 700 80 0 0 {name=V4 value="PWL(0 0.9 17.5u 0.9 27.5u 1.8 32.5u -0 42.5u 0.9 67.5u 0.9 77.5u 1.8 82.5u 0 92.5u 0.9 100u 0.9 117.5u 0.9 127.5u 1.8 132.5u -0 142.5u 0.9 167.5u 0.9 177.5u 1.8 182.5u 0 192.5u 0.9)"}
+C {devices/vsource.sym} 700 80 0 1 {name=V4 value="PWL(0 0.9 17.5u 0.9 27.5u 1.8 32.5u -0 42.5u 0.9 67.5u 0.9 77.5u 1.8 82.5u 0 92.5u 0.9 100u 0.9 117.5u 0.9 127.5u 1.8 132.5u -0 142.5u 0.9 167.5u 0.9 177.5u 1.8 182.5u 0 192.5u 0.9)"}
 C {devices/lab_pin.sym} 410 20 3 0 {name=p9 sig_type=std_logic lab=be2}
 C {devices/lab_pin.sym} 490 20 3 0 {name=p10 sig_type=std_logic lab=te2}
 C {devices/gnd.sym} 140 160 0 0 {name=l4 lab=GND}
