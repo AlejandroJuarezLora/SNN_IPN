@@ -27,12 +27,12 @@ color=6
 node="\\"STDP Memristance Value [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
 B 2 -470 -1250 330 -850 {flags=graph
-y1=-0.00012
-y2=0.00012
+y1=-0.000136666
+y2=0.000103334
 ypos1=0
 ypos2=2
 divy=5
-subdivy=1
+
 unity=1
 x1=0
 x2=0.0002
@@ -48,13 +48,14 @@ logy=0
 
 
 
-color="6 7"
-node="\\"Current Memristor in STDP [A];i(vread)\\"
-\\"Current Memristor in RSTDP [A];i(vread1)\\""
-linewidth_mult=4}
+color=6
+node="\\"Current Memristor in STDP [A];i(vread)\\""
+linewidth_mult=4
+digital=0
+}
 B 2 330 -1250 1130 -850 {flags=graph
-y1=-0.33053
-y2=2.26147
+y1=-0.554283
+y2=2.4317
 ypos1=0
 ypos2=2
 divy=5
@@ -99,9 +100,10 @@ logy=0
 
 
 color="4 6 7"
-node="\\"BE - TE [V]; be te -\\"
-\\"Rmem threshold [V]; 0.9\\"
-\\"Rmem threshold [V]; -0.7\\""}
+node="\\"BE - TE in STDP [V]; be te -\\"
+\\"Von [V]; 0.9\\"
+\\"Voff [V]; -0.7\\""
+linewidth_mult=3}
 B 2 1160 -490 1960 -90 {flags=graph
 y1=-0.443569
 y2=2.14843
@@ -172,8 +174,8 @@ color=6
 node="\\"Reward Signal [V]; r2\\""
 linewidth_mult=4}
 B 2 -460 330 340 730 {flags=graph
-y1=-0.00012
-y2=0.00012
+y1=-0.000127043
+y2=0.000127762
 ypos1=0
 ypos2=2
 divy=5
@@ -193,12 +195,12 @@ logy=0
 
 
 
-color=6
-node="\\"Current Memristor [A];i(vread1)\\""
+color=7
+node="\\"Current Memristor in RSTDP [A];i(vread1)\\""
 linewidth_mult=4}
 B 2 1160 -90 1960 310 {flags=graph
-y1=-1
-y2=1.1
+y1=-0.864025
+y2=1.15198
 ypos1=0
 ypos2=2
 divy=5
@@ -217,9 +219,10 @@ logy=0
 
 
 color="4 6 7"
-node="\\"BE - TE [V]; be2 te2 -\\"
-\\"Pos threshold [V]; 0.9\\"
-\\"Neg threshold [V]; -0.7\\""}
+node="\\"BE - TE  in RSTDP[V]; be2 te2 -\\"
+\\"Von  [V]; 0.9\\"
+\\"Voff [V]; -0.7\\""
+linewidth_mult=3}
 N 270 -500 270 -460 {
 lab=R}
 N 270 -460 580 -460 {
