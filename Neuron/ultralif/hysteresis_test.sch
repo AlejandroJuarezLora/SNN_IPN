@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0.2
-x2=0.7
+x1=0.154143
+x2=0.730143
 divx=5
 subdivx=1
 
@@ -122,7 +122,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 840 -400 0 0 {name=M3
 L=1
-W=90
+W=50
 nf=1
 mult=2
 model=pfet_01v8

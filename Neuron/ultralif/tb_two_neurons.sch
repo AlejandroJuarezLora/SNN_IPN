@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1150 325 1950 725 {flags=graph
-y1=-0
-y2=3.7e+06
+y1=6800
+y2=19000
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001
+x1=-0.000172513
+x2=0.00102749
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -39,8 +39,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001
+x1=-0.000172513
+x2=0.00102749
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -64,8 +64,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001
+x1=-0.000172513
+x2=0.00102749
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -82,15 +82,15 @@ logy=0
 color=6
 node=vout2}
 B 2 -755 350 45 750 {flags=graph
-y1=-1.05393
-y2=2.67864
+y1=-0.0059
+y2=0.68
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001
+x1=-0.000172513
+x2=0.00102749
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -630,23 +630,23 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 700 -400 0 1 {name=M2
-L=1
-W=10
+L=0.15
+W=1.5
 nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 840 -400 0 0 {name=M3
-L=1
-W=50
+L=0.15
+W=7.5
 nf=1
 mult=2
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 840 -280 0 0 {name=M4
-L=1
+L=0.15
 W=1
 nf=1 
 mult=1
@@ -654,7 +654,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 970 -280 0 0 {name=M5
-L=1
+L=0.15
 W=1
 nf=1 
 mult=1
@@ -692,7 +692,7 @@ place=end
 value="
 .options savecurrents
 *.nodeset v(vm)=0.75
-.tran 50n 1000u uic
+.tran 50n 5000u uic
 .control
 	run
 	write tb_two_neurons.raw
@@ -705,7 +705,7 @@ value1=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 420 -240 0 0 {name=l8 lab=GND}
-C {devices/isource.sym} 190 -500 0 0 {name=Iin value="PWL(0 56n 399u 56n 400u 70n)"}
+C {devices/isource.sym} 190 -500 0 0 {name=Iin value=50n}
 C {devices/vdd.sym} 190 -530 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 780 -280 3 0 {name=p1 sig_type=std_logic lab=Vg1}
 C {devices/launcher.sym} 1520 -620 0 0 {name=h5
@@ -739,16 +739,16 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 1990 -300 0 1 {name=M9
-L=1
-W=10
+L=0.15
+W=1.5
 nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 2130 -300 0 0 {name=M10
-L=1
-W=50
+L=0.15
+W=7.5
 nf=1
 mult=2
 model=pfet_01v8
@@ -763,7 +763,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 2260 -180 0 0 {name=M12
-L=1
+L=0.15
 W=1
 nf=1 
 mult=1
@@ -826,23 +826,23 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 710 80 0 1 {name=M18
-L=1
-W=10
+L=0.15
+W=1.5
 nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 850 80 0 0 {name=M19
-L=1
-W=50
+L=0.15
+W=7.5
 nf=1
 mult=2
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 850 200 0 0 {name=M20
-L=1
+L=0.15
 W=1
 nf=1 
 mult=1
@@ -886,7 +886,7 @@ value1=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 430 240 0 0 {name=l18 lab=GND}
-C {devices/isource.sym} 190 -55 0 0 {name=Iin1 value="PWL(0 70n 399u 70n 400u 56n)"}
+C {devices/isource.sym} 190 -55 0 0 {name=Iin1 value=70n}
 C {devices/vdd.sym} 190 -85 0 0 {name=l19 lab=VDD}
 C {devices/lab_pin.sym} 790 200 3 0 {name=p13 sig_type=std_logic lab=Vg2}
 C {devices/lab_pin.sym} 1030 130 1 1 {name=p14 sig_type=std_logic lab=V2
