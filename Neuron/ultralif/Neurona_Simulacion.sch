@@ -6,19 +6,19 @@ V {}
 S {}
 E {}
 B 2 1300 -400 2100 0 {flags=graph
-y1=-0.0012
-y2=1.9
+y1=-1.01924
+y2=2.76718
 ypos1=-0.319016
 ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
-x1=0.000173398
-x2=0.000176263
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 node="\\"Vout [V]; vout\\""
-color=4
+color=6
 dataset=-1
 unitx=1
 logx=0
@@ -26,15 +26,15 @@ logy=0
 digital=0
 linewidth_mult=3.5}
 B 2 1300 -1200 2100 -800 {flags=graph
-y1=0.3832
-y2=1.9042
+y1=-1.21492
+y2=3.0275
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.000173398
-x2=0.000176263
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 
@@ -44,8 +44,9 @@ unitx=1
 logx=0
 logy=0
 
-color=6
-node="\\"Vm [V]; vm\\""
+color="6 4"
+node="\\"Vm [V]; vm\\"
+\\"Vg [V]; vg\\""
 linewidth_mult=3.5}
 B 2 500 -1200 1300 -800 {flags=graph
 
@@ -55,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.000173398
-x2=0.000176263
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 
@@ -65,21 +66,21 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-y1=-0.926363
-y2=2.21856
+y1=-1.25396
+y2=1.89096
 color="6 6"
 node="\\"Vg [V]; Vg\\";"
 linewidth_mult=3.5}
 B 2 1300 -800 2100 -400 {flags=graph
-y1=-9.77559e-09
-y2=7.06085e-08
+y1=1.10208e-07
+y2=1.30891e-07
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.000173398
-x2=0.000176263
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 
@@ -88,9 +89,9 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=4
+color=6
 node="\\"Iext [A]; i(@iext[current])\\""
-linewidth_mult=3.5}
+linewidth_mult=4}
 T {19nA = 8,695hz} 160 -700 0 0 0.4 0.4 {}
 T {19nA = 86950hz} 160 -640 0 0 0.4 0.4 {}
 N 780 -440 780 -430 {
@@ -261,6 +262,8 @@ N 850 -480 870 -480 {
 lab=Vg}
 N 780 -400 840 -400 {
 lab=VDD}
+N 740 -510 800 -510 {
+lab=GND}
 C {devices/title.sym} 150 80 0 0 {name=l1 author="Stefan Schippers"}
 C {sky130_fd_pr/pfet_01v8.sym} 440 -390 0 0 {name=M1
 L=10
@@ -333,7 +336,7 @@ place=end
 value="
 .options savecurrents
 *.nodeset v(vm)=0.75
-.tran 50n 450u uic
+.tran 10n 150u uic
 .control
 	run
 	write Neurona_Simulacion.raw
@@ -347,7 +350,7 @@ value1=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}
-C {devices/isource.sym} 160 -470 0 1 {name=Iext value=100n}
+C {devices/isource.sym} 160 -470 0 1 {name=Iext value=50n}
 C {devices/vdd.sym} 160 -500 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 700 -280 3 0 {name=p1 sig_type=std_logic lab=Vg}
 C {devices/launcher.sym} 530 -660 0 0 {name=h5
@@ -367,7 +370,7 @@ mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/gnd.sym} 740 -510 0 0 {name=l6 lab=GND}
+C {devices/gnd.sym} 800 -510 0 0 {name=l6 lab=GND}
 C {sky130_fd_pr/pfet_01v8.sym} 280 -460 3 1 {name=M9
 L=0.15
 W=2
@@ -379,6 +382,5 @@ spiceprefix=X
 C {devices/vdd.sym} 280 -380 2 0 {name=l9 lab=VDD}
 C {devices/vdd.sym} 530 -390 2 0 {name=l10 lab=VDD}
 C {devices/vdd.sym} 840 -400 2 0 {name=l11 lab=VDD}
-C {devices/isource.sym} -70 -520 0 1 {name=Iext1 value="PWL(0 50n 149u 50n 150u 70n 299u 70n 300u 90n)"
-spice_ignore=true
-}
+C {devices/isource.sym} -20 -580 0 1 {name=Iext1 value="PWL(0 50n 50u 50n 51u 90n 100u 90n 101u 130n)"
+spice_ignore=true}
