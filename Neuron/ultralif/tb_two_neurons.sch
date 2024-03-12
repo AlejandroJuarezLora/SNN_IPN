@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1150 325 1950 725 {flags=graph
-y1=6800
-y2=19000
+y1=-0
+y2=3.8e+06
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000172513
-x2=0.00102749
+x1=6.25e-11
+x2=0.01
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -32,40 +32,15 @@ color="6 8"
 node="\\"MEM1; TE1 BE - i(vread1) /\\"
 \\"MEM2; TE2 BE - i(vread2) /\\""}
 B 2 -740 -555 60 -155 {flags=graph
-y1=-0.00077
+y1=-0.00092
 y2=1.9
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000172513
-x2=0.00102749
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-
-
-color=8
-node=vout1}
-B 2 -740 -75 60 325 {flags=graph
-y1=-0.00019
-y2=1.9
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-0.000172513
-x2=0.00102749
+x1=6.25e-11
+x2=0.01
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -80,17 +55,42 @@ logy=0
 
 
 color=6
-node=vout2}
-B 2 -755 350 45 750 {flags=graph
-y1=-0.0059
-y2=0.68
+node=vout1}
+B 2 -740 -75 60 325 {flags=graph
+y1=-0.019
+y2=1.9
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.000172513
-x2=0.00102749
+x1=6.25e-11
+x2=0.01
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+
+color=8
+node=vout2}
+B 2 1785 -960 2585 -560 {flags=graph
+y1=-0.011
+y2=1.9
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=6.25e-11
+x2=0.01
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -390,8 +390,6 @@ N 1970 -270 1970 -230 {
 lab=Vg_post}
 N 2280 -270 2280 -250 {
 lab=V_post}
-N 1470 -340 1610 -340 {
-lab=BE}
 N 1450 -340 1470 -340 {
 lab=BE}
 N 1370 -340 1390 -340 {
@@ -620,6 +618,26 @@ N 2230 -500 2230 -400 {
 lab=Vg_post}
 N 190 -25 190 30 {
 lab=#net6}
+N 1260 140 1260 160 {
+lab=Vout2}
+N 1260 220 1260 250 {
+lab=GND}
+N 1530 140 1530 160 {
+lab=BE}
+N 1530 220 1530 250 {
+lab=GND}
+N 1250 -340 1250 -320 {
+lab=Vout1}
+N 1250 -260 1250 -230 {
+lab=GND}
+N 1470 -340 1490 -340 {
+lab=BE}
+N 1550 -340 1570 -340 {
+lab=BE}
+N 1570 -340 1610 -340 {
+lab=BE}
+N 1490 -340 1550 -340 {
+lab=BE}
 C {devices/title.sym} 180 -960 0 0 {name=l1 author="Stefan Schippers"}
 C {sky130_fd_pr/pfet_01v8.sym} 520 -390 0 0 {name=M1
 L=10
@@ -646,7 +664,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 840 -280 0 0 {name=M4
-L=0.15
+L=1
 W=1
 nf=1 
 mult=1
@@ -692,7 +710,7 @@ place=end
 value="
 .options savecurrents
 *.nodeset v(vm)=0.75
-.tran 50n 5000u uic
+.tran 50n 10m uic
 .control
 	run
 	write tb_two_neurons.raw
@@ -701,11 +719,11 @@ value="
 C {devices/vdd.sym} 120 -410 0 0 {nname=l4 lab=VDD}
 C {devices/capa.sym} 420 -340 0 0 {name=C1
 m=1
-value1=1p
+value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 420 -240 0 0 {name=l8 lab=GND}
-C {devices/isource.sym} 190 -500 0 0 {name=Iin value=50n}
+C {devices/isource.sym} 190 -500 0 0 {name=Iin value=40n}
 C {devices/vdd.sym} 190 -530 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 780 -280 3 0 {name=p1 sig_type=std_logic lab=Vg1}
 C {devices/launcher.sym} 1520 -620 0 0 {name=h5
@@ -717,7 +735,7 @@ C {devices/lab_pin.sym} 1020 -350 1 1 {name=p3 sig_type=std_logic lab=V1
 C {devices/isource.sym} 990 -400 0 0 {name=I3 value=100nA
 
 spice_ignore=false}
-C {sky130_fd_pr/rram_v0.sym} 1420 -340 1 0 {name=R1
+C {sky130_fd_pr/rram_v0.sym} 1420 -340 3 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }
@@ -755,7 +773,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 2130 -180 0 0 {name=M11
-L=0.15
+L=1
 W=1
 nf=1 
 mult=1
@@ -792,7 +810,7 @@ C {devices/lab_pin.sym} 2030 -340 1 0 {name=p6 sig_type=std_logic lab=Vm_post}
 C {devices/vdd.sym} 2330 -370 0 0 {name=l6 lab=VDD}
 C {devices/capa.sym} 1740 -240 0 0 {name=C2
 m=1
-value1=1p
+value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 1740 -140 0 0 {name=l9 lab=GND}
@@ -815,7 +833,7 @@ spiceprefix=X
 C {devices/vdd.sym} 1640 -300 2 0 {name=l10 lab=VDD}
 C {devices/lab_pin.sym} 1380 -340 3 1 {name=p9 sig_type=std_logic lab=TE1
 }
-C {devices/lab_pin.sym} 1480 -340 3 1 {name=p10 sig_type=std_logic lab=BE
+C {devices/lab_pin.sym} 1510 -340 3 1 {name=p10 sig_type=std_logic lab=BE
 }
 C {sky130_fd_pr/pfet_01v8.sym} 530 90 0 0 {name=M17
 L=10
@@ -842,7 +860,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 850 200 0 0 {name=M20
-L=0.15
+L=1
 W=1
 nf=1 
 mult=1
@@ -882,11 +900,11 @@ C {devices/lab_pin.sym} 750 40 1 0 {name=p12 sig_type=std_logic lab=Vm2}
 C {devices/vdd.sym} 1050 10 0 0 {name=l17 lab=VDD}
 C {devices/capa.sym} 430 140 0 0 {name=C3
 m=1
-value1=1p
+value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 430 240 0 0 {name=l18 lab=GND}
-C {devices/isource.sym} 190 -55 0 0 {name=Iin1 value=70n}
+C {devices/isource.sym} 190 -55 0 0 {name=Iin1 value=45n}
 C {devices/vdd.sym} 190 -85 0 0 {name=l19 lab=VDD}
 C {devices/lab_pin.sym} 790 200 3 0 {name=p13 sig_type=std_logic lab=Vg2}
 C {devices/lab_pin.sym} 1030 130 1 1 {name=p14 sig_type=std_logic lab=V2
@@ -894,7 +912,7 @@ C {devices/lab_pin.sym} 1030 130 1 1 {name=p14 sig_type=std_logic lab=V2
 C {devices/isource.sym} 1000 80 0 0 {name=I6 value=100nA
 
 spice_ignore=false}
-C {sky130_fd_pr/rram_v0.sym} 1430 140 1 0 {name=R2
+C {sky130_fd_pr/rram_v0.sym} 1430 140 3 0 {name=R2
 model=rram_v0
 spiceprefix=X
 }
@@ -940,3 +958,9 @@ spiceprefix=X
 }
 C {devices/gnd.sym} 2315 -440 0 0 {name=l7 lab=GND}
 C {devices/vdd.sym} 1075 -470 0 0 {name=l16 lab=VDD}
+C {devices/res.sym} 1260 190 0 0 {name=R3 value=1G}
+C {devices/gnd.sym} 1260 250 0 0 {name=l22 lab=GND}
+C {devices/res.sym} 1530 190 0 0 {name=R4 value=1G}
+C {devices/gnd.sym} 1530 250 0 0 {name=l23 lab=GND}
+C {devices/res.sym} 1250 -290 0 0 {name=R5 value=1G}
+C {devices/gnd.sym} 1250 -230 0 0 {name=l24 lab=GND}
