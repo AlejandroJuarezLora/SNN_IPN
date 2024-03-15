@@ -13,8 +13,8 @@ ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
-x1=3.30767e-05
-x2=5.32094e-05
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 node="\\"Vout [V]; vout\\""
@@ -33,8 +33,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.30767e-05
-x2=5.32094e-05
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 
@@ -56,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.30767e-05
-x2=5.32094e-05
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 
@@ -72,15 +72,15 @@ color="6 6"
 node="\\"Vg [V]; Vg\\";"
 linewidth_mult=3.5}
 B 2 470 -1160 1270 -760 {flags=graph
-y1=3.79954e-08
-y2=1.64716e-07
+y1=1.86707e-07
+y2=2.07779e-07
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.30767e-05
-x2=5.32094e-05
+x1=1e-10
+x2=0.00015
 divx=5
 subdivx=1
 
@@ -222,20 +222,18 @@ N 1120 -340 1170 -340 {
 lab=Vout}
 N 1120 -550 1120 -340 {
 lab=Vout}
-N 800 -550 1120 -550 {
-lab=Vout}
 N 740 -590 800 -590 {
-lab=Vout}
+lab=#net2}
 N 800 -590 800 -550 {
-lab=Vout}
+lab=#net2}
 N 310 -440 340 -440 {
 lab=Vm}
 N 220 -440 250 -440 {
-lab=#net2}
+lab=#net3}
 N 220 -550 710 -550 {
-lab=#net2}
+lab=#net3}
 N 220 -550 220 -440 {
-lab=#net2}
+lab=#net3}
 N 280 -480 870 -480 {
 lab=Vg}
 N 740 -550 740 -510 {
@@ -257,9 +255,21 @@ lab=VDD}
 N 740 -510 800 -510 {
 lab=GND}
 N 770 -550 800 -550 {
-lab=Vout}
-N 160 -440 220 -440 {
 lab=#net2}
+N 160 -440 220 -440 {
+lab=#net3}
+N 960 -550 1120 -550 {
+lab=Vout}
+N 800 -550 900 -550 {
+lab=#net2}
+N 800 -510 930 -510 {
+lab=GND}
+N 930 -550 930 -510 {
+lab=GND}
+N 870 -590 930 -590 {
+lab=Vg}
+N 870 -590 870 -480 {
+lab=Vg}
 C {devices/title.sym} 150 80 0 0 {name=l1 author="Stefan Schippers"}
 C {sky130_fd_pr/pfet_01v8.sym} 440 -390 0 0 {name=M1
 L=10
@@ -346,7 +356,7 @@ value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}
-C {devices/isource.sym} 160 -470 0 1 {name=Iext value=192n}
+C {devices/isource.sym} 160 -470 0 1 {name=Iext value=100n}
 C {devices/vdd.sym} 160 -500 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 700 -280 3 0 {name=p1 sig_type=std_logic lab=Vg}
 C {devices/launcher.sym} 530 -660 0 0 {name=h5
@@ -378,5 +388,11 @@ spiceprefix=X
 C {devices/vdd.sym} 280 -380 2 0 {name=l9 lab=VDD}
 C {devices/vdd.sym} 530 -390 2 0 {name=l10 lab=VDD}
 C {devices/vdd.sym} 840 -400 2 0 {name=l11 lab=VDD}
-C {devices/isource.sym} -20 -580 0 1 {name=Iext1 value="PWL(0 50n 50u 50n 51u 90n 100u 90n 101u 130n)"
-spice_ignore=true}
+C {sky130_fd_pr/nfet_01v8.sym} 930 -570 1 0 {name=M10
+L=0.15
+W=1
+nf=1 
+mult=1
+model=nfet_01v8
+spiceprefix=X
+}

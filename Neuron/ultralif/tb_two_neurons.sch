@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1150 325 1950 725 {flags=graph
-y1=-0
-y2=3.8e+06
+y1=5925.65
+y2=28225.7
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=6.25e-11
-x2=0.01
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -40,7 +40,7 @@ divy=5
 subdivy=1
 unity=1
 x1=6.25e-11
-x2=0.01
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -65,7 +65,7 @@ divy=5
 subdivy=1
 unity=1
 x1=6.25e-11
-x2=0.01
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -90,7 +90,7 @@ divy=5
 subdivy=1
 unity=1
 x1=6.25e-11
-x2=0.01
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -710,7 +710,7 @@ place=end
 value="
 .options savecurrents
 *.nodeset v(vm)=0.75
-.tran 50n 10m uic
+.tran 50n 1m uic
 .control
 	run
 	write tb_two_neurons.raw
@@ -723,7 +723,7 @@ value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 420 -240 0 0 {name=l8 lab=GND}
-C {devices/isource.sym} 190 -500 0 0 {name=Iin value=40n}
+C {devices/isource.sym} 190 -500 0 0 {name=Iin value=60n}
 C {devices/vdd.sym} 190 -530 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 780 -280 3 0 {name=p1 sig_type=std_logic lab=Vg1}
 C {devices/launcher.sym} 1520 -620 0 0 {name=h5
@@ -904,7 +904,7 @@ value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 430 240 0 0 {name=l18 lab=GND}
-C {devices/isource.sym} 190 -55 0 0 {name=Iin1 value=45n}
+C {devices/isource.sym} 190 -55 0 0 {name=Iin1 value=80n}
 C {devices/vdd.sym} 190 -85 0 0 {name=l19 lab=VDD}
 C {devices/lab_pin.sym} 790 200 3 0 {name=p13 sig_type=std_logic lab=Vg2}
 C {devices/lab_pin.sym} 1030 130 1 1 {name=p14 sig_type=std_logic lab=V2

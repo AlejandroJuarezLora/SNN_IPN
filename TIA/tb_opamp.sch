@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 710 -520 1510 -120 {flags=graph
-y1=1.55164
-y2=1.61456
+y1=-0.0013
+y2=0.97
 ypos1=0
 ypos2=2
 divy=5
@@ -28,8 +28,8 @@ logx=0
 logy=0
 }
 B 2 710 -110 1510 290 {flags=graph
-y1=0.00025
-y2=0.03
+y1=1.72429
+y2=1.82429
 ypos1=0
 ypos2=2
 divy=5
@@ -51,8 +51,8 @@ color="7 4"
 node="vout1
 vout2"}
 B 2 700 310 1500 710 {flags=graph
-y1=-7.4e-08
-y2=8.4e-08
+y1=-1.9e-08
+y2=1.6e-08
 ypos1=0
 ypos2=2
 divy=5
@@ -119,11 +119,11 @@ N 80 -80 80 60 {
 lab=GND}
 N 50 60 80 60 {
 lab=GND}
-C {/home/alex/Desktop/TIA/OPAMP_TWOSTAGE.sym} 140 -130 0 0 {name=x1}
+C {/home/alex/Desktop/EDA/SNN_IPN/TIA/OPAMP_TWOSTAGE.sym} 140 -130 0 0 {name=x1}
 C {devices/vsource.sym} -150 0 0 0 {name=V2 value="PWL(0 0.4 4.9u 0.4 5u 1)"}
 C {devices/vsource.sym} -70 0 0 0 {name=V1 value="PWL(0 1 4.9u 1 5u 0.4)"}
-C {devices/vsource.sym} 50 0 0 1 {name=V3 value=0.631}
-C {devices/vsource.sym} -230 0 0 0 {name=V4 value=0.263}
+C {devices/vsource.sym} 50 0 0 1 {name=V3 value=0.76}
+C {devices/vsource.sym} -230 0 0 0 {name=V4 value=1.175}
 C {devices/vsource.sym} -320 0 0 0 {name=V5 value=1.8}
 C {devices/lab_pin.sym} 270 -160 0 1 {name=p1 sig_type=std_logic lab=vout1}
 C {devices/lab_pin.sym} 270 -100 0 1 {name=p2 sig_type=std_logic lab=vout2}

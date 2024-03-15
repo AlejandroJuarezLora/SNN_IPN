@@ -6,8 +6,8 @@ V {}
 S {}
 E {}
 B 2 1220 -1300 2020 -900 {flags=graph
-y1=7800
-y2=170000
+y1=8000
+y2=91000
 ypos1=0
 ypos2=2
 divy=5
@@ -128,8 +128,8 @@ color="6 7"
 node="\\"Vpost; vpost\\"
 \\"Vpre; vpre\\""}
 B 2 1160 330 1960 730 {flags=graph
-y1=1268.2
-y2=52792.9
+y1=-4772.93
+y2=37867.9
 ypos1=0
 ypos2=2
 divy=5
@@ -149,8 +149,8 @@ color=7
 node="\\"RSTDP Memristance Value [Ohms];te2 be2 - i(Vread1) / \\""
 linewidth_mult=4}
 B 2 360 330 1160 730 {flags=graph
-y1=-1.95834
-y2=3.04166
+y1=-1.43751
+y2=3.56249
 ypos1=0
 ypos2=2
 divy=5
@@ -430,7 +430,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 10n 200u
+  tran 100n 200u
   write tb_4T1R_rram_v0.raw
 .endc
 
@@ -454,7 +454,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 270 -740 1 0 {name=M2
 L=0.15
-W=7
+W=7.5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -468,7 +468,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 580 -740 1 0 {name=M3
 L=0.15
-W=70
+W=7.5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -494,7 +494,7 @@ C {devices/vsource.sym} 100 -750 0 1 {name=vr1 value="PWL(0 0 99u 0 101u 0)"
 spice_ignore=false}
 C {sky130_fd_pr/pfet_01v8.sym} 270 -520 1 1 {name=M1
 L=0.15
-W=90
+W=15
 nf=1
 mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -508,7 +508,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 580 -520 1 1 {name=M4
 L=0.15
-W=90
+W=15
 nf=1
 mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -534,7 +534,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 250 -80 1 0 {name=M5
 L=0.15
-W=7
+W=7.5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -548,7 +548,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 560 -80 1 0 {name=M6
 L=0.15
-W=70
+W=7.5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -574,7 +574,7 @@ C {devices/vsource.sym} 80 -90 0 1 {name=vr2 value="PWL(0 0 99u 0 101u 1.8)"
 spice_ignore=false}
 C {sky130_fd_pr/pfet_01v8.sym} 250 140 1 1 {name=M7
 L=0.15
-W=90
+W=15
 nf=1
 mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -588,7 +588,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 560 140 1 1 {name=M8
 L=0.15
-W=90
+W=15
 nf=1
 mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
