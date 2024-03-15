@@ -26,8 +26,8 @@ logy=0
 digital=0
 linewidth_mult=3.5}
 B 2 1270 -1160 2070 -760 {flags=graph
-y1=-1.55
-y2=-0.11
+y1=-2.3
+y2=1.6
 ypos1=0
 ypos2=2
 divy=5
@@ -72,8 +72,8 @@ color="6 6"
 node="\\"Vg [V]; Vg\\";"
 linewidth_mult=3.5}
 B 2 470 -1160 1270 -760 {flags=graph
-y1=-1.59883
-y2=2.00453
+y1=-1.84907
+y2=1.75429
 ypos1=0
 ypos2=2
 divy=5
@@ -441,7 +441,7 @@ m=1
 value=15n
 footprint=1206
 device="ceramic capacitor"}
-C {devices/vsource.sym} -190 -360 0 1 {name=Vspk_pre value="SINE(0 1.8 100k 0)"}
+C {devices/vsource.sym} -190 -360 0 1 {name=Vspk_pre value="SINE(0 1.8 10k 0)"}
 C {devices/gnd.sym} -190 -260 0 0 {name=l12 lab=GND
 value="SINE(0.9 0.9 10k 0)"}
 C {devices/lab_pin.sym} -160 -440 3 1 {name=p5 sig_type=std_logic lab=Vinpre
