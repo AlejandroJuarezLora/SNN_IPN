@@ -29,8 +29,8 @@ logx=0
 logy=0
 }
 B 2 1260 -670 2060 -270 {flags=graph
-y1=0.026
-y2=0.9
+y1=0.025
+y2=1.6
 ypos1=0
 ypos2=2
 divy=5
@@ -50,8 +50,8 @@ logx=0
 logy=0
 }
 B 2 1260 -240 2060 160 {flags=graph
-y1=2.9291667
-y2=5.1291667
+y1=3.4
+y2=3.9
 ypos1=0
 ypos2=2
 divy=5
@@ -72,9 +72,9 @@ unitx=1
 logx=0
 logy=0
 }
-B 2 1270 230 2070 630 {flags=graph
-y1=-0.00054
-y2=1.9
+B 2 1260 230 2060 630 {flags=graph
+y1=0.29116819
+y2=1.1879461
 ypos1=0
 ypos2=2
 divy=5
@@ -86,8 +86,9 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node=vout_post
-color=4
+node="vout_post
+\\"vthn; 0.75\\""
+color="4 6"
 dataset=-1
 unitx=1
 logx=0
@@ -201,9 +202,7 @@ N 550 380 550 390 {
 lab=GND}
 N 340 300 400 300 {
 lab=vout2_pre}
-N 120 320 400 320 {
-lab=#net3}
-N 70 320 120 320 {
+N 120 340 400 340 {
 lab=#net3}
 N 70 300 70 320 {
 lab=#net3}
@@ -283,6 +282,22 @@ N 980 310 980 810 {
 lab=vout_post}
 N 890 810 980 810 {
 lab=vout_post}
+N 70 340 120 340 {
+lab=#net3}
+N 70 320 70 340 {
+lab=#net3}
+N 90 40 400 40 {
+lab=Iin}
+N 90 -0 90 40 {
+lab=Iin}
+N 70 840 400 840 {
+lab=#net4}
+N 70 800 70 840 {
+lab=#net4}
+N 770 -130 770 -100 {
+lab=VDD}
+N 770 -40 770 40 {
+lab=vin_post}
 C {devices/vsource.sym} -120 -10 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/vdd.sym} -120 -70 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -120 50 0 0 {name=l2 lab=GND}
@@ -378,3 +393,5 @@ C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_switched.sym} 550 800 0 0 {name=
 C {devices/vdd.sym} 550 750 0 0 {name=l21 lab=VDD}
 C {devices/gnd.sym} 550 890 0 0 {name=l22 lab=GND}
 C {devices/lab_pin.sym} 360 800 1 0 {name=p6 sig_type=std_logic lab=vout3_pre}
+C {devices/isource.sym} 770 -70 0 1 {name=In3 value=25n }
+C {devices/vdd.sym} 770 -130 0 0 {name=l16 lab=VDD}
