@@ -71,16 +71,16 @@ N -100 100 -100 140 {
 lab=vss}
 N 510 -100 540 -100 {
 lab=vbw_out}
-C {devices/res.sym} -190 -130 3 0 {name=R1 value=Rr}
-C {devices/res.sym} 170 -70 0 0 {name=R2 value=Rr}
+C {devices/res.sym} -190 -130 3 0 {name=R1 value=@Rr}
+C {devices/res.sym} 170 -70 0 0 {name=R2 value=@Rr}
 C {devices/capa.sym} 60 -130 3 0 {name=C2
 m=1
-value=c2
+value=@c2
 footprint=1206
 device="ceramic capacitor"}
 C {devices/capa.sym} -100 -50 0 0 {name=C1
 m=1
-value=c1
+value=@c1
 footprint=1206
 device="ceramic capacitor"}
 C {devices/iopin.sym} -300 -130 0 1 {name=p1 lab=vbw_in}
@@ -88,8 +88,8 @@ C {devices/lab_pin.sym} 200 -130 3 1 {name=p8 sig_type=std_logic lab=vb}
 C {devices/iopin.sym} 540 -100 0 0 {name=p2 lab=vbw_out}
 C {devices/iopin.sym} 330 -200 0 0 {name=p4 lab=vdd}
 C {/home/alex/Desktop/EDA/SNN_IPN/OPAMP/opamp.sym} 460 -100 0 0 {name=x1}
-C {devices/res.sym} 270 50 0 0 {name=R3 value=Ra}
-C {devices/res.sym} 420 0 1 0 {name=R4 value=Rb}
-C {devices/res.sym} 360 -240 1 0 {name=R5 value=Rx}
+C {devices/res.sym} 270 50 0 0 {name=R3 value=@Ra}
+C {devices/res.sym} 420 0 1 0 {name=R4 value=@Rb}
+C {devices/res.sym} 360 -240 1 0 {name=R5 value=@Rx}
 C {devices/iopin.sym} -100 140 1 0 {name=p3 lab=vss}
 C {devices/lab_pin.sym} -70 -130 3 1 {name=p5 sig_type=std_logic lab=va}
