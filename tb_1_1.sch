@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 -960 200 -160 600 {flags=graph
-y1=0
-y2=2
+y1=0.013
+y2=1.2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0003
+x1=-1.4999934e-05
+x2=0.000285
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0003
+x1=-1.4999934e-05
+x2=0.000285
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -50,15 +50,15 @@ logx=0
 logy=0
 }
 B 2 1260 -240 2060 160 {flags=graph
-y1=3.4
-y2=3.9
+y1=3.4347222
+y2=3.9347222
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0003
+x1=-1.4999934e-05
+x2=0.000285
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -73,15 +73,15 @@ logx=0
 logy=0
 }
 B 2 1260 230 2060 630 {flags=graph
-y1=0.29116819
-y2=1.1879461
+y1=-0.0019
+y2=0.88
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0003
+x1=-1.4999934e-05
+x2=0.000285
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -94,6 +94,29 @@ unitx=1
 logx=0
 logy=0
 }
+B 2 1250 640 2050 1040 {flags=graph
+y1=0.97
+y2=1.2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-1.4999934e-05
+x2=0.000285
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color="4 6"
+node="x1.vpre
+x1.vpost"}
 N -120 20 -120 50 {
 lab=GND}
 N -120 -70 -120 -40 {
@@ -307,7 +330,7 @@ only_toplevel=true
 place=end
 value="
 *.options savecurrents
-.tran 50n 300u uic
+.tran 50n 300u
 .control
 	run
 	write tb_1_1.raw
@@ -376,7 +399,7 @@ tclcommand="xschem raw_read $netlist_dir/tb_1_1.raw tran"
 }
 C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 240 300 0 0 {name=x2}
 C {devices/gnd.sym} 280 400 0 0 {name=l7 lab=GND}
-C {devices/isource.sym} 70 240 0 1 {name=In2 value=120n }
+C {devices/isource.sym} 70 240 0 1 {name=In2 value=50n }
 C {devices/vdd.sym} 70 180 0 0 {name=l12 lab=VDD}
 C {devices/vdd.sym} 200 200 0 0 {name=l13 lab=VDD}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_switched.sym} 550 300 0 0 {name=x3}
