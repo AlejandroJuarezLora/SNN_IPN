@@ -5,28 +5,6 @@ K {}
 V {}
 S {}
 E {}
-B 2 -830 130 -30 530 {flags=graph
-y1=0.0023
-y2=1.2
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=0.0001
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node="vout_1
-vout_2"
-color="4 7"
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
 B 2 1470 260 2270 660 {flags=graph
 y1=3.2e-05
 y2=0.64
@@ -241,18 +219,17 @@ C {devices/gnd.sym} 1310 260 0 0 {name=l15 lab=GND}
 C {devices/lab_pin.sym} 1400 140 3 0 {name=p6 sig_type=std_logic lab=vout_post}
 C {devices/lab_pin.sym} 1150 140 3 0 {name=p7 sig_type=std_logic lab=vbp_post}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/bpfilter.sym} 990 140 0 0 {name=x4 
-fc1=20000 
-fc2=80000 
-A=2
-c2=1e-9
+fc1=1 
+fc2=100 
+A=1 
+c2=100n
 fo="'sqrt(fc1*fc2)'"
 Q="'fo/(fc2 - fc1)'"
-m="'(sqrt((A*A +A -1)*(A*A +A -1) + 4*Q*Q*A*(A+1)*(A+1)) - (A*A+A-1))/(2*A)'"
+m="'(-pow(A*A +A-1, 2) + sqrt(pow(pow(A*A +A-1, 2) + 4*pow(Q,2)*A*pow(A+1,2))))/(2*A)'"
 x="'(A*A)/(m*A+A-1)'"
 Rr="'(1/(2*3.1416*fo*c2))*sqrt((1+x)/(x*m))'"
 Ra="'((A+1)*Rr)/A'"
 Rb="'((A+1)*Rr)'"
 Rx="'x*Rr'"
 c1="'m*c2'"
-spiceprefix=BP
 }
