@@ -6,7 +6,7 @@ V {}
 S {}
 E {}
 B 2 1470 260 2270 660 {flags=graph
-y1=3.2e-05
+y1=4.4e-05
 y2=0.64
 ypos1=0
 ypos2=2
@@ -218,18 +218,5 @@ C {devices/vdd.sym} 1230 30 0 0 {name=l14 lab=VDD}
 C {devices/gnd.sym} 1310 260 0 0 {name=l15 lab=GND}
 C {devices/lab_pin.sym} 1400 140 3 0 {name=p6 sig_type=std_logic lab=vout_post}
 C {devices/lab_pin.sym} 1150 140 3 0 {name=p7 sig_type=std_logic lab=vbp_post}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/bpfilter.sym} 990 140 0 0 {name=x4 
-fc1=1 
-fc2=100 
-A=1 
-c2=100n
-fo="'sqrt(fc1*fc2)'"
-Q="'fo/(fc2 - fc1)'"
-m="'(-pow(A*A +A-1, 2) + sqrt(pow(pow(A*A +A-1, 2) + 4*pow(Q,2)*A*pow(A+1,2))))/(2*A)'"
-x="'(A*A)/(m*A+A-1)'"
-Rr="'(1/(2*3.1416*fo*c2))*sqrt((1+x)/(x*m))'"
-Ra="'((A+1)*Rr)/A'"
-Rb="'((A+1)*Rr)'"
-Rx="'x*Rr'"
-c1="'m*c2'"
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/bpfilter.sym} 990 140 0 0 {name=x4 fc1=333 fc2=3000 A=2 c2=100nF fo="'sqrt((fc1*fc2))'" Q="'fo/(fc2-fc1)'" mp="'(-pow(A*A+A-1,2)+sqrt(pow(A*A+A-1,2)+4*pow(Q,2)*A*pow(A+1,2)))/(2*A)'" xp="'(A*A)/(mp*A+A-1)'" Rr="'(1/(2*3.1416*fo*c2))*sqrt((1+xp)/(xp*mp))'" Ra="'((A+1)*Rr)/A'" Rb="'((A+1)*Rr)'" Rx="'xp*Rr'" c1="'mp*c2'"
 }
