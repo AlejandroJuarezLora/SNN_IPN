@@ -6,7 +6,7 @@ V {}
 S {}
 E {}
 B 2 1270 -360 2070 40 {flags=graph
-y1=-1.3e-05
+y1=-0.00011
 y2=1.9
 ypos1=-0.319016
 ypos2=2.49867
@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1e-10
-x2=0.00015
+x2=5e-05
 divx=5
 subdivx=1
 node="\\"Vout [V]; vout\\""
@@ -26,15 +26,15 @@ logy=0
 digital=0
 linewidth_mult=3.5}
 B 2 1270 -1160 2070 -760 {flags=graph
-y1=-1.21492
-y2=3.0275
+y1=0.39986585
+y2=0.8507535
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1e-10
-x2=0.00015
+x2=5e-05
 divx=5
 subdivx=1
 
@@ -57,7 +57,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1e-10
-x2=0.00015
+x2=5e-05
 divx=5
 subdivx=1
 
@@ -66,21 +66,21 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-y1=-1.25396
-y2=1.89096
+y1=-0.12
+y2=1.1
 color="6 6"
 node="\\"Vg [V]; Vg\\";"
 linewidth_mult=3.5}
 B 2 470 -1160 1270 -760 {flags=graph
-y1=1.86707e-07
-y2=2.07779e-07
+y1=1.5617195e-08
+y2=3.6688814e-08
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1e-10
-x2=0.00015
+x2=5e-05
 divx=5
 subdivx=1
 
@@ -92,8 +92,6 @@ logy=0
 color=6
 node="\\"Iext [A]; i(@iext[current])\\""
 linewidth_mult=4}
-T {19nA = 8,695hz} 160 -700 0 0 0.4 0.4 {}
-T {100nA = 89000hz} 160 -640 0 0 0.4 0.4 {}
 N 780 -440 780 -430 {
 lab=Vm}
 N 600 -440 600 -430 {
@@ -296,7 +294,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 760 -280 0 0 {name=M4
-L=1
+L=4
 W=1
 nf=1 
 mult=1
@@ -342,7 +340,7 @@ place=end
 value="
 .options savecurrents
 *.nodeset v(vm)=0.75
-.tran 10n 150u uic
+.tran 10n 50u uic
 .control
 	run
 	write Neurona_Simulacion.raw
@@ -352,11 +350,11 @@ C {devices/vdd.sym} 140 -360 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 960 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 340 -340 0 0 {name=C1
 m=1
-value=1p
+value=0.1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}
-C {devices/isource.sym} 160 -470 0 1 {name=Iext value=100n}
+C {devices/isource.sym} 160 -470 0 1 {name=Iext value=30n}
 C {devices/vdd.sym} 160 -500 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 700 -280 3 0 {name=p1 sig_type=std_logic lab=Vg}
 C {devices/launcher.sym} 530 -660 0 0 {name=h5
