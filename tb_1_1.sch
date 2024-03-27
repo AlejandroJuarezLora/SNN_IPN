@@ -13,16 +13,16 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.5412912e-06
-x2=9.8458693e-05
+x1=1.5625e-11
+x2=5e-05
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="vout_pre
-vout2_pre
-vout3_pre"
-color="4 7 6"
+node="x1.vpre
+x3.vpre
+x5.vpre"
+color="4 6 8"
 dataset=-1
 unitx=1
 logx=0
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.5412912e-06
-x2=9.8458693e-05
+x1=1.5625e-11
+x2=5e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -52,27 +52,27 @@ logx=0
 logy=0
 }
 B 2 1240 -650 2040 -250 {flags=graph
-y1=-0.0024
+y1=-0.00081
 y2=1.9
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.5412912e-06
-x2=9.8458693e-05
+x1=1.5625e-11
+x2=5e-05
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="vout_post
-\\"vthn; 0.75\\""
-color="4 6"
+
+
 dataset=-1
 unitx=1
 logx=0
 logy=0
-}
+color=8
+node=x1.vpost}
 B 2 1160 360 1960 760 {flags=graph
 y1=-1.582179
 y2=1.2041399
@@ -81,8 +81,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.5412912e-06
-x2=9.8458693e-05
+x1=1.5625e-11
+x2=5e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -247,6 +247,14 @@ N 280 200 280 210 {
 lab=vg100n}
 N 910 40 910 50 {
 lab=vg100n}
+N 700 840 780 840 {
+lab=vin_post}
+N 770 140 770 840 {
+lab=vin_post}
+N 700 40 770 40 {
+lab=vin_post}
+N 700 340 770 340 {
+lab=vin_post}
 C {devices/vsource.sym} -90 290 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/vdd.sym} -90 230 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -90 350 0 0 {name=l2 lab=GND}
@@ -256,7 +264,7 @@ only_toplevel=true
 place=end
 value="
 *.options savecurrents
-.tran 100n 100u uic
+.tran 100n 50u uic
 .control
 	run
 	write tb_1_1.raw
