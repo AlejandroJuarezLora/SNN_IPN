@@ -76,8 +76,8 @@ logy=0
 color=6
 node=x5.vm}
 B 2 -930 140 -130 540 {flags=graph
-y1=0.01
-y2=1.7
+y1=-0.10736111
+y2=1.5826388
 ypos1=0
 ypos2=2
 divy=5
@@ -191,7 +191,7 @@ lab=VDD}
 N 1295 90 1295 140 {
 lab=#net3}
 N 340 300 370 300 {
-lab=#net4}
+lab=B}
 N 90 -440 90 -420 {
 lab=VDD}
 N 60 -390 90 -390 {
@@ -201,53 +201,53 @@ lab=VDD}
 N 60 -430 90 -430 {
 lab=VDD}
 N 130 -390 160 -390 {
-lab=#net5}
+lab=#net4}
 N 90 -360 90 -340 {
-lab=#net5}
+lab=#net4}
 N 90 -280 90 -250 {
 lab=GND}
 N 160 -390 280 -390 {
-lab=#net5}
+lab=#net4}
 N 280 -390 280 -90 {
-lab=#net5}
+lab=#net4}
 N 90 -350 160 -350 {
-lab=#net5}
+lab=#net4}
 N 160 -390 160 -350 {
-lab=#net5}
+lab=#net4}
 N 280 -120 300 -120 {
-lab=#net5}
+lab=#net4}
 N 300 -120 300 200 {
-lab=#net5}
+lab=#net4}
 N 280 200 300 200 {
-lab=#net5}
+lab=#net4}
 N 280 200 280 210 {
-lab=#net5}
+lab=#net4}
 N 1230 540 1375 540 {
 lab=#net1}
 N 300 -120 1460 -120 {
-lab=#net5}
+lab=#net4}
 N 1290 140 1320 140 {
 lab=#net3}
 N 1285 140 1290 140 {
 lab=#net3}
 N 1380 140 1410 140 {
-lab=#net6}
+lab=#net5}
 N 1545 50 1550 -120 {
-lab=#net5}
+lab=#net4}
 N 1460 -120 1550 -120 {
-lab=#net5}
+lab=#net4}
 N 1370 540 1470 540 {
 lab=#net1}
 N 1465 240 1470 540 {
 lab=#net1}
 N 370 300 420 300 {
-lab=#net4}
+lab=B}
 N 340 0 490 0 {
-lab=#net7}
+lab=A}
 N 790 -0 920 140 {
 lab=vbp_in}
 N 420 300 500 300 {
-lab=#net4}
+lab=B}
 N 800 300 920 140 {
 lab=vbp_in}
 N 650 360 650 380 {
@@ -261,7 +261,7 @@ lab=GND}
 N 1800 50 1800 80 {
 lab=VDD}
 N 1605 140 1650 140 {
-lab=#net8}
+lab=#net6}
 N 1800 200 1800 220 {
 lab=GND}
 N 1950 140 1995 140 {
@@ -351,3 +351,5 @@ C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/syn_rep.sym} 1800 140 0 0 {name=x7}
 C {devices/lab_pin.sym} 1995 140 3 0 {name=p1 sig_type=std_logic lab=vout_post}
 C {devices/vdd.sym} 1800 50 0 0 {name=l17 lab=VDD}
 C {devices/gnd.sym} 1800 220 0 0 {name=l20 lab=GND}
+C {devices/lab_pin.sym} 375 0 3 0 {name=p4 sig_type=std_logic lab=A}
+C {devices/lab_pin.sym} 385 300 3 0 {name=p5 sig_type=std_logic lab=B}
