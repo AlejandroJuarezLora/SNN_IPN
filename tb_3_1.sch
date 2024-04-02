@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0002
+x1=1.5625e-11
+x2=0.0001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0002
+x1=1.5625e-11
+x2=0.0001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -59,8 +59,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0002
+x1=1.5625e-11
+x2=0.0001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -81,8 +81,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0002
+x1=1.5625e-11
+x2=0.0001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -262,7 +262,7 @@ only_toplevel=true
 place=end
 value="
 *.options savecurrents
-.tran 50n 200u uic
+.tran 100n 100u uic
 .control
 	run
 	write tb_3_1.raw
@@ -277,7 +277,7 @@ value="
 "
 spice_ignore=false}
 C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 240 0 0 0 {name=x6}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 870 130 0 0 {name=x7}
+C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 870 140 0 0 {name=x7}
 C {sky130_fd_pr/nfet_01v8.sym} 70 540 0 1 {name=M19
 L=0.15
 W=1
