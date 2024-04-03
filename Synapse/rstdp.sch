@@ -105,7 +105,7 @@ C {sky130_fd_pr/rram_v0.sym} 520 -210 1 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }
-C {sky130_fd_pr/nfet_01v8.sym} 360 -310 1 0 {name=M2
+C {sky130_fd_pr/nfet_01v8.sym} 360 -310 3 1 {name=M2
 L=0.15
 W=7.5
 nf=1 
@@ -119,7 +119,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/nfet_01v8.sym} 670 -310 1 0 {name=M3
+C {sky130_fd_pr/nfet_01v8.sym} 670 -310 3 1 {name=M3
 L=0.15
 W=7.5
 nf=1 
