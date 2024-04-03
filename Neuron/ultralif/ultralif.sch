@@ -145,6 +145,18 @@ N 40 -290 80 -290 {
 lab=Iext}
 N 80 -290 140 -290 {
 lab=Iext}
+N 1090 -240 1090 -160 {}
+N 1090 -200 1130 -200 {}
+N 1030 -270 1050 -270 {}
+N 1030 -270 1030 -130 {}
+N 1030 -130 1050 -130 {}
+N 1000 -200 1030 -200 {}
+N 930 -70 1090 -70 {}
+N 1090 -100 1090 -70 {}
+N 1090 -130 1090 -100 {}
+N 1090 -330 1090 -300 {}
+N 970 -330 1090 -330 {}
+N 1090 -310 1090 -270 {}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -192,7 +204,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {devices/iopin.sym} 40 -290 0 1 {name=p5 lab=Iext}
-C {devices/iopin.sym} 1000 -200 0 0 {name=p6 lab=vout}
+C {devices/iopin.sym} 1130 -200 0 0 {name=p6 lab=vout}
 C {devices/iopin.sym} 720 -30 0 0 {name=p2 lab=vss}
 C {devices/iopin.sym} 320 -100 1 0 {name=p7 lab=I10n }
 C {devices/iopin.sym} 970 -380 0 0 {name=p8 lab=vdd}
@@ -226,3 +238,19 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {devices/iopin.sym} 870 -360 0 0 {name=p9 lab=g100n}
+C {sky130_fd_pr/nfet_01v8.sym} 1070 -130 0 0 {name=M7
+L=0.15
+W=1
+nf=1 
+mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet_01v8.sym} 1070 -270 0 0 {name=M8
+L=0.15
+W=2
+nf=1
+mult=1
+model=pfet_01v8
+spiceprefix=X
+}
