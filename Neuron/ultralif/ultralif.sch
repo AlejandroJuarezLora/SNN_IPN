@@ -73,10 +73,8 @@ N 520 -220 520 -180 {
 lab=#net2}
 N 230 -290 260 -290 {
 lab=vm}
-N 140 -290 170 -290 {
-lab=Iext}
 N 200 -330 790 -330 {
-lab=#net2}
+lab=vout}
 N 200 -290 200 -230 {
 lab=vdd}
 N 380 -240 450 -240 {
@@ -86,8 +84,6 @@ lab=vdd}
 N 450 -250 450 -240 {
 lab=vdd}
 N 770 -170 790 -170 {
-lab=#net2}
-N 790 -330 790 -170 {
 lab=#net2}
 N 700 -250 760 -250 {
 lab=vdd}
@@ -114,7 +110,7 @@ lab=#net2}
 N 830 -130 870 -130 {
 lab=#net2}
 N 910 -250 910 -160 {
-lab=vout}
+lab=#net3}
 N 910 -100 910 -70 {
 lab=vss}
 N 740 -70 910 -70 {
@@ -138,25 +134,50 @@ lab=vdd}
 N 910 -330 970 -330 {
 lab=vdd}
 N 910 -200 960 -200 {
-lab=vout}
+lab=#net3}
 N 960 -200 1000 -200 {
+lab=#net3}
+N 1090 -240 1090 -160 {
 lab=vout}
-N 40 -290 80 -290 {
+N 1090 -200 1130 -200 {
+lab=vout}
+N 1030 -270 1050 -270 {
+lab=#net3}
+N 1030 -270 1030 -130 {
+lab=#net3}
+N 1030 -130 1050 -130 {
+lab=#net3}
+N 1000 -200 1030 -200 {
+lab=#net3}
+N 930 -70 1090 -70 {
+lab=vss}
+N 1090 -100 1090 -70 {
+lab=vss}
+N 1090 -130 1090 -100 {
+lab=vss}
+N 1090 -330 1090 -300 {
+lab=vdd}
+N 970 -330 1090 -330 {
+lab=vdd}
+N 1090 -310 1090 -270 {
+lab=vdd}
+N 790 -400 790 -330 {
+lab=vout}
+N 790 -400 1140 -400 {
+lab=vout}
+N 1140 -400 1140 -220 {
+lab=vout}
+N 1140 -220 1140 -200 {
+lab=vout}
+N 1130 -200 1140 -200 {
+lab=vout}
+N 140 -290 170 -290 {
+lab=#net4}
+N 70 -290 80 -290 {
 lab=Iext}
-N 80 -290 140 -290 {
+N 50 -290 70 -290 {
 lab=Iext}
-N 1090 -240 1090 -160 {}
-N 1090 -200 1130 -200 {}
-N 1030 -270 1050 -270 {}
-N 1030 -270 1030 -130 {}
-N 1030 -130 1050 -130 {}
-N 1000 -200 1030 -200 {}
-N 930 -70 1090 -70 {}
-N 1090 -100 1090 -70 {}
-N 1090 -130 1090 -100 {}
-N 1090 -330 1090 -300 {}
-N 970 -330 1090 -330 {}
-N 1090 -310 1090 -270 {}
+N 80 -290 140 -290 {}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -203,8 +224,8 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/iopin.sym} 40 -290 0 1 {name=p5 lab=Iext}
-C {devices/iopin.sym} 1130 -200 0 0 {name=p6 lab=vout}
+C {devices/iopin.sym} 50 -290 0 1 {name=p5 lab=Iext}
+C {devices/iopin.sym} 1140 -200 0 0 {name=p6 lab=vout}
 C {devices/iopin.sym} 720 -30 0 0 {name=p2 lab=vss}
 C {devices/iopin.sym} 320 -100 1 0 {name=p7 lab=I10n }
 C {devices/iopin.sym} 970 -380 0 0 {name=p8 lab=vdd}
