@@ -6,15 +6,15 @@ V {}
 S {}
 E {}
 B 2 1390 -105 2190 295 {flags=graph
-y1=3.9575762
-y2=5.2375762
+y1=2.4
+y2=5.2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1.5625e-11
-x2=0.0002
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,7 +36,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1.5625e-11
-x2=0.0002
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,16 +49,16 @@ logx=0
 logy=0
 color=4
 node="\\"Vmem1; x1.x1.BE x1.x1.TE - \\""}
-B 2 1300 -750 2100 -350 {flags=graph
-y1=0.62
-y2=1.6
+B 2 1620 -610 2420 -210 {flags=graph
+y1=0.14
+y2=1.5
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1.5625e-11
-x2=0.0002
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -71,8 +71,8 @@ logx=0
 logy=0
 color=8
 node=x7.vm}
-B 2 -595 -770 205 -370 {flags=graph
-y1=-0.0021
+B 2 -1105 -690 -305 -290 {flags=graph
+y1=-0.0034
 y2=1.9
 ypos1=0
 ypos2=2
@@ -80,7 +80,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1.5625e-11
-x2=0.0002
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -94,16 +94,60 @@ logy=0
 color="4 6"
 node="vout_pre
 vout2_pre"}
-B 2 300 -720 1100 -320 {flags=graph
-y1=-2.6e-08
-y2=1.3e-07
+B 2 720 -610 1520 -210 {flags=graph
+y1=-1.3e-05
+y2=0.00037
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1.5625e-11
-x2=0.0002
+x2=2e-05
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color=6
+node=i(v4)}
+B 2 250 590 1050 990 {flags=graph
+y1=-5.6e-06
+y2=0.0002
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=1.5625e-11
+x2=2e-05
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color=6
+node=i(v5)}
+B 2 -200 -770 600 -370 {flags=graph
+y1=-2.5e-06
+y2=0.00037
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=1.5625e-11
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -116,16 +160,16 @@ logx=0
 logy=0
 color=6
 node=i(v2)}
-B 2 250 590 1050 990 {flags=graph
-y1=-5.6e-06
-y2=0.0002
+B 2 -830 570 -30 970 {flags=graph
+y1=-1.0170573e-07
+y2=2.5563555e-07
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1.5625e-11
-x2=0.0002
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -267,11 +311,21 @@ lab=#net4}
 N 700 340 760 340 {
 lab=#net5}
 N 755 100 755 140 {
-lab=#net6}
-N 885 120 885 140 {
-lab=#net3}
+lab=GND}
 N 885 140 970 140 {
 lab=#net3}
+N 365 100 365 140 {
+lab=GND}
+N 360 40 400 40 {
+lab=#net6}
+N 355 400 355 440 {
+lab=GND}
+N 350 340 400 340 {
+lab=#net7}
+N 820 340 860 340 {
+lab=GND}
+N 885 65 885 80 {
+lab=VDD}
 C {devices/vsource.sym} -90 290 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/vdd.sym} -90 230 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -90 350 0 0 {name=l2 lab=GND}
@@ -281,7 +335,7 @@ only_toplevel=true
 place=end
 value="
 *.options savecurrents
-.tran 100n 200u uic
+.tran 200n 200u uic
 .control
 	run
 	write tb_3_1_mirror.raw
@@ -363,7 +417,12 @@ C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 0 0 0 {name=x1}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 300 0 0 {name=x3}
 C {devices/vsource.sym} 755 70 0 0 {name=V2 value=0 }
 C {devices/vsource.sym} 790 340 3 0 {name=V3 value=0 }
-C {devices/vdd.sym} 885 60 0 0 {name=l16 lab=VDD}
-C {devices/isource.sym} 885 90 0 1 {name=In3 value="PWL(0 0n 99u 0n 100u 70n)"}
-C {devices/gnd.sym} 820 340 0 0 {name=l18 lab=GND}
-C {devices/gnd.sym} 755 135 0 0 {name=l19 lab=GND}
+C {devices/isource.sym} 885 110 0 1 {name=In3 value="PWL(0 19n 99u 19n 100u 70n)"
+spice_ignore=false}
+C {devices/vsource.sym} 365 70 0 0 {name=V4 value=0 }
+C {devices/gnd.sym} 365 135 0 0 {name=l20 lab=GND}
+C {devices/vsource.sym} 355 370 0 0 {name=V5 value=0 }
+C {devices/gnd.sym} 355 435 0 0 {name=l21 lab=GND}
+C {devices/gnd.sym} 860 340 0 0 {name=l16 lab=GND}
+C {devices/vdd.sym} 885 65 0 0 {name=l19 lab=VDD}
+C {devices/gnd.sym} 755 140 0 0 {name=l18 lab=GND}
