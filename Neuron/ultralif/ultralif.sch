@@ -71,10 +71,6 @@ N 520 -130 620 -130 {
 lab=vg}
 N 520 -220 520 -180 {
 lab=vg}
-N 230 -290 260 -290 {
-lab=vm}
-N 200 -330 790 -330 {
-lab=vg}
 N 380 -240 450 -240 {
 lab=vdd}
 N 450 -250 520 -250 {
@@ -159,24 +155,18 @@ N 1090 -310 1090 -270 {
 lab=vdd}
 N 1130 -200 1140 -200 {
 lab=vout}
-N 140 -290 170 -290 {
-lab=va}
-N 200 -290 200 -180 {
+N 240 -290 260 -290 {
+lab=vm}
+N 160 -290 180 -290 {
+lab=Iext}
+N 210 -330 800 -330 {
+lab=vg}
+N 800 -330 800 -170 {
+lab=vg}
+N 770 -170 800 -170 {
+lab=vg}
+N 210 -295 210 -245 {
 lab=vdd}
-N 790 -330 790 -170 {
-lab=vg}
-N 770 -170 790 -170 {
-lab=vg}
-N 60 -330 115 -330 {
-lab=Iext}
-N 60 -330 60 -290 {
-lab=Iext}
-N 60 -290 85 -290 {
-lab=Iext}
-N 30 -290 60 -290 {
-lab=Iext}
-N 115 -292.5 115 -190 {
-lab=vss}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -202,7 +192,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 680 -130 0 0 {name=M4
-L=5
+L=4
 W=1
 nf=1 
 mult=1
@@ -214,7 +204,7 @@ m=1
 value=1p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/iopin.sym} 30 -290 0 1 {name=p5 lab=Iext}
+C {devices/iopin.sym} 160 -290 0 1 {name=p5 lab=Iext}
 C {devices/iopin.sym} 1140 -200 0 0 {name=p6 lab=vout}
 C {devices/iopin.sym} 720 -30 0 0 {name=p2 lab=vss}
 C {devices/iopin.sym} 320 -100 1 0 {name=p7 lab=I10n }
@@ -223,7 +213,7 @@ C {devices/lab_pin.sym} 450 -240 3 0 {name=p11 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 760 -250 3 0 {name=p12 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 260 -90 3 0 {name=p10 sig_type=std_logic lab=vss}
 C {sky130_fd_pr/nfet_01v8.sym} 360 -100 0 0 {name=M10
-L=1
+L=0.15
 W=1
 nf=1 
 mult=1
@@ -240,7 +230,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 890 -280 0 0 {name=M6
-L=2
+L=0.15
 W=2
 nf=1
 mult=1
@@ -264,8 +254,8 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 635 -290 1 0 {name=p1 sig_type=std_logic lab=vm}
-C {sky130_fd_pr/pfet_01v8.sym} 200 -310 3 1 {name=M9
+C {devices/lab_pin.sym} 567.5 -130 1 0 {name=p15 sig_type=std_logic lab=vg}
+C {sky130_fd_pr/pfet_01v8.sym} 210 -310 3 1 {name=M9
 L=0.15
 W=2
 nf=1
@@ -273,15 +263,5 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 200 -180 3 0 {name=p4 sig_type=std_logic lab=vdd}
-C {sky130_fd_pr/nfet_01v8.sym} 115 -310 3 1 {name=M11
-L=0.15
-W=1
-nf=1 
-mult=1
-model=nfet_01v8
-spiceprefix=X
-}
-C {devices/lab_pin.sym} 115 -190 3 0 {name=p13 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 157.5 -290 1 0 {name=p14 sig_type=std_logic lab=va}
-C {devices/lab_pin.sym} 567.5 -130 1 0 {name=p15 sig_type=std_logic lab=vg}
+C {devices/lab_pin.sym} 210 -245 3 0 {name=p1 sig_type=std_logic lab=vdd}
+C {devices/lab_pin.sym} 582.5 -290 1 0 {name=p4 sig_type=std_logic lab=vm}
