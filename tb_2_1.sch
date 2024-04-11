@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 1420 -25 2220 375 {flags=graph
+B 2 620 -780 1420 -380 {flags=graph
 y1=1.5569444
 y2=5.0569444
 ypos1=0
@@ -28,7 +28,7 @@ unitx=1
 logx=0
 logy=0
 }
-B 2 1740 495 2540 895 {flags=graph
+B 2 1580 345 2380 745 {flags=graph
 y1=-1.9478547
 y2=2.0841453
 ypos1=0
@@ -50,7 +50,7 @@ logx=0
 logy=0
 color=4
 node="\\"Vmem1; x1.x1.BE x1.x1.TE - \\""}
-B 2 1620 -610 2420 -210 {flags=graph
+B 2 1580 -60 2380 340 {flags=graph
 y1=-0.0056
 y2=2.5
 ypos1=0
@@ -95,8 +95,8 @@ logy=0
 color=6
 node=vout_pre}
 B 2 -190 -890 610 -490 {flags=graph
-y1=-2.546981e-07
-y2=1.4181503e-06
+y1=-2.4842771e-07
+y2=9.0500577e-07
 ypos1=0
 ypos2=2
 divy=5
@@ -138,7 +138,7 @@ logx=0
 logy=0
 color=8
 node=vout2_pre}
-B 2 697.5 -885 1497.5 -485 {flags=graph
+B 2 1562.5 -485 2362.5 -85 {flags=graph
 y1=0.018
 y2=1.8
 ypos1=0
@@ -164,10 +164,10 @@ logy=0
 
 color="4 7"
 node="x7.vm
-\\"Vth; 1.6\\""}
+\\"Vth; 1.5\\""}
 B 2 -242.5 520 557.5 920 {flags=graph
-y1=-5.1964317e-08
-y2=2.4309728e-07
+y1=-2.9558455e-07
+y2=8.8406337e-07
 ypos1=0
 ypos2=2
 divy=5
@@ -189,11 +189,11 @@ logy=0
 
 
 
-color=4
-node=i(v4)}
+color=6
+node=i(vin1)}
 B 2 607.5 505 1407.5 905 {flags=graph
-y1=-3.5644867e-08
-y2=1.2474522e-07
+y1=-2.3592474e-07
+y2=7.0779367e-07
 ypos1=0
 ypos2=2
 divy=5
@@ -215,8 +215,8 @@ logy=0
 
 
 
-color=4
-node=i(v5)}
+color=8
+node=i(vin2)}
 B 2 -1125 492.5 -325 892.5 {flags=graph
 y1=0.018
 y2=1.7
@@ -269,8 +269,6 @@ N 340 0 400 0 {
 lab=vout_pre}
 N 550 80 550 90 {
 lab=GND}
-N -60 0 -10 0 {
-lab=#net1}
 N -60 -30 -60 0 {
 lab=#net1}
 N -80 270 -80 300 {
@@ -317,19 +315,13 @@ N 700 10 820 10 {
 lab=vout_post}
 N 820 10 930 10 {
 lab=vout_post}
-N 700 40 760 40 {
-lab=#net3}
 N 700 340 760 340 {
 lab=#net3}
 N 360 40 400 40 {
-lab=#net4}
+lab=#net1}
 N 350 340 400 340 {
-lab=#net5}
+lab=#net2}
 N 865 110 865 140 {
-lab=#net3}
-N 760 340 830 140 {
-lab=#net3}
-N 760 40 830 140 {
 lab=#net3}
 N 250 300 340 300 {
 lab=vout2_pre}
@@ -344,9 +336,7 @@ lab=vout_pre}
 N 10 -270 10 -240 {
 lab=GND}
 N 925 140 935 140 {
-lab=#net6}
-N 830 140 860 140 {
-lab=#net3}
+lab=#net4}
 N 860 140 865 140 {
 lab=#net3}
 N 930 10 1165 10 {
@@ -362,40 +352,24 @@ lab=VDD}
 N 865 -80 865 -75 {
 lab=VDD}
 N 340 340 350 340 {
-lab=#net5}
-N -60 40 360 40 {
-lab=#net4}
-N -160 0 -160 40 {
-lab=#net4}
-N -80 340 340 340 {
-lab=#net5}
-N -160 40 -60 40 {
-lab=#net4}
-N -160 0 -145 -0 {
-lab=#net4}
-N -160 -40 -115 -40 {
-lab=#net4}
-N -160 -40 -160 0 {
-lab=#net4}
-N -85 -0 -60 -0 {
-lab=#net1}
-N -115 0 -115 15 {
-lab=GND}
-N -180 300 -180 340 {
-lab=#net5}
-N -180 340 -80 340 {
-lab=#net5}
-N -180 300 -165 300 {
-lab=#net5}
-N -180 260 -135 260 {
-lab=#net5}
-N -180 260 -180 300 {
-lab=#net5}
-N -105 300 -80 300 {
 lab=#net2}
-N -135 300 -135 315 {
-lab=GND}
-C {devices/vsource.sym} -145 -355 0 0 {name=V1 value=2.4 savecurrent=false}
+N -80 340 340 340 {
+lab=#net2}
+N -80 300 -80 340 {
+lab=#net2}
+N -60 40 360 40 {
+lab=#net1}
+N -60 -0 -60 40 {
+lab=#net1}
+N 700 40 765 40 {
+lab=#net3}
+N -60 0 -10 -0 {
+lab=#net1}
+N 765 40 865 140 {
+lab=#net3}
+N 760 340 865 140 {
+lab=#net3}
+C {devices/vsource.sym} -145 -355 0 0 {name=V1 value=2.25 savecurrent=false}
 C {devices/vdd.sym} -145 -415 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -145 -295 0 0 {name=l2 lab=GND}
 C {sky130_fd_pr/corner.sym} -1022.5 352.5 0 0 {name=CORNER only_toplevel=true corner=tt}
@@ -478,8 +452,6 @@ C {devices/lab_pin.sym} 190 200 1 0 {name=p9 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 1075 40 1 0 {name=p11 sig_type=std_logic lab=vg100n}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 0 0 0 {name=x1}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 300 0 0 {name=x3}
-C {devices/vsource.sym} 20 0 3 0 {name=V4 value=0 }
-C {devices/vsource.sym} 20 300 3 0 {name=V5 value=0 }
 C {devices/isource.sym} -60 -60 0 1 {name=In2 value="PWL(0 100n 299u 100n 300u 0n)"
 spice_ignore=false}
 C {devices/vsource.sym} 895 140 3 0 {name=Vsum value=0 }
@@ -496,33 +468,5 @@ C {devices/gnd.sym} 10 -240 0 0 {name=l17 lab=GND}
 C {devices/vdd.sym} -60 -105 0 0 {name=l18 lab=VDD}
 C {devices/vdd.sym} -80 200 0 0 {name=l12 lab=VDD}
 C {devices/vdd.sym} 865 -90 0 0 {name=l16 lab=VDD}
-C {sky130_fd_pr/nfet_01v8.sym} -115 -20 3 1 {name=M1
-L=0.15
-W=10
-nf=1 
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
-C {devices/gnd.sym} -115 15 0 0 {name=l19 lab=GND}
-C {sky130_fd_pr/nfet_01v8.sym} -135 280 3 1 {name=M2
-L=0.15
-W=10
-nf=1 
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
-C {devices/gnd.sym} -135 315 0 0 {name=l21 lab=GND}
+C {devices/vsource.sym} 20 0 3 0 {name=Vin1 value=0 }
+C {devices/vsource.sym} 20 300 3 0 {name=Vin2 value=0 }
