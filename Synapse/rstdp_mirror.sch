@@ -236,7 +236,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 0 -675 0 1 {name=M6
-L=10
+L=5
 W=1
 nf=1
 mult=1
@@ -254,7 +254,7 @@ C {devices/lab_pin.sym} 265 -635 2 1 {name=p18 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} -20 -740 2 1 {name=p19 sig_type=std_logic lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} 0 -545 0 1 {name=M7
 L=0.15
-W=1
+W=5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -268,7 +268,7 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} -70 -545 2 1 {name=p17 sig_type=std_logic lab=vss}
 C {sky130_fd_pr/pfet_01v8.sym} 660 -635 0 0 {name=M8
-L=10
+L=8
 W=1
 nf=1
 mult=1
@@ -285,7 +285,7 @@ C {devices/iopin.sym} -20 -495 0 0 {name=p20 lab=I_pre}
 C {devices/lab_pin.sym} 680 -700 2 1 {name=p21 sig_type=std_logic lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} 700 -525 0 1 {name=M9
 L=0.15
-W=1
+W=5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
