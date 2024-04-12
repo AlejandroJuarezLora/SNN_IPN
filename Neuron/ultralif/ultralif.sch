@@ -160,15 +160,17 @@ lab=vm}
 N 160 -290 180 -290 {
 lab=Iext}
 N 800 -330 805 -330 {
-lab=vg}
+lab=vout}
 N 210 -330 800 -330 {
-lab=vg}
-N 770 -170 805 -170 {
-lab=vg}
-N 805 -330 805 -170 {
-lab=vg}
-N 210 -290 210 -240 {
+lab=vout}
+N 210 -290 210 -260 {
 lab=vdd}
+N 805 -405 805 -330 {
+lab=vout}
+N 805 -405 1135 -405 {
+lab=vout}
+N 1135 -405 1135 -200 {
+lab=vout}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -257,7 +259,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 567.5 -130 1 0 {name=p15 sig_type=std_logic lab=vg}
-C {sky130_fd_pr/pfet_01v8.sym} 210 -310 1 0 {name=M9
+C {sky130_fd_pr/pfet_01v8.sym} 210 -310 3 1 {name=M9
 L=0.15
 W=2
 nf=1
@@ -265,5 +267,5 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 210 -240 3 0 {name=p1 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 597.5 -290 1 0 {name=p4 sig_type=std_logic lab=vm}
+C {devices/lab_pin.sym} 542.5 -290 1 0 {name=p1 sig_type=std_logic lab=vm}
+C {devices/lab_pin.sym} 210 -260 3 0 {name=p4 sig_type=std_logic lab=vdd}
