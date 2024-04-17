@@ -5,39 +5,61 @@ K {}
 V {}
 S {}
 E {}
-B 2 620 -780 1420 -380 {flags=graph
-y1=3.3370383
-y2=5.4874383
+B 2 45 -1075 1860 -585 {flags=graph
+y1=2.8496132
+y2=4.9729796
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0004
+x1=1.5e-09
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="\\"Fil1; 5 n.x1.x1.xr2.n1#ngap -\\"
+node="\\"Synapse 1; 5 n.x1.x1.xr2.n1#ngap -\\"
 
-\\"Fil2; 5 n.x3.x1.xr2.n1#ngap - \\""
+\\"Synapse 2; 5 n.x3.x1.xr2.n1#ngap - \\""
 color="6 8"
 dataset=-1
 unitx=1
 logx=0
 logy=0
-}
-B 2 1580 345 2380 745 {flags=graph
-y1=-1.9478547
-y2=2.0841453
+linewidth_mult=4}
+B 2 270 465 1070 865 {flags=graph
+y1=-1.1
+y2=1.2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0004
+x1=1.5e-09
+x2=0.001
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color=6
+node="\\"Vmem1; x1.x1.BE x1.x1.TE - \\""}
+B 2 -1625 -1020 40 -845 {flags=graph
+y1=-0.92296786
+y2=2.3165756
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=1.5e-09
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,39 +71,17 @@ unitx=1
 logx=0
 logy=0
 color=4
-node="\\"Vmem1; x1.x1.BE x1.x1.TE - \\""}
-B 2 1580 -60 2380 340 {flags=graph
-y1=-0.0019
-y2=1.3
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=6.25e-11
-x2=0.0004
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-color=8
 node=vout_post}
-B 2 -1122.5 -775 -322.5 -375 {flags=graph
-y1=-0.00026
-y2=2.5
+B 2 -1627.5 -1405 37.5 -1225 {flags=graph
+y1=-0.35221097
+y2=2.3839289
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0004
+x1=1.5e-09
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -93,39 +93,18 @@ unitx=1
 logx=0
 logy=0
 color=6
-node=vout_pre}
-B 2 -190 -890 610 -490 {flags=graph
-y1=-1.329064e-07
-y2=5.7850126e-07
+node="\\"Vout N1;vout_pre\\""
+hilight_wave=0}
+B 2 -1625 -1232.5 40 -1017.5 {flags=graph
+y1=-0.53156215
+y2=2.8687075
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0004
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-color=6
-node=i(Vsum)}
-B 2 -1145 -357.5 -345 42.5 {flags=graph
-y1=-0.00027
-y2=3.4
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=6.25e-11
-x2=0.0004
+x1=1.5e-09
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -138,7 +117,7 @@ logx=0
 logy=0
 color=8
 node=vout2_pre}
-B 2 1562.5 -485 2362.5 -85 {flags=graph
+B 2 -1577.5 820 -32.5 1120 {flags=graph
 y1=0.018
 y2=1.8
 ypos1=0
@@ -146,8 +125,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0004
+x1=1.5e-09
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -162,19 +141,21 @@ logy=0
 
 
 
-color="4 7"
-node="x7.vm
-\\"Vth; 1.5\\""}
-B 2 -242.5 520 557.5 920 {flags=graph
-y1=-5.0672995e-08
-y2=1.7078625e-07
+color="4 12"
+node="\\"Vm Neuron Layer 2;x7.vm\\"
+\\"Vth; 1.5\\"
+	"
+linewidth_mult=3}
+B 2 -1575 507.5 -30 817.5 {flags=graph
+y1=0.23158825
+y2=1.8165883
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.0004
+x1=1.5e-09
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -186,66 +167,63 @@ unitx=1
 logx=0
 logy=0
 
-
-
-
-color=6
-node=i(vin1)}
-B 2 607.5 505 1407.5 905 {flags=graph
-y1=-1.2482957e-07
-y2=2.0384714e-07
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=6.25e-11
-x2=0.0004
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-
-
-
-color=8
-node=i(vin2)}
-B 2 -1125 492.5 -325 892.5 {flags=graph
-y1=0.54362502
-y2=2.2256252
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=6.25e-11
-x2=0.0004
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-color="6 8"
+color="6 8 7"
 node="x6.vm
-x2.vm"}
+x2.vm
+\\"Vth; 1.5\\""
+linewidth_mult=3}
+B 2 1260 475 2060 875 {flags=graph
+y1=-1.041412
+y2=1.022972
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=1.5e-09
+x2=0.001
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color=8
+node="\\"Vmem2; x3.x1.BE x3.x1.TE - \\""}
+B 2 280 -1685 1940 -1300 {flags=graph
+y1=2.9018756e-08
+y2=1.2901875e-07
+ypos1=-1.4296942e-09
+ypos2=4.7337801e-08
+divy=5
+subdivy=1
+unity=1
+x1=1.5e-09
+x2=0.001
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color="6 8 4"
+node="\\"Iext N1;i(@in2[current])\\"
+\\"Iext N2;i(@in1[current])\\"
+\\"Iext N3;i(@in3[current])\\""
+digital=1}
 N -215 -325 -215 -295 {
 lab=GND}
 N -215 -415 -215 -385 {
 lab=VDD}
-N 300 -365 300 -325 {
+N 300 -345 300 -325 {
 lab=vg10n}
 N 300 -445 300 -425 {
 lab=VDD}
@@ -257,7 +235,7 @@ N 290 -295 290 -245 {
 lab=GND}
 N 290 -245 300 -245 {
 lab=GND}
-N 340 -295 410 -295 {
+N 370 -295 410 -295 {
 lab=vg10n}
 N 300 -345 370 -345 {
 lab=vg10n}
@@ -265,29 +243,21 @@ N 370 -345 370 -295 {
 lab=vg10n}
 N 550 -50 550 -40 {
 lab=VDD}
-N 340 0 400 0 {
-lab=vout_pre}
 N 550 80 550 90 {
 lab=GND}
-N -60 -30 -60 0 {
-lab=#net1}
-N -80 270 -80 300 {
-lab=#net2}
 N -80 300 -10 300 {
-lab=#net2}
+lab=#net1}
 N 110 200 110 210 {
 lab=VDD}
 N 550 250 550 260 {
 lab=VDD}
 N 550 380 550 390 {
 lab=GND}
-N 340 300 400 300 {
-lab=vout2_pre}
 N 1255 140 1285 140 {
 lab=vout_post}
 N 1285 10 1285 140 {
 lab=vout_post}
-N 10 -430 10 -410 {
+N 10 -420 10 -410 {
 lab=VDD}
 N -20 -380 10 -380 {
 lab=VDD}
@@ -297,7 +267,7 @@ N -20 -420 10 -420 {
 lab=VDD}
 N 50 -380 80 -380 {
 lab=vg100n}
-N 10 -350 10 -330 {
+N 10 -340 10 -330 {
 lab=vg100n}
 N 10 -340 80 -340 {
 lab=vg100n}
@@ -311,63 +281,29 @@ N 190 200 190 210 {
 lab=vg100n}
 N 1195 40 1195 50 {
 lab=vg100n}
-N 700 10 820 10 {
-lab=vout_post}
-N 820 10 930 10 {
+N 740 10 1285 10 {
 lab=vout_post}
 N 700 340 760 340 {
-lab=#net3}
-N 360 40 400 40 {
-lab=#net1}
-N 350 340 400 340 {
 lab=#net2}
-N 865 110 865 140 {
-lab=#net3}
-N 250 300 340 300 {
+N 250 300 400 300 {
 lab=vout2_pre}
-N 740 10 740 305 {
+N 740 10 740 310 {
 lab=vout_post}
 N 700 310 740 310 {
 lab=vout_post}
-N 740 305 740 310 {
-lab=vout_post}
-N 250 0 340 0 {
+N 250 0 400 0 {
 lab=vout_pre}
 N 10 -270 10 -240 {
 lab=GND}
-N 1045 140 1055 140 {
-lab=#net4}
-N 860 140 865 140 {
-lab=#net3}
-N 980 10 1215 10 {
-lab=vout_post}
-N 865 -15 865 110 {
-lab=#net3}
-N 340 340 350 340 {
-lab=#net2}
 N 700 40 765 40 {
-lab=#net3}
+lab=#net2}
 N -60 0 -10 -0 {
-lab=#net1}
+lab=#net3}
 N 765 40 865 140 {
-lab=#net3}
+lab=#net2}
 N 760 340 865 140 {
-lab=#net3}
-N 355 40 360 40 {
-lab=#net1}
-N 350 40 360 40 {
-lab=#net1}
-N 925 140 935 140 {
-lab=#net4}
-N 1210 10 1285 10 {
-lab=vout_post}
-N 930 10 980 10 {
-lab=vout_post}
-N 935 140 1040 140 {
-lab=#net4}
-N 1040 140 1045 140 {
-lab=#net4}
-N -190 -170 -190 -150 {
+lab=#net2}
+N -190 -160 -190 -150 {
 lab=VDD}
 N -220 -120 -190 -120 {
 lab=VDD}
@@ -376,24 +312,20 @@ lab=VDD}
 N -220 -160 -190 -160 {
 lab=VDD}
 N -150 -120 -120 -120 {
-lab=#net5}
-N -190 -90 -190 -70 {
-lab=#net5}
+lab=#net4}
+N -190 -80 -190 -70 {
+lab=#net4}
 N -190 -80 -120 -80 {
-lab=#net5}
+lab=#net4}
 N -120 -120 -120 -80 {
-lab=#net5}
+lab=#net4}
 N -190 -10 -190 20 {
 lab=GND}
-N -60 -90 -60 -30 {
-lab=#net1}
-N -60 -170 -60 -150 {
-lab=VDD}
-N -60 -155 -60 -120 {
-lab=VDD}
+N -60 -90 -60 0 {
+lab=#net3}
 N -120 -120 -100 -120 {
-lab=#net5}
-N -210 130 -210 150 {
+lab=#net4}
+N -210 140 -210 150 {
 lab=VDD}
 N -240 180 -210 180 {
 lab=VDD}
@@ -402,73 +334,99 @@ lab=VDD}
 N -240 140 -210 140 {
 lab=VDD}
 N -170 180 -140 180 {
-lab=#net6}
-N -210 210 -210 230 {
-lab=#net6}
+lab=#net5}
+N -210 220 -210 230 {
+lab=#net5}
 N -210 220 -140 220 {
-lab=#net6}
+lab=#net5}
 N -140 180 -140 220 {
-lab=#net6}
-N -80 210 -80 270 {
-lab=#net2}
-N -80 130 -80 150 {
-lab=VDD}
-N -80 145 -80 180 {
-lab=VDD}
+lab=#net5}
+N -80 210 -80 300 {
+lab=#net1}
 N -140 180 -120 180 {
-lab=#net6}
+lab=#net5}
 N -210 290 -210 315 {
 lab=GND}
-N 735 -230 735 -210 {
+N 1010 -185 1010 -175 {
 lab=VDD}
-N 705 -180 735 -180 {
+N 1010 -145 1040 -145 {
 lab=VDD}
-N 705 -220 705 -180 {
+N 1040 -185 1040 -145 {
 lab=VDD}
-N 705 -220 735 -220 {
+N 1010 -185 1040 -185 {
 lab=VDD}
-N 775 -180 805 -180 {
-lab=#net7}
-N 735 -150 735 -130 {
-lab=#net7}
-N 735 -140 805 -140 {
-lab=#net7}
-N 805 -180 805 -140 {
-lab=#net7}
-N 865 -150 865 -90 {
+N 940 -145 970 -145 {
+lab=#net6}
+N 1010 -105 1010 -95 {
+lab=#net6}
+N 940 -105 1010 -105 {
+lab=#net6}
+N 940 -145 940 -105 {
+lab=#net6}
+N 920 -145 940 -145 {
+lab=#net6}
+N -60 40 400 40 {
 lab=#net3}
-N 865 -230 865 -210 {
-lab=VDD}
-N 865 -215 865 -180 {
-lab=VDD}
-N 805 -180 825 -180 {
-lab=#net7}
-N 865 -90 865 -15 {
-lab=#net3}
-N -60 40 350 40 {
+N -80 340 400 340 {
 lab=#net1}
-N -80 340 340 340 {
-lab=#net2}
 N -60 -0 -60 40 {
-lab=#net1}
+lab=#net3}
 N -80 300 -80 340 {
+lab=#net1}
+N 970 140 1055 140 {
+lab=#net7}
+N 300 -365 300 -345 {
+lab=vg10n}
+N 340 -295 370 -295 {
+lab=vg10n}
+N 10 -430 10 -420 {
+lab=VDD}
+N 10 -350 10 -340 {
+lab=vg100n}
+N 700 10 740 10 {
+lab=vout_post}
+N -190 -170 -190 -160 {
+lab=VDD}
+N -190 -90 -190 -80 {
+lab=#net4}
+N -210 130 -210 140 {
+lab=VDD}
+N -210 210 -210 220 {
+lab=#net5}
+N 1010 -195 1010 -185 {
+lab=VDD}
+N 1010 -115 1010 -105 {
+lab=#net6}
+N -60 -170 -60 -120 {
+lab=VDD}
+N -80 130 -80 180 {
+lab=VDD}
+N 880 -195 880 -145 {
+lab=VDD}
+N 880 -115 880 140 {
 lab=#net2}
+N 865 140 910 140 {
+lab=#net2}
+N 560 -265 560 -235 {
+lab=GND}
+N 560 -355 560 -325 {
+lab=VR}
 C {devices/vsource.sym} -215 -355 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/vdd.sym} -215 -415 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -215 -295 0 0 {name=l2 lab=GND}
-C {sky130_fd_pr/corner.sym} -1022.5 352.5 0 0 {name=CORNER only_toplevel=true corner=tt}
-C {devices/code_shown.sym} -1077.5 152.5 0 0 {name=STIMULI 
+C {sky130_fd_pr/corner.sym} -1517.5 -197.5 0 0 {name=CORNER only_toplevel=true corner=tt}
+C {devices/code_shown.sym} -1517.5 -382.5 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
 value="
-*.options savecurrents
-.tran 50n 400u uic
+.options savecurrents
+.tran 10n 1000u uic
 .control
 	run
 	write tb_2_1.raw
 .endc
 "}
-C {devices/code.sym} -882.5 367.5 0 0 {name=MODELS2
+C {devices/code.sym} -1387.5 -197.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -501,9 +459,9 @@ C {devices/gnd.sym} 1195 240 0 0 {name=l5 lab=GND}
 C {devices/vdd.sym} 1115 50 0 0 {name=l6 lab=VDD}
 C {devices/vdd.sym} 550 -50 0 0 {name=l10 lab=VDD}
 C {devices/gnd.sym} 550 90 0 0 {name=l11 lab=GND}
-C {devices/lab_pin.sym} 370 0 1 0 {name=p1 sig_type=std_logic lab=vout_pre}
+C {devices/lab_pin.sym} 315 0 1 0 {name=p1 sig_type=std_logic lab=vout_pre}
 C {devices/lab_pin.sym} 1285 140 0 1 {name=p3 sig_type=std_logic lab=vout_post}
-C {devices/launcher.sym} -577.5 242.5 0 0 {name=h5
+C {devices/launcher.sym} -1017.5 -292.5 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_2_1.raw tran"
 }
@@ -512,8 +470,7 @@ C {devices/gnd.sym} 190 400 0 0 {name=l7 lab=GND}
 C {devices/vdd.sym} 110 200 0 0 {name=l13 lab=VDD}
 C {devices/vdd.sym} 550 250 0 0 {name=l14 lab=VDD}
 C {devices/gnd.sym} 550 390 0 0 {name=l15 lab=GND}
-C {devices/lab_pin.sym} 360 300 1 0 {name=p5 sig_type=std_logic lab=vout2_pre}
-C {devices/vdd.sym} 700 -20 0 0 {name=l9 lab=VDD}
+C {devices/lab_pin.sym} 300 300 1 0 {name=p5 sig_type=std_logic lab=vout2_pre}
 C {sky130_fd_pr/pfet_01v8.sym} 30 -380 0 1 {name=M7
 L=0.15
 W=2
@@ -536,23 +493,20 @@ C {devices/lab_pin.sym} 190 200 1 0 {name=p9 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 1195 40 1 0 {name=p11 sig_type=std_logic lab=vg100n}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 0 0 0 {name=x1}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 300 0 0 {name=x3}
-C {devices/isource.sym} -190 -40 0 1 {name=In2 value="PWL(0 100n 199u 100n 200u 0n)"
+C {devices/isource.sym} -190 -40 0 1 {name=In2 value="PWL(0 100n 499u 100n 500u 0n)"
 spice_ignore=false}
-C {devices/vsource.sym} 895 140 3 0 {name=Vsum value=0 }
-C {devices/isource.sym} -210 260 0 1 {name=In1 value="PWL(0 70n 199u 70n 200u 0n)"
+C {devices/vsource.sym} 940 140 3 0 {name=Vsum value=0 }
+C {devices/isource.sym} -210 260 0 1 {name=In1 value="PWL(0 50n 499u 50n 500u 0n)"
 spice_ignore=false}
-C {devices/isource.sym} 735 -105 0 1 {name=In3 value="PWL(0 0n 199u 0n 200u 80n)"
+C {devices/isource.sym} 1010 -70 0 0 {name=In3 value="PWL(0 0n 499u 0n 500u 80n)"
 spice_ignore=false}
 C {devices/lab_pin.sym} 410 -295 2 0 {name=p6 sig_type=std_logic lab=vg10n}
 C {devices/lab_pin.sym} 110 400 3 0 {name=p10 sig_type=std_logic lab=vg10n}
 C {devices/lab_pin.sym} 110 100 3 0 {name=p12 sig_type=std_logic lab=vg10n}
 C {devices/lab_pin.sym} 1115 240 3 0 {name=p13 sig_type=std_logic lab=vg10n}
-C {devices/vdd.sym} 700 280 0 0 {name=l20 lab=VDD}
 C {devices/gnd.sym} 10 -240 0 0 {name=l17 lab=GND}
 C {devices/vsource.sym} 20 0 3 0 {name=Vin1 value=0 }
 C {devices/vsource.sym} 20 300 3 0 {name=Vin2 value=0 }
-C {devices/vdd.sym} 600 -40 0 0 {name=l22 lab=VDD2}
-C {devices/vdd.sym} 600 260 0 0 {name=l23 lab=VDD2}
 C {sky130_fd_pr/pfet_01v8.sym} -170 -120 0 1 {name=M1
 L=0.15
 W=2
@@ -615,7 +569,7 @@ spiceprefix=X
 }
 C {devices/vdd.sym} -80 130 0 0 {name=l25 lab=VDD}
 C {devices/gnd.sym} -210 315 0 0 {name=l12 lab=GND}
-C {sky130_fd_pr/pfet_01v8.sym} 755 -180 0 1 {name=M5
+C {sky130_fd_pr/pfet_01v8.sym} 990 -145 0 0 {name=M5
 L=0.15
 W=2
 nf=1
@@ -629,8 +583,8 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/vdd.sym} 735 -230 0 0 {name=l26 lab=VDD}
-C {sky130_fd_pr/pfet_01v8.sym} 845 -180 0 0 {name=M6
+C {devices/vdd.sym} 1010 -195 0 1 {name=l26 lab=VDD}
+C {sky130_fd_pr/pfet_01v8.sym} 900 -145 0 1 {name=M6
 L=0.15
 W=2
 nf=1
@@ -644,5 +598,12 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/vdd.sym} 865 -230 0 0 {name=l27 lab=VDD}
-C {devices/gnd.sym} 735 -75 0 0 {name=l16 lab=GND}
+C {devices/vdd.sym} 880 -195 0 1 {name=l27 lab=VDD}
+C {devices/gnd.sym} 1010 -40 0 1 {name=l16 lab=GND}
+C {devices/vsource.sym} 560 -295 0 0 {name=V2 value=1.8 savecurrent=false}
+C {devices/vdd.sym} 560 -355 0 0 {name=l22 lab=VR}
+C {devices/gnd.sym} 560 -235 0 0 {name=l23 lab=GND}
+C {devices/vdd.sym} 700 -20 0 0 {name=l9 lab=VR}
+C {devices/vdd.sym} 700 280 0 0 {name=l20 lab=VR}
+C {devices/vsource.sym} 815 -450 0 0 {name=V3 value="PWL(0 1.8 249u 1.8 250u 0 499u 0 500u 1.8 749u 1.8 750u 0)" savecurrent=false
+spice_ignore=true}

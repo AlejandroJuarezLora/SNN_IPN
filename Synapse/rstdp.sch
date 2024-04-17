@@ -135,7 +135,7 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 460 -210 3 0 {name=p5 sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 610 -210 3 0 {name=p6 sig_type=std_logic lab=te}
-C {sky130_fd_pr/pfet_01v8.sym} 360 -90 1 1 {name=M1
+C {sky130_fd_pr/pfet_01v8.sym} 360 -90 3 0 {name=M1
 L=0.15
 W=15
 nf=1
@@ -149,7 +149,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet_01v8.sym} 670 -90 1 1 {name=M4
+C {sky130_fd_pr/pfet_01v8.sym} 670 -90 3 0 {name=M4
 L=0.15
 W=15
 nf=1
