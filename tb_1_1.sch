@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 690 -800 1490 -400 {flags=graph
+B 2 690 -800 1780 -400 {flags=graph
 y1=2.7524304
 y2=5.6524304
 ypos1=0
@@ -13,7 +13,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -28,15 +28,15 @@ unitx=1
 logx=0
 logy=0
 }
-B 2 1580 345 2380 745 {flags=graph
-y1=-0.98
-y2=0.98
+B 2 1120 445 2400 815 {flags=graph
+y1=-1.2739732
+y2=1.3271506
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -58,7 +58,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -80,7 +80,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -95,14 +95,14 @@ logy=0
 color=6
 node=vout_pre}
 B 2 -190 -890 610 -490 {flags=graph
-y1=1.9764923e-08
-y2=9.7838256e-07
+y1=-7.8149354e-07
+y2=8.7499777e-07
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -117,14 +117,14 @@ logy=0
 color=6
 node=i(Vsum)}
 B 2 1562.5 -485 2362.5 -85 {flags=graph
-y1=0.016
-y2=1.6
+y1=0.126
+y2=1.71
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -151,7 +151,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -177,7 +177,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1.5625e-11
 x2=0.0005
 divx=5
 subdivx=1
@@ -196,7 +196,7 @@ N -215 -325 -215 -295 {
 lab=GND}
 N -215 -415 -215 -385 {
 lab=VDD}
-N 300 -365 300 -325 {
+N 300 -345 300 -325 {
 lab=vg10n}
 N 300 -445 300 -425 {
 lab=VDD}
@@ -208,7 +208,7 @@ N 290 -295 290 -245 {
 lab=GND}
 N 290 -245 300 -245 {
 lab=GND}
-N 340 -295 410 -295 {
+N 370 -295 410 -295 {
 lab=vg10n}
 N 300 -345 370 -345 {
 lab=vg10n}
@@ -216,17 +216,13 @@ N 370 -345 370 -295 {
 lab=vg10n}
 N 550 50 550 60 {
 lab=VDD}
-N 340 100 400 100 {
-lab=vout_pre}
 N 550 180 550 190 {
 lab=GND}
-N -60 70 -60 100 {
-lab=vm_pre}
 N 1155 140 1185 140 {
 lab=vout_post}
 N 1185 10 1185 140 {
 lab=vout_post}
-N 10 -430 10 -410 {
+N 10 -420 10 -410 {
 lab=VDD}
 N -20 -380 10 -380 {
 lab=VDD}
@@ -236,7 +232,7 @@ N -20 -420 10 -420 {
 lab=VDD}
 N 50 -380 80 -380 {
 lab=vg100n}
-N 10 -350 10 -330 {
+N 10 -340 10 -330 {
 lab=vg100n}
 N 10 -340 80 -340 {
 lab=vg100n}
@@ -248,33 +244,17 @@ N 190 -20 190 10 {
 lab=vg100n}
 N 1095 40 1095 50 {
 lab=vg100n}
-N 360 140 400 140 {
-lab=vm_pre}
-N 865 110 865 140 {
-lab=vm_post}
-N 250 100 340 100 {
+N 250 100 400 100 {
 lab=vout_pre}
 N 10 -270 10 -240 {
 lab=GND}
-N 860 140 865 140 {
-lab=vm_post}
-N 865 -15 865 110 {
-lab=vm_post}
 N -60 100 -10 100 {
 lab=vm_pre}
-N 355 140 360 140 {
-lab=vm_pre}
-N 350 140 360 140 {
-lab=vm_pre}
-N 1110 10 1185 10 {
-lab=vout_post}
-N 865 -90 865 -15 {
-lab=vm_post}
 N -60 280 350 280 {
 lab=vm_pre}
-N -60 100 -60 140 {
+N -60 100 -60 280 {
 lab=vm_pre}
-N 700 140 860 140 {
+N 700 140 865 140 {
 lab=vm_post}
 N 750 10 750 110 {
 lab=vout_post}
@@ -282,15 +262,13 @@ N 700 110 750 110 {
 lab=vout_post}
 N 920 140 955 140 {
 lab=#net1}
-N 750 10 1110 10 {
+N 750 10 1185 10 {
 lab=vout_post}
 N 350 140 350 280 {
 lab=vm_pre}
-N -60 140 -60 280 {
-lab=vm_pre}
-N -60 -15 -60 5 {
+N -60 -15 -60 35 {
 lab=VDD}
-N -260 -15 -260 5 {
+N -260 -5 -260 5 {
 lab=VDD}
 N -290 35 -260 35 {
 lab=VDD}
@@ -300,7 +278,7 @@ N -290 -5 -260 -5 {
 lab=VDD}
 N -220 35 -190 35 {
 lab=#net2}
-N -260 65 -260 85 {
+N -260 75 -260 85 {
 lab=#net2}
 N -260 75 -190 75 {
 lab=#net2}
@@ -310,17 +288,11 @@ N -190 35 -100 35 {
 lab=#net2}
 N -260 145 -260 175 {
 lab=GND}
-N -60 65 -60 70 {
+N -60 65 -60 100 {
 lab=vm_pre}
-N -60 5 -60 35 {
+N 865 -245 865 -195 {
 lab=VDD}
-N 865 -160 865 -130 {
-lab=vm_post}
-N 865 -130 865 -90 {
-lab=vm_post}
-N 865 -245 865 -225 {
-lab=VDD}
-N 665 -245 665 -225 {
+N 665 -235 665 -225 {
 lab=VDD}
 N 635 -195 665 -195 {
 lab=VDD}
@@ -330,7 +302,7 @@ N 635 -235 665 -235 {
 lab=VDD}
 N 705 -195 735 -195 {
 lab=#net3}
-N 665 -165 665 -145 {
+N 665 -155 665 -145 {
 lab=#net3}
 N 665 -155 735 -155 {
 lab=#net3}
@@ -340,12 +312,28 @@ N 735 -195 825 -195 {
 lab=#net3}
 N 665 -85 665 -55 {
 lab=GND}
-N 865 -165 865 -160 {
+N 865 -165 865 140 {
 lab=vm_post}
-N 865 -225 865 -195 {
-lab=VDD}
 N 700 30 700 80 {
 lab=VDD}
+N 300 -365 300 -345 {
+lab=vg10n}
+N 340 -295 370 -295 {
+lab=vg10n}
+N 10 -430 10 -420 {
+lab=VDD}
+N 10 -350 10 -340 {
+lab=vg100n}
+N 350 140 400 140 {
+lab=vm_pre}
+N -260 -15 -260 -5 {
+lab=VDD}
+N -260 65 -260 75 {
+lab=#net2}
+N 665 -245 665 -235 {
+lab=VDD}
+N 665 -165 665 -155 {
+lab=#net3}
 C {devices/vsource.sym} -215 -355 0 0 {name=V1 value=1.9 savecurrent=false}
 C {devices/vdd.sym} -215 -415 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -215 -295 0 0 {name=l2 lab=GND}
