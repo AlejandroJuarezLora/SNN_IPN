@@ -1,0 +1,17 @@
+magic
+tech sky130B
+timestamp 1714756818
+<< metal1 >>
+rect -16 -13 -13 13
+rect 13 -13 16 13
+<< via1 >>
+rect -13 -13 13 13
+<< metal2 >>
+rect -13 13 13 16
+rect -13 -16 13 -13
+<< labels >>
+flabel metal2 s -13 -16 13 16 0 FreeSans 280 0 0 0 TE
+port 0 nsew
+flabel metal1 s -16 -13 16 13 0 FreeSans 280 0 0 0 BE
+port 1 nsew
+<< end >>
