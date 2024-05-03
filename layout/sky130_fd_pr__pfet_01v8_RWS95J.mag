@@ -1,0 +1,79 @@
+magic
+tech sky130B
+magscale 1 2
+timestamp 1714698450
+<< nwell >>
+rect -696 -319 696 319
+<< pmos >>
+rect -500 -100 500 100
+<< pdiff >>
+rect -558 88 -500 100
+rect -558 -88 -546 88
+rect -512 -88 -500 88
+rect -558 -100 -500 -88
+rect 500 88 558 100
+rect 500 -88 512 88
+rect 546 -88 558 88
+rect 500 -100 558 -88
+<< pdiffc >>
+rect -546 -88 -512 88
+rect 512 -88 546 88
+<< nsubdiff >>
+rect -660 249 -564 283
+rect 564 249 660 283
+rect -660 -249 -626 249
+rect 626 -249 660 249
+rect -660 -283 660 -249
+<< nsubdiffcont >>
+rect -564 249 564 283
+<< poly >>
+rect -500 181 500 197
+rect -500 147 -484 181
+rect 484 147 500 181
+rect -500 100 500 147
+rect -500 -147 500 -100
+rect -500 -181 -484 -147
+rect 484 -181 500 -147
+rect -500 -197 500 -181
+<< polycont >>
+rect -484 147 484 181
+rect -484 -181 484 -147
+<< locali >>
+rect -580 249 -564 283
+rect 564 249 580 283
+rect -500 147 -484 181
+rect 484 147 500 181
+rect -546 88 -512 104
+rect -546 -104 -512 -88
+rect 512 88 546 104
+rect 512 -104 546 -88
+rect -500 -181 -484 -147
+rect 484 -181 500 -147
+<< viali >>
+rect -484 147 484 181
+rect -546 -79 -512 79
+rect 512 -53 546 53
+rect -484 -181 484 -147
+<< metal1 >>
+rect -496 181 496 187
+rect -496 147 -484 181
+rect 484 147 496 181
+rect -496 141 496 147
+rect -552 79 -506 91
+rect -552 -79 -546 79
+rect -512 -79 -506 79
+rect 506 53 552 65
+rect 506 -53 512 53
+rect 546 -53 552 53
+rect 506 -65 552 -53
+rect -552 -91 -506 -79
+rect -496 -147 496 -141
+rect -496 -181 -484 -147
+rect 484 -181 496 -147
+rect -496 -187 496 -181
+<< properties >>
+string FIXED_BBOX -643 -266 643 266
+string gencell sky130_fd_pr__pfet_01v8
+string library sky130
+string parameters w 1 l 5 m 1 nf 1 diffcov 100 polycov 100 guard 1 glc 0 grc 0 gtc 1 gbc 0 tbcov 100 rlcov 100 topc 1 botc 1 poverlap 0 doverlap 1 lmin 0.15 wmin 0.42 compatible {sky130_fd_pr__pfet_01v8  sky130_fd_pr__pfet_01v8_lvt sky130_fd_pr__pfet_01v8_hvt  sky130_fd_pr__pfet_g5v0d10v5} full_metal 0 viasrc 60 viadrn 90 viagate 100 viagb 0 viagr 0 viagl 0 viagt 0
+<< end >>

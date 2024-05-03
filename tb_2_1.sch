@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 555 -1025 2235 -530 {flags=graph
+B 2 1445 -435 3125 60 {flags=graph
 y1=3.3570747
 y2=5.0850747
 ypos1=0
@@ -50,7 +50,7 @@ logx=0
 logy=0
 color=6
 node="\\"Vmem1; x1.BE x1.TE - \\""}
-B 2 -1737.5 -1255 -92.5 -955 {flags=graph
+B 2 -1587.5 -925 57.5 -625 {flags=graph
 y1=-0.35221097
 y2=2.3839289
 ypos1=0.21031407
@@ -154,7 +154,7 @@ logx=0
 logy=0
 color=8
 node="\\"Vmem2; x3.BE x3.TE - \\""}
-B 2 95 -1520 1755 -1315 {flags=graph
+B 2 345 -940 2005 -735 {flags=graph
 y1=0
 y2=1e-07
 ypos1=7.2064205e-09
@@ -180,7 +180,7 @@ node="\\"Iext N1;i(@in2[current])\\"
 \\"Iext N3;i(@in3[current])\\""
 digital=1
 linewidth_mult=3}
-B 2 95 -1315 1765 -1175 {flags=graph
+B 2 345 -735 2015 -595 {flags=graph
 y1=-1.8
 y2=1.8
 ypos1=-3.2630903e-08
@@ -407,7 +407,7 @@ only_toplevel=true
 place=end
 value="
 .options savecurrents
-.tran 10n 1200u uic
+.tran 50n 1200u uic
 .control
 	run
 	write tb_2_1.raw
