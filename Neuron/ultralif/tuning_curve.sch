@@ -340,7 +340,7 @@ C {devices/vdd.sym} 170 -360 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 960 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 340 -340 0 0 {name=C1
 m=1
-value=1p
+value=0.2p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}
@@ -373,10 +373,10 @@ place=end
 value="
 *.options savecurrents
 .nodeset v(vm)=0.75
-.tran 10n 50u uic
+.tran 20n 50u uic
 .control
 	set writestr = ' '
-	compose Iswp start=0 stop=150n step=1n
+	compose Iswp start=0 stop=125n step=1n
 	foreach val $&Iswp
 		alter Iext $val
 		run
@@ -385,6 +385,6 @@ value="
 	*set wr_singlescale
 	set wr_vecnames
 	option numdgt = 4     
-	wrdata simu.txt $writestr
+	wrdata simu_0.2pf.txt $writestr
 .endc
 "}

@@ -1,0 +1,33 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module rram_known_va(t, b);
+	inout t, b;
+	electrical t, b, nx;
+
+	parameter real Ron = 13e3 from (0:inf);
+	parameter real Roff = 460e3 from (0:inf);
+	parameter real Von = 0.2 from (0:inf);
+	parameter real Voff = -0.1 from (-inf:inf);
+	parameter real tau = 6e-5  from (0:inf);
+	parameter real phi = 0.88  from (0:inf);
+	parameter real Ar = 10e-7  from (0:inf);
+	parameter real Af = 10e-7  from (0:inf);
+	parameter real Br = 8  from (0:inf);
+	parameter real Bf = 8  from (0:inf);
+	parameter real GMIN = 1e-12 from (0:inf);
+	real dxdt, dqdt, xval, eps, Vm, Gm, Im, Is;
+   
+	analog begin
+		xval = V(nx,b);
+		Vm = V(t, b);
+		eps = 1/$vt;
+		dxdt = (1/tau) * ((1/(1+exp(-eps*(Vm - Von))))*(1-xval) - (1 - (1/(1+(1+exp(-eps*(Vm-Voff))))))*xval);
+		Gm = ((xval/Ron)+((1-xval)/Roff));
+		Im = Vm * Gm;
+		Is = Af * exp(Bf * Vm) - Ar * exp(Br*Vm);
+		dqdt = phi * Im + (1 - phi) * Is + GMIN * V(t, b);
+		I(nx, b) <+ ddt(dxdt);
+		I(t, b) <+ dqdt;
+	end
+endmodule

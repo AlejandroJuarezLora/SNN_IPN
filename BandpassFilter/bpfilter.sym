@@ -1,0 +1,55 @@
+v {xschem version=3.4.5 file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name  
++ WP=@WP 
++ Xr=@Xr
++ C=@C 
++ K=@K
++ Qp=@Qp
++ C2=@C2
++ C3=@C3
++ R=@R
++ R2=@R2
++ R1=@R1
++ Rm=@Rm
+@pinlist 
+@symname
+"
+template="name=bp1 
+WP=19.5k 
+Xr=150 
+C=200p 
+K=50
+Qp=\\"'1.414*WP'\\" 
+C2=\\"'C'\\" 
+C3=\\"'C*(Xr - 2*Qp - ((Xr*Xr-4*(Qp**2)*Xr)**(0.5))/(2*(Qp**2)))'\\"
+R=\\"'1/(Qp*WP*(C2+C3))'\\" 
+R2=\\"'Xr*R'\\" 
+R1=\\"'C2*R2/(K*(C2+C3))'\\" 
+Rm=\\"'(C2*R*R2)/(C2*R2-(R*K*(C2+C3)))'\\"
+"
+
+}
+V {}
+S {}
+E {}
+L 4 -130 -40 130 -40 {}
+L 4 -130 40 130 40 {}
+L 4 -130 -40 -130 40 {}
+L 4 130 -40 130 40 {}
+L 7 0 -60 0 -40 {}
+L 7 -150 0 -130 0 {}
+L 7 130 0 150 0 {}
+L 7 0 40 0 60 {}
+B 5 -2.5 -62.5 2.5 -57.5 {name=vdd dir=inout}
+B 5 -152.5 -2.5 -147.5 2.5 {name=vin dir=inout}
+B 5 147.5 -2.5 152.5 2.5 {name=vout dir=inout}
+B 5 -2.5 57.5 2.5 62.5 {name=gnd dir=inout}
+T {@symname} -94 -6 0 0 0.3 0.3 {}
+T {@name} -95 -22 0 0 0.2 0.2 {}
+T {vdd} 25 -34 0 1 0.2 0.2 {}
+T {vin} -115 -4 0 1 0.2 0.2 {}
+T {vout} 125 -4 0 1 0.2 0.2 {}
+T {gnd} -5 26 0 1 0.2 0.2 {}

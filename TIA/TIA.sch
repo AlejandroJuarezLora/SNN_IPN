@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=1e-05
+x1=4.8876473e-06
+x2=5.0029394e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -286,12 +286,12 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+.lib $::SKYWATER_MODELS/sky130.lib.spice ss
 
 "
 spice_ignore=false}
 C {devices/code_shown.sym} 15 -165 0 0 {name=s1 only_toplevel=false value="
-.tran 1u 10u
+.tran 10n 10u
 .save all
 .control
 	run
