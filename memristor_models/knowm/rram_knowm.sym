@@ -1,4 +1,4 @@
-v {xschem version=3.0.0 file_version=1.2 
+v {xschem version=3.4.5 file_version=1.2
 
 * Copyright 2021 Stefan Frederik Schippers
 * 
@@ -17,10 +17,9 @@ v {xschem version=3.0.0 file_version=1.2
 }
 G {}
 K {type=reram
-format="@spiceprefix@name @pinlist @model Tfilament_0=@Tfilament_0"
+format="@spiceprefix@name @pinlist @model "
 template="name=R1
-model=sky130_smooth
-Tfilament_0=3.3e-9
+model=rram_knowm
 spiceprefix=X
 "
 
@@ -37,9 +36,16 @@ L 4 -3.75 5 3.75 5 {}
 L 4 -3.75 5 -3.75 15 {}
 L 4 -3.75 15 0 15 {}
 L 4 0 15 0 30 {}
+L 4 -20 -20 20 -20 {}
+L 4 -20 20 20 20 {}
+L 4 20 -10 20 20 {}
+L 4 -20 -10 -20 20 {}
+B 4 -20 -20 20 -10 {}
 B 5 -2.5 -32.5 2.5 -27.5 {name=TE dir=inout}
 B 5 -2.5 27.5 2.5 32.5 {name=BE dir=inout}
-T {@name} 15 -13.75 0 0 0.2 0.2 {}
-T {@model} 15 2.5 0 0 0.2 0.2 {}
-T {TE} 10 -28.75 0 0 0.2 0.2 {}
-T {BE} 10 28.75 2 1 0.2 0.2 {}
+A 4 0 10 10 270 360 {}
+T {@name} 35 -13.75 0 0 0.2 0.2 {}
+T {@model} 35 2.5 0 0 0.2 0.2 {}
+T {TE} 30 -28.75 0 0 0.2 0.2 {}
+T {BE} 30 28.75 2 1 0.2 0.2 {}
+T {knowm} -20 -40 1 0 0.4 0.4 {}

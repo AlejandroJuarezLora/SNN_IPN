@@ -9,18 +9,18 @@ cd $SCRIPT_DIR
 
 # Compile model with recently downloaded openvaf
 #./openvaf rram_v0.va
-openvaf sky130_smooth.va
+openvaf rram_knowm.va
 
 # Clean
 #rm openvaf_23_2_0_linux_amd64.tar.xz
 #rm openvaf
 
 # Update spice netlist according to env
-sed -i "s|/foss/pdks|$PDK_ROOT|g" sky130_smooth.spice
+#sed -i "s|/foss/pdks|$PDK_ROOT|g" rram_v0.spice
 
 # Copy model, spice file and example netlist
 sudo mkdir -p ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_smooth.va ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_smooth.spice ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_smooth.osdi ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_smooth.sym ${PDK_ROOT}/sky130B/libs.tech/xschem/sky130_fd_pr
+sudo cp rram_knowm.va ${PDK_ROOT}/sky130B/libs.tech/ngspice
+sudo cp rram_knowm.spice ${PDK_ROOT}/sky130B/libs.tech/ngspice
+sudo cp rram_knowm.osdi ${PDK_ROOT}/sky130B/libs.tech/ngspice
+sudo cp rram_knowm.sym ${PDK_ROOT}/sky130B/libs.tech/xschem/sky130_fd_pr
