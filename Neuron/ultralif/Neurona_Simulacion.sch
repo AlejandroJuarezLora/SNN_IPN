@@ -13,8 +13,8 @@ ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=0.00015
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 node="\\"Vout [V]; vout\\""
@@ -33,8 +33,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=0.00015
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 
@@ -56,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=0.00015
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 
@@ -79,8 +79,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=0.00015
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 
@@ -327,7 +327,7 @@ mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/isource.sym} 440 -250 0 0 {name=I1 value=10nA}
+C {devices/isource.sym} 440 -250 0 0 {name=I1 value=20nA}
 C {devices/gnd.sym} 440 -210 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 800 -200 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} 1140 -340 0 1 {name=p2 sig_type=std_logic lab=Vout
@@ -365,7 +365,7 @@ tclcommand="xschem raw_read $netlist_dir/Neurona_Simulacion.raw tran"
 }
 C {devices/lab_pin.sym} 980 -350 0 1 {name=p3 sig_type=std_logic lab=Vout_n
 }
-C {devices/isource.sym} 910 -400 0 0 {name=I3 value=100nA
+C {devices/isource.sym} 910 -400 0 0 {name=I3 value=50nA
 
 spice_ignore=false}
 C {sky130_fd_pr/pfet_01v8.sym} 280 -460 3 1 {name=M9
