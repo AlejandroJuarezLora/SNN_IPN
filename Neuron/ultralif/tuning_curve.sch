@@ -13,8 +13,8 @@ ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
-x1=-4.3819071e-05
-x2=0.00031617973
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 node="\\"Vout [V]; vout\\""
@@ -33,8 +33,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-4.3819071e-05
-x2=0.00031617973
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 
@@ -56,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-4.3819071e-05
-x2=0.00031617973
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 
@@ -79,8 +79,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-4.3819071e-05
-x2=0.00031617973
+x1=1e-09
+x2=0.0003
 divx=5
 subdivx=1
 
@@ -327,7 +327,7 @@ mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/isource.sym} 440 -250 0 0 {name=I1 value=10nA}
+C {devices/isource.sym} 440 -250 0 0 {name=I1 value=0nA}
 C {devices/gnd.sym} 440 -210 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 800 -200 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} 1140 -340 0 1 {name=p2 sig_type=std_logic lab=Vout
@@ -340,7 +340,7 @@ C {devices/vdd.sym} 170 -360 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 960 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 340 -340 0 0 {name=C1
 m=1
-value=0.2p
+value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}
@@ -367,16 +367,16 @@ spiceprefix=X
 C {devices/vdd.sym} 280 -380 2 0 {name=l9 lab=VDD}
 C {devices/vdd.sym} 510 -360 2 0 {name=l10 lab=VDD}
 C {devices/vdd.sym} 850 -400 0 0 {name=l11 lab=VDD}
-C {devices/code_shown.sym} -230 -950 0 0 {name=STIMULI1 
+C {devices/code_shown.sym} -530 -970 0 0 {name=STIMULI1 
 only_toplevel=true
 place=end
 value="
 *.options savecurrents
 .nodeset v(vm)=0.75
-.tran 20n 50u uic
+.tran 1n 100u uic
 .control
 	set writestr = ' '
-	compose Iswp start=0 stop=125n step=1n
+	compose Iswp start=0 stop=200n step=1n
 	foreach val $&Iswp
 		alter Iext $val
 		run
@@ -385,6 +385,32 @@ value="
 	*set wr_singlescale
 	set wr_vecnames
 	option numdgt = 4     
-	wrdata simu_0.2pf.txt $writestr
+	wrdata /home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/sims/tc_4E-8_.txt $writestr
 .endc
-"}
+"
+spice_ignore=true}
+C {devices/code_shown.sym} -760 -650 0 0 {name=s2 only_toplevel=false value="
+
+*.nodeset v(vm)=0.75
+.tran 30n 150u 
+.control
+	save all
+	*set wr_singlescale
+	set wr_vecnames
+	option numdgt = 4
+	compose Ilk_list start=0 stop=100n step=10n
+	compose Iext_list start=0 stop=200n step=1n
+    foreach ilk $&Ilk_list 
+        alter I1 $ilk
+        set namestr = 'tc_\{$ilk\}_.txt'
+        set writestr = ' '
+        foreach iext $&Iext_list
+            alter Iext $iext
+            run
+            set writestr = ( $writestr \{$curplot\}.v(vout) )  
+        end
+	wrdata /home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/sims/\{$namestr\} $writestr
+    end
+.endc
+"
+spice_ignore=false}
