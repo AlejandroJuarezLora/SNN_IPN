@@ -327,7 +327,7 @@ mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/isource.sym} 440 -250 0 0 {name=I1 value=0nA}
+C {devices/isource.sym} 440 -250 0 0 {name=Ileak value=0nA}
 C {devices/gnd.sym} 440 -210 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 800 -200 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} 1140 -340 0 1 {name=p2 sig_type=std_logic lab=Vout
@@ -335,7 +335,7 @@ C {devices/lab_pin.sym} 1140 -340 0 1 {name=p2 sig_type=std_logic lab=Vout
 C {devices/vsource.sym} 170 -300 0 0 {name=Vspk value=1.8}
 C {devices/gnd.sym} 170 -250 0 0 {name=l5 lab=GND}
 C {devices/lab_pin.sym} 660 -440 1 0 {name=p4 sig_type=std_logic lab=Vm}
-C {sky130_fd_pr/corner.sym} 210 -1070 0 0 {name=CORNER only_toplevel=true corner=tt}
+C {sky130_fd_pr/corner.sym} 250 -740 0 0 {name=CORNER only_toplevel=true corner=tt}
 C {devices/vdd.sym} 170 -360 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 960 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 340 -340 0 0 {name=C1
@@ -367,7 +367,7 @@ spiceprefix=X
 C {devices/vdd.sym} 280 -380 2 0 {name=l9 lab=VDD}
 C {devices/vdd.sym} 510 -360 2 0 {name=l10 lab=VDD}
 C {devices/vdd.sym} 850 -400 0 0 {name=l11 lab=VDD}
-C {devices/code_shown.sym} -530 -970 0 0 {name=STIMULI1 
+C {devices/code_shown.sym} -550 -1140 0 0 {name=STIMULI1 
 only_toplevel=true
 place=end
 value="
@@ -389,7 +389,7 @@ value="
 .endc
 "
 spice_ignore=true}
-C {devices/code_shown.sym} -760 -650 0 0 {name=s2 only_toplevel=false value="
+C {devices/code_shown.sym} -730 -580 0 0 {name=s2 only_toplevel=false value="
 
 *.nodeset v(vm)=0.75
 .tran 30n 150u 
@@ -401,7 +401,7 @@ C {devices/code_shown.sym} -760 -650 0 0 {name=s2 only_toplevel=false value="
 	compose Ilk_list start=0 stop=100n step=10n
 	compose Iext_list start=0 stop=200n step=1n
     foreach ilk $&Ilk_list 
-        alter I1 $ilk
+        alter Ileak $ilk
         set namestr = 'tc_\{$ilk\}_.txt'
         set writestr = ' '
         foreach iext $&Iext_list
