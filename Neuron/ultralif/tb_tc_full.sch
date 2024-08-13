@@ -253,7 +253,7 @@ C {devices/vdd.sym} 170 -360 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 960 -470 0 0 {name=l7 lab=VDD}
 C {devices/capa.sym} 340 -340 0 0 {name=C1
 m=1
-value=0.2p
+value=0.1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 340 -240 0 0 {name=l8 lab=GND}

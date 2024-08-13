@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.016
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 
@@ -30,15 +30,15 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=101659.72
-y2=3000659.6
+y1=403139.45
+y2=3302719.6
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.016
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 
@@ -51,15 +51,15 @@ logy=0
 color=4
 node="\\"memristancia;0 te - i(v2) /\\""}
 B 2 1460 -810 2260 -410 {flags=graph
-y1=3.1888888
-y2=4.7888888
+y1=3.3555553
+y2=4.9555553
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0
-x2=0.016
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -76,14 +76,14 @@ color=6
 node="\\"Thickness [nm]; 5 n.xr1.n1#ngap -\\""
 linewidth_mult=3}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-0.00011525701
-y2=0.00028256434
+y1=-9.782041e-05
+y2=0.00020112143
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-2
+x1=-2.4
 
 divx=5
 subdivx=1
@@ -100,7 +100,7 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=2
+x2=2.4
 sweep=TE}
 B 2 -140 -810 660 -410 {flags=graph
 y1=-0.00151875
@@ -110,8 +110,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0
-x2=0.016
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -138,7 +138,7 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-2
+x1=-2.4
 
 divx=5
 subdivx=1
@@ -155,7 +155,7 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=2
+x2=2.4
 sweep=TE}
 N 130 -170 130 -140 {
 lab=TE}
@@ -201,7 +201,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .options num_threads=6
-.tran 1u 16m uic
+.tran 1u 24m uic
 .control
 	save all
 	run
@@ -214,7 +214,7 @@ C {sky130_fd_pr/rram_v0.sym} 350 -100 0 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }
-C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"
+C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2 20m 2 24m -2)"
 }
 C {devices/vsource.sym} 350 0 2 0 {name=V1 value=0
 }
