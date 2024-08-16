@@ -5,51 +5,61 @@ K {}
 V {}
 S {}
 E {}
-N 10 240 30 240 {
+N 10 150 30 150 {
 lab=Isyn}
-N -20 190 -20 240 {
-lab=Isyn}
-N -20 240 10 240 {
+N -20 150 10 150 {
 lab=Isyn}
 N -20 90 20 90 {
-lab=Vin}
-N -20 150 20 150 {
-lab=Vin}
-N 60 90 60 150 {
-lab=Vin}
-N 60 40 60 90 {
-lab=Vin}
-N -20 40 20 40 {
-lab=Vin}
-N -80 150 -60 150 {
-lab=Vin}
-N -80 90 -80 150 {
-lab=Vin}
-N -20 180 -20 190 {
-lab=Isyn}
+lab=vdd}
+N 60 -60 60 -10 {
+lab=vdd}
+N -20 -60 20 -60 {
+lab=vdd}
 N 20 90 60 90 {
-lab=Vin}
-N 20 150 60 150 {
-lab=Vin}
-N 20 40 60 40 {
-lab=Vin}
-N -20 40 -20 60 {
-lab=Vin}
+lab=vdd}
+N 20 -60 60 -60 {
+lab=vdd}
+N -20 -60 -20 -40 {
+lab=vdd}
 N -80 90 -60 90 {
 lab=Vin}
-N -100 120 -80 120 {
+N -20 120 -20 150 {
+lab=Isyn}
+N -20 -40 -20 -30 {
+lab=vdd}
+N -20 -0 60 0 {
+lab=vdd}
+N 60 -10 60 0 {
+lab=vdd}
+N 60 -10 60 -0 {
+lab=vdd}
+N 60 -0 60 90 {
+lab=vdd}
+N -20 30 -20 60 {
+lab=vx}
+N -80 -0 -60 0 {
 lab=Vin}
-C {devices/iopin.sym} -100 120 0 1 {name=p5 lab=Vin}
+N -80 0 -80 90 {
+lab=Vin}
+N -100 40 -80 40 {
+lab=Vin}
+C {devices/iopin.sym} -100 40 0 1 {name=p5 lab=Vin}
 C {sky130_fd_pr/pfet_01v8.sym} -40 90 0 0 {name=M10
-
-}
-C {sky130_fd_pr/pfet_01v8.sym} -40 150 0 0 {name=M11
-L=0.15
-W=1
+L=30
+W=0.5
 nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/iopin.sym} 30 240 0 0 {name=p1 lab=Isyn}
-C {devices/iopin.sym} 20 40 1 1 {name=p2 lab=vdd}
+C {devices/iopin.sym} 30 150 0 0 {name=p1 lab=Isyn}
+C {devices/iopin.sym} 20 -60 1 1 {name=p2 lab=vdd}
+C {sky130_fd_pr/pfet_01v8.sym} -40 0 0 0 {name=M1
+L=30
+W=0.5
+nf=1
+mult=1
+model=pfet_01v8
+spiceprefix=X
+}
+C {devices/lab_pin.sym} -20 50 0 0 {name=p3 sig_type=std_logic lab=vx}

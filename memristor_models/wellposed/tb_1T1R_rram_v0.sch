@@ -113,7 +113,7 @@ lab=BL}
 C {devices/code_shown.sym} 200 -190 0 0 {name=NGSPICE
 only_toplevel=true
 value="
-*.options savecurrents
+.options num_threads=6
 .save @m.xm1.msky130_fd_pr__nfet_01v8[id]
 .control
   * Modify according to your specific location
