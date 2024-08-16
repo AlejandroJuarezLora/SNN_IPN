@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1e-09
-x2=0.0003
+x2=0.001
 divx=5
 subdivx=1
 node="\\"Vout [V]; vout\\""
@@ -26,15 +26,15 @@ logy=0
 digital=0
 linewidth_mult=3.5}
 B 2 770 -1180 1570 -780 {flags=graph
-y1=-2.3
-y2=0.034
+y1=0.015
+y2=1.6
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1e-09
-x2=0.0003
+x2=0.001
 divx=5
 subdivx=1
 
@@ -49,15 +49,15 @@ node="\\"Vm [V]; x1.vm\\"
 \\"Vg [V]; vg\\""
 linewidth_mult=3.5}
 B 2 770 -780 1570 -380 {flags=graph
-y1=2.4e-24
-y2=1.7e-09
+y1=1.4e-11
+y2=1.7e-07
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1e-09
-x2=0.0003
+x2=0.001
 divx=5
 subdivx=1
 
@@ -66,8 +66,9 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=6
-node="\\"Iext [A]; i(@m.x1.xm11.msky130_fd_pr__pfet_01v8[id])\\""
+color="6 4"
+node="\\"Iext [A]; i(@m.x2.xm11.msky130_fd_pr__pfet_01v8[id])\\"
+i(@m.x2.xm10.msky130_fd_pr__pfet_01v8[id])"
 linewidth_mult=4}
 N 350 -340 350 -330 {
 lab=GND}
@@ -143,7 +144,7 @@ C {devices/isource.sym} 610 -580 0 1 {name=I3 value=100nA
 
 spice_ignore=false}
 C {ul_neg_tun.sym} 440 -480 0 0 {name=x1}
-C {devices/vsource.sym} 20 -430 0 0 {name=Vin value="PWL(0 1.8 1000u 0)"}
+C {devices/vsource.sym} 20 -430 0 0 {name=Vin value=0.2}
 C {devices/vdd.sym} 610 -670 0 1 {name=l2 lab=VDD}
 C {sky130_fd_pr/pfet_01v8.sym} 590 -640 0 0 {name=M6
 L=0.15

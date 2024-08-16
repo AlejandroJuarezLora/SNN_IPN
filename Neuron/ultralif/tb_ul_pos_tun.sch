@@ -51,8 +51,8 @@ color="4 4"
 node="x2.vm
 vin"}
 B 2 770 -780 1570 -380 {flags=graph
-y1=2.7e-10
-y2=4.5e-06
+y1=5.5e-08
+y2=8.1e-08
 ypos1=0
 ypos2=2
 divy=5
@@ -146,7 +146,7 @@ tclcommand="xschem raw_read $netlist_dir/tb_ul_pos_tun.raw tran"
 C {devices/isource.sym} 610 -580 0 1 {name=I3 value=100nA
 
 spice_ignore=false}
-C {devices/vsource.sym} -30 -430 0 0 {name=Vin value=0.55}
+C {devices/vsource.sym} -30 -430 0 0 {name=Vin value=1.7}
 C {devices/vdd.sym} 610 -670 0 1 {name=l2 lab=VDD}
 C {sky130_fd_pr/pfet_01v8.sym} 590 -640 0 0 {name=M6
 L=0.15
