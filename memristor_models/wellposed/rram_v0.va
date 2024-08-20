@@ -5,7 +5,7 @@ module rram_v0_va(t, b);
     inout t, b;
     electrical t, b, nGap;
 
-    parameter real gref = 0.271 from (0:inf);  //Tox - Tfilament_ref = 5.0 - 4.7249 (Tox - filament thickness calibration parameter)[nano meters]
+    parameter real g0 = 0.2751 from (0:inf);  //Tox - Tfilament_ref = 5.0 - 4.7249 (Tox - filament thickness calibration parameter)[nano meters]
     parameter real V0 = 0.430 from (0:inf);   // voltage calibration parameter [Volts]
     parameter real I0 = 6.140e-5 from (0:inf); // current calibration parameter [Amps]
     parameter real maxGap = 1.7 from (0:inf); //Tox - Tfilament_min = 5.0 - 3.3 // minimum thickness of conductive filament (for maximum resistance) [nano meters]
@@ -59,7 +59,7 @@ module rram_v0_va(t, b);
         clip_maxGap = (-safeexp(Kclip*(Gap-maxGap), maxslope) - ddt_Gap) * Fw2;
         I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;
         I(nGap, b) <+ ddt(-1e-9*Gap);
-        I(t,b) <+ I0 * safeexp(-(Gap)/gref,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
+        I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
         
     end
 

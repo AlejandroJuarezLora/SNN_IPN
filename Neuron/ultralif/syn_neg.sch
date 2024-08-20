@@ -43,6 +43,10 @@ N -80 0 -80 90 {
 lab=Vin}
 N -100 40 -80 40 {
 lab=Vin}
+N 110 150 130 150 {
+lab=Isyn}
+N 30 150 110 150 {
+lab=Isyn}
 C {devices/iopin.sym} -100 40 0 1 {name=p5 lab=Vin}
 C {sky130_fd_pr/pfet_01v8.sym} -40 90 0 0 {name=M10
 L=30
@@ -52,7 +56,7 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/iopin.sym} 30 150 0 0 {name=p1 lab=Isyn}
+C {devices/iopin.sym} 130 150 0 0 {name=p1 lab=Isyn}
 C {devices/iopin.sym} 20 -60 1 1 {name=p2 lab=vdd}
 C {sky130_fd_pr/pfet_01v8.sym} -40 0 0 0 {name=M1
 L=30

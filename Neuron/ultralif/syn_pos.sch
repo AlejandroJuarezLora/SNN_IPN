@@ -47,14 +47,6 @@ N -100 -10 -100 30 {
 lab=vss}
 N -50 -40 -50 30 {
 lab=vss}
-N 0 -10 0 30 {
-lab=vss}
-N -50 30 0 30 {
-lab=vss}
-N -30 -90 0 -90 {
-lab=vx}
-N 0 -90 0 -70 {
-lab=vx}
 C {devices/iopin.sym} -180 -40 0 1 {name=p5 lab=Vin}
 C {sky130_fd_pr/pfet_01v8.sym} 60 -140 0 0 {name=M9
 L=1

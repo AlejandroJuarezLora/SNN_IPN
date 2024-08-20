@@ -29,8 +29,8 @@ node="\\"BL[V];BL\\"
 \\"WL[V];WL\\""
 linewidth_mult=4}
 B 2 1210 -80 2010 320 {flags=graph
-y1=2500
-y2=3.7e+06
+y1=760
+y2=1200000
 ypos1=0
 ypos2=2
 divy=5
@@ -50,7 +50,7 @@ color=4
 node="\\"Memristance [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
 B 2 1210 -880 2010 -480 {flags=graph
-y1=-0.00028
+y1=-0.00029
 y2=0.00021
 ypos1=0
 ypos2=2
@@ -75,8 +75,8 @@ color=6
 node="\\"Current Memristor[A]; i(vread)\\"	"
 linewidth_mult=4}
 B 2 395 -880 1195 -480 {flags=graph
-y1=3.15147
-y2=5.19947
+y1=0.9
+y2=4.3
 ypos1=0
 ypos2=2
 divy=5
@@ -124,19 +124,21 @@ lab=GND}
 N 540 -240 540 -180 {
 lab=te}
 N 230 -350 340 -350 {
-lab=#net1}
+lab=BL}
 N 400 -350 540 -350 {
 lab=be}
 N 230 -180 230 -120 {
-lab=#net2}
+lab=GND}
 N 290 -130 350 -130 {
 lab=WL}
 N 290 -130 290 -20 {
 lab=WL}
 N 230 -60 230 0 {
 lab=GND}
-N 230 -120 230 -60 {}
-N 230 -350 230 -240 {}
+N 230 -120 230 -60 {
+lab=GND}
+N 230 -350 230 -240 {
+lab=BL}
 C {devices/code_shown.sym} 100 160 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -144,7 +146,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 1n 20u
+  tran 100n 20u
   write tb_1T1R_pulses_rram_v0.raw
 .endc
 
