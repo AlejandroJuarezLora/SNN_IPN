@@ -146,7 +146,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 100n 20u
+  tran 10u 20m
   write tb_1T1R_pulses_rram_v0.raw
 .endc
 
@@ -166,9 +166,9 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 3)"
+C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 9.9m 2 10m 3)"
 }
-C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500n 1000n 10)"}
+C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500u 1000u 10)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 840 20 0 0 {name=h5
 descr="load waves" 
@@ -192,4 +192,14 @@ model=rram_v0
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 540 -230 2 0 {name=be1 sig_type=std_logic lab=te}
-C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 10u 5n 5n 500n 1000n 10)"}
+C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 10m 5n 5n 500u 1000u 10)"}
+C {devices/code.sym} 912.5 -177.5 0 0 {name=MODELS1
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+**.inc $::SKYWATER_MODELS/rram_v0.spice
+.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
+
+"
+spice_ignore=true}

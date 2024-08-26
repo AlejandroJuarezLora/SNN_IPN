@@ -40,12 +40,12 @@ L 7 -150 -30 -130 -30 {}
 L 7 -150 0 -130 0 {}
 L 7 -150 20 -130 20 {}
 B 5 127.5 -212.5 132.5 -207.5 {name=Vr dir=inout}
-B 5 -2.5 -212.5 2.5 -207.5 {name=vdd dir=inout}
+B 5 -2.5 -212.5 2.5 -207.5 {name=vdda dir=inout}
 B 5 147.5 -92.5 152.5 -87.5 {name=i_post2 dir=inout}
 B 5 147.5 -142.5 152.5 -137.5 {name=i_post1 dir=inout}
 B 5 147.5 -112.5 152.5 -107.5 {name=vout_post2 dir=inout}
 B 5 147.5 -32.5 152.5 -27.5 {name=i_post3 dir=inout}
-B 5 -2.5 67.5 2.5 72.5 {name=vss dir=inout}
+B 5 -2.5 67.5 2.5 72.5 {name=vssa dir=inout}
 B 5 147.5 -162.5 152.5 -157.5 {name=vout_post1 dir=inout}
 B 5 147.5 -52.5 152.5 -47.5 {name=vout_post3 dir=inout}
 B 5 147.5 27.5 152.5 32.5 {name=i_post4 dir=inout}

@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-08
-x2=0.024
+x1=-0.0013464756
+x2=0.022653515
 divx=5
 subdivx=1
 
@@ -30,15 +30,15 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=403139.45
-y2=3302719.6
+y1=-202499.98
+y2=1537499.8
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-08
-x2=0.024
+x1=-0.0013464756
+x2=0.022653515
 divx=5
 subdivx=1
 
@@ -58,8 +58,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=1e-08
-x2=0.024
+x1=-0.0013464756
+x2=0.022653515
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -76,14 +76,14 @@ color=6
 node="\\"Thickness [nm]; 5 n.xr1.n1#ngap -\\""
 linewidth_mult=3}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-9.782041e-05
-y2=0.00020112143
+y1=-1.1e-05
+y2=1.1e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-2.4
+x1=-0.0013464756
 
 divx=5
 subdivx=1
@@ -100,18 +100,18 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=2.4
+x2=0.022653515
 sweep=TE}
 B 2 -140 -810 660 -410 {flags=graph
-y1=-0.00151875
-y2=0.00298125
+y1=-1.3e-05
+y2=1.3e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=1e-08
-x2=0.024
+x1=-0.0013464756
+x2=0.022653515
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -138,7 +138,7 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-2.4
+x1=-0.0013464756
 
 divx=5
 subdivx=1
@@ -155,8 +155,33 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=2.4
+x2=0.022653515
 sweep=TE}
+B 2 1470 -1240 2270 -840 {flags=graph
+y1=3.4
+y2=3.5
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+x1=-0.0013464756
+x2=0.022653515
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+color=6
+node="\\"Thickness [nm]; 5 xr1.r -\\""
+linewidth_mult=3}
 N 130 -170 130 -140 {
 lab=TE}
 N 130 50 130 60 {
@@ -189,14 +214,6 @@ set rawfile [file tail [file rootname [xschem get schname]]]
 xschem raw_read $netlist_dir/$\{rawfile\}.raw
 unset rawfile
 "}
-C {devices/code.sym} 480 -40 0 0 {name=MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/rram_v0.spice
-"
-spice_ignore=false}
 C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -219,3 +236,13 @@ C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="PWL(0 -2 4m 2 8m -2 12m 2 16
 C {devices/vsource.sym} 350 0 2 0 {name=V1 value=0
 }
 C {devices/lab_wire.sym} 350 -40 0 0 {name=l1 sig_type=std_logic lab=BE}
+C {devices/code.sym} 472.5 -112.5 0 0 {name=MODELS2
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+**.inc $::SKYWATER_MODELS/rram_v0.spice
+.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
+
+"
+spice_ignore=false}

@@ -19,7 +19,7 @@ module rram_v0_va(t, b);
     parameter real smoothing = 1e-8 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    parameter real maxslope = 1e18 from (0:inf);
+    parameter real maxslope = 1e15 from (0:inf);
 
     real ddt_Gap, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
     
