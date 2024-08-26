@@ -165,32 +165,32 @@ N 1430 240 1530 240 {
 lab=i_post4}
 N 1430 -10 1530 -10 {
 lab=i_post4}
-N -370 -200 -340 -200 {
-lab=vss}
 N -370 -250 -340 -250 {
-lab=vdd}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=rstdp1}
+lab=vdda}
+N -370 -200 -340 -200 {
+lab=vssa}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=xrstdp1}
 C {devices/iopin.sym} -300 -130 0 1 {name=p1 lab=vout_pre1}
 C {devices/iopin.sym} 160 -200 3 0 {name=p5 lab=vout_post1}
 C {devices/iopin.sym} -310 80 0 1 {name=p6 lab=i_pre1}
-C {devices/iopin.sym} -370 -250 0 1 {name=p7 lab=vdd}
-C {devices/iopin.sym} -370 -200 0 1 {name=p8 lab=vss}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 -50 0 0 {name=rstdp2}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 -50 0 0 {name=rstdp3}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 -50 0 0 {name=rstdp4}
+C {devices/iopin.sym} -370 -250 0 1 {name=p7 lab=vdda}
+C {devices/iopin.sym} -370 -200 0 1 {name=p8 lab=vssa}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 -50 0 0 {name=xrstdp2}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 -50 0 0 {name=xrstdp3}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 -50 0 0 {name=xrstdp4}
 C {devices/iopin.sym} 200 -210 3 0 {name=p9 lab=i_post1}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 200 0 0 {name=rstdp5}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 200 0 0 {name=rstdp6}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 200 0 0 {name=rstdp7}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 200 0 0 {name=rstdp8}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 450 0 0 {name=rstdp9}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 450 0 0 {name=rstdp10}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 450 0 0 {name=rstdp11}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 450 0 0 {name=rstdp12}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 700 0 0 {name=rstdp13}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 700 0 0 {name=rstdp14}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 700 0 0 {name=rstdp15}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 700 0 0 {name=rstdp16}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 200 0 0 {name=xrstdp5}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 200 0 0 {name=xrstdp6}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 200 0 0 {name=xrstdp7}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 200 0 0 {name=xrstdp8}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 450 0 0 {name=xrstdp9}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 450 0 0 {name=xrstdp10}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 450 0 0 {name=xrstdp11}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 450 0 0 {name=xrstdp12}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 700 0 0 {name=xrstdp13}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 700 0 0 {name=xrstdp14}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 700 0 0 {name=xrstdp15}
+C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 700 0 0 {name=xrstdp16}
 C {devices/iopin.sym} 1080 -200 3 0 {name=p11 lab=i_post3}
 C {devices/iopin.sym} 1530 -190 3 0 {name=p12 lab=i_post4}
 C {devices/iopin.sym} -300 340 2 0 {name=p13 lab=i_pre2}
@@ -221,37 +221,37 @@ C {devices/vdd.sym} 1430 -70 0 0 {name=l48 lab=Vr}
 C {devices/vdd.sym} 1430 180 0 0 {name=l49 lab=Vr}
 C {devices/vdd.sym} 1430 430 0 0 {name=l50 lab=Vr}
 C {devices/vdd.sym} 1430 680 0 0 {name=l51 lab=Vr}
-C {devices/lab_pin.sym} -40 -90 1 0 {name=p20 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} -40 160 1 0 {name=p21 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} -40 410 1 0 {name=p22 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} -40 660 1 0 {name=p23 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 400 -90 1 0 {name=p24 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 400 160 1 0 {name=p25 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 400 410 1 0 {name=p26 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 400 660 1 0 {name=p27 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 850 -90 1 0 {name=p28 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 850 160 1 0 {name=p29 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 850 410 1 0 {name=p30 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 850 660 1 0 {name=p31 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 1280 -90 1 0 {name=p32 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 1280 160 1 0 {name=p33 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 1280 410 1 0 {name=p34 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 1280 660 1 0 {name=p35 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} -40 30 3 0 {name=p36 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -40 280 3 0 {name=p37 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -40 530 3 0 {name=p38 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -40 780 3 0 {name=p39 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 400 30 3 0 {name=p40 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 400 280 3 0 {name=p41 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 400 530 3 0 {name=p42 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 400 780 3 0 {name=p43 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 850 30 3 0 {name=p44 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 850 280 3 0 {name=p45 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 850 530 3 0 {name=p46 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 850 780 3 0 {name=p47 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 1280 30 3 0 {name=p48 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 1280 280 3 0 {name=p49 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 1280 530 3 0 {name=p50 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 1280 770 3 0 {name=p51 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -340 -200 3 0 {name=p52 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -340 -250 1 0 {name=p53 sig_type=std_logic lab=vdd}
+C {devices/lab_pin.sym} -40 -90 1 0 {name=p20 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} -40 160 1 0 {name=p21 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} -40 410 1 0 {name=p22 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} -40 660 1 0 {name=p23 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 400 -90 1 0 {name=p24 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 400 160 1 0 {name=p25 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 400 410 1 0 {name=p26 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 400 660 1 0 {name=p27 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 850 -90 1 0 {name=p28 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 850 160 1 0 {name=p29 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 850 410 1 0 {name=p30 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 850 660 1 0 {name=p31 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 1280 -90 1 0 {name=p32 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 1280 160 1 0 {name=p33 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 1280 410 1 0 {name=p34 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} 1280 660 1 0 {name=p35 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} -40 30 3 0 {name=p36 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} -40 280 3 0 {name=p37 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} -40 530 3 0 {name=p38 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} -40 780 3 0 {name=p39 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 400 30 3 0 {name=p40 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 400 280 3 0 {name=p41 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 400 530 3 0 {name=p42 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 400 780 3 0 {name=p43 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 850 30 3 0 {name=p44 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 850 280 3 0 {name=p45 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 850 530 3 0 {name=p46 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 850 780 3 0 {name=p47 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 1280 30 3 0 {name=p48 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 1280 280 3 0 {name=p49 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 1280 530 3 0 {name=p50 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 1280 770 3 0 {name=p51 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} -340 -250 2 0 {name=p52 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} -340 -200 2 0 {name=p54 sig_type=std_logic lab=vssa}
