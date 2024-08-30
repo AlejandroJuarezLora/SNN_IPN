@@ -20,9 +20,8 @@ module rram_v0_va(t, b);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
     parameter real maxslope = 1e18 from (0:inf);
-    parameter real Gap_0 = 0.8 from (minGap:maxGap);
 
-    real ddt_Gap, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap, flag = 0;
+    real ddt_Gap, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
     
     analog function real smoothstep;
         input x, smoothing; 
@@ -51,9 +50,7 @@ module rram_v0_va(t, b);
     
     
     analog begin
-        if (analysis("ic"))
-            Gap = Gap_0;
-        $strobe("Gap = %g",Gap);
+        Gap = V(nGap, b);
         Gamma = gamma0 + Beta0 * pow(Gap, 3);
         ddt_Gap =  -Vel0 * safeexp(-Ea/$vt, maxslope)*safesinh(V(t, b)*Gamma*a0/(tox*$vt), maxslope);
         Fw1 = smoothstep(minGap-Gap, smoothing);
@@ -63,7 +60,7 @@ module rram_v0_va(t, b);
         I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;
         I(nGap, b) <+ ddt(-1e-9*Gap);
         I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
-        Gap = V(nGap, b);
+        
     end
 
 endmodule

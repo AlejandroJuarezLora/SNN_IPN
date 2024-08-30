@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -39,7 +39,7 @@ divy=5
 subdivy=1
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -61,7 +61,7 @@ divy=5
 
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -79,7 +79,7 @@ i(vi3)
 i(vi4)"
 subdivy=2}
 B 2 2380 -360 3180 40 {flags=graph
-y1=-0.0023	
+y1=-0.00043	
 y2=7.3
 ypos1=-0.00012
 ypos2=3.7
@@ -87,7 +87,7 @@ divy=5
 subdivy=1
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -104,15 +104,15 @@ node="\\"N1; voutj1 5.4 +\\"
 \\"N3; voutj3 1.8 +\\"
 \\"N4; voutj4\\""}
 B 2 2380 -780 3180 -380 {flags=graph
-y1=-1.2e-05	
-y2=0.00021
+y1=-2.5e-07	
+y2=2.1e-05
 ypos1=-0.00012
 ypos2=3.7
 divy=5
 subdivy=1
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -127,15 +127,15 @@ linewidth_mult=3.5
 color=4
 node=i(vmeas)}
 B 2 2380 -1200 3180 -800 {flags=graph
-y1=0	
-y2=220e-09
+y1=-7.204962e-08	
+y2=1.2103502e-06
 ypos1=-0.00012
 ypos2=3.7
 divy=5
 subdivy=1
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -154,16 +154,16 @@ node="i(vj1)
 i(vj2)
 i(vj3)
 i(vj4)"}
-B 2 -10 -1710 790 -1310 {flags=graph
-y1=0	
-y2=1.8
+B 2 1000 -1720 1800 -1320 {flags=graph
+y1=-0.13	
+y2=2.2
 ypos1=-0.00012
 ypos2=3.7
 divy=5
 subdivy=1
 unity=1
 x1=5e-10
-x2=0.0005
+x2=0.0002
 divx=5
 subdivx=1
 
@@ -178,22 +178,23 @@ linewidth_mult=3.5
 
 
 
-color="19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
-node="n.x9.xrstdp15.xr2.n1#ngap
-n.x9.xrstdp14.xr2.n1#ngap
-n.x9.xrstdp13.xr2.n1#ngap
-n.x9.xrstdp12.xr2.n1#ngap
-n.x9.xrstdp11.xr2.n1#ngap
-n.x9.xrstdp10.xr2.n1#ngap
-n.x9.xrstdp9.xr2.n1#ngap
-n.x9.xrstdp8.xr2.n1#ngap
-n.x9.xrstdp7.xr2.n1#ngap
-n.x9.xrstdp6.xr2.n1#ngap
-n.x9.xrstdp5.xr2.n1#ngap
-n.x9.xrstdp4.xr2.n1#ngap
-n.x9.xrstdp3.xr2.n1#ngap
-n.x9.xrstdp2.xr2.n1#ngap
-n.x9.xrstdp1.xr2.n1#ngap"}
+color="19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4"
+node="x9.xrstdp16.xr2.r
+x9.xrstdp15.xr2.r
+x9.xrstdp14.xr2.r
+x9.xrstdp13.xr2.r
+x9.xrstdp12.xr2.r
+x9.xrstdp11.xr2.r
+x9.xrstdp10.xr2.r
+x9.xrstdp9.xr2.r
+x9.xrstdp8.xr2.r
+x9.xrstdp7.xr2.r
+x9.xrstdp6.xr2.r
+x9.xrstdp5.xr2.r
+x9.xrstdp4.xr2.r
+x9.xrstdp3.xr2.r
+x9.xrstdp2.xr2.r
+x9.xrstdp1.xr2.r"}
 N 500 -170 500 -160 {
 lab=GND}
 N -1120 -520 -1120 -490 {
@@ -572,18 +573,18 @@ value="
 .param ileak2 = 20n
 .param ileak3 = 30n
 .param ileak4 = 40n
-.tran 50n 500u uic
+.tran 1u 1m uic
 .control
 	save all
 	run
-	write tb_4x4.raw
+	write tb_4x4_spice.raw
 .endc
 "}
 C {devices/vdd.sym} -1120 -520 0 0 {nname=l4 lab=VDD}
 C {devices/vdd.sym} 590 -430 0 0 {name=l7 lab=VDD}
 C {devices/launcher.sym} -1090 -655 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_4x4.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_4x4_spice.raw tran"
 q}
 C {devices/vsource.sym} -40 -260 0 0 {name=Vin value="SINE(0.9 0.9 10000 0 0 90)"}
 C {devices/lab_pin.sym} 20 -310 1 1 {name=p1 sig_type=std_logic lab=vin
@@ -733,8 +734,8 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/rram_v0.spice
-*.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
+*.inc $::SKYWATER_MODELS/rram_v0.spice
+.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
 
 "
 spice_ignore=false}

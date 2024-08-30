@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-05
+x2=0.02
 divx=5
 subdivx=1
 
@@ -29,15 +29,15 @@ node="\\"BL[V];BL\\"
 \\"WL[V];WL\\""
 linewidth_mult=4}
 B 2 1210 -80 2010 320 {flags=graph
-y1=1100
-y2=930000
+y1=6000
+y2=3300000
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-05
+x2=0.02
 divx=5
 subdivx=1
 
@@ -58,7 +58,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-05
+x2=0.02
 divx=5
 subdivx=1
 
@@ -83,7 +83,7 @@ divy=5
 subdivy=4
 unity=1
 x1=0
-x2=2e-05
+x2=0.02
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -146,8 +146,8 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 1n 20u
-  write tb_1T1R_pulses_rram_v0.raw
+  tran 10u 20m
+  write tb_1T1R_pulses_ms_rram_v0.raw
 .endc
 
 " }
@@ -166,25 +166,33 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 9.9u 2 10u 3)"
+C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 9.9m 2 10m 3)"
 }
-C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500n 1000n 10)"}
+C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500u 1000u 10)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 840 20 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_1T1R_pulses_rram_v0.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_1T1R_pulses_ms_rram_v0.raw tran"
 }
 C {devices/lab_pin.sym} 400 -130 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 470 -350 1 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 230 -330 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/lab_pin.sym} 540 -80 2 0 {name=wl1 sig_type=std_logic lab=SL}
 C {devices/vsource.sym} 370 -350 1 0 {name=Vread value=1e-5}
+C {devices/code.sym} 740 130 0 0 {name=MODELS2
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.inc $::SKYWATER_MODELS/rram_v0.spice
+"
+spice_ignore=false}
 C {sky130_fd_pr/rram_v0.sym} 540 -320 2 1 {name=R1
 model=rram_v0
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 540 -230 2 0 {name=be1 sig_type=std_logic lab=te}
-C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 10u 5n 5n 500n 1000n 10)"}
+C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 10m 5n 5n 500u 1000u 10)"}
 C {devices/code.sym} 912.5 -177.5 0 0 {name=MODELS1
 only_toplevel=true
 format="tcleval( @value )"
@@ -195,13 +203,3 @@ value="
 
 "
 spice_ignore=true}
-C {devices/code.sym} 982.5 147.5 0 0 {name=MODELS3
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-**.inc $::SKYWATER_MODELS/rram_v0.spice
-.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
-
-"
-spice_ignore=false}
