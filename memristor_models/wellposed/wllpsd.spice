@@ -14,7 +14,7 @@
 +smoothing=1e-8 
 +Kclip=50
 +vt=0.0258
-+maxslope=1e15
++maxslope=1e18
 +GMIN = 1e-12
 
 * Auxiliary resistor for stable conductance
@@ -24,10 +24,10 @@ Raux r 0 1e12
 Cr r 0 1 IC={Gap_0}
 
 * Variable conductance resistor
-Gr 0 r value={ddt_Gap(V(TE) - V(BE),V(r)) + clip_minGap(V(r), ddt_Gap(V(TE) - V(BE), V(r))) + clip_maxGap(V(r), ddt_Gap(V(TE) - V(BE), V(r)))}
+Gr 0 r value={ddt(-1e-9 * V(r) - V(BE)) + ddt_Gap(V(TE) - V(BE),V(r)) + clip_minGap(V(r), ddt_Gap(V(TE) - V(BE), V(r))) + clip_maxGap(V(r), ddt_Gap(V(TE) - V(BE), V(r)))}
 
 * Memristor conductance
-Gpm TE BE value={I0 * safeexp(-(V(r))/g0) * safesinh((V(TE) - V(BE))/V0)+GMIN*(V(TE)-V(BE))}
+Gpm TE BE value={I0 * safeexp(-(V(r))/g0) * safesinh((V(TE) - V(BE))/V0) + GMIN * (V(TE)-V(BE))}
 
 * Function for smooth step approximation
 .func smth_stp(x)={0.5*(x/sqrt(x*x + smoothing)+1)}
@@ -43,7 +43,6 @@ Gpm TE BE value={I0 * safeexp(-(V(r))/g0) * safesinh((V(TE) - V(BE))/V0)+GMIN*(V
 
 * Clipping function for maximum gap
 .func clip_maxGap(gap, ddtGap)={(-safeexp(Kclip*(gap - maxGap)) - ddtGap) * smth_stp(gap - maxGap)}
-
 .func safeexp(x)={exp(x*(x <= log(maxslope)))*(x <= log(maxslope)) + (x>log(maxslope))*(maxslope + maxslope*(x-log(maxslope)))}
 .func safesinh(x)={0.5*(safeexp(x) - safeexp(-x))}
 

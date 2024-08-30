@@ -5,6 +5,28 @@ K {}
 V {}
 S {}
 E {}
+B 2 240 -120 730 250 {flags=graph
+y1=-7.9190644e-09
+y2=2.0928094e-07
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=1.8
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="\\"Current Isyn+; i(v4)\\"
+\\"Current Isyn-; i(v2)\\""
+color="4 7"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+linewidth_mult=2.5}
 N 80 -40 100 -40 {
 lab=#net1}
 N 160 -40 175 -40 {
@@ -44,12 +66,12 @@ only_toplevel=true
 place=end
 value="
 .options num_threads=6
-.options savecurrents
+.options saveall
 .dc V1 0 1.8 0.01
 .control
 	run
 	plot i(v2) i(v4)
-
+	write tb_syn.raw
 .endc
 "}
 C {devices/vsource.sym} 150 130 3 0 {name=V4 value=0 }
@@ -64,3 +86,7 @@ C {devices/gnd.sym} 200 130 0 0 {name=l8 lab=GND}
 C {syn_neg.sym} 30 -120 0 0 {name=x3}
 C {syn_pos.sym} 40 50 0 0 {name=x1}
 C {devices/gnd.sym} 55 20 0 0 {name=l9 lab=GND}
+C {devices/launcher.sym} -410 50 0 0 {name=h5
+descr="load waves" 
+tclcommand="xschem raw_read $netlist_dir/tb_syn.raw dc"
+}
