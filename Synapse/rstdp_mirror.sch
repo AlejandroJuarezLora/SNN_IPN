@@ -205,14 +205,14 @@ N 245 -700 245 -650 {
 lab=#net1}
 N 240 -680 345 -680 {
 lab=#net1}
-N 245 -760 525 -760 {
+N 245 -780 525 -780 {
 lab=vdd}
 N 245 -765 245 -730 {
 lab=vdd}
-N 520 -760 600 -760 {
-lab=vdd}
 N 525 -700 525 -680 {
 lab=I_post}
+N 525 -780 525 -760 {
+lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} -145 -455 0 0 {name=M2
 L=0.15
 W=7.5
@@ -275,8 +275,8 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} -45 -730 0 1 {name=M10
-L=0.5
-W=0.5
+L=5
+W=1
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -366,8 +366,8 @@ C {devices/lab_pin.sym} 535 -450 0 0 {name=p21 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -75 -345 3 0 {name=p22 sig_type=std_logic lab=vpre}
 C {devices/lab_pin.sym} 550 -340 3 0 {name=p23 sig_type=std_logic lab=vpost}
 C {sky130_fd_pr/pfet_01v8.sym} 505 -730 0 0 {name=M14
-L=1.2
-W=10
+L=5
+W=2
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 

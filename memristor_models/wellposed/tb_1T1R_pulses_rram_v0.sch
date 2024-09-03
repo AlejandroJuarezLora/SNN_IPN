@@ -146,7 +146,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 1n 20u
+  tran 100n 20u
   write tb_1T1R_pulses_rram_v0.raw
 .endc
 
@@ -200,8 +200,8 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-**.inc $::SKYWATER_MODELS/rram_v0.spice
-.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
+.inc $::SKYWATER_MODELS/rram_v0.spice
+*.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
 
 "
 spice_ignore=false}
