@@ -83,12 +83,12 @@ N 620 -1320 640 -1320 {
 lab=vin}
 N 590 -1840 620 -1840 {
 lab=vin}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ul_tun.sym} 840 -2340 0 0 {name=x6}
+C {Neuron/ultralif/ul_tun.sym} 840 -2340 0 0 {name=x6}
 C {devices/iopin.sym} 400 -2030 0 0 {name=p1 lab=vdd}
 C {devices/lab_pin.sym} 840 -2390 1 0 {name=p2 sig_type=std_logic lab=vdd}
 C {devices/iopin.sym} 400 -2000 0 0 {name=p3 lab=vss}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/syn_pos.sym} 690 -1740 0 0 {name=x4}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/syn_neg.sym} 690 -2420 0 0 {name=x8}
+C {Neuron/ultralif/syn_pos.sym} 690 -1740 0 0 {name=x4}
+C {Neuron/ultralif/syn_neg.sym} 690 -2420 0 0 {name=x8}
 C {devices/isource.sym} 360 -1580 0 0 {name=I9 value=100nA
 
 spice_ignore=false}

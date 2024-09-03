@@ -169,28 +169,28 @@ N -370 -250 -340 -250 {
 lab=vdda}
 N -370 -200 -340 -200 {
 lab=vssa}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=xrstdp1}
+C {Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=xrstdp1}
 C {devices/iopin.sym} -300 -130 0 1 {name=p1 lab=vout_pre1}
 C {devices/iopin.sym} 160 -200 3 0 {name=p5 lab=vout_post1}
 C {devices/iopin.sym} -310 80 0 1 {name=p6 lab=i_pre1}
 C {devices/iopin.sym} -370 -250 0 1 {name=p7 lab=vdda}
 C {devices/iopin.sym} -370 -200 0 1 {name=p8 lab=vssa}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 -50 0 0 {name=xrstdp2}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 -50 0 0 {name=xrstdp3}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 -50 0 0 {name=xrstdp4}
+C {Synapse/rstdp_mirror.sym} 400 -50 0 0 {name=xrstdp2}
+C {Synapse/rstdp_mirror.sym} 850 -50 0 0 {name=xrstdp3}
+C {Synapse/rstdp_mirror.sym} 1280 -50 0 0 {name=xrstdp4}
 C {devices/iopin.sym} 200 -210 3 0 {name=p9 lab=i_post1}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 200 0 0 {name=xrstdp5}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 200 0 0 {name=xrstdp6}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 200 0 0 {name=xrstdp7}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 200 0 0 {name=xrstdp8}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 450 0 0 {name=xrstdp9}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 450 0 0 {name=xrstdp10}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 450 0 0 {name=xrstdp11}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 450 0 0 {name=xrstdp12}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} -40 700 0 0 {name=xrstdp13}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 400 700 0 0 {name=xrstdp14}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 850 700 0 0 {name=xrstdp15}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 1280 700 0 0 {name=xrstdp16}
+C {Synapse/rstdp_mirror.sym} -40 200 0 0 {name=xrstdp5}
+C {Synapse/rstdp_mirror.sym} 400 200 0 0 {name=xrstdp6}
+C {Synapse/rstdp_mirror.sym} 850 200 0 0 {name=xrstdp7}
+C {Synapse/rstdp_mirror.sym} 1280 200 0 0 {name=xrstdp8}
+C {Synapse/rstdp_mirror.sym} -40 450 0 0 {name=xrstdp9}
+C {Synapse/rstdp_mirror.sym} 400 450 0 0 {name=xrstdp10}
+C {Synapse/rstdp_mirror.sym} 850 450 0 0 {name=xrstdp11}
+C {Synapse/rstdp_mirror.sym} 1280 450 0 0 {name=xrstdp12}
+C {Synapse/rstdp_mirror.sym} -40 700 0 0 {name=xrstdp13}
+C {Synapse/rstdp_mirror.sym} 400 700 0 0 {name=xrstdp14}
+C {Synapse/rstdp_mirror.sym} 850 700 0 0 {name=xrstdp15}
+C {Synapse/rstdp_mirror.sym} 1280 700 0 0 {name=xrstdp16}
 C {devices/iopin.sym} 1080 -200 3 0 {name=p11 lab=i_post3}
 C {devices/iopin.sym} 1530 -190 3 0 {name=p12 lab=i_post4}
 C {devices/iopin.sym} -300 340 2 0 {name=p13 lab=i_pre2}
