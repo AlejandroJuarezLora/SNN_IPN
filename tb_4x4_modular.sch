@@ -13,8 +13,8 @@ ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=5e-05
+x1=6.25e-11
+x2=0.001220606
 divx=5
 subdivx=1
 
@@ -38,8 +38,8 @@ ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=5e-05
+x1=6.25e-11
+x2=0.001220606
 divx=5
 subdivx=1
 
@@ -60,8 +60,8 @@ ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=5e-05
+x1=6.25e-11
+x2=0.001220606
 divx=5
 subdivx=1
 
@@ -78,15 +78,15 @@ node="\\"N1; m1 5.4 +\\"
 \\"N3; m3 1.8 +\\"
 \\"N4; m4\\""}
 B 2 840 -1310 1640 -910 {flags=graph
-y1=-5.6763889e-05	
-y2=0.00031423612
+y1=-0.088	
+y2=1.9
 ypos1=-0.00012
 ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=5e-05
+x1=6.25e-11
+x2=0.001220606
 divx=5
 subdivx=1
 
@@ -98,8 +98,9 @@ logy=0
 digital=0
 linewidth_mult=3.5
 
-color=4
-node=i(vmeas)}
+color="4 5"
+node="vr1
+hx"}
 B 2 0 -1310 800 -910 {flags=graph
 y1=3.3	
 y2=5
@@ -108,8 +109,8 @@ ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
-x2=5e-05
+x1=6.25e-11
+x2=0.001220606
 divx=5
 subdivx=1
 
@@ -235,7 +236,7 @@ C {devices/code_shown.sym} -1280 -850 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-.tran 50n 50m uic
+.tran 10n 1m uic
 .control
 	run
 	write tb_4x4_modular.raw
@@ -246,7 +247,7 @@ C {devices/launcher.sym} -1090 -655 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_4x4_modular.raw tran"
 q}
-C {devices/vsource.sym} -60 -250 0 1 {name=Vin value="SINE(0.9 0.9 5000 0 0 90)"}
+C {devices/vsource.sym} -60 -250 0 1 {name=Vin value="SINE(0.9 0.9 1000 0 0 90)"}
 C {devices/lab_pin.sym} 0 -300 1 1 {name=p1 sig_type=std_logic lab=vin
 }
 C {devices/gnd.sym} -60 -220 0 0 {name=l18 lab=GND}
