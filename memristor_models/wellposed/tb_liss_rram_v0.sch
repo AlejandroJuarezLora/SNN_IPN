@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.0013464756
-x2=0.022653515
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 
@@ -30,15 +30,15 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-202499.98
-y2=1537499.8
+y1=890
+y2=2700000
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.0013464756
-x2=0.022653515
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 
@@ -58,8 +58,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.0013464756
-x2=0.022653515
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -76,14 +76,14 @@ color=6
 node="\\"Thickness [nm]; 5 n.xr1.n1#ngap -\\""
 linewidth_mult=3}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-1.1e-05
-y2=1.1e-05
+y1=-6.6377469e-05
+y2=0.0001865102
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.0013464756
+x1=-2
 
 divx=5
 subdivx=1
@@ -100,18 +100,18 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=0.022653515
+x2=2
 sweep=TE}
 B 2 -140 -810 660 -410 {flags=graph
-y1=-1.3e-05
-y2=1.3e-05
+y1=-0.0023
+y2=0.0023
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.0013464756
-x2=0.022653515
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -131,14 +131,14 @@ color="7 4"
 node="\\"Corriente; 0 i(v2) -\\"
 \\"Carga Coulombs; 0 i(v1) - integ()\\""}
 B 2 630 -1270 1430 -870 {flags=graph
-y1=3.1885206
-y2=4.8872137
+y1=4.4
+y2=4.9
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.0013464756
+x1=-2
 
 divx=5
 subdivx=1
@@ -155,7 +155,7 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=0.022653515
+x2=2
 sweep=TE}
 B 2 1470 -1240 2270 -840 {flags=graph
 y1=3.4
@@ -165,8 +165,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.0013464756
-x2=0.022653515
+x1=1e-08
+x2=0.024
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -218,7 +218,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .options num_threads=6
-.tran 1u 24m uic
+.tran 10u 12m uic
 .control
 	save all
 	run
@@ -241,8 +241,6 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-**.inc $::SKYWATER_MODELS/rram_v0.spice
-.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
-
+.inc $::SKYWATER_MODELS/rram_v0.spice
 "
 spice_ignore=false}

@@ -201,7 +201,5 @@ format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
 .inc $::SKYWATER_MODELS/rram_v0.spice
-*.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
-
 "
 spice_ignore=false}
