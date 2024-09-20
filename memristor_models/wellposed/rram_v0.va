@@ -2,11 +2,10 @@
 `include "disciplines.vams"
 
 //definicion de macros 
-`define IPRcc(nam,def,uni,lwr,upr,des) (*units=uni, type="instance", desc=des*) parameter real    nam=def from [lwr:upr];
+`define IPRcc(nam,def,uni,lwr,upr,des) (*units=uni, type="instance", desc=des*) parameter real nam=def from [lwr:upr];
 
 
 //parametros de instancia
-`IPIcc(gap_initial, 0.9, "V", 0.1, 1.7, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
 module rram_v0_va(t, b);
     inout t, b;
@@ -27,7 +26,8 @@ module rram_v0_va(t, b);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
     parameter real maxslope = 1e18 from (0:inf);
-    parameter real gap_init = $param_given(gap_initial) from (minGap:maxGap); //filamento inicial
+    `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
+
     
     real ddt_Gap, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
     
@@ -59,8 +59,8 @@ module rram_v0_va(t, b);
     
     analog begin
         @(initial_step) begin
-            //Gap = gap_init;      // condicion inicial
-            $strobe("Gap Inicial %f", gap_init);
+            Gap = gap_initial;      // condicion inicial
+            $strobe("Gap Inicial %f", gap_initial);
 	    end
         Gap = V(nGap, b);
         Gamma = gamma0 + Beta0 * pow(Gap, 3);
@@ -73,5 +73,4 @@ module rram_v0_va(t, b);
         I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
     end
 endmodule
-
 
