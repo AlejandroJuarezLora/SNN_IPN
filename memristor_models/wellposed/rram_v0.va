@@ -29,7 +29,7 @@ module rram_v0_va(t, b);
     `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
     
-    real ddt_Gap, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
+    real ddt_Gap, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
     
     analog function real smoothstep;
         input x, smoothing; 
@@ -59,7 +59,7 @@ module rram_v0_va(t, b);
     
     analog begin
         @(initial_step) begin
-            Gap = gap_initial;      // condicion inicial
+            V(nGap, b) <= gap_initial;      // condicion inicial
             $strobe("Gap Inicial %f", gap_initial);
 	    end
         Gap = V(nGap, b);

@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -13,8 +13,8 @@ ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001220606
+x1=0
+x2=0.001
 divx=5
 subdivx=1
 
@@ -31,15 +31,15 @@ node="\\"N1; n1 1.8 3 * +\\"
 \\"N3; n3 1.8 +\\"
 \\"N4; n4\\""}
 B 2 -860 -1180 -60 -780 {flags=graph
-y1=1.8e-09	
+y1=-1.8	
 y2=1.8
 ypos1=-0.319016
 ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001220606
+x1=0
+x2=0.001
 divx=5
 subdivx=1
 
@@ -60,8 +60,8 @@ ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001220606
+x1=0
+x2=0.001
 divx=5
 subdivx=1
 
@@ -85,8 +85,8 @@ ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001220606
+x1=0
+x2=0.001
 divx=5
 subdivx=1
 
@@ -102,15 +102,15 @@ color="4 5"
 node="vr1
 hx"}
 B 2 0 -1310 800 -910 {flags=graph
-y1=3.3	
+y1=3.1	
 y2=5
 ypos1=-0.00012
 ypos2=3.7
 divy=5
 subdivy=1
 unity=1
-x1=6.25e-11
-x2=0.001220606
+x1=0
+x2=0.001
 divx=5
 subdivx=1
 
@@ -228,7 +228,7 @@ lab=vin}
 N 1060 -360 1090 -360 {
 lab=Vr1}
 N 550 -460 550 -440 {
-lab=Vr1}
+lab=VDD}
 C {devices/vsource.sym} -1120 -460 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} -1120 -410 0 0 {name=l5 lab=GND}
 C {sky130_fd_pr/corner.sym} -1190 -1090 0 0 {name=CORNER only_toplevel=true corner=tt}
@@ -236,7 +236,7 @@ C {devices/code_shown.sym} -1280 -850 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-.tran 10n 1m uic
+.tran 10n 100u
 .control
 	run
 	write tb_4x4_modular.raw
@@ -247,7 +247,7 @@ C {devices/launcher.sym} -1090 -655 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_4x4_modular.raw tran"
 q}
-C {devices/vsource.sym} -60 -250 0 1 {name=Vin value="SINE(0.9 0.9 1000 0 0 90)"}
+C {devices/vsource.sym} -60 -250 0 1 {name=Vin value="PWL(0 0.9 25u 1.8 75u 0 100u 0.9)"}
 C {devices/lab_pin.sym} 0 -300 1 1 {name=p1 sig_type=std_logic lab=vin
 }
 C {devices/gnd.sym} -60 -220 0 0 {name=l18 lab=GND}
@@ -303,7 +303,8 @@ C {devices/lab_pin.sym} 890 -390 2 1 {name=p12 sig_type=std_logic lab=vin
 }
 C {devices/lab_pin.sym} 1090 -360 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
-C {devices/lab_pin.sym} 550 -460 2 0 {name=p13 sig_type=std_logic lab=Vr1
-}
 C {devices/isource.sym} 960 -270 0 0 {name=I0 value=100u}
 C {devices/gnd.sym} 960 -240 0 0 {name=l13 lab=GND}
+C {devices/vdd.sym} 550 -460 0 0 {name=l17 lab=VDD}
+C {devices/vsource.sym} -350 -170 0 1 {name=Vin1 value="SINE(0.9 0.9 1000 0 0 90)"
+spice_ignore=true}

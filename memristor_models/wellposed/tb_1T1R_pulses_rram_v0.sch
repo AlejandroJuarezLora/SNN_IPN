@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -29,8 +29,8 @@ node="\\"BL[V];BL\\"
 \\"WL[V];WL\\""
 linewidth_mult=4}
 B 2 1210 -80 2010 320 {flags=graph
-y1=1100
-y2=930000
+y1=8200
+y2=3400000
 ypos1=0
 ypos2=2
 divy=5
@@ -50,8 +50,8 @@ color=4
 node="\\"Memristance [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
 B 2 1210 -880 2010 -480 {flags=graph
-y1=-0.00029
-y2=0.00021
+y1=-0.0028
+y2=0.00062
 ypos1=0
 ypos2=2
 divy=5
