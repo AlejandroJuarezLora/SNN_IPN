@@ -193,7 +193,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .options num_threads=8
-.tran 100u 20m
+.tran 100u 80m
 .control
 	save all
 	run

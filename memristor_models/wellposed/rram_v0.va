@@ -25,7 +25,7 @@ module rram_v0_va(t, b);
     parameter real smoothing = 1e-8 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    parameter real maxslope = 1e18 from (0:inf);
+    parameter real maxslope = 1e17 from (0:inf);
     `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
     
