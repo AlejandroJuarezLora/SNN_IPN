@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -169,6 +169,64 @@ N -370 -250 -340 -250 {
 lab=vdda}
 N -370 -200 -340 -200 {
 lab=vssa}
+N -370 -320 -350 -320 {
+lab=Vr}
+N 110 -70 120 -70 {
+lab=Vr}
+N 550 -70 560 -70 {
+lab=Vr}
+N 1000 -70 1010 -70 {
+lab=Vr}
+N 1430 -70 1440 -70 {
+lab=Vr}
+N 1430 180 1440 180 {
+lab=Vr}
+N 1000 180 1010 180 {
+lab=Vr}
+N 550 180 560 180 {
+lab=Vr}
+N 110 180 120 180 {
+lab=Vr}
+N 110 430 120 430 {
+lab=Vr}
+N 550 430 560 430 {
+lab=Vr}
+N 1000 430 1010 430 {
+lab=Vr}
+N 1430 430 1440 430 {
+lab=Vr}
+N 1430 680 1440 680 {
+lab=Vr}
+N 1000 680 1010 680 {
+lab=Vr}
+N 550 680 560 680 {
+lab=Vr}
+N 110 680 120 680 {
+lab=Vr}
+N -350 -320 130 -320 {
+lab=Vr}
+N 130 -320 130 680 {
+lab=Vr}
+N 120 680 130 680 {
+lab=Vr}
+N 120 430 130 430 {
+lab=Vr}
+N 120 180 130 180 {
+lab=Vr}
+N 120 -70 130 -70 {
+lab=Vr}
+N 560 -320 560 680 {
+lab=Vr}
+N 130 -320 560 -320 {
+lab=Vr}
+N 1010 -320 1010 680 {
+lab=Vr}
+N 560 -320 1010 -320 {
+lab=Vr}
+N 1440 -320 1440 680 {
+lab=Vr}
+N 1010 -320 1440 -320 {
+lab=Vr}
 C {Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=xrstdp1}
 C {devices/iopin.sym} -300 -130 0 1 {name=p1 lab=vout_pre1}
 C {devices/iopin.sym} 160 -200 3 0 {name=p5 lab=vout_post1}
@@ -204,23 +262,6 @@ C {devices/iopin.sym} 1040 -190 3 0 {name=p17 lab=vout_post3}
 C {devices/iopin.sym} 1490 -180 3 0 {name=p18 lab=vout_post4}
 C {devices/iopin.sym} 640 -210 3 0 {name=p19 lab=i_post2}
 C {devices/iopin.sym} -370 -320 0 1 {name=p10 lab=Vr}
-C {devices/vdd.sym} -370 -320 1 0 {name=l35 lab=Vr}
-C {devices/vdd.sym} 110 -70 0 0 {name=l36 lab=Vr}
-C {devices/vdd.sym} 110 180 0 0 {name=l37 lab=Vr}
-C {devices/vdd.sym} 110 430 0 0 {name=l38 lab=Vr}
-C {devices/vdd.sym} 110 680 0 0 {name=l39 lab=Vr}
-C {devices/vdd.sym} 550 680 0 0 {name=l40 lab=Vr}
-C {devices/vdd.sym} 550 430 0 0 {name=l41 lab=Vr}
-C {devices/vdd.sym} 550 180 0 0 {name=l42 lab=Vr}
-C {devices/vdd.sym} 550 -70 0 0 {name=l43 lab=Vr}
-C {devices/vdd.sym} 1000 -70 0 0 {name=l44 lab=Vr}
-C {devices/vdd.sym} 1000 180 0 0 {name=l45 lab=Vr}
-C {devices/vdd.sym} 1000 430 0 0 {name=l46 lab=Vr}
-C {devices/vdd.sym} 1000 680 0 0 {name=l47 lab=Vr}
-C {devices/vdd.sym} 1430 -70 0 0 {name=l48 lab=Vr}
-C {devices/vdd.sym} 1430 180 0 0 {name=l49 lab=Vr}
-C {devices/vdd.sym} 1430 430 0 0 {name=l50 lab=Vr}
-C {devices/vdd.sym} 1430 680 0 0 {name=l51 lab=Vr}
 C {devices/lab_pin.sym} -40 -90 1 0 {name=p20 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} -40 160 1 0 {name=p21 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} -40 410 1 0 {name=p22 sig_type=std_logic lab=vdda}
@@ -252,6 +293,6 @@ C {devices/lab_pin.sym} 850 780 3 0 {name=p47 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} 1280 30 3 0 {name=p48 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} 1280 280 3 0 {name=p49 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} 1280 530 3 0 {name=p50 sig_type=std_logic lab=vssa}
-C {devices/lab_pin.sym} 1280 770 3 0 {name=p51 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} 1280 780 3 0 {name=p51 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} -340 -250 2 0 {name=p52 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} -340 -200 2 0 {name=p54 sig_type=std_logic lab=vssa}

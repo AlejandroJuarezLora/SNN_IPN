@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -6,19 +6,19 @@ V {}
 S {}
 E {}
 N 700 -290 700 -280 {
-lab=vm}
+lab=#net1}
 N 520 -290 520 -280 {
-lab=vm}
+lab=#net1}
 N 380 -290 380 -270 {
-lab=vm}
+lab=#net1}
 N 610 -250 660 -250 {
-lab=#net1}
+lab=#net2}
 N 700 -190 700 -160 {
-lab=#net1}
+lab=#net2}
 N 610 -190 700 -190 {
-lab=#net1}
+lab=#net2}
 N 610 -250 610 -190 {
-lab=#net1}
+lab=#net2}
 N 620 -130 660 -130 {
 lab=Ileak}
 N 520 -180 520 -130 {
@@ -36,9 +36,9 @@ lab=vss}
 N 720 -130 720 -70 {
 lab=vss}
 N 260 -290 380 -290 {
-lab=vm}
+lab=#net1}
 N 260 -290 260 -220 {
-lab=vm}
+lab=#net1}
 N 260 -160 260 -90 {
 lab=vss}
 N 330 -180 380 -180 {
@@ -56,17 +56,17 @@ lab=Ileak}
 N 380 -180 520 -180 {
 lab=Ileak}
 N 520 -290 700 -290 {
-lab=vm}
+lab=#net1}
 N 330 -240 330 -180 {
 lab=Ileak}
 N 700 -220 700 -190 {
-lab=#net1}
+lab=#net2}
 N 560 -250 610 -250 {
-lab=#net1}
+lab=#net2}
 N 700 -70 720 -70 {
 lab=vss}
 N 380 -290 520 -290 {
-lab=vm}
+lab=#net1}
 N 520 -130 620 -130 {
 lab=Ileak}
 N 520 -220 520 -180 {
@@ -146,19 +146,23 @@ lab=vdd}
 N 1130 -200 1140 -200 {
 lab=vout}
 N 240 -290 260 -290 {
-lab=vm}
+lab=#net1}
 N 160 -290 180 -290 {
 lab=Iext}
-N 210 -290 210 -260 {
-lab=vdd}
-N 800 -330 800 -170 {
-lab=Ileak}
 N 770 -170 800 -170 {
 lab=Ileak}
 N 210 -330 800 -330 {
-lab=Ileak}
+lab=vout}
 N 130 -290 160 -290 {
 lab=Iext}
+N 210 -295 210 -230 {
+lab=vdd}
+N 800 -405 800 -330 {
+lab=vout}
+N 800 -405 1135 -405 {
+lab=vout}
+N 1135 -405 1135 -200 {
+lab=vout}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -244,7 +248,6 @@ nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
-}
-C {devices/lab_pin.sym} 542.5 -290 1 0 {name=p1 sig_type=std_logic lab=vm}
-C {devices/lab_pin.sym} 210 -260 3 0 {name=p4 sig_type=std_logic lab=vdd}
+spice_ignore=false}
 C {devices/lab_pin.sym} 957.5 -200 3 0 {name=p14 sig_type=std_logic lab=vout_n}
+C {devices/lab_pin.sym} 210 -230 3 0 {name=p1 sig_type=std_logic lab=vdd}
