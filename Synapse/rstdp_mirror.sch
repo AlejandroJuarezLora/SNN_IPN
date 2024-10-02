@@ -12,9 +12,9 @@ lab=vss}
 N -65 -760 -65 -730 {
 lab=vdd}
 N -125 -510 -125 -485 {
-lab=#net1}
+lab=A}
 N 590 -505 590 -480 {
-lab=#net1}
+lab=A}
 N -125 -425 -125 -245 {
 lab=vpre}
 N 590 -420 590 -240 {
@@ -44,7 +44,7 @@ lab=vout_post}
 N 245 -810 245 -760 {
 lab=vdd}
 N 135 -680 245 -680 {
-lab=#net1}
+lab=A}
 N 65 -215 65 -175 {
 lab=R}
 N 65 -175 375 -175 {
@@ -138,11 +138,11 @@ lab=vss}
 N 375 -415 375 -395 {
 lab=vss}
 N -125 -580 -125 -510 {
-lab=#net1}
+lab=A}
 N -75 -580 545 -580 {
-lab=#net1}
+lab=A}
 N 590 -575 590 -510 {
-lab=#net1}
+lab=A}
 N 65 -515 375 -515 {
 lab=R}
 N -125 -455 -105 -455 {
@@ -152,21 +152,21 @@ lab=vss}
 N 570 -210 590 -210 {
 lab=vss}
 N 590 -510 590 -505 {
-lab=#net1}
+lab=A}
 N 570 -450 590 -450 {
 lab=vss}
 N -75 -145 545 -145 {
 lab=vss}
 N -125 -580 -75 -580 {
-lab=#net1}
+lab=A}
 N -105 -455 -70 -455 {
 lab=vss}
 N -45 -345 5 -345 {
 lab=vpre}
 N 545 -580 590 -580 {
-lab=#net1}
+lab=A}
 N 590 -580 590 -575 {
-lab=#net1}
+lab=A}
 N 545 -145 590 -145 {
 lab=vss}
 N 590 -160 590 -145 {
@@ -184,11 +184,11 @@ lab=vss}
 N -110 -215 -70 -215 {
 lab=vss}
 N 135 -730 135 -680 {
-lab=#net1}
+lab=A}
 N -25 -730 135 -730 {
-lab=#net1}
+lab=A}
 N 245 -650 245 -580 {
-lab=#net1}
+lab=A}
 N -65 -670 -65 -650 {
 lab=vss}
 N 235 -105 235 -80 {
@@ -196,15 +196,15 @@ lab=vss}
 N 525 -760 525 -730 {
 lab=vdd}
 N 430 -730 485 -730 {
-lab=#net1}
+lab=A}
 N 285 -730 430 -730 {
-lab=#net1}
+lab=A}
 N 345 -730 345 -680 {
-lab=#net1}
+lab=A}
 N 245 -700 245 -650 {
-lab=#net1}
+lab=A}
 N 240 -680 345 -680 {
-lab=#net1}
+lab=A}
 N 245 -780 525 -780 {
 lab=vdd}
 N 245 -765 245 -730 {
@@ -401,3 +401,4 @@ spiceprefix=X
 }
 C {devices/noconn.sym} -150 -645 0 1 {name=l1}
 C {devices/lab_pin.sym} -65 -650 0 0 {name=p4 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 220 -580 3 0 {name=p12 sig_type=std_logic lab=A}

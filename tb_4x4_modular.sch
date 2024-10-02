@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.001
+x2=1e-06
 divx=5
 subdivx=1
 
@@ -31,15 +31,15 @@ node="\\"N1; n1 1.8 3 * +\\"
 \\"N3; n3 1.8 +\\"
 \\"N4; n4\\""}
 B 2 -840 -1430 -40 -1030 {flags=graph
-y1=0	
-y2=1.8
+y1=1.3	
+y2=1.5
 ypos1=-0.319016
 ypos2=2.49867
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.001
+x2=1e-06
 divx=5
 subdivx=1
 
@@ -61,7 +61,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.001
+x2=1e-06
 divx=5
 subdivx=1
 
@@ -86,7 +86,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.001
+x2=1e-06
 divx=5
 subdivx=1
 
@@ -110,7 +110,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.001
+x2=1e-06
 divx=5
 subdivx=1
 
@@ -148,7 +148,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.001
+x2=1e-06
 divx=5
 subdivx=1
 
@@ -262,17 +262,38 @@ N 190 -290 270 -260 {
 lab=#net9}
 N 190 -230 270 -210 {
 lab=#net10}
+N -60 -100 -60 -90 {
+lab=GND}
 C {devices/vsource.sym} -1120 -460 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} -1120 -410 0 0 {name=l5 lab=GND}
 C {sky130_fd_pr/corner.sym} -1190 -1090 0 0 {name=CORNER only_toplevel=true corner=tt}
-C {devices/code_shown.sym} -1280 -850 0 0 {name=STIMULI 
+C {devices/code_shown.sym} -1040 -280 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
 value="
-.tran 100n 1m
+.options KLU
+.tran 20n 100u
 .control
+	set wr_vecnames
+	set wr_singlescale
 	run
-	write tb_4x4_modular.raw
+	wrdata $SIM/tb_4x4_modular.txt vin Vr1 I(Vread) hx 
+	+N1 N2 N3 N4 M1 M2 M3 M4  
+	+n.x9.xrstdp1.xr2.n1#ngap 
+	+n.x9.xrstdp2.xr2.n1#ngap 
+	+n.x9.xrstdp3.xr2.n1#ngap
+	+n.x9.xrstdp4.xr2.n1#ngap 
+	+n.x9.xrstdp5.xr2.n1#ngap 
+	+n.x9.xrstdp6.xr2.n1#ngap
+	+n.x9.xrstdp7.xr2.n1#ngap 
+	+n.x9.xrstdp8.xr2.n1#ngap 
+	+n.x9.xrstdp9.xr2.n1#ngap
+	+n.x9.xrstdp10.xr2.n1#ngap 
+	+n.x9.xrstdp11.xr2.n1#ngap 
+	+n.x9.xrstdp12.xr2.n1#ngap
+	+n.x9.xrstdp13.xr2.n1#ngap 
+	+n.x9.xrstdp14.xr2.n1#ngap 
+	+n.x9.xrstdp15.xr2.n1#ngap
 .endc
 "}
 C {devices/vdd.sym} -1120 -520 0 0 {nname=l4 lab=VDD}
@@ -282,7 +303,7 @@ tclcommand="xschem raw_read $netlist_dir/tb_4x4_modular.raw tran"
 q}
 C {devices/lab_pin.sym} 0 -300 1 1 {name=p1 sig_type=std_logic lab=vin
 }
-C {devices/gnd.sym} -60 -220 0 0 {name=l18 lab=GND}
+C {devices/gnd.sym} -60 -90 0 0 {name=l18 lab=GND}
 C {Synapse/rstdp_array_4x4.sym} 420 -230 0 0 {name=x9}
 C {devices/gnd.sym} 420 -160 0 0 {name=l30 lab=GND}
 C {devices/vdd.sym} 420 -440 0 0 {name=l31 lab=VDD}
@@ -330,9 +351,44 @@ C {devices/lab_pin.sym} 1155 -360 2 0 {name=p11 sig_type=std_logic lab=Vr1
 C {devices/isource.sym} 1025 -270 0 0 {name=I0 value=100u}
 C {devices/gnd.sym} 1025 -240 0 0 {name=l13 lab=GND}
 C {devices/vdd.sym} 550 -460 0 0 {name=l17 lab=VDD}
-C {devices/vsource.sym} -60 -250 0 1 {name=Vin1 value="SINE(0.9 0.9 100 0 0 90)"
+C {devices/vsource.sym} -60 -250 0 1 {name=Vin1 value="SINE(0 0.3 20000 0 0 0)"
 spice_ignore=false}
 C {devices/vsource.sym} 820 -340 3 1 {name=Vread value=0
 spice_ignore=false}
 C {devices/vsource.sym} -170 -380 0 1 {name=Vin2 value="PWL(0 0.9 250u 1.8 750u 0 1000u 0.9)"
+spice_ignore=true}
+C {devices/vsource.sym} -60 -190 0 1 {name=Vin3 value="SINE(0 0.5 50000 0 0 90)"
+spice_ignore=false}
+C {devices/vsource.sym} -60 -130 0 1 {name=Vin4 value=0.9
+spice_ignore=false}
+C {devices/code_shown.sym} -1720 -960 0 0 {name=STIMULI1 
+only_toplevel=true
+place=end
+value="
+.options KLU
+.save V(N1) V(N2) V(N3) V(N4) V(vin) V(Vr1)
+.save V(M1) V(M2) V(M3) V(M4) I(Vread) V(hx)
+.save V(n.x9.xrstdp1.xr2.n1#ngap)
+.save V(n.x9.xrstdp2.xr2.n1#ngap)
+.save V(n.x9.xrstdp3.xr2.n1#ngap)
+.save V(n.x9.xrstdp4.xr2.n1#ngap)
+.save V(n.x9.xrstdp5.xr2.n1#ngap)
+.save V(n.x9.xrstdp6.xr2.n1#ngap)
+.save V(n.x9.xrstdp7.xr2.n1#ngap)
+.save V(n.x9.xrstdp8.xr2.n1#ngap)
+.save V(n.x9.xrstdp9.xr2.n1#ngap)
+.save V(n.x9.xrstdp10.xr2.n1#ngap)
+.save V(n.x9.xrstdp11.xr2.n1#ngap)
+.save V(n.x9.xrstdp12.xr2.n1#ngap)
+.save V(n.x9.xrstdp13.xr2.n1#ngap)
+.save V(n.x9.xrstdp14.xr2.n1#ngap)
+.save V(n.x9.xrstdp15.xr2.n1#ngap)
+.tran 20n 5u
+.control
+	set wr_vecnames
+	set wr_singlescale
+	run
+	write tb_4x4_modular.raw
+.endc
+"
 spice_ignore=true}

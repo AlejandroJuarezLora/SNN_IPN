@@ -44,12 +44,12 @@ C {devices/code_shown.sym} 220 270 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-.tran 10u 1m uic
+.tran 10n 1m uic
 .control
 	set wr_vecnames
 	set wr_singlescale
 	run
-	wrdata /home/alex/Desktop/EDA/SNN_IPN/layer/'tb_layer_input.txt' time N1 N2 N3 N4
+	wrdata /home/alex/Desktop/EDA/SNN_IPN/layer/'tb_layer_input.txt' vin N1 N2 N3 N4
 .endc
 "}
 C {devices/vdd.sym} 150 30 0 0 {nname=l4 lab=VDD}
