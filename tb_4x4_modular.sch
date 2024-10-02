@@ -1,4 +1,4 @@
-v {xschem version=3.4.6RC file_version=1.2
+v {xschem version=3.4.5 file_version=1.2
 }
 G {}
 K {}
@@ -166,10 +166,10 @@ N -1120 -520 -1120 -490 {
 lab=VDD}
 N -1120 -430 -1120 -410 {
 lab=GND}
-N -60 -300 -60 -280 {
-lab=vin}
-N -60 -300 50 -300 {
-lab=vin}
+N 860 -180 860 -160 {
+lab=x}
+N 860 -180 970 -180 {
+lab=x}
 N 240 -400 270 -400 {
 lab=N1}
 N 240 -230 270 -230 {
@@ -244,11 +244,7 @@ N 925 -240 925 -220 {
 lab=GND}
 N 925 -340 925 -300 {
 lab=hx}
-N 955 -390 955 -380 {
-lab=vin}
-N 955 -380 985 -380 {
-lab=vin}
-N 1125 -360 1155 -360 {
+N 1125 -320 1155 -320 {
 lab=Vr1}
 N 550 -460 550 -440 {
 lab=Vr1}
@@ -262,8 +258,18 @@ N 190 -290 270 -260 {
 lab=#net9}
 N 190 -230 270 -210 {
 lab=#net10}
-N -60 -100 -60 -90 {
+N 860 20 860 30 {
 lab=GND}
+N 970 -300 970 -255 {
+lab=x}
+N 970 -300 985 -300 {
+lab=x}
+N 970 -255 970 -180 {
+lab=x}
+N -5 -300 -5 -285 {
+lab=vin}
+N -5 -300 50 -300 {
+lab=vin}
 C {devices/vsource.sym} -1120 -460 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} -1120 -410 0 0 {name=l5 lab=GND}
 C {sky130_fd_pr/corner.sym} -1190 -1090 0 0 {name=CORNER only_toplevel=true corner=tt}
@@ -271,13 +277,15 @@ C {devices/code_shown.sym} -825 -465 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
+
+
 .options KLU
-.tran 20n 100u
+.tran 10n 100m
 .control
 	set wr_vecnames
 	set wr_singlescale
 	run
-	wrdata $SIM/tb_4x4_modular.txt vin Vr1 I(Vread) hx 
+	wrdata $SIM/tb_4x4_modular.txt vin Vr1 I(Vread) hx x
 	+N1 N2 N3 N4 M1 M2 M3 M4  
 	+n.x9.xrstdp1.xr2.n1#ngap 
 	+n.x9.xrstdp2.xr2.n1#ngap 
@@ -301,9 +309,7 @@ C {devices/launcher.sym} -1095 -665 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_4x4_modular.raw tran"
 q}
-C {devices/lab_pin.sym} 0 -300 1 1 {name=p1 sig_type=std_logic lab=vin
-}
-C {devices/gnd.sym} -60 -90 0 0 {name=l18 lab=GND}
+C {devices/gnd.sym} 860 30 0 0 {name=l18 lab=GND}
 C {Synapse/rstdp_array_4x4.sym} 420 -230 0 0 {name=x9}
 C {devices/gnd.sym} 420 -160 0 0 {name=l30 lab=GND}
 C {devices/vdd.sym} 420 -440 0 0 {name=l31 lab=VDD}
@@ -329,7 +335,7 @@ C {devices/lab_pin.sym} 600 -340 1 0 {name=p7 sig_type=std_logic lab=M2}
 C {devices/lab_pin.sym} 600 -290 1 0 {name=p8 sig_type=std_logic lab=M3}
 C {devices/lab_pin.sym} 600 -240 1 0 {name=p9 sig_type=std_logic lab=M4}
 C {devices/vdd.sym} 120 -530 0 0 {name=l9 lab=VDD}
-C {OPAMP/opamp_sky130.sym} 1055 -360 0 0 {name=x3}
+C {OPAMP/opamp_sky130.sym} 1055 -320 0 0 {name=x3}
 C {devices/lab_pin.sym} 955 -340 1 1 {name=p10 sig_type=std_logic lab=hx}
 C {devices/res.sym} 885 -340 3 0 {name=R1
 value=9k
@@ -342,23 +348,23 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 925 -220 0 0 {name=l16 lab=GND}
-C {devices/gnd.sym} 1065 -300 0 0 {name=l10 lab=GND}
-C {devices/vdd.sym} 1045 -410 0 0 {name=l19 lab=VDD}
-C {devices/lab_pin.sym} 955 -390 2 1 {name=p12 sig_type=std_logic lab=vin
+C {devices/gnd.sym} 1065 -260 0 0 {name=l10 lab=GND}
+C {devices/vdd.sym} 1045 -370 0 0 {name=l19 lab=VDD}
+C {devices/lab_pin.sym} 940 -180 1 1 {name=p12 sig_type=std_logic lab=x
 }
-C {devices/lab_pin.sym} 1155 -360 2 0 {name=p11 sig_type=std_logic lab=Vr1
+C {devices/lab_pin.sym} 1155 -320 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
-C {devices/isource.sym} 1025 -270 0 0 {name=I0 value=100u}
-C {devices/gnd.sym} 1025 -240 0 0 {name=l13 lab=GND}
-C {devices/vsource.sym} -60 -250 0 1 {name=Vin1 value="SINE(0 0.3 20000 0 0 0)"
+C {devices/isource.sym} 1025 -230 0 0 {name=I0 value=100u}
+C {devices/gnd.sym} 1025 -200 0 0 {name=l13 lab=GND}
+C {devices/vsource.sym} 860 -130 0 1 {name=Vin1 value="SINE(0 0.3 2000 0 0 0)"
 spice_ignore=false}
 C {devices/vsource.sym} 820 -340 3 1 {name=Vread value=0
 spice_ignore=false}
 C {devices/vsource.sym} -170 -380 0 1 {name=Vin2 value="PWL(0 0.9 250u 1.8 750u 0 1000u 0.9)"
 spice_ignore=true}
-C {devices/vsource.sym} -60 -190 0 1 {name=Vin3 value="SINE(0 0.5 50000 0 0 90)"
+C {devices/vsource.sym} 860 -70 0 1 {name=Vin3 value="SINE(0 0.5 5000 0 0 90)"
 spice_ignore=false}
-C {devices/vsource.sym} -60 -130 0 1 {name=Vin4 value=0.9
+C {devices/vsource.sym} 860 -10 0 1 {name=Vin4 value=0.9
 spice_ignore=false}
 C {devices/code_shown.sym} -1720 -960 0 0 {name=STIMULI1 
 only_toplevel=true
@@ -393,3 +399,8 @@ value="
 spice_ignore=true}
 C {devices/lab_pin.sym} 550 -460 2 0 {name=p13 sig_type=std_logic lab=Vr1
 }
+C {devices/gnd.sym} -5 -225 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} 10 -300 3 1 {name=p1 sig_type=std_logic lab=vin
+}
+C {devices/vsource.sym} -5 -255 0 1 {name=Vin5 value="dc 0V ac 1mV trrandom(1 1u 0s 0.9 0.6) "
+spice_ignore=false}
