@@ -251,7 +251,7 @@ lab=vin}
 N 1125 -360 1155 -360 {
 lab=Vr1}
 N 550 -460 550 -440 {
-lab=VDD}
+lab=Vr1}
 N 850 -340 855 -340 {
 lab=#net6}
 N 190 -400 270 -380 {
@@ -267,7 +267,7 @@ lab=GND}
 C {devices/vsource.sym} -1120 -460 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} -1120 -410 0 0 {name=l5 lab=GND}
 C {sky130_fd_pr/corner.sym} -1190 -1090 0 0 {name=CORNER only_toplevel=true corner=tt}
-C {devices/code_shown.sym} -1040 -280 0 0 {name=STIMULI 
+C {devices/code_shown.sym} -825 -465 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
 value="
@@ -329,10 +329,10 @@ C {devices/lab_pin.sym} 600 -340 1 0 {name=p7 sig_type=std_logic lab=M2}
 C {devices/lab_pin.sym} 600 -290 1 0 {name=p8 sig_type=std_logic lab=M3}
 C {devices/lab_pin.sym} 600 -240 1 0 {name=p9 sig_type=std_logic lab=M4}
 C {devices/vdd.sym} 120 -530 0 0 {name=l9 lab=VDD}
-C {/home/alex/Desktop/EDA/SNN_IPN/OPAMP/opamp_sky130.sym} 1055 -360 0 0 {name=x3}
+C {OPAMP/opamp_sky130.sym} 1055 -360 0 0 {name=x3}
 C {devices/lab_pin.sym} 955 -340 1 1 {name=p10 sig_type=std_logic lab=hx}
 C {devices/res.sym} 885 -340 3 0 {name=R1
-value=18k
+value=9k
 footprint=1206
 device=resistor
 m=1}
@@ -350,7 +350,6 @@ C {devices/lab_pin.sym} 1155 -360 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
 C {devices/isource.sym} 1025 -270 0 0 {name=I0 value=100u}
 C {devices/gnd.sym} 1025 -240 0 0 {name=l13 lab=GND}
-C {devices/vdd.sym} 550 -460 0 0 {name=l17 lab=VDD}
 C {devices/vsource.sym} -60 -250 0 1 {name=Vin1 value="SINE(0 0.3 20000 0 0 0)"
 spice_ignore=false}
 C {devices/vsource.sym} 820 -340 3 1 {name=Vread value=0
@@ -392,3 +391,5 @@ value="
 .endc
 "
 spice_ignore=true}
+C {devices/lab_pin.sym} 550 -460 2 0 {name=p13 sig_type=std_logic lab=Vr1
+}
