@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -162,9 +162,9 @@ linewidth_mult=3.5
 
 color=4
 node=i(Vread)}
-N -1120 -520 -1120 -490 {
+N -140 -150 -140 -120 {
 lab=VDD}
-N -1120 -430 -1120 -410 {
+N -140 -60 -140 -40 {
 lab=GND}
 N 860 -180 860 -160 {
 lab=x}
@@ -270,9 +270,9 @@ N -5 -300 -5 -285 {
 lab=vin}
 N -5 -300 50 -300 {
 lab=vin}
-C {devices/vsource.sym} -1120 -460 0 0 {name=Vdd value=1.8}
-C {devices/gnd.sym} -1120 -410 0 0 {name=l5 lab=GND}
-C {sky130_fd_pr/corner.sym} -1190 -1090 0 0 {name=CORNER only_toplevel=true corner=tt}
+C {devices/vsource.sym} -140 -90 0 0 {name=Vdd value=1.8}
+C {devices/gnd.sym} -140 -40 0 0 {name=l5 lab=GND}
+C {sky130_fd_pr/corner.sym} -1040 -370 0 0 {name=CORNER only_toplevel=true corner=tt}
 C {devices/code_shown.sym} -825 -465 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
@@ -280,7 +280,7 @@ value="
 
 
 .options KLU
-.tran 10n 100m
+.tran 20n 100u
 .control
 	set wr_vecnames
 	set wr_singlescale
@@ -304,8 +304,8 @@ value="
 	+n.x9.xrstdp15.xr2.n1#ngap
 .endc
 "}
-C {devices/vdd.sym} -1120 -520 0 0 {nname=l4 lab=VDD}
-C {devices/launcher.sym} -1095 -665 0 0 {name=h5
+C {devices/vdd.sym} -140 -150 0 0 {nname=l4 lab=VDD}
+C {devices/launcher.sym} -255 -475 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_4x4_modular.raw tran"
 q}
@@ -313,7 +313,7 @@ C {devices/gnd.sym} 860 30 0 0 {name=l18 lab=GND}
 C {Synapse/rstdp_array_4x4.sym} 420 -230 0 0 {name=x9}
 C {devices/gnd.sym} 420 -160 0 0 {name=l30 lab=GND}
 C {devices/vdd.sym} 420 -440 0 0 {name=l31 lab=VDD}
-C {devices/code.sym} -1047.5 -1077.5 0 0 {name=MODELS2
+C {devices/code.sym} -987.5 -117.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -338,12 +338,12 @@ C {devices/vdd.sym} 120 -530 0 0 {name=l9 lab=VDD}
 C {OPAMP/opamp_sky130.sym} 1055 -320 0 0 {name=x3}
 C {devices/lab_pin.sym} 955 -340 1 1 {name=p10 sig_type=std_logic lab=hx}
 C {devices/res.sym} 885 -340 3 0 {name=R1
-value=9k
+value=18k
 footprint=1206
 device=resistor
 m=1}
 C {devices/res.sym} 925 -270 0 0 {name=R2
-value=9k
+value=18k
 footprint=1206
 device=resistor
 m=1}
@@ -356,51 +356,20 @@ C {devices/lab_pin.sym} 1155 -320 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
 C {devices/isource.sym} 1025 -230 0 0 {name=I0 value=100u}
 C {devices/gnd.sym} 1025 -200 0 0 {name=l13 lab=GND}
-C {devices/vsource.sym} 860 -130 0 1 {name=Vin1 value="SINE(0 0.3 2000 0 0 0)"
+C {devices/vsource.sym} 860 -130 0 1 {name=Vin1 value="SINE(0 0.3 20k 0 0 0)"
 spice_ignore=false}
 C {devices/vsource.sym} 820 -340 3 1 {name=Vread value=0
 spice_ignore=false}
-C {devices/vsource.sym} -170 -380 0 1 {name=Vin2 value="PWL(0 0.9 250u 1.8 750u 0 1000u 0.9)"
-spice_ignore=true}
-C {devices/vsource.sym} 860 -70 0 1 {name=Vin3 value="SINE(0 0.5 5000 0 0 90)"
+C {devices/vsource.sym} 860 -70 0 1 {name=Vin3 value="SINE(0 0.5 50k 0 0 90)"
 spice_ignore=false}
 C {devices/vsource.sym} 860 -10 0 1 {name=Vin4 value=0.9
 spice_ignore=false}
-C {devices/code_shown.sym} -1720 -960 0 0 {name=STIMULI1 
-only_toplevel=true
-place=end
-value="
-.options KLU
-.save V(N1) V(N2) V(N3) V(N4) V(vin) V(Vr1)
-.save V(M1) V(M2) V(M3) V(M4) I(Vread) V(hx)
-.save V(n.x9.xrstdp1.xr2.n1#ngap)
-.save V(n.x9.xrstdp2.xr2.n1#ngap)
-.save V(n.x9.xrstdp3.xr2.n1#ngap)
-.save V(n.x9.xrstdp4.xr2.n1#ngap)
-.save V(n.x9.xrstdp5.xr2.n1#ngap)
-.save V(n.x9.xrstdp6.xr2.n1#ngap)
-.save V(n.x9.xrstdp7.xr2.n1#ngap)
-.save V(n.x9.xrstdp8.xr2.n1#ngap)
-.save V(n.x9.xrstdp9.xr2.n1#ngap)
-.save V(n.x9.xrstdp10.xr2.n1#ngap)
-.save V(n.x9.xrstdp11.xr2.n1#ngap)
-.save V(n.x9.xrstdp12.xr2.n1#ngap)
-.save V(n.x9.xrstdp13.xr2.n1#ngap)
-.save V(n.x9.xrstdp14.xr2.n1#ngap)
-.save V(n.x9.xrstdp15.xr2.n1#ngap)
-.tran 20n 5u
-.control
-	set wr_vecnames
-	set wr_singlescale
-	run
-	write tb_4x4_modular.raw
-.endc
-"
-spice_ignore=true}
 C {devices/lab_pin.sym} 550 -460 2 0 {name=p13 sig_type=std_logic lab=Vr1
 }
 C {devices/gnd.sym} -5 -225 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 10 -300 3 1 {name=p1 sig_type=std_logic lab=vin
 }
-C {devices/vsource.sym} -5 -255 0 1 {name=Vin5 value="dc 0V ac 1mV trrandom(1 1u 0s 0.9 0.6) "
+C {devices/vsource.sym} -5 -255 0 1 {name=Vin5 value="dc 0V ac 1mV trrandom(1 1u 0s 0.9 0.9) "
 spice_ignore=false}
+C {devices/vsource.sym} -130 -560 0 1 {name=Vin6 value="PWL(0 0.9 250u 1.8 750u 0 1000u 0.9)"
+spice_ignore=True}
