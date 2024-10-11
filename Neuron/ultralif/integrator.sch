@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -103,7 +103,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 210 0 0 0 {name=Csyn model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 210 0 0 0 {name=Csyn model=cap_mim_m3_1 W=10 L=10 MF=1 spiceprefix=X}
 C {devices/lab_pin.sym} 270 100 3 0 {name=p3 sig_type=std_logic lab=vsyn}
 C {devices/lab_pin.sym} -40 70 0 0 {name=p2 sig_type=std_logic lab=vx}
 C {sky130_fd_pr/res_generic_po.sym} -40 0 0 0 {name=R2
@@ -121,3 +121,5 @@ C {devices/iopin.sym} 340 190 1 0 {name=p4 lab=Iout}
 C {devices/iopin.sym} 150 -80 3 0 {name=p5 lab=vdd}
 C {devices/lab_pin.sym} 170 110 3 0 {name=p6 sig_type=std_logic lab=vdd}
 C {devices/iopin.sym} -40 220 1 0 {name=p7 lab=gnd}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 410 -10 0 0 {name=Csyn1 model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X
+spice_ignore=true}

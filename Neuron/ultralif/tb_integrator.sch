@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -213,7 +213,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 170 -110 0 0 {name=C1 model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 170 -110 0 0 {name=C1 model=cap_mim_m3_1 W=10 L=10 MF=1 spiceprefix=X}
 C {devices/gnd.sym} 300 200 0 0 {name=l1 lab=GND}
 C {devices/vdd.sym} 170 -190 0 0 {name=l2 lab=VDD}
 C {devices/lab_pin.sym} -30 130 1 0 {name=p1 sig_type=std_logic lab=spk1}
@@ -292,3 +292,5 @@ C {devices/launcher.sym} -250 -270 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_integrator.raw tran"
 }
+C {sky130_fd_pr/cap_mim_m3_1.sym} 450 -100 0 0 {name=C2 model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X
+spice_ignore=true}

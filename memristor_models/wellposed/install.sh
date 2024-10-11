@@ -9,7 +9,7 @@ cd $SCRIPT_DIR
 
 # Compile model with recently downloaded openvaf
 #./openvaf rram_v0.va
-openvaf rram_v0.va
+#openvaf rram_v0.va
 
 # Clean
 #rm openvaf_23_2_0_linux_amd64.tar.xz
