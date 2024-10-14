@@ -40,31 +40,31 @@ L 7 370 -160 390 -160 {}
 L 7 300 220 300 240 {}
 L 7 310 -180 310 -160 {}
 B 5 387.5 -162.5 392.5 -157.5 {name=Vr dir=inout}
-B 5 387.5 -2.5 392.5 2.5 {name=i_post2 dir=out}
-B 5 387.5 -42.5 392.5 -37.5 {name=i_post1 dir=out}
+B 5 387.5 -2.5 392.5 2.5 {name=i_post2 dir=inout}
+B 5 387.5 -42.5 392.5 -37.5 {name=i_post1 dir=inout}
 B 5 387.5 -22.5 392.5 -17.5 {name=vout_post2 dir=out}
-B 5 387.5 37.5 392.5 42.5 {name=i_post3 dir=out}
+B 5 387.5 37.5 392.5 42.5 {name=i_post3 dir=inout}
 B 5 297.5 237.5 302.5 242.5 {name=vssa dir=inout}
 B 5 387.5 -62.5 392.5 -57.5 {name=vout_post1 dir=out}
 B 5 387.5 17.5 392.5 22.5 {name=vout_post3 dir=out}
-B 5 387.5 77.5 392.5 82.5 {name=i_post4 dir=out}
+B 5 387.5 77.5 392.5 82.5 {name=i_post4 dir=inout}
 B 5 387.5 57.5 392.5 62.5 {name=vout_post4 dir=out}
 B 5 217.5 -122.5 222.5 -117.5 {name=vout_pre1 dir=in}
-B 5 217.5 47.5 222.5 52.5 {name=i_pre1 dir=in}
+B 5 217.5 47.5 222.5 52.5 {name=i_pre1 dir=inout}
 B 5 217.5 -102.5 222.5 -97.5 {name=vout_pre2 dir=in}
-B 5 217.5 67.5 222.5 72.5 {name=i_pre2 dir=in}
+B 5 217.5 67.5 222.5 72.5 {name=i_pre2 dir=inout}
 B 5 217.5 -82.5 222.5 -77.5 {name=vout_pre3 dir=in}
-B 5 217.5 87.5 222.5 92.5 {name=i_pre3 dir=in}
+B 5 217.5 87.5 222.5 92.5 {name=i_pre3 dir=inout}
 B 5 217.5 -62.5 222.5 -57.5 {name=vout_pre4 dir=in}
-B 5 217.5 107.5 222.5 112.5 {name=i_pre4 dir=in}
+B 5 217.5 107.5 222.5 112.5 {name=i_pre4 dir=inout}
 B 5 217.5 -42.5 222.5 -37.5 {name=vout_pre5 dir=in}
-B 5 217.5 127.5 222.5 132.5 {name=i_pre5 dir=in}
+B 5 217.5 127.5 222.5 132.5 {name=i_pre5 dir=inout}
 B 5 217.5 -22.5 222.5 -17.5 {name=vout_pre6 dir=in}
-B 5 217.5 147.5 222.5 152.5 {name=i_pre6 dir=in}
+B 5 217.5 147.5 222.5 152.5 {name=i_pre6 dir=inout}
 B 5 217.5 -2.5 222.5 2.5 {name=vout_pre7 dir=in}
-B 5 217.5 167.5 222.5 172.5 {name=i_pre7 dir=in}
+B 5 217.5 167.5 222.5 172.5 {name=i_pre7 dir=inout}
 B 5 217.5 17.5 222.5 22.5 {name=vout_pre8 dir=in}
-B 5 217.5 187.5 222.5 192.5 {name=i_pre8 dir=in}
+B 5 217.5 187.5 222.5 192.5 {name=i_pre8 dir=inout}
 B 5 307.5 -182.5 312.5 -177.5 {name=vdda dir=inout}
 T {@symname} 264.5 -246 0 0 0.3 0.3 {}
 T {@name} 265 -262 0 0 0.2 0.2 {}

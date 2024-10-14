@@ -1,5 +1,7 @@
+*si le pones el valor de g0 a gap0, hay lissajous
 .subckt rram_v0 TE BE PARAMS:
 +Gap_0=unif(0.9,0.8)
+*+Gap_0=unif(0.9,0.8)
 +g0=0.2751
 +V0=0.430
 +I0=6.140e-5
@@ -10,8 +12,8 @@
 +gamma0=16.5
 +Ea=1.500 
 +a0=0.25
-+tox=5.0
-+smoothing=1e-9
++tox=5.0 
++smoothing=1e-8
 +Kclip=50
 +vt=0.0258
 +maxslope=1e18
@@ -27,7 +29,7 @@ Cr r 0 1 IC={Gap_0}
 Gr 0 r value={ddt(-1e-9 * V(r) - V(BE)) + ddt_Gap(V(TE) - V(BE),V(r)) + clip_minGap(V(r), ddt_Gap(V(TE) - V(BE), V(r))) + clip_maxGap(V(r), ddt_Gap(V(TE) - V(BE), V(r)))}
 
 * Memristor conductance
-Gpm TE BE value={I0 * safeexp(-(V(r))/g0) * safesinh((V(TE) - V(BE))/V0) + GMIN * (V(TE)-V(BE))}
+Gpm TE BE value={I0 * safeexp(-(V(r))/g0) * safesinh((V(TE) - V(BE))/V0) }
 
 * Function for smooth step approximation
 .func smth_stp(x)={0.5*(x/sqrt(x*x + smoothing)+1)}
@@ -36,7 +38,7 @@ Gpm TE BE value={I0 * safeexp(-(V(r))/g0) * safesinh((V(TE) - V(BE))/V0) + GMIN 
 .func gamma(Gap)={gamma0+Beta0*pow(Gap,3)}
 
 * Rate of change of gap
-.func ddt_Gap(vtb, Gap)={-Vel0 * safeexp(-Ea/vt) * safesinh(vtb * gamma(Gap) * a0/(tox * vt))}
+.func ddt_Gap(vtb, Gap)={-(maxGap - minGap) * Vel0 * safeexp(-Ea/vt) * safesinh(vtb * gamma(Gap) * a0/(tox * vt))}
 
 * Clipping function for minimum gap
 .func clip_minGap(gap, ddtGap)={(safeexp(Kclip*(minGap - gap)) - ddtGap) * smth_stp(minGap - gap)}

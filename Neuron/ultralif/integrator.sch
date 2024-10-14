@@ -77,7 +77,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 70 -30 0 0 {name=M3
 L=0.15
-W=5
+W=24.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -103,7 +103,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 210 0 0 0 {name=Csyn model=cap_mim_m3_1 W=10 L=10 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 210 0 0 0 {name=Csyn model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X ic=1.8}
 C {devices/lab_pin.sym} 270 100 3 0 {name=p3 sig_type=std_logic lab=vsyn}
 C {devices/lab_pin.sym} -40 70 0 0 {name=p2 sig_type=std_logic lab=vx}
 C {sky130_fd_pr/res_generic_po.sym} -40 0 0 0 {name=R2

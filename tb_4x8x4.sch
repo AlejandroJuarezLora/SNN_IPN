@@ -53,22 +53,20 @@ N 310 -180 370 -180 {
 lab=N4}
 N 310 -160 370 -160 {
 lab=#net5}
-N 540 -70 570 -70 {
-lab=#net6}
 N 540 -90 570 -90 {
-lab=#net7}
+lab=#net6}
 N 540 -110 570 -110 {
-lab=#net8}
+lab=#net7}
 N 540 -130 570 -130 {
-lab=#net9}
+lab=#net8}
 N 540 -150 570 -150 {
-lab=#net10}
+lab=#net9}
 N 540 -170 570 -170 {
-lab=#net11}
+lab=#net10}
 N 540 -190 570 -190 {
-lab=#net12}
+lab=#net11}
 N 540 -210 570 -210 {
-lab=#net13}
+lab=#net12}
 N 540 -380 740 -380 {
 lab=J1}
 N 540 -360 740 -360 {
@@ -102,37 +100,35 @@ lab=J7}
 N 740 -240 760 -240 {
 lab=J8}
 N 570 -210 760 -210 {
-lab=#net13}
-N 570 -190 760 -190 {
 lab=#net12}
-N 570 -170 760 -170 {
+N 570 -190 760 -190 {
 lab=#net11}
-N 570 -150 760 -150 {
+N 570 -170 760 -170 {
 lab=#net10}
-N 570 -130 760 -130 {
+N 570 -150 760 -150 {
 lab=#net9}
-N 570 -110 760 -110 {
+N 570 -130 760 -130 {
 lab=#net8}
-N 570 -90 760 -90 {
+N 570 -110 760 -110 {
 lab=#net7}
-N 570 -70 760 -70 {
+N 570 -90 760 -90 {
 lab=#net6}
 N 930 -320 960 -320 {
 lab=M1}
 N 930 -300 960 -300 {
-lab=#net14}
+lab=#net13}
 N 930 -280 960 -280 {
 lab=M2}
 N 930 -260 960 -260 {
-lab=#net15}
+lab=#net14}
 N 930 -240 960 -240 {
 lab=M3}
 N 930 -220 960 -220 {
-lab=#net16}
+lab=#net15}
 N 930 -200 960 -200 {
 lab=M4}
 N 930 -180 960 -180 {
-lab=#net17}
+lab=#net16}
 N 1480 -420 1480 -230 {
 lab=Vr1}
 N 930 -420 1480 -420 {
@@ -145,6 +141,14 @@ N 195 30 1300 30 {
 lab=x}
 N 195 -230 195 30 {
 lab=x}
+N 1395 -170 1455 -170 {
+lab=#net17}
+N 1455 -170 1455 -130 {
+lab=#net17}
+N 540 -70 570 -70 {
+lab=#net18}
+N 570 -70 760 -70 {
+lab=#net18}
 C {devices/vsource.sym} 135 -380 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} 135 -330 0 0 {name=l5 lab=GND}
 C {sky130_fd_pr/corner.sym} -110 -160 0 0 {name=CORNER only_toplevel=true corner=tt}
@@ -153,9 +157,8 @@ only_toplevel=true
 place=end
 value="
 
-
 .options KLU
-.tran 100n 10m uic
+.tran 50n 50m
 .control
 	set wr_vecnames
 	set wr_singlescale
@@ -259,23 +262,22 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 1255 -130 0 0 {name=l16 lab=GND}
-C {devices/gnd.sym} 1395 -170 0 0 {name=l10 lab=GND}
 C {devices/vdd.sym} 1375 -280 0 0 {name=l19 lab=VDD}
 C {devices/lab_pin.sym} 1485 -230 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
 C {devices/isource.sym} 1355 -140 0 0 {name=I0 value=100u}
 C {devices/gnd.sym} 1355 -110 0 0 {name=l13 lab=GND}
-C {devices/vsource.sym} 145 -185 0 1 {name=Vin1 value="SINE(0 0.3 2k 0 0 0)"
+C {devices/vsource.sym} 145 -185 0 1 {name=Vin1 value="SINE(0 0.3 200 0 0 0)"
 spice_ignore=false}
 C {devices/vsource.sym} 1150 -250 3 1 {name=Vread value=0
 spice_ignore=false}
-C {devices/vsource.sym} 145 -125 0 1 {name=Vin3 value="SINE(0 0.5 5k 0 0 90)"
+C {devices/vsource.sym} 145 -125 0 1 {name=Vin3 value="SINE(0 0.5 500 0 0 90)"
 spice_ignore=false}
 C {devices/vsource.sym} 145 -65 0 1 {name=Vin4 value=0.9
 spice_ignore=false}
 C {devices/lab_pin.sym} 160 -230 3 1 {name=p1 sig_type=std_logic lab=x
 }
-C {devices/vsource.sym} 25 -505 0 1 {name=Vin5 value="dc 0V ac 0mV trrandom(1 20u 0s 0.9 0.9) "
+C {devices/vsource.sym} 55 -415 0 1 {name=Vin5 value="dc 0V ac 0mV trrandom(1 20u 0s 0.9 0.9) "
 spice_ignore=True}
 C {/home/alex/Desktop/EDA/SNN_IPN/layer/layer_hidden.sym} 400 -240 0 0 {name=x4}
 C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_array_4x8.sym} 390 -230 0 0 {name=x5}
@@ -289,10 +291,6 @@ C {devices/gnd.sym} 1020 -130 0 0 {name=l11 lab=GND}
 C {devices/gnd.sym} 840 -20 0 0 {name=l12 lab=GND}
 C {devices/vdd.sym} 850 -440 0 0 {name=l14 lab=VDD}
 C {devices/vdd.sym} 1020 -370 0 0 {name=l15 lab=VDD}
-C {devices/noconn.sym} 320 -280 1 0 {name=l17}
-C {devices/noconn.sym} 320 -240 1 0 {name=l20}
-C {devices/noconn.sym} 320 -200 1 0 {name=l21}
-C {devices/noconn.sym} 320 -160 1 0 {name=l22}
 C {devices/lab_pin.sym} 745 -380 1 0 {name=p13 sig_type=std_logic lab=J1}
 C {devices/lab_pin.sym} 745 -360 1 0 {name=p14 sig_type=std_logic lab=J2}
 C {devices/lab_pin.sym} 745 -340 1 0 {name=p15 sig_type=std_logic lab=J3}
@@ -301,3 +299,5 @@ C {devices/lab_pin.sym} 745 -300 1 0 {name=p17 sig_type=std_logic lab=J5}
 C {devices/lab_pin.sym} 745 -280 1 0 {name=p18 sig_type=std_logic lab=J6}
 C {devices/lab_pin.sym} 745 -260 1 0 {name=p19 sig_type=std_logic lab=J7}
 C {devices/lab_pin.sym} 745 -240 1 0 {name=p20 sig_type=std_logic lab=J8}
+C {devices/vsource.sym} 1455 -100 0 0 {name=Vdd1 value=-1.8}
+C {devices/gnd.sym} 1455 -70 0 0 {name=l1 lab=GND}

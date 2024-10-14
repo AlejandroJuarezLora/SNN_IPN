@@ -334,7 +334,7 @@ C {devices/lab_pin.sym} 740 -20 2 1 {name=p73 sig_type=std_logic lab=Iext8}
 C {devices/ipin.sym} 360 -1870 0 0 {name=p74 lab=Iext5}
 C {devices/ipin.sym} 360 -1830 0 0 {name=p75 lab=Iext6}
 C {devices/ipin.sym} 360 -1790 0 0 {name=p76 lab=Iext7}
-C {devices/ipin.sym} 350 -1750 0 0 {name=p77 lab=Iext8}
+C {devices/iopin.sym} 360 -1750 0 1 {name=p77 lab=Iext8}
 C {devices/iopin.sym} 400 -1820 0 0 {name=p43 lab=vout5}
 C {devices/iopin.sym} 400 -1790 0 0 {name=p78 lab=vout6}
 C {devices/iopin.sym} 400 -1760 0 0 {name=p79 lab=vout7}
