@@ -173,7 +173,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 30 -20 0 0 {name=M2
 L=0.15
-W=20
+W=24.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -213,7 +213,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 170 -110 0 0 {name=C1 model=cap_mim_m3_1 W=10 L=10 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 170 -110 0 0 {name=C1 model=cap_mim_m3_1 W=22 L=22.5 MF=1 spiceprefix=X }
 C {devices/gnd.sym} 300 200 0 0 {name=l1 lab=GND}
 C {devices/vdd.sym} 170 -190 0 0 {name=l2 lab=VDD}
 C {devices/lab_pin.sym} -30 130 1 0 {name=p1 sig_type=std_logic lab=spk1}
@@ -249,7 +249,7 @@ only_toplevel=true
 place=end
 value="
 .options savecurrents
-.param vinput = 1.2
+.param vinput = 1.8
 .tran 100n 10m uic
 .control
 	run
