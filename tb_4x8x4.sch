@@ -156,9 +156,16 @@ C {devices/code.sym} -110 -350 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-
+*.options method trap
+.options method gear
+.options gmin 1e-15
+.options abstol 1e-15
+.options reltol 0.0001
+.options vntol 0.1e-6
+.options warn 1
+.param MC_SWITCH=0
 .options KLU
-.tran 50n 20m
+.tran 10n 20m uic
 .control
 	set wr_vecnames
 	set wr_singlescale
