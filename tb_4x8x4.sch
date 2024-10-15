@@ -158,7 +158,7 @@ place=end
 value="
 
 .options KLU
-.tran 50n 50m
+.tran 50n 20m
 .control
 	set wr_vecnames
 	set wr_singlescale
@@ -239,7 +239,8 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/rram_v0.spice
+*.inc $::SKYWATER_MODELS/rram_v0.spice
+.inc ~/pdk/sky130B/libs.tech/ngspice/rram_v0.spice
 "
 spice_ignore=false}
 C {layer/layer_input.sym} 220 -130 0 0 {name=x1}
@@ -279,14 +280,14 @@ C {devices/lab_pin.sym} 160 -230 3 1 {name=p1 sig_type=std_logic lab=x
 }
 C {devices/vsource.sym} 55 -415 0 1 {name=Vin5 value="dc 0V ac 0mV trrandom(1 20u 0s 0.9 0.9) "
 spice_ignore=True}
-C {/home/alex/Desktop/EDA/SNN_IPN/layer/layer_hidden.sym} 400 -240 0 0 {name=x4}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_array_4x8.sym} 390 -230 0 0 {name=x5}
+C {layer/layer_hidden.sym} 400 -240 0 0 {name=x4}
+C {Synapse/rstdp_array_4x8.sym} 390 -230 0 0 {name=x5}
 C {devices/vdd.sym} 540 -410 0 0 {name=l2 lab=VDD}
 C {devices/vdd.sym} 430 -440 0 0 {name=l3 lab=VDD}
 C {devices/vdd.sym} 650 -440 0 0 {name=l4 lab=VDD}
 C {devices/gnd.sym} 420 -20 0 0 {name=l6 lab=GND}
 C {devices/gnd.sym} 650 -20 0 0 {name=l7 lab=GND}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_array_8x4.sym} 540 -260 0 0 {name=x6}
+C {Synapse/rstdp_array_8x4.sym} 540 -260 0 0 {name=x6}
 C {devices/gnd.sym} 1020 -130 0 0 {name=l11 lab=GND}
 C {devices/gnd.sym} 840 -20 0 0 {name=l12 lab=GND}
 C {devices/vdd.sym} 850 -440 0 0 {name=l14 lab=VDD}

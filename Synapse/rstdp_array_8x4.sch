@@ -437,6 +437,10 @@ N 700 1620 700 1680 {
 lab=vout_pre8}
 N 1130 1620 1130 1680 {
 lab=vout_pre8}
+N -40 1260 -40 1280 {
+lab=vssa}
+N -40 1120 -40 1140 {
+lab=vdda}
 C {Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=xrstdp1}
 C {devices/ipin.sym} -300 -130 0 0 {name=p1 lab=vout_pre1}
 C {devices/opin.sym} 160 -200 3 0 {name=p5 lab=vout_post1}
@@ -538,7 +542,7 @@ C {devices/lab_pin.sym} -40 890 1 0 {name=p66 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} 400 890 1 0 {name=p67 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} 850 890 1 0 {name=p68 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} 1280 890 1 0 {name=p69 sig_type=std_logic lab=vdda}
-C {devices/lab_pin.sym} -40 1140 1 0 {name=p70 sig_type=std_logic lab=vdda}
+C {devices/lab_pin.sym} -40 1120 2 0 {name=p70 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} 400 1140 1 0 {name=p71 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} 850 1140 1 0 {name=p72 sig_type=std_logic lab=vdda}
 C {devices/lab_pin.sym} -40 1390 1 0 {name=p73 sig_type=std_logic lab=vdda}
@@ -555,7 +559,7 @@ C {devices/ipin.sym} -300 1100 0 0 {name=p83 lab=vout_pre6}
 C {devices/ipin.sym} -300 1350 0 0 {name=p84 lab=vout_pre7}
 C {devices/ipin.sym} -300 1620 0 0 {name=p85 lab=vout_pre8}
 C {devices/lab_pin.sym} -40 1010 3 0 {name=p86 sig_type=std_logic lab=vssa}
-C {devices/lab_pin.sym} -40 1260 3 0 {name=p87 sig_type=std_logic lab=vssa}
+C {devices/lab_pin.sym} -40 1280 0 0 {name=p87 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} -40 1510 3 0 {name=p88 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} -40 1760 3 0 {name=p89 sig_type=std_logic lab=vssa}
 C {devices/lab_pin.sym} 400 1510 3 0 {name=p90 sig_type=std_logic lab=vssa}
