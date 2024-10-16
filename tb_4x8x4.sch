@@ -165,7 +165,7 @@ value="
 .options vntol 0.1e-6
 .options warn 1
 .options KLU
-.tran 100n 10m
+.tran 10n 25m
 .control
 	set wr_vecnames
 	set wr_singlescale
