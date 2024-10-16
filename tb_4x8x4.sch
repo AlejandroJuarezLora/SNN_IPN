@@ -151,7 +151,8 @@ N 570 -70 760 -70 {
 lab=#net18}
 C {devices/vsource.sym} 135 -380 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} 135 -330 0 0 {name=l5 lab=GND}
-C {sky130_fd_pr/corner.sym} -110 -160 0 0 {name=CORNER only_toplevel=true corner=tt}
+C {sky130_fd_pr/corner.sym} -60 -650 0 0 {name=CORNER only_toplevel=true corner=tt
+spice_ignore=true}
 C {devices/code.sym} -110 -350 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
@@ -163,12 +164,12 @@ value="
 .options reltol 0.0001
 .options vntol 0.1e-6
 .options warn 1
-.param MC_SWITCH=0
 .options KLU
-.tran 10n 20m uic
+.tran 100n 10m
 .control
 	set wr_vecnames
 	set wr_singlescale
+	option numdgt=3
 	run
 	wrdata ~/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt x Vr1 I(Vread) hx x
 	+N1 N2 N3 N4 M1 M2 M3 M4
@@ -246,7 +247,6 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-*.inc $::SKYWATER_MODELS/rram_v0.spice
 .inc ~/pdk/sky130B/libs.tech/ngspice/rram_v0.spice
 "
 spice_ignore=false}
@@ -309,3 +309,17 @@ C {devices/lab_pin.sym} 745 -260 1 0 {name=p19 sig_type=std_logic lab=J7}
 C {devices/lab_pin.sym} 745 -240 1 0 {name=p20 sig_type=std_logic lab=J8}
 C {devices/vsource.sym} 1455 -100 0 0 {name=Vdd1 value=-1.8}
 C {devices/gnd.sym} 1455 -70 0 0 {name=l1 lab=GND}
+C {devices/code.sym} -112.5 -177.5 0 0 {name=MODELS1
+only_toplevel=true
+format="tcleval( @value )"
+value="
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include ~/pdk/sky130B/libs.tech/ngspice/corners/tt.spice
+.include ~/pdk/sky130B/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include ~/pdk/sky130B/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include ~/pdk/sky130B/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+"
+spice_ignore=false}
