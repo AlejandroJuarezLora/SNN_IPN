@@ -9,7 +9,7 @@ cd $SCRIPT_DIR
 
 # Compile model with recently downloaded openvaf
 #./openvaf rram_v0.va
-openvaf sky130_fd_pr_reram__reram_cell_london.va
+openvaf sky.va
 
 # Clean
 #rm openvaf_23_2_0_linux_amd64.tar.xz
@@ -20,7 +20,6 @@ openvaf sky130_fd_pr_reram__reram_cell_london.va
 
 # Copy model, spice file and example netlist
 sudo mkdir -p ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_fd_pr_reram__reram_cell_london.va ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_fd_pr_reram__reram_cell_london.spice ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_fd_pr_reram__reram_cell_london.osdi ${PDK_ROOT}/sky130B/libs.tech/ngspice
-sudo cp -a sky130_fd_pr_reram__reram_cell_london.sym ${PDK_ROOT}/sky130B/libs.tech/xschem/sky130_fd_pr
+sudo cp -a sky.va ${PDK_ROOT}/sky130B/libs.tech/ngspice
+sudo cp -a sky.spice ${PDK_ROOT}/sky130B/libs.tech/ngspice
+sudo cp -a sky.osdi ${PDK_ROOT}/sky130B/libs.tech/ngspice

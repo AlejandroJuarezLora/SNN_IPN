@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -30,8 +30,8 @@ logy=0
 color=4
 node=te}
 B 2 250 -560 1050 -160 {flags=graph
-y1=1600
-y2=3.4e+06
+y1=890
+y2=1700000
 ypos1=0
 ypos2=2
 divy=5
@@ -51,8 +51,8 @@ logy=0
 color=4
 node="\\"memristancia;0 te - i(v1) /\\""}
 B 2 1050 -960 1850 -560 {flags=graph
-y1=-0.000132398
-y2=0.0010743
+y1=-1.4e-05
+y2=0.0023
 ypos1=0
 ypos2=2
 divy=5
@@ -72,8 +72,8 @@ logx=0
 logy=0
 }
 B 2 1050 -560 1850 -160 {flags=graph
-y1=-1.27593e-05
-y2=1.44137e-05
+y1=-0.00081747226
+y2=0.001496528
 ypos1=0
 ypos2=2
 divy=5
@@ -91,9 +91,10 @@ logx=0
 logy=0
 
 
-sweep=te
+
 color=4
-node=i(v1)}
+node=n.xr1.n1#flow(te,be)
+sweep=TE}
 N -370 -330 -370 -300 {
 lab=TE}
 N -370 -240 -370 -210 {
@@ -120,7 +121,8 @@ N -370 -200 -370 -130 {
 lab=0}
 N -290 -330 -230 -330 {
 lab=TE}
-C {devices/vsource.sym} -370 -270 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"}
+C {devices/vsource.sym} -300 -790 0 0 {name=V3 value="SINE(0 2 1k 0 0 0)"
+spice_ignore=true}
 C {devices/gnd.sym} -370 -110 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} -40 -440 0 0 {name=h1
 descr="Load I-V" 
@@ -134,7 +136,17 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/sky130_fd_pr_reram__reram_cell_london.spice
+*.inc $::SKYWATER_MODELS/sky.spice
+.subckt rram_v0 TE BE
+N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=3.5
+.ends rram_v0
+
+.model sky130_fd_pr_reram__reram_cell_model sky130_fd_pr_reram__reram_cell
+
+
+.control
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky.osdi
+.endc
 "
 spice_ignore=false}
 C {devices/code_shown.sym} -570 -540 0 0 {name=NGSPICE
@@ -150,7 +162,9 @@ value="
 
 " }
 C {devices/lab_wire.sym} -370 -330 0 0 {name=l3 sig_type=std_logic lab=TE}
-C {sky130_fd_pr/sky130_fd_pr_reram__reram_cell_london.sym} -150 -260 0 0 {name=R1
-model=sky130_fd_pr_reram__reram_cell_london
+C {sky130_fd_pr/rram_v0.sym} -150 -260 0 1 {name=R1
+model=rram_v0
 spiceprefix=X
 }
+C {devices/vsource.sym} -370 -270 0 0 {name=V1 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"
+spice_ignore=false}

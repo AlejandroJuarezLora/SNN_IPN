@@ -34,37 +34,37 @@ lab=#net1}
 N 750 -2190 770 -2190 {
 lab=vileak}
 N 740 -2340 780 -2340 {
-lab=Iext1}
+lab=#net2}
 N 900 -2340 960 -2340 {
 lab=vout1}
 N 810 -1840 810 -1810 {
 lab=vss}
 N 810 -1940 810 -1870 {
-lab=#net2}
+lab=#net3}
 N 750 -1840 770 -1840 {
 lab=vileak}
 N 740 -1990 780 -1990 {
-lab=Iext2}
+lab=#net4}
 N 900 -1990 960 -1990 {
 lab=vout2}
 N 810 -1510 810 -1480 {
 lab=vss}
 N 810 -1610 810 -1540 {
-lab=#net3}
+lab=#net5}
 N 750 -1510 770 -1510 {
 lab=vileak}
 N 740 -1660 780 -1660 {
-lab=Iext3}
+lab=#net6}
 N 900 -1660 960 -1660 {
 lab=vout3}
 N 810 -1170 810 -1140 {
 lab=vss}
 N 810 -1270 810 -1200 {
-lab=#net4}
+lab=#net7}
 N 750 -1170 770 -1170 {
 lab=vileak}
 N 740 -1320 780 -1320 {
-lab=Iext4}
+lab=#net8}
 N 900 -1320 960 -1320 {
 lab=vout4}
 N 620 -2340 640 -2340 {
@@ -83,14 +83,6 @@ N 620 -1320 640 -1320 {
 lab=vin}
 N 590 -1840 620 -1840 {
 lab=vin}
-N 760 -2340 760 -2280 {
-lab=Iext1}
-N 760 -1990 760 -1930 {
-lab=Iext2}
-N 760 -1660 760 -1600 {
-lab=Iext3}
-N 760 -1320 760 -1260 {
-lab=Iext4}
 C {Neuron/ultralif/ul_tun.sym} 840 -2340 0 0 {name=x6}
 C {devices/iopin.sym} 400 -2030 0 0 {name=p1 lab=vdd}
 C {devices/lab_pin.sym} 840 -2390 1 0 {name=p2 sig_type=std_logic lab=vdd}
@@ -112,7 +104,7 @@ C {devices/lab_pin.sym} 460 -1640 1 0 {name=p4 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 870 -2380 1 0 {name=p5 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -2190 0 0 {name=M1
 L=0.15
-W=1.2
+W=1.1
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -157,7 +149,7 @@ C {Neuron/ultralif/syn_neg.sym} 690 -2070 0 0 {name=x2}
 C {devices/lab_pin.sym} 870 -2030 1 0 {name=p17 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1840 0 0 {name=M3
 L=0.15
-W=1.5
+W=1.25
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -179,7 +171,7 @@ C {devices/lab_pin.sym} 840 -1710 1 0 {name=p23 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 870 -1700 1 0 {name=p24 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1510 0 0 {name=M5
 L=0.15
-W=1.2
+W=1.1
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -202,7 +194,7 @@ C {devices/lab_pin.sym} 840 -1370 1 0 {name=p30 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 870 -1360 1 0 {name=p31 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1170 0 0 {name=M6
 L=0.15
-W=1.5
+W=1.25
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -229,11 +221,3 @@ C {devices/iopin.sym} 400 -1930 0 0 {name=p43 lab=vout1}
 C {devices/iopin.sym} 400 -1890 0 0 {name=p44 lab=vout2}
 C {devices/iopin.sym} 400 -1850 0 0 {name=p45 lab=vout3}
 C {devices/iopin.sym} 400 -1820 0 0 {name=p46 lab=vout4}
-C {devices/ipin.sym} 340 -1950 0 0 {name=p47 lab=Iext1}
-C {devices/ipin.sym} 340 -1910 0 0 {name=p48 lab=Iext2}
-C {devices/ipin.sym} 340 -1870 0 0 {name=p49 lab=Iext3}
-C {devices/ipin.sym} 340 -1830 0 0 {name=p50 lab=Iext4}
-C {devices/lab_pin.sym} 760 -2280 0 0 {name=p51 sig_type=std_logic lab=Iext1}
-C {devices/lab_pin.sym} 760 -1930 0 0 {name=p52 sig_type=std_logic lab=Iext2}
-C {devices/lab_pin.sym} 760 -1600 0 0 {name=p53 sig_type=std_logic lab=Iext3}
-C {devices/lab_pin.sym} 760 -1260 0 0 {name=p54 sig_type=std_logic lab=Iext4}
