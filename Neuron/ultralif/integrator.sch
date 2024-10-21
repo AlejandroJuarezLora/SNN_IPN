@@ -121,5 +121,3 @@ C {devices/iopin.sym} 340 190 1 0 {name=p4 lab=Iout}
 C {devices/iopin.sym} 150 -80 3 0 {name=p5 lab=vdd}
 C {devices/lab_pin.sym} 170 110 3 0 {name=p6 sig_type=std_logic lab=vdd}
 C {devices/iopin.sym} -40 220 1 0 {name=p7 lab=gnd}
-C {sky130_fd_pr/cap_mim_m3_1.sym} 410 -10 0 0 {name=Csyn1 model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X
-spice_ignore=true}

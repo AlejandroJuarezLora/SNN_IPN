@@ -1,0 +1,12 @@
+*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
+
+.subckt rram_v0 TE BE
+N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=unif(4.1,0.7)
+.ends rram_v0
+
+.model sky130_fd_pr_reram__reram_cell_model sky130_fd_pr_reram__reram_cell
+
+
+.control
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky.osdi
+.endc
