@@ -1,3 +1,4 @@
 /sim_results/*.txt
+/sim_results/*.pdf
 /Neuron/ultralif/sims/*.txt
 /layer/*.txt

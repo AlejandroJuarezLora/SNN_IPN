@@ -185,7 +185,7 @@ C {devices/lab_pin.sym} 115 -215 0 1 {name=p6 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 360 -210 0 0 {name=p20 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 365 -450 0 0 {name=p21 sig_type=std_logic lab=vss}
 C {sky130_fd_pr/pfet_01v8.sym} 505 -730 0 0 {name=M14
-L=2.5
+L=2
 W=0.5
 nf=1
 mult=1
