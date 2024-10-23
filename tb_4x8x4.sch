@@ -11,29 +11,29 @@ N 135 -350 135 -330 {
 lab=GND}
 N 1070 -250 1120 -250 {
 lab=#net1}
-N 1245 -250 1275 -250 {
+N 1315 -250 1345 -250 {
 lab=hx}
-N 1285 -250 1315 -250 {
+N 1355 -250 1385 -250 {
 lab=hx}
-N 1275 -250 1285 -250 {
+N 1345 -250 1355 -250 {
 lab=hx}
-N 1255 -150 1255 -130 {
+N 1325 -150 1325 -130 {
 lab=GND}
-N 1255 -250 1255 -210 {
+N 1325 -250 1325 -210 {
 lab=hx}
-N 1455 -230 1485 -230 {
+N 1525 -230 1555 -230 {
 lab=Vr1}
 N 1180 -250 1185 -250 {
-lab=hx}
+lab=#net2}
 N 150 -25 150 -15 {
 lab=GND}
-N 1300 -210 1300 -165 {
+N 1370 -210 1370 -165 {
 lab=x}
-N 1300 -210 1315 -210 {
+N 1370 -210 1385 -210 {
 lab=x}
-N 1300 -165 1300 -90 {
+N 1370 -165 1370 -90 {
 lab=x}
-N 1300 -90 1300 -75 {
+N 1370 -90 1370 -75 {
 lab=x}
 N 310 -300 370 -300 {
 lab=N1}
@@ -44,19 +44,19 @@ lab=N3}
 N 310 -180 370 -180 {
 lab=N4}
 N 540 -90 570 -90 {
-lab=#net2}
-N 540 -110 570 -110 {
 lab=#net3}
-N 540 -130 570 -130 {
+N 540 -110 570 -110 {
 lab=#net4}
-N 540 -150 570 -150 {
+N 540 -130 570 -130 {
 lab=#net5}
-N 540 -170 570 -170 {
+N 540 -150 570 -150 {
 lab=#net6}
-N 540 -190 570 -190 {
+N 540 -170 570 -170 {
 lab=#net7}
-N 540 -210 570 -210 {
+N 540 -190 570 -190 {
 lab=#net8}
+N 540 -210 570 -210 {
+lab=#net9}
 N 540 -380 740 -380 {
 lab=J1}
 N 540 -360 740 -360 {
@@ -92,37 +92,40 @@ lab=J8}
 N 930 -320 960 -320 {
 lab=M1}
 N 930 -300 960 -300 {
-lab=#net9}
+lab=#net10}
 N 930 -280 960 -280 {
 lab=M2}
 N 930 -260 960 -260 {
-lab=#net10}
+lab=#net11}
 N 930 -240 960 -240 {
 lab=M3}
 N 930 -220 960 -220 {
-lab=#net11}
+lab=#net12}
 N 930 -200 960 -200 {
 lab=M4}
 N 930 -180 960 -180 {
-lab=#net12}
+lab=#net13}
 N 930 -420 1480 -420 {
 lab=Vr1}
-N 1180 -250 1245 -250 {
+N 1250 -250 1315 -250 {
 lab=hx}
-N 1395 -170 1455 -170 {
+N 1465 -170 1525 -170 {
 lab=GND}
-N 1455 -170 1455 -130 {
+N 1525 -170 1525 -130 {
 lab=GND}
 N 540 -70 570 -70 {
-lab=#net13}
+lab=#net14}
 N 150 -230 200 -230 {lab=x}
 N 150 -230 150 -205 {lab=x}
 N 190 -230 190 50 {lab=x}
 N 190 50 1300 50 {lab=x}
-N 1300 -80 1300 50 {lab=x}
+N 1370 -75 1370 55 {lab=x}
 N 1480 -420 1550 -420 {lab=Vr1}
-N 1485 -230 1515 -230 {lab=Vr1}
-N 1515 -420 1515 -230 {lab=Vr1}
+N 1555 -230 1585 -230 {lab=Vr1}
+N 1585 -420 1585 -230 {lab=Vr1}
+N 1300 50 1370 50 {lab=x}
+N 1185 -250 1190 -250 {lab=#net2}
+N 1550 -420 1585 -420 {lab=Vr1}
 C {devices/vsource.sym} 135 -380 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} 135 -330 0 0 {name=l5 lab=GND}
 C {devices/vdd.sym} 135 -440 0 0 {nname=l4 lab=VDD}
@@ -148,24 +151,24 @@ C {devices/lab_pin.sym} 945 -280 1 0 {name=p7 sig_type=std_logic lab=M2}
 C {devices/lab_pin.sym} 945 -240 1 0 {name=p8 sig_type=std_logic lab=M3}
 C {devices/lab_pin.sym} 945 -200 1 0 {name=p9 sig_type=std_logic lab=M4}
 C {devices/vdd.sym} 250 -350 0 0 {name=l9 lab=VDD}
-C {OPAMP/opamp_sky130.sym} 1385 -230 0 0 {name=x3}
-C {devices/lab_pin.sym} 1285 -250 1 1 {name=p10 sig_type=std_logic lab=hx}
-C {devices/res.sym} 1255 -180 0 0 {name=R2
+C {OPAMP/opamp_sky130.sym} 1455 -230 0 0 {name=x3}
+C {devices/lab_pin.sym} 1325 -250 3 1 {name=p10 sig_type=std_logic lab=hx}
+C {devices/res.sym} 1325 -180 0 0 {name=R2
 value=9k
 footprint=1206
 device=resistor
 m=1}
-C {devices/gnd.sym} 1255 -130 0 0 {name=l16 lab=GND}
-C {devices/vdd.sym} 1375 -280 0 1 {name=l19 lab=VDD}
-C {devices/lab_pin.sym} 1515 -230 2 0 {name=p11 sig_type=std_logic lab=Vr1
+C {devices/gnd.sym} 1325 -130 0 0 {name=l16 lab=GND}
+C {devices/vdd.sym} 1445 -280 0 1 {name=l19 lab=VDD}
+C {devices/lab_pin.sym} 1585 -230 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
-C {devices/isource.sym} 1355 -140 0 0 {name=I0 value=100u}
-C {devices/gnd.sym} 1455 -130 0 1 {name=l13 lab=GND}
-C {devices/vsource.sym} 150 -175 0 1 {name=Vin1 value="SINE(0 0.3 400 0 0 0)"
+C {devices/isource.sym} 1425 -140 0 0 {name=I0 value=100u}
+C {devices/gnd.sym} 1525 -130 0 1 {name=l13 lab=GND}
+C {devices/vsource.sym} 150 -175 0 1 {name=Vin1 value="SINE(0 0.3 200 0 0 0)"
 spice_ignore=false}
 C {devices/vsource.sym} 1150 -250 3 1 {name=Vread value=0
 spice_ignore=false}
-C {devices/vsource.sym} 150 -115 0 1 {name=Vin3 value="SINE(0 0.5 1000 0 0 90)"
+C {devices/vsource.sym} 150 -115 0 1 {name=Vin3 value="SINE(0 0.5 500 0 0 90)"
 spice_ignore=false}
 C {devices/vsource.sym} 150 -55 0 1 {name=Vin4 value=0.9
 spice_ignore=false}
@@ -192,7 +195,7 @@ C {devices/lab_pin.sym} 745 -300 1 0 {name=p17 sig_type=std_logic lab=J5}
 C {devices/lab_pin.sym} 745 -280 1 0 {name=p18 sig_type=std_logic lab=J6}
 C {devices/lab_pin.sym} 745 -260 1 0 {name=p19 sig_type=std_logic lab=J7}
 C {devices/lab_pin.sym} 745 -240 1 0 {name=p20 sig_type=std_logic lab=J8}
-C {devices/gnd.sym} 1355 -110 0 1 {name=l1 lab=GND}
+C {devices/gnd.sym} 1425 -110 0 1 {name=l1 lab=GND}
 C {devices/code.sym} -132.5 -212.5 0 0 {name=MODELS1
 only_toplevel=true
 format="tcleval( @value )"
@@ -207,30 +210,148 @@ value="
 
 "
 spice_ignore=false}
-C {devices/code.sym} -140 -360 0 0 {name=STIMULI1 
+C {devices/code.sym} -140 -360 0 0 {name=STIMULI 
+only_toplevel=true
+place=end
+value="
+.options method gear
+.options KLU
+.options noinit
+
+.param num_segments=10
+.param start_time=0
+.param end_time=30u
+.param step_time=\\\{(end_time - start_time) / num_segments\\\}
+
+.control
+	set appendwrite
+	set num_threads=8
+	set ng_nomodcheck
+	set skywaterpdk
+	set wr_vecnames
+	set wr_singlescale
+	option numdgt=2
+	set output_file="~/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt"
+	set initial_condition_file="tb_4x8x4_nodes.txt"
+	let index = 0
+	dowhile index<>num_segments
+		* Calculate time range for each segment
+		let t_start=start_time + index*step_time
+		let t_end=\\\{start_time + (index+1)*step_time\\\}
+		
+		* Set initial condition based on last segment's voltage
+		if(index > 0) then
+			include initial_condition_file
+		endif
+		* Run transient analysis
+		tran t_start t_end t_start 1n uic
+		
+		* Write results to output file, appending the data
+		wrdata output_file x Vr1 hx x
+		+N1 N2 N3 N4 M1 M2 M3 M4
+		+J1 J2 J3 J4 J5 J6 J7 J8
+		+n.x5.xstdp1.xr2.n1#ngap 
+		+n.x5.xstdp2.xr2.n1#ngap 
+		+n.x5.xstdp3.xr2.n1#ngap
+		+n.x5.xstdp4.xr2.n1#ngap 
+		+n.x5.xstdp5.xr2.n1#ngap 
+		+n.x5.xstdp6.xr2.n1#ngap
+		+n.x5.xstdp7.xr2.n1#ngap 
+		+n.x5.xstdp8.xr2.n1#ngap 
+		+n.x5.xstdp9.xr2.n1#ngap
+		+n.x5.xstdp10.xr2.n1#ngap 
+		+n.x5.xstdp11.xr2.n1#ngap 
+		+n.x5.xstdp12.xr2.n1#ngap
+		+n.x5.xstdp13.xr2.n1#ngap 
+		+n.x5.xstdp14.xr2.n1#ngap 
+		+n.x5.xstdp15.xr2.n1#ngap
+		+n.x5.xstdp16.xr2.n1#ngap 
+		+n.x5.xstdp17.xr2.n1#ngap
+		+n.x5.xstdp18.xr2.n1#ngap 
+		+n.x5.xstdp19.xr2.n1#ngap 
+		+n.x5.xstdp20.xr2.n1#ngap
+		+n.x5.xstdp21.xr2.n1#ngap 
+		+n.x5.xstdp22.xr2.n1#ngap 
+		+n.x5.xstdp24.xr2.n1#ngap
+		+n.x5.xstdp24.xr2.n1#ngap 
+		+n.x5.xstdp25.xr2.n1#ngap 
+		+n.x5.xstdp26.xr2.n1#ngap
+		+n.x5.xstdp27.xr2.n1#ngap 
+		+n.x5.xstdp28.xr2.n1#ngap 
+		+n.x5.xstdp29.xr2.n1#ngap
+		+n.x5.xstdp30.xr2.n1#ngap 
+		+n.x5.xstdp31.xr2.n1#ngap
+		+n.x5.xstdp32.xr2.n1#ngap
+		+n.x6.xrstdp1.xr2.n1#ngap 
+		+n.x6.xrstdp2.xr2.n1#ngap 
+		+n.x6.xrstdp3.xr2.n1#ngap
+		+n.x6.xrstdp4.xr2.n1#ngap 
+		+n.x6.xrstdp5.xr2.n1#ngap 
+		+n.x6.xrstdp6.xr2.n1#ngap
+		+n.x6.xrstdp7.xr2.n1#ngap 
+		+n.x6.xrstdp8.xr2.n1#ngap 
+		+n.x6.xrstdp9.xr2.n1#ngap
+		+n.x6.xrstdp10.xr2.n1#ngap 
+		+n.x6.xrstdp11.xr2.n1#ngap 
+		+n.x6.xrstdp12.xr2.n1#ngap
+		+n.x6.xrstdp13.xr2.n1#ngap 
+		+n.x6.xrstdp14.xr2.n1#ngap 
+		+n.x6.xrstdp15.xr2.n1#ngap
+		+n.x6.xrstdp16.xr2.n1#ngap 
+		+n.x6.xrstdp17.xr2.n1#ngap
+		+n.x6.xrstdp18.xr2.n1#ngap 
+		+n.x6.xrstdp19.xr2.n1#ngap 
+		+n.x6.xrstdp20.xr2.n1#ngap
+		+n.x6.xrstdp21.xr2.n1#ngap 
+		+n.x6.xrstdp22.xr2.n1#ngap 
+		+n.x6.xrstdp24.xr2.n1#ngap
+		+n.x6.xrstdp24.xr2.n1#ngap 
+		+n.x6.xrstdp25.xr2.n1#ngap 
+		+n.x6.xrstdp26.xr2.n1#ngap
+		+n.x6.xrstdp27.xr2.n1#ngap 
+		+n.x6.xrstdp28.xr2.n1#ngap 
+		+n.x6.xrstdp29.xr2.n1#ngap
+		+n.x6.xrstdp30.xr2.n1#ngap 
+		+n.x6.xrstdp31.xr2.n1#ngap
+		+n.x6.xrstdp32.xr2.n1#ngap 
+			
+		* Export the node voltage at the end of the simulation
+		if (index == num_segments - 2) then
+			wrnodev initial_condition_file 
+		endif
+		index = index + 1
+	end
+.endc
+
+
+"
+spice_ignore = false}
+C {devices/res.sym} 1220 -250 3 0 {name=R1
+value=9k
+footprint=1206
+device=resistor
+m=1}
+C {devices/code.sym} 200 -670 0 0 {name=STIMULI1 
 only_toplevel=true
 place=end
 value="
 *.options method trap
 .options method gear
-.options gmin 1e-15
-.options abstol 1e-15
-.options reltol 0.0001
-.options vntol 0.1e-6
-.options warn 1
 .options KLU
 .options noinit
 
-.tran 30n 10m uic
+
+.tran 1u 30m 0 10n uic
 
 .control
-	set num_threads=16
+	set num_threads=8
 	set ng_nomodcheck
 	set skywaterpdk
 	set wr_vecnames
 	set wr_singlescale
 	option numdgt=2
 	run
+	wrnodev tb_4x8x4_nodes.txt
 	wrdata ~/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt x Vr1 I(Vread) hx x
 	+N1 N2 N3 N4 M1 M2 M3 M4
 	+J1 J2 J3 J4 J5 J6 J7 J8
@@ -298,6 +419,7 @@ value="
 	+n.x6.xrstdp30.xr2.n1#ngap 
 	+n.x6.xrstdp31.xr2.n1#ngap
 	+n.x6.xrstdp32.xr2.n1#ngap 
+	
 .endc
 "
-spice_ignore = false}
+spice_ignore = true}
