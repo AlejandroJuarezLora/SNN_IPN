@@ -12,9 +12,9 @@ lab=A}
 N 60 -425 60 -245 {
 lab=be}
 N 420 -420 420 -240 {
-lab=te}
+lab=#net1}
 N 390 -340 420 -340 {
-lab=te}
+lab=#net1}
 N 60 -185 60 -165 {
 lab=vss}
 N 420 -180 420 -160 {
@@ -34,11 +34,11 @@ lab=vout_post}
 N 120 -340 140 -340 {
 lab=be}
 N 290 -340 320 -340 {
-lab=te}
+lab=#net1}
 N 320 -340 390 -340 {
-lab=te}
+lab=#net1}
 N 250 -340 290 -340 {
-lab=te}
+lab=#net1}
 N 140 -340 190 -340 {
 lab=be}
 N 60 -580 60 -510 {
@@ -175,12 +175,12 @@ C {devices/iopin.sym} 600 -620 2 1 {name=p15 lab=I_post}
 C {devices/lab_pin.sym} -10 -215 0 0 {name=p9 sig_type=std_logic lab=vout_post}
 C {devices/lab_pin.sym} 490 -210 0 1 {name=p5 sig_type=std_logic lab=vout_pre}
 C {devices/lab_pin.sym} 115 -455 0 1 {name=p10 sig_type=std_logic lab=vss}
-C {sky130_fd_pr/rram_v0.sym} 220 -340 1 1 {name=R2
+C {sky130_fd_pr/rram_v0.sym} 220 -340 3 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 115 -340 3 0 {name=p13 sig_type=std_logic lab=be}
-C {devices/lab_pin.sym} 355 -340 3 0 {name=p14 sig_type=std_logic lab=te}
+C {devices/lab_pin.sym} 345 -340 3 0 {name=p13 sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 145 -340 3 0 {name=p14 sig_type=std_logic lab=te}
 C {devices/lab_pin.sym} 115 -215 0 1 {name=p6 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 360 -210 0 0 {name=p20 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 365 -450 0 0 {name=p21 sig_type=std_logic lab=vss}

@@ -48,11 +48,11 @@ lab=R}
 N 375 -515 375 -475 {
 lab=R}
 N 95 -435 125 -435 {
-lab=be}
+lab=te}
 N 125 -435 125 -355 {
-lab=be}
+lab=te}
 N 125 -355 125 -305 {
-lab=be}
+lab=te}
 N 5 -435 35 -435 {
 lab=vpre}
 N 5 -345 5 -255 {
@@ -76,21 +76,21 @@ lab=vdd}
 N 375 -435 375 -415 {
 lab=vss}
 N 125 -355 145 -355 {
-lab=be}
+lab=te}
 N 295 -355 325 -355 {
-lab=te}
+lab=be}
 N 115 -255 185 -255 {
-lab=te}
+lab=be}
 N 185 -255 275 -305 {
-lab=te}
+lab=be}
 N 275 -305 325 -305 {
-lab=te}
+lab=be}
 N 275 -255 345 -255 {
-lab=be}
+lab=te}
 N 185 -305 275 -255 {
-lab=be}
+lab=te}
 N 125 -305 185 -305 {
-lab=be}
+lab=te}
 N 375 -175 465 -175 {
 lab=R}
 N 375 -515 465 -515 {
@@ -98,27 +98,27 @@ lab=R}
 N 490 -340 560 -340 {
 lab=vpost}
 N 325 -355 325 -305 {
-lab=te}
+lab=be}
 N 325 -435 345 -435 {
-lab=te}
+lab=be}
 N 5 -415 5 -345 {
 lab=vpre}
 N 95 -255 115 -255 {
-lab=te}
+lab=be}
 N 445 -345 445 -275 {
 lab=vpost}
 N 445 -435 445 -345 {
 lab=vpost}
 N 325 -415 325 -355 {
-lab=te}
+lab=be}
 N 325 -435 325 -415 {
-lab=te}
+lab=be}
 N 5 -435 5 -415 {
 lab=vpre}
 N 255 -355 295 -355 {
-lab=te}
-N 145 -355 195 -355 {
 lab=be}
+N 145 -355 195 -355 {
+lab=te}
 N 65 -315 65 -275 {
 lab=vdd}
 N 375 -315 375 -275 {
@@ -300,8 +300,8 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 165 -355 3 0 {name=p13 sig_type=std_logic lab=be}
-C {devices/lab_pin.sym} 275 -355 3 0 {name=p14 sig_type=std_logic lab=te}
+C {devices/lab_pin.sym} 285 -355 3 0 {name=p13 sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 165 -355 3 0 {name=p14 sig_type=std_logic lab=te}
 C {sky130_fd_pr/pfet_01v8.sym} 65 -235 1 1 {name=M7
 L=0.15
 W=15
