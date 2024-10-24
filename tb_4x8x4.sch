@@ -172,7 +172,7 @@ C {devices/vsource.sym} 150 -115 0 1 {name=Vin3 value="SINE(0 0.5 500 0 0 90)"
 spice_ignore=false}
 C {devices/vsource.sym} 150 -55 0 1 {name=Vin4 value=0.9
 spice_ignore=false}
-C {devices/lab_pin.sym} 150 -230 3 1 {name=p1 sig_type=std_logic lab=x
+C {devices/lab_pin.sym} 160 -230 3 1 {name=p1 sig_type=std_logic lab=x
 }
 C {devices/vsource.sym} 70 -525 0 1 {name=Vin5 value="dc 0V ac 0mV trrandom(1 5u 0s 0.9 0.9) "
 spice_ignore=true}
@@ -214,112 +214,113 @@ C {devices/code.sym} -140 -360 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-.options method gear
+
+.options method=gear
 .options KLU
 .options noinit
 
-.param num_segments=10
-.param start_time=0
-.param end_time=30u
-.param step_time=\\\{(end_time - start_time) / num_segments\\\}
-
 .control
 	set appendwrite
-	set num_threads=8
+	set num_threads=16
 	set ng_nomodcheck
 	set skywaterpdk
-	set wr_vecnames
+	*set wr_vecnames
 	set wr_singlescale
 	option numdgt=2
-	set output_file="~/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt"
-	set initial_condition_file="tb_4x8x4_nodes.txt"
+     
+	let num_segments=10
+	let start_time=0
+	let end_time=100m
+	let step_time=(end_time - start_time) / num_segments
+	
+	
 	let index = 0
-	dowhile index<>num_segments
+	dowhile index<num_segments
 		* Calculate time range for each segment
 		let t_start=start_time + index*step_time
-		let t_end=\\\{start_time + (index+1)*step_time\\\}
-		
+		let t_end=start_time + (index+1)*step_time
+
 		* Set initial condition based on last segment's voltage
-		if(index > 0) then
-			include initial_condition_file
-		endif
-		* Run transient analysis
-		tran t_start t_end t_start 1n uic
+		*if (index > 0)
+		*	include initial_condition_file
+		*end
+		*.include tb_4x8x4_nodes.txt
 		
+		tran 100n \{$&t_end\} \{$&t_start\} 10n uic		* Run transient analysis
 		* Write results to output file, appending the data
-		wrdata output_file x Vr1 hx x
+
+		wrdata ~/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt x Vr1 hx x
 		+N1 N2 N3 N4 M1 M2 M3 M4
 		+J1 J2 J3 J4 J5 J6 J7 J8
 		+n.x5.xstdp1.xr2.n1#ngap 
-		+n.x5.xstdp2.xr2.n1#ngap 
-		+n.x5.xstdp3.xr2.n1#ngap
-		+n.x5.xstdp4.xr2.n1#ngap 
-		+n.x5.xstdp5.xr2.n1#ngap 
-		+n.x5.xstdp6.xr2.n1#ngap
-		+n.x5.xstdp7.xr2.n1#ngap 
-		+n.x5.xstdp8.xr2.n1#ngap 
-		+n.x5.xstdp9.xr2.n1#ngap
-		+n.x5.xstdp10.xr2.n1#ngap 
-		+n.x5.xstdp11.xr2.n1#ngap 
-		+n.x5.xstdp12.xr2.n1#ngap
-		+n.x5.xstdp13.xr2.n1#ngap 
-		+n.x5.xstdp14.xr2.n1#ngap 
-		+n.x5.xstdp15.xr2.n1#ngap
-		+n.x5.xstdp16.xr2.n1#ngap 
-		+n.x5.xstdp17.xr2.n1#ngap
-		+n.x5.xstdp18.xr2.n1#ngap 
-		+n.x5.xstdp19.xr2.n1#ngap 
-		+n.x5.xstdp20.xr2.n1#ngap
-		+n.x5.xstdp21.xr2.n1#ngap 
-		+n.x5.xstdp22.xr2.n1#ngap 
-		+n.x5.xstdp24.xr2.n1#ngap
-		+n.x5.xstdp24.xr2.n1#ngap 
-		+n.x5.xstdp25.xr2.n1#ngap 
-		+n.x5.xstdp26.xr2.n1#ngap
-		+n.x5.xstdp27.xr2.n1#ngap 
-		+n.x5.xstdp28.xr2.n1#ngap 
-		+n.x5.xstdp29.xr2.n1#ngap
-		+n.x5.xstdp30.xr2.n1#ngap 
-		+n.x5.xstdp31.xr2.n1#ngap
-		+n.x5.xstdp32.xr2.n1#ngap
-		+n.x6.xrstdp1.xr2.n1#ngap 
-		+n.x6.xrstdp2.xr2.n1#ngap 
-		+n.x6.xrstdp3.xr2.n1#ngap
-		+n.x6.xrstdp4.xr2.n1#ngap 
-		+n.x6.xrstdp5.xr2.n1#ngap 
-		+n.x6.xrstdp6.xr2.n1#ngap
-		+n.x6.xrstdp7.xr2.n1#ngap 
-		+n.x6.xrstdp8.xr2.n1#ngap 
-		+n.x6.xrstdp9.xr2.n1#ngap
-		+n.x6.xrstdp10.xr2.n1#ngap 
-		+n.x6.xrstdp11.xr2.n1#ngap 
-		+n.x6.xrstdp12.xr2.n1#ngap
-		+n.x6.xrstdp13.xr2.n1#ngap 
-		+n.x6.xrstdp14.xr2.n1#ngap 
-		+n.x6.xrstdp15.xr2.n1#ngap
-		+n.x6.xrstdp16.xr2.n1#ngap 
-		+n.x6.xrstdp17.xr2.n1#ngap
-		+n.x6.xrstdp18.xr2.n1#ngap 
-		+n.x6.xrstdp19.xr2.n1#ngap 
-		+n.x6.xrstdp20.xr2.n1#ngap
-		+n.x6.xrstdp21.xr2.n1#ngap 
-		+n.x6.xrstdp22.xr2.n1#ngap 
-		+n.x6.xrstdp24.xr2.n1#ngap
-		+n.x6.xrstdp24.xr2.n1#ngap 
-		+n.x6.xrstdp25.xr2.n1#ngap 
-		+n.x6.xrstdp26.xr2.n1#ngap
-		+n.x6.xrstdp27.xr2.n1#ngap 
-		+n.x6.xrstdp28.xr2.n1#ngap 
-		+n.x6.xrstdp29.xr2.n1#ngap
-		+n.x6.xrstdp30.xr2.n1#ngap 
-		+n.x6.xrstdp31.xr2.n1#ngap
-		+n.x6.xrstdp32.xr2.n1#ngap 
-			
+	+n.x5.xstdp2.xr2.n1#ngap 
+	+n.x5.xstdp3.xr2.n1#ngap
+	+n.x5.xstdp4.xr2.n1#ngap 
+	+n.x5.xstdp5.xr2.n1#ngap 
+	+n.x5.xstdp6.xr2.n1#ngap
+	+n.x5.xstdp7.xr2.n1#ngap 
+	+n.x5.xstdp8.xr2.n1#ngap 
+	+n.x5.xstdp9.xr2.n1#ngap
+	+n.x5.xstdp10.xr2.n1#ngap 
+	+n.x5.xstdp11.xr2.n1#ngap 
+	+n.x5.xstdp12.xr2.n1#ngap
+	+n.x5.xstdp13.xr2.n1#ngap 
+	+n.x5.xstdp14.xr2.n1#ngap 
+	+n.x5.xstdp15.xr2.n1#ngap
+	+n.x5.xstdp16.xr2.n1#ngap 
+	+n.x5.xstdp17.xr2.n1#ngap
+	+n.x5.xstdp18.xr2.n1#ngap 
+	+n.x5.xstdp19.xr2.n1#ngap 
+	+n.x5.xstdp20.xr2.n1#ngap
+	+n.x5.xstdp21.xr2.n1#ngap 
+	+n.x5.xstdp22.xr2.n1#ngap 
+	+n.x5.xstdp24.xr2.n1#ngap
+	+n.x5.xstdp24.xr2.n1#ngap 
+	+n.x5.xstdp25.xr2.n1#ngap 
+	+n.x5.xstdp26.xr2.n1#ngap
+	+n.x5.xstdp27.xr2.n1#ngap 
+	+n.x5.xstdp28.xr2.n1#ngap 
+	+n.x5.xstdp29.xr2.n1#ngap
+	+n.x5.xstdp30.xr2.n1#ngap 
+	+n.x5.xstdp31.xr2.n1#ngap
+	+n.x5.xstdp32.xr2.n1#ngap
+	+n.x6.xrstdp1.xr2.n1#ngap 
+	+n.x6.xrstdp2.xr2.n1#ngap 
+	+n.x6.xrstdp3.xr2.n1#ngap
+	+n.x6.xrstdp4.xr2.n1#ngap 
+	+n.x6.xrstdp5.xr2.n1#ngap 
+	+n.x6.xrstdp6.xr2.n1#ngap
+	+n.x6.xrstdp7.xr2.n1#ngap 
+	+n.x6.xrstdp8.xr2.n1#ngap 
+	+n.x6.xrstdp9.xr2.n1#ngap
+	+n.x6.xrstdp10.xr2.n1#ngap 
+	+n.x6.xrstdp11.xr2.n1#ngap 
+	+n.x6.xrstdp12.xr2.n1#ngap
+	+n.x6.xrstdp13.xr2.n1#ngap 
+	+n.x6.xrstdp14.xr2.n1#ngap 
+	+n.x6.xrstdp15.xr2.n1#ngap
+	+n.x6.xrstdp16.xr2.n1#ngap 
+	+n.x6.xrstdp17.xr2.n1#ngap
+	+n.x6.xrstdp18.xr2.n1#ngap 
+	+n.x6.xrstdp19.xr2.n1#ngap 
+	+n.x6.xrstdp20.xr2.n1#ngap
+	+n.x6.xrstdp21.xr2.n1#ngap 
+	+n.x6.xrstdp22.xr2.n1#ngap 
+	+n.x6.xrstdp24.xr2.n1#ngap
+	+n.x6.xrstdp24.xr2.n1#ngap 
+	+n.x6.xrstdp25.xr2.n1#ngap 
+	+n.x6.xrstdp26.xr2.n1#ngap
+	+n.x6.xrstdp27.xr2.n1#ngap 
+	+n.x6.xrstdp28.xr2.n1#ngap 
+	+n.x6.xrstdp29.xr2.n1#ngap
+	+n.x6.xrstdp30.xr2.n1#ngap 
+	+n.x6.xrstdp31.xr2.n1#ngap
+	+n.x6.xrstdp32.xr2.n1#ngap 
+		
 		* Export the node voltage at the end of the simulation
-		if (index == num_segments - 2) then
-			wrnodev initial_condition_file 
-		endif
-		index = index + 1
+		wrnodev tb_4x8x4_nodes.txt	
+		
+		let index = index + 1
 	end
 .endc
 

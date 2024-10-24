@@ -60,7 +60,7 @@ module rram_v0_va(t, b);
     analog begin
         @(initial_step) begin
             V(nGap, b) <= gap_initial;      // condicion inicial
-            $strobe("Gap Inicial %f", gap_initial);
+           // $strobe("Gap Inicial %f", gap_initial);
 	    end
         Gap = V(nGap, b);
         Gamma = gamma0 + Beta0 * pow(Gap, 3);
