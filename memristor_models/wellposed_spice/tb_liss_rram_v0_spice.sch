@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1e-08
-x2=0.005
+x2=0.02
 divx=5
 subdivx=1
 
@@ -30,15 +30,15 @@ logy=0
 color=4
 node=te}
 B 2 660 -410 1460 -10 {flags=graph
-y1=-37
-y2=3500000
+y1=-4
+y2=260000
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=1e-08
-x2=0.005
+x2=0.02
 divx=5
 subdivx=1
 
@@ -51,15 +51,15 @@ logy=0
 color=4
 node="\\"memristancia;0 te - i(v2) /\\""}
 B 2 1460 -810 2260 -410 {flags=graph
-y1=0.1
-y2=0.11
+y1=0.087
+y2=0.92
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
 x1=1e-08
-x2=0.005
+x2=0.02
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -76,14 +76,14 @@ color=6
 node=xr1.r
 linewidth_mult=3}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-6.7e-06
-y2=6.7e-06
+y1=-0.0024
+y2=0.0024
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-1.9999999
+x1=-2
 
 divx=5
 subdivx=1
@@ -100,18 +100,18 @@ logy=0
 linewidth_mult=3
 
 digital=0
-x2=1.9999999
+x2=2
 sweep=TE}
 B 2 -140 -810 660 -410 {flags=graph
-y1=-6.7e-06
-y2=6.7e-06
+y1=-0.0015
+y2=0.0023
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
 x1=1e-08
-x2=0.005
+x2=0.02
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -155,7 +155,7 @@ lab=0}
 N 350 30 350 70 {
 lab=0}
 C {devices/gnd.sym} 130 70 0 0 {name=l2 lab=0}
-C {devices/launcher.sym} 560 -210 0 0 {name=h1
+C {devices/launcher.sym} 540 -210 0 0 {name=h1
 descr="Load I-V" 
 tclcommand="
 set rawfile [file tail [file rootname [xschem get schname]]]
@@ -166,7 +166,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .options num_threads=8
-.tran 1u 5m uic
+.tran 1u 20m uic
 .control
 	save all
 	run
@@ -179,7 +179,7 @@ C {sky130_fd_pr/rram_v0.sym} 350 -100 0 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }
-C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="SINE(0 2 1k 0 0 0)"
+C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="SINE(0 2 200 0 0 0)"
 }
 C {devices/vsource.sym} 350 0 2 0 {name=V1 value=0
 }
@@ -192,3 +192,5 @@ value="
 .inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed_spice/wllpsd.spice
 "
 spice_ignore=false}
+C {devices/vsource.sym} -110 -80 0 0 {name=V3 value="PWL(0 -2 4m 2 8m -2 12m 2 16m -2)"
+spice_ignore=true}

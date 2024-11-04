@@ -149,18 +149,8 @@ N 240 -290 260 -290 {
 lab=#net1}
 N 160 -290 180 -290 {
 lab=Iext}
-N 210 -330 800 -330 {
-lab=vout}
 N 130 -290 160 -290 {
 lab=Iext}
-N 210 -295 210 -230 {
-lab=vdd}
-N 800 -405 800 -330 {
-lab=vout}
-N 800 -405 1135 -405 {
-lab=vout}
-N 1135 -405 1135 -200 {
-lab=vout}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -239,13 +229,16 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet_01v8.sym} 210 -310 3 1 {name=M9
+C {sky130_fd_pr/pfet_01v8.sym} 240 -440 3 1 {name=M9
 L=0.15
 W=2
 nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
-spice_ignore=false}
+spice_ignore=true}
 C {devices/lab_pin.sym} 957.5 -200 3 0 {name=p14 sig_type=std_logic lab=vout_n}
-C {devices/lab_pin.sym} 210 -230 3 0 {name=p1 sig_type=std_logic lab=vdd}
+C {devices/vsource.sym} 210 -290 3 0 {name=vext value=0 }
+C {devices/code_shown.sym} 380 -400 0 0 {name=s1 only_toplevel=false value="
+.save i(vext)
+"}
