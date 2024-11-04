@@ -83,11 +83,11 @@ N 620 -1320 640 -1320 {
 lab=vin}
 N 590 -1840 620 -1840 {
 lab=vin}
-C {Neuron/ultralif/ul_tun.sym} 840 -2340 0 0 {name=x6}
+C {Neuron/ultralif/ul_tun.sym} 840 -2340 0 0 {name=x2}
 C {devices/iopin.sym} 400 -2030 0 0 {name=p1 lab=vdd}
 C {devices/lab_pin.sym} 840 -2390 1 0 {name=p2 sig_type=std_logic lab=vdd}
 C {devices/iopin.sym} 400 -2000 0 0 {name=p3 lab=vss}
-C {Neuron/ultralif/syn_pos.sym} 690 -1740 0 0 {name=x4}
+C {Neuron/ultralif/syn_pos.sym} 690 -1740 0 0 {name=x4a}
 C {Neuron/ultralif/syn_neg.sym} 690 -2420 0 0 {name=x8}
 C {devices/isource.sym} 360 -1580 0 0 {name=I9 value=100nA
 
@@ -145,7 +145,7 @@ C {devices/lab_pin.sym} 690 -2280 3 0 {name=p14 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 690 -2400 1 0 {name=p15 sig_type=std_logic lab=vdd}
 C {Neuron/ultralif/ul_tun.sym} 840 -1990 0 0 {name=x1}
 C {devices/lab_pin.sym} 840 -2040 1 0 {name=p16 sig_type=std_logic lab=vdd}
-C {Neuron/ultralif/syn_neg.sym} 690 -2070 0 0 {name=x2}
+C {Neuron/ultralif/syn_neg.sym} 690 -2070 0 0 {name=x53}
 C {devices/lab_pin.sym} 870 -2030 1 0 {name=p17 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1840 0 0 {name=M3
 L=0.15
@@ -189,7 +189,7 @@ C {devices/lab_pin.sym} 750 -1510 2 1 {name=p27 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 690 -1600 3 0 {name=p28 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 690 -1720 1 0 {name=p29 sig_type=std_logic lab=vdd}
 C {Neuron/ultralif/syn_pos.sym} 690 -1400 0 0 {name=x7}
-C {Neuron/ultralif/ul_tun.sym} 840 -1320 0 0 {name=x9}
+C {Neuron/ultralif/ul_tun.sym} 840 -1320 0 0 {name=x4}
 C {devices/lab_pin.sym} 840 -1370 1 0 {name=p30 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 870 -1360 1 0 {name=p31 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1170 0 0 {name=M6

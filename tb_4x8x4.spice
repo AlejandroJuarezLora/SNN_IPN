@@ -427,15 +427,24 @@ XM2 A vout_pre te vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM3 te vout_post vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM1 A vout_post be vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM1 A vout_post net1 vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM4 be vout_pre vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM4 net1 vout_pre vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XR2 te be rram_v0
 XM14 I_post A vdd vdd sky130_fd_pr__pfet_01v8 L=2 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM15 A A vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Vmr be net1 0
+.save i(vmr)
+**** begin user architecture code
+
+
+.save v(te,be)
+
+
+**** end user architecture code
 .ends
 
 
@@ -460,9 +469,9 @@ XM4 vpost vout_pre vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf
 XR2 be te rram_v0
 XM5 vpre R te vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM6 be R vpost vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+XM6 net1 R vpost vss sky130_fd_pr__nfet_01v8 L=0.15 W=7.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM7 vpre R be vdd sky130_fd_pr__pfet_01v8 L=0.15 W=15 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+XM7 vpre R net1 vdd sky130_fd_pr__pfet_01v8 L=0.15 W=15 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM8 te R vpost vdd sky130_fd_pr__pfet_01v8 L=0.15 W=15 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
@@ -470,6 +479,15 @@ XM14 I_post A vdd vdd sky130_fd_pr__pfet_01v8 L=3 W=0.5 nf=1 ad='int((nf+1)/2) *
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM15 A A vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Vmr be net1 0
+.save i(vmr)
+**** begin user architecture code
+
+
+.save v(te,be)
+
+
+**** end user architecture code
 .ends
 
 .GLOBAL GND
@@ -477,115 +495,21 @@ XM15 A A vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W
 **** begin user architecture code
 
 
+
 .options method gear
 .options KLU
 .options noinit
+.options set num_threads=10
+.options set ng_nomodcheck
+.options set skywaterpdk
+.options set wr_vecnames
+.options set wr_singlescale
+.options numdgt = 2
+.save x Vr1 I(Vread) hx x
++N1 N2 N3 N4 M1 M2 M3 M4
++J1 J2 J3 J4 J5 J6 J7 J8
 
-.param num_segments=10
-.param start_time=0
-.param end_time=30u
-.param step_time={(end_time - start_time) / num_segments}
-
-.control
-	set appendwrite
-	set num_threads=8
-	set ng_nomodcheck
-	set skywaterpdk
-	set wr_vecnames
-	set wr_singlescale
-	option numdgt=2
-	set output_file=~/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt
-	set initial_condition_file=tb_4x8x4_nodes.txt
-	let index = 0
-	dowhile index<num_segments
-		* Calculate time range for each segment
-		let t_start=start_time + (index)*step_time
-		let t_end=start_time + ($&index+1)*step_time
-
-		* Set initial condition based on last segment's voltage
-		if($&index > 0) then
-			include initial_condition_file
-		endif
-		* Run transient analysis
-		tran t_start t_end t_start 1n uic
-
-		* Write results to output file, appending the data
-		wrdata output_file x Vr1 hx x
-		+N1 N2 N3 N4 M1 M2 M3 M4
-		+J1 J2 J3 J4 J5 J6 J7 J8
-		+n.x5.xstdp1.xr2.n1#ngap
-		+n.x5.xstdp2.xr2.n1#ngap
-		+n.x5.xstdp3.xr2.n1#ngap
-		+n.x5.xstdp4.xr2.n1#ngap
-		+n.x5.xstdp5.xr2.n1#ngap
-		+n.x5.xstdp6.xr2.n1#ngap
-		+n.x5.xstdp7.xr2.n1#ngap
-		+n.x5.xstdp8.xr2.n1#ngap
-		+n.x5.xstdp9.xr2.n1#ngap
-		+n.x5.xstdp10.xr2.n1#ngap
-		+n.x5.xstdp11.xr2.n1#ngap
-		+n.x5.xstdp12.xr2.n1#ngap
-		+n.x5.xstdp13.xr2.n1#ngap
-		+n.x5.xstdp14.xr2.n1#ngap
-		+n.x5.xstdp15.xr2.n1#ngap
-		+n.x5.xstdp16.xr2.n1#ngap
-		+n.x5.xstdp17.xr2.n1#ngap
-		+n.x5.xstdp18.xr2.n1#ngap
-		+n.x5.xstdp19.xr2.n1#ngap
-		+n.x5.xstdp20.xr2.n1#ngap
-		+n.x5.xstdp21.xr2.n1#ngap
-		+n.x5.xstdp22.xr2.n1#ngap
-		+n.x5.xstdp24.xr2.n1#ngap
-		+n.x5.xstdp24.xr2.n1#ngap
-		+n.x5.xstdp25.xr2.n1#ngap
-		+n.x5.xstdp26.xr2.n1#ngap
-		+n.x5.xstdp27.xr2.n1#ngap
-		+n.x5.xstdp28.xr2.n1#ngap
-		+n.x5.xstdp29.xr2.n1#ngap
-		+n.x5.xstdp30.xr2.n1#ngap
-		+n.x5.xstdp31.xr2.n1#ngap
-		+n.x5.xstdp32.xr2.n1#ngap
-		+n.x6.xrstdp1.xr2.n1#ngap
-		+n.x6.xrstdp2.xr2.n1#ngap
-		+n.x6.xrstdp3.xr2.n1#ngap
-		+n.x6.xrstdp4.xr2.n1#ngap
-		+n.x6.xrstdp5.xr2.n1#ngap
-		+n.x6.xrstdp6.xr2.n1#ngap
-		+n.x6.xrstdp7.xr2.n1#ngap
-		+n.x6.xrstdp8.xr2.n1#ngap
-		+n.x6.xrstdp9.xr2.n1#ngap
-		+n.x6.xrstdp10.xr2.n1#ngap
-		+n.x6.xrstdp11.xr2.n1#ngap
-		+n.x6.xrstdp12.xr2.n1#ngap
-		+n.x6.xrstdp13.xr2.n1#ngap
-		+n.x6.xrstdp14.xr2.n1#ngap
-		+n.x6.xrstdp15.xr2.n1#ngap
-		+n.x6.xrstdp16.xr2.n1#ngap
-		+n.x6.xrstdp17.xr2.n1#ngap
-		+n.x6.xrstdp18.xr2.n1#ngap
-		+n.x6.xrstdp19.xr2.n1#ngap
-		+n.x6.xrstdp20.xr2.n1#ngap
-		+n.x6.xrstdp21.xr2.n1#ngap
-		+n.x6.xrstdp22.xr2.n1#ngap
-		+n.x6.xrstdp24.xr2.n1#ngap
-		+n.x6.xrstdp24.xr2.n1#ngap
-		+n.x6.xrstdp25.xr2.n1#ngap
-		+n.x6.xrstdp26.xr2.n1#ngap
-		+n.x6.xrstdp27.xr2.n1#ngap
-		+n.x6.xrstdp28.xr2.n1#ngap
-		+n.x6.xrstdp29.xr2.n1#ngap
-		+n.x6.xrstdp30.xr2.n1#ngap
-		+n.x6.xrstdp31.xr2.n1#ngap
-		+n.x6.xrstdp32.xr2.n1#ngap
-
-		* Export the node voltage at the end of the simulation
-		if ($&index == num_segments - 2) then
-			wrnodev initial_condition_file
-		endif
-		let index = $&index + 1
-	end
-.endc
-
+.tran 5u 25m 0 100n
 
 
 
