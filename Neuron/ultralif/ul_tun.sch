@@ -148,9 +148,19 @@ lab=vout}
 N 240 -290 260 -290 {
 lab=#net1}
 N 160 -290 180 -290 {
+lab=#net3}
+N 70 -290 100 -290 {
 lab=Iext}
-N 130 -290 160 -290 {
-lab=Iext}
+N 770 -170 800 -170 {
+lab=Ileak}
+N 800 -345 800 -170 {
+lab=Ileak}
+N 130 -345 800 -345 {
+lab=Ileak}
+N 130 -345 130 -330 {
+lab=Ileak}
+N 130 -290 130 -175 {
+lab=vdd}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -188,7 +198,7 @@ m=1
 value=1p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/iopin.sym} 130 -290 0 1 {name=p5 lab=Iext}
+C {devices/iopin.sym} 70 -290 0 1 {name=p5 lab=Iext}
 C {devices/iopin.sym} 1140 -200 0 0 {name=p6 lab=vout}
 C {devices/iopin.sym} 720 -30 0 0 {name=p2 lab=vss}
 C {devices/iopin.sym} 380 -130 1 0 {name=p7 lab=Ileak }
@@ -229,16 +239,17 @@ mult=1
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet_01v8.sym} 240 -440 3 1 {name=M9
+C {sky130_fd_pr/pfet_01v8.sym} 130 -310 3 1 {name=M9
 L=0.15
 W=2
 nf=1
 mult=1
 model=pfet_01v8
 spiceprefix=X
-spice_ignore=true}
+spice_ignore=false}
 C {devices/lab_pin.sym} 957.5 -200 3 0 {name=p14 sig_type=std_logic lab=vout_n}
 C {devices/vsource.sym} 210 -290 3 0 {name=vext value=0 }
-C {devices/code_shown.sym} 380 -400 0 0 {name=s1 only_toplevel=false value="
+C {devices/code_shown.sym} 380 -440 0 0 {name=s1 only_toplevel=false value="
 .save i(vext)
 "}
+C {devices/lab_pin.sym} 130 -175 3 0 {name=p1 sig_type=std_logic lab=vdd}

@@ -7,7 +7,7 @@ S {}
 E {}
 B 2 -770 350 30 750 {flags=graph
 y1=0
-y2=2
+y2=0.01
 ypos1=0
 ypos2=2
 divy=5
@@ -133,8 +133,6 @@ N -40 -60 -40 -20 {
 lab=vx}
 N 50 10 50 100 {
 lab=#net4}
-N 300 0 300 100 {
-lab=#net5}
 N -80 -60 -40 -60 {
 lab=vx}
 N -80 -60 -80 -10 {
@@ -157,9 +155,15 @@ N -505 190 -500 190 {
 lab=#net3}
 N -505 250 -500 250 {
 lab=GND}
+N 300 0 300 100 {lab=vout}
+N 300 60 350 60 {lab=vout}
+N 300 130 300 160 {lab=GND}
+N 260 50 260 130 {lab=vx}
+N -10 50 260 50 {lab=vx}
+N -10 -20 -10 50 {lab=vx}
 C {sky130_fd_pr/nfet_01v8.sym} 30 130 0 0 {name=M1
 L=0.15
-W=1
+W=5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -243,18 +247,17 @@ spiceprefix=X
 }
 C {devices/gnd.sym} -510 30 0 0 {name=l20 lab=GND}
 C {devices/vdd.sym} -370 -80 0 0 {name=l21 lab=vg100}
-C {devices/vsource.sym} 300 130 0 0 {name=vcurr value=0}
 C {devices/code_shown.sym} -710 -420 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
 value="
-.options savecurrents
-.param vinput = 1.8
+.param vinput = 1.2
 .tran 100n 10m uic
+.save all
 .control
 	run
 	plot spk1
-	plot i(vcurr)
+	plot v(vout)
 	write tb_integrator.raw
 .endc
 "
@@ -292,5 +295,18 @@ C {devices/launcher.sym} -250 -270 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_integrator.raw tran"
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 450 -100 0 0 {name=C2 model=cap_mim_m3_1 W=22.5 L=22 MF=1 spiceprefix=X
-spice_ignore=true}
+C {sky130_fd_pr/nfet_01v8.sym} 280 130 0 0 {name=M6
+L=0.15
+W=0.6
+nf=1 
+mult=1
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=nfet_01v8
+spiceprefix=X
+}
+C {devices/lab_pin.sym} 350 60 0 1 {name=p4 sig_type=std_logic lab=vout}
