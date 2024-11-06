@@ -3,7 +3,7 @@ from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
 
-intp = 100  #tomar uno de cada cien valores, para graficar rapido
+intp = 50  #tomar uno de cada cien valores, para graficar rapido
 
 # Load data from the .txt file
 #ssh -Y cic@148.204.66.123
@@ -91,16 +91,23 @@ data, plots = rawread("data.raw")
 
 
 # %%
-fig, ax = plt.subplots(1, figsize=(10,2))
+fig, (ax1, ax2) = plt.subplots(2, figsize=(10,5))
 for k in range(4):
     nodo = "v(n" +  str(k+1) + ")"
-    ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"N{k+1}")
+    ax1.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"N{k+1}")
 
-ax.legend()
-ax.grid()
-ax.set_xlabel("Time [ms]")
-ax.set_ylabel("Spikes [V]")
-ax.set_title("Input Layer Neural activity")
+ax1.legend()
+ax1.grid()
+ax1.set_xlabel("Time [ms]")
+ax1.set_ylabel("Spikes [V]")
+ax1.set_title("Input Layer Neural activity")
+
+ax2.plot(data["time"][::intp], data["v(vin)"][::intp], label = "Vin")
+ax2.legend()
+ax2.grid()
+ax2.set_xlabel("Time [ms]")
+ax2.set_ylabel("Input Voltage [V]")
+
 fig.savefig('InputLayer.pdf')
 
 # %%
@@ -123,6 +130,7 @@ fig.savefig('HiddenLayer.pdf')
 fig, ax = plt.subplots(1, figsize=(10,2))
 for k in range(4):
     nodo = "v(m" +  str(k+1) + ")"
+    print(nodo)
     ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"M{k+1}")
 ax.legend()
 ax.grid()
@@ -133,19 +141,21 @@ fig.savefig('OutputLayer.pdf')
 
 # %%
 fig, ax = plt.subplots(1, figsize=(10,2))
-ax.plot(data["time"][::intp], data["i(vread)"][::intp], label = "Vin")
+ax.plot(data["time"][::intp], data["v(vr1)"][::intp], label = "Vr1")
 ax.set_xlabel("Time [ms]")
-ax.set_ylabel("Output Current [uA]")
-ax.set_title("OutputCurrent")
+ax.set_ylabel("Voltage [V]")
+ax.set_title("Reward Signal")
 ax.grid()
 fig.savefig('RewardSignal.pdf')
+
+# %%
+
 
 # %%
 fig, ax = plt.subplots(1, figsize=(15,3))
 
 ax.plot(data["time"][::intp], data["v(hx)"][::intp], label = "hx")
 ax.plot(data["time"][::intp], data["v(x)"][::intp], label = "x")
-# ax.plot(time*1000, Vr1, label = "Vr1")
 ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
@@ -163,6 +173,48 @@ ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Voltage [V]")
 ax.set_title("Votlage signals")
 fig.savefig('errorxvxhx.pdf')
+
+# %%
+
+fig, ax = plt.subplots(1, figsize=(10,3))
+for k in range(4):
+    Iext_label = "i(v.x1.x" + str(k+1)+ ".vext)"
+    ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
+
+ax.grid()
+ax.set_xlabel("Time [ms]")
+ax.set_ylabel("Input Currrent[Amp]")
+ax.set_title("Input Current First Layer")
+ax.set_ylim((-0.2e-5, 1.2e-5))
+fig.savefig('Iext_I.pdf')
+
+# %%
+
+fig, ax = plt.subplots(1, figsize=(10,3))
+for k in range(8):
+    Iext_label = "i(v.x4.x" + str(k+1)+ ".vext)"
+    ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
+
+ax.grid()
+ax.set_xlabel("Time [ms]")
+ax.set_ylabel("Input Currrent[Amp]")
+ax.set_title("Input Current Hidden Layer")
+ax.set_ylim((-0.5e-6, 5e-6))
+fig.savefig('Iext_J.pdf')
+
+# %%
+
+fig, ax = plt.subplots(1, figsize=(10,3))
+for k in range(4):
+    Iext_label = "i(v.x2.x" + str(k+1)+ ".vext)"
+    ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
+
+ax.grid()
+ax.set_xlabel("Time [ms]")
+ax.set_ylabel("Input Currrent[Amp]")
+ax.set_title("Input Current Output Layer")
+ax.set_ylim((-0.5e-7, 0.5e-6))
+fig.savefig('Iext_J.pdf')
 
 # %%
 
@@ -205,18 +257,5 @@ ax.set_ylabel("Memristance [Ohms]")
 ax.set_title("Memristance value jk")
 ax.set_ylim((0, 3.5e6))
 fig.savefig('wjk.pdf')
-
-# %%
-# import subprocess
-
-# # Command to be executed
-# command = "evince *.pdf"  # Replace with your desired command
-
-# # Execute the command
-# result = subprocess.run(command, shell=True, capture_output=True, text=True)
-
-# # Output the result
-# print("STDOUT:", result.stdout)
-# print("STDERR:", result.stderr)
 
 

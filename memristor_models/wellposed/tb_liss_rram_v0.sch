@@ -76,14 +76,14 @@ color=6
 node="\\"Thickness [nm]; 5 n.xr1.n1#ngap -\\""
 linewidth_mult=3}
 B 2 660 -810 1460 -410 {flags=graph
-y1=-4.6e-05
-y2=0.00021
+y1=-5.4e-05
+y2=0.00022
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.99984525
+x1=-0.99971419
 
 divx=5
 subdivx=1
@@ -103,8 +103,8 @@ digital=0
 x2=1
 sweep=TE}
 B 2 -140 -810 660 -410 {flags=graph
-y1=-4.6e-05
-y2=0.00021
+y1=-5.4e-05
+y2=0.0014
 ypos1=0
 ypos2=2
 divy=5
@@ -138,7 +138,7 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.99984525
+x1=-0.99971419
 
 divx=5
 subdivx=1
@@ -218,7 +218,7 @@ C {devices/code_shown.sym} -50 -350 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .options num_threads=8
-.tran 100u 10m
+.tran 50u 10m
 .control
 	save all
 	run
@@ -231,7 +231,7 @@ C {sky130_fd_pr/rram_v0.sym} 350 -100 0 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }
-C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="SINE(0 1 100 0 0 90)"
+C {devices/vsource.sym} 130 -80 0 0 {name=V2 value="SINE(0 1 100 0 0 0)"
 }
 C {devices/vsource.sym} 350 0 2 0 {name=V1 value=0
 }

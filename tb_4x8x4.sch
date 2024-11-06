@@ -10,30 +10,26 @@ lab=VDD}
 N 135 -350 135 -330 {
 lab=GND}
 N 1070 -250 1120 -250 {
-lab=#net1}
-N 1315 -250 1345 -250 {
 lab=hx}
-N 1355 -250 1385 -250 {
+N 1255 -250 1285 -250 {
 lab=hx}
-N 1345 -250 1355 -250 {
+N 1295 -250 1325 -250 {
 lab=hx}
-N 1325 -150 1325 -130 {
-lab=GND}
-N 1325 -250 1325 -210 {
+N 1285 -250 1295 -250 {
 lab=hx}
-N 1525 -230 1555 -230 {
+N 1465 -230 1495 -230 {
 lab=Vr1}
-N 1180 -250 1185 -250 {
+N 1120 -250 1125 -250 {
 lab=hx}
-N 1370 110 1370 120 {
+N 1310 110 1310 120 {
 lab=GND}
-N 1370 -210 1370 -165 {
+N 1310 -210 1310 -165 {
 lab=x}
-N 1370 -210 1385 -210 {
+N 1310 -210 1325 -210 {
 lab=x}
-N 1370 -165 1370 -90 {
+N 1310 -165 1310 -90 {
 lab=x}
-N 1370 -90 1370 -75 {
+N 1310 -90 1310 -75 {
 lab=x}
 N 310 -300 370 -300 {
 lab=N1}
@@ -44,19 +40,19 @@ lab=N3}
 N 310 -180 370 -180 {
 lab=N4}
 N 540 -90 570 -90 {
-lab=#net2}
+lab=#net1}
 N 540 -110 570 -110 {
-lab=#net3}
+lab=#net2}
 N 540 -130 570 -130 {
-lab=#net4}
+lab=#net3}
 N 540 -150 570 -150 {
-lab=#net5}
+lab=#net4}
 N 540 -170 570 -170 {
-lab=#net6}
+lab=#net5}
 N 540 -190 570 -190 {
-lab=#net7}
+lab=#net6}
 N 540 -210 570 -210 {
-lab=#net8}
+lab=#net7}
 N 540 -380 740 -380 {
 lab=J1}
 N 540 -360 740 -360 {
@@ -92,45 +88,46 @@ lab=J8}
 N 930 -320 960 -320 {
 lab=M1}
 N 930 -300 960 -300 {
-lab=#net9}
+lab=#net8}
 N 930 -280 960 -280 {
 lab=M2}
 N 930 -260 960 -260 {
-lab=#net10}
+lab=#net9}
 N 930 -240 960 -240 {
 lab=M3}
 N 930 -220 960 -220 {
-lab=#net11}
+lab=#net10}
 N 930 -200 960 -200 {
 lab=M4}
 N 930 -180 960 -180 {
-lab=#net12}
-N 930 -420 1480 -420 {
-lab=Vr1}
-N 1250 -250 1315 -250 {
+lab=#net11}
+N 1190 -250 1255 -250 {
 lab=hx}
-N 1465 -170 1525 -170 {
+N 1405 -170 1465 -170 {
 lab=GND}
-N 1525 -170 1525 -130 {
+N 1465 -170 1465 -130 {
 lab=GND}
 N 540 -70 570 -70 {
-lab=#net13}
+lab=#net12}
 N 150 -230 200 -230 {lab=Vin}
 N 150 -230 150 -205 {lab=Vin}
-N 1480 -420 1550 -420 {lab=Vr1}
-N 1555 -230 1585 -230 {lab=Vr1}
-N 1585 -420 1585 -230 {lab=Vr1}
-N 1185 -250 1190 -250 {lab=hx}
-N 1550 -420 1585 -420 {lab=Vr1}
-N 1370 -75 1370 -70 {lab=x}
-N 1190 -250 1250 -250 {
+N 1420 -420 1490 -420 {lab=Vr1}
+N 1495 -230 1525 -230 {lab=Vr1}
+N 1525 -420 1525 -230 {lab=Vr1}
+N 1125 -250 1130 -250 {lab=hx}
+N 1490 -420 1525 -420 {lab=Vr1}
+N 1310 -75 1310 -70 {lab=x}
+N 1130 -250 1190 -250 {
 lab=hx}
 N 150 -145 150 -120 {
 lab=GND}
+N 930 -420 980 -420 {
+lab=Vr1}
+N 980 -420 1420 -420 {lab=Vr1}
 C {devices/vsource.sym} 135 -380 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} 135 -330 0 0 {name=l5 lab=GND}
 C {devices/vdd.sym} 135 -440 0 0 {nname=l4 lab=VDD}
-C {devices/gnd.sym} 1370 120 0 0 {name=l18 lab=GND}
+C {devices/gnd.sym} 1310 120 0 0 {name=l18 lab=GND}
 C {devices/code.sym} -127.5 -62.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
@@ -154,30 +151,22 @@ C {devices/lab_pin.sym} 945 -280 1 0 {name=p7 sig_type=std_logic lab=M2}
 C {devices/lab_pin.sym} 945 -240 1 0 {name=p8 sig_type=std_logic lab=M3}
 C {devices/lab_pin.sym} 945 -200 1 0 {name=p9 sig_type=std_logic lab=M4}
 C {devices/vdd.sym} 250 -350 0 0 {name=l9 lab=VDD}
-C {OPAMP/opamp_sky130.sym} 1455 -230 0 0 {name=x3}
-C {devices/lab_pin.sym} 1325 -250 3 1 {name=p10 sig_type=std_logic lab=hx}
-C {devices/res.sym} 1325 -180 0 0 {name=R2
-value=18k
-footprint=1206
-device=resistor
-m=1}
-C {devices/gnd.sym} 1325 -130 0 0 {name=l16 lab=GND}
-C {devices/vdd.sym} 1445 -280 0 1 {name=l19 lab=VDD}
-C {devices/lab_pin.sym} 1585 -230 2 0 {name=p11 sig_type=std_logic lab=Vr1
+C {OPAMP/opamp_sky130.sym} 1395 -230 0 0 {name=x3}
+C {devices/lab_pin.sym} 1265 -250 3 1 {name=p10 sig_type=std_logic lab=hx}
+C {devices/vdd.sym} 1385 -280 0 1 {name=l19 lab=VDD}
+C {devices/lab_pin.sym} 1525 -230 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
-C {devices/isource.sym} 1425 -140 0 0 {name=I0 value=100u}
-C {devices/gnd.sym} 1525 -130 0 1 {name=l13 lab=GND}
-C {devices/vsource.sym} 1370 -40 0 1 {name=Vin1 value="SINE(0 0.3 2k 0 0 0)"
+C {devices/isource.sym} 1365 -140 0 0 {name=I0 value=100u}
+C {devices/gnd.sym} 1465 -130 0 1 {name=l13 lab=GND}
+C {devices/vsource.sym} 1310 -40 0 1 {name=Vin1 value="SINE(0 0.3 2.5k 0 0 0)"
 spice_ignore=false}
-C {devices/vsource.sym} 1150 -250 3 1 {name=Vread value=0
+C {devices/vsource.sym} 1310 20 0 1 {name=Vin3 value="SINE(0 0.4 5k 0 0 90)"
 spice_ignore=false}
-C {devices/vsource.sym} 1370 20 0 1 {name=Vin3 value="SINE(0 0.5 5k 0 0 90)"
+C {devices/vsource.sym} 1310 80 0 1 {name=Vin4 value=0.7
 spice_ignore=false}
-C {devices/vsource.sym} 1370 80 0 1 {name=Vin4 value=0.9
-spice_ignore=false}
-C {devices/lab_pin.sym} 1370 -85 0 1 {name=p1 sig_type=std_logic lab=x
+C {devices/lab_pin.sym} 1310 -85 0 1 {name=p1 sig_type=std_logic lab=x
 }
-C {devices/vsource.sym} 150 -175 0 1 {name=Vin5 value="dc 0V ac 0mV trrandom(1 20u 0s 0.9 0.9) "
+C {devices/vsource.sym} 150 -175 0 1 {name=Vin5 value="SINE(0.9 0.9 2k 0 0 0)"
 spice_ignore=false}
 C {layer/layer_hidden.sym} 400 -240 0 0 {name=x4}
 C {Synapse/stdp_4x8.sym} 390 -230 0 0 {name=x5}
@@ -198,7 +187,7 @@ C {devices/lab_pin.sym} 745 -300 1 0 {name=p17 sig_type=std_logic lab=J5}
 C {devices/lab_pin.sym} 745 -280 1 0 {name=p18 sig_type=std_logic lab=J6}
 C {devices/lab_pin.sym} 745 -260 1 0 {name=p19 sig_type=std_logic lab=J7}
 C {devices/lab_pin.sym} 745 -240 1 0 {name=p20 sig_type=std_logic lab=J8}
-C {devices/gnd.sym} 1425 -110 0 1 {name=l1 lab=GND}
+C {devices/gnd.sym} 1365 -110 0 1 {name=l1 lab=GND}
 C {devices/code.sym} -132.5 -212.5 0 0 {name=MODELS1
 only_toplevel=true
 format="tcleval( @value )"
@@ -430,7 +419,7 @@ value="
 .options method gear
 .options KLU
 .options noinit
-.options set num_threads=10
+.options set num_threads=4
 .options set ng_nomodcheck
 .options set skywaterpdk
 .options set wr_vecnames
@@ -440,12 +429,14 @@ value="
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8 
 
-.tran 25n 2000u uic
-.control
-	run
-	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
-.endc
+.tran 20n 1m
+*.control
+*	run
+*	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
+*.endc
 "
 spice_ignore = false}
 C {devices/gnd.sym} 150 -120 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} 165 -230 1 0 {name=p12 sig_type=std_logic lab=Vin}
+C {devices/vsource.sym} 80 -570 0 1 {name=Vin2 value="dc 0V ac 0mV trrandom(1 10u 0s 0.9 0.9) "
+spice_ignore=true}

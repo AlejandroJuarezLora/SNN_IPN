@@ -173,14 +173,14 @@ C {sky130_fd_pr/rram_v0.sym} 220 -340 3 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 275 -340 3 0 {name=p13 sig_type=std_logic lab=be}
-C {devices/lab_pin.sym} 145 -340 3 0 {name=p14 sig_type=std_logic lab=te }
+C {devices/lab_pin.sym} 300 -340 3 0 {name=p13 sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 115 -340 3 0 {name=p14 sig_type=std_logic lab=te }
 C {devices/lab_pin.sym} 115 -215 0 1 {name=p6 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 420 -210 0 0 {name=p20 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 425 -450 0 0 {name=p21 sig_type=std_logic lab=vss}
 C {sky130_fd_pr/pfet_01v8.sym} 605 -730 0 0 {name=M14
-L=5
-W=1
+L=0.75
+W=0.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
