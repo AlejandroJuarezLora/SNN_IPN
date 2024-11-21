@@ -29,6 +29,7 @@ def rawread(fname: str):
     """Read ngspice binary raw files. Return tuple of the data, and the
     plot metadata. The dtype of the data contains field names. This is
     not very robust yet, and only supports ngspice.
+    
     >>> darr, mdata = rawread('test.py')
     >>> darr.dtype.names
     >>> plot(np.real(darr['frequency']), np.abs(darr['v(out)']))
@@ -130,7 +131,6 @@ fig.savefig('HiddenLayer.pdf')
 fig, ax = plt.subplots(1, figsize=(10,2))
 for k in range(4):
     nodo = "v(m" +  str(k+1) + ")"
-    print(nodo)
     ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"M{k+1}")
 ax.legend()
 ax.grid()
@@ -147,9 +147,6 @@ ax.set_ylabel("Voltage [V]")
 ax.set_title("Reward Signal")
 ax.grid()
 fig.savefig('RewardSignal.pdf')
-
-# %%
-
 
 # %%
 fig, ax = plt.subplots(1, figsize=(15,3))
@@ -185,7 +182,7 @@ ax.grid()
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Input Currrent[Amp]")
 ax.set_title("Input Current First Layer")
-ax.set_ylim((-0.2e-5, 1.2e-5))
+ax.set_ylim((-0, 0.3e-6))
 fig.savefig('Iext_I.pdf')
 
 # %%
@@ -199,7 +196,7 @@ ax.grid()
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Input Currrent[Amp]")
 ax.set_title("Input Current Hidden Layer")
-ax.set_ylim((-0.5e-6, 5e-6))
+ax.set_ylim((-0.5e-6, 15e-6))
 fig.savefig('Iext_J.pdf')
 
 # %%
@@ -213,8 +210,8 @@ ax.grid()
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Input Currrent[Amp]")
 ax.set_title("Input Current Output Layer")
-ax.set_ylim((-0.5e-7, 0.5e-6))
-fig.savefig('Iext_J.pdf')
+ax.set_ylim((-0.5e-7, 15e-6))
+fig.savefig('Iext_K.pdf')
 
 # %%
 
@@ -257,5 +254,8 @@ ax.set_ylabel("Memristance [Ohms]")
 ax.set_title("Memristance value jk")
 ax.set_ylim((0, 3.5e6))
 fig.savefig('wjk.pdf')
+
+# %%
+
 
 

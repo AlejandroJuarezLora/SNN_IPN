@@ -2,7 +2,11 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
+
+
+intp = 100  #tomar uno de cada cien valores, para graficar rapido
 
 # Load data from the .txt file
 #ssh -Y cic@148.204.66.123
@@ -17,7 +21,7 @@ import matplotlib.pyplot as plt
 #scp alex@148.204.66.53:/home/alex/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt . 
 #scp cic@148.204.66.123:/home/cic/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt  .
 
-BSIZE_SP = 2048 # Max size of a line of data; we don't want to read the
+BSIZE_SP = 512 # Max size of a line of data; we don't want to read the
                # whole file to find a line, in case file does not have
                # expected structure.
 
@@ -28,6 +32,7 @@ def rawread(fname: str):
     """Read ngspice binary raw files. Return tuple of the data, and the
     plot metadata. The dtype of the data contains field names. This is
     not very robust yet, and only supports ngspice.
+    
     >>> darr, mdata = rawread('test.py')
     >>> darr.dtype.names
     >>> plot(np.real(darr['frequency']), np.abs(darr['v(out)']))
@@ -86,44 +91,43 @@ def rawread(fname: str):
     
 
 # %%
-data, plots = rawread("data.raw")
+
+nombreArchivo = "data.raw"
+if len(sys.argv) < 2:
+    print("No se paso un nombre de archivo .raw \n Buscando data.raw por defecto...")
+else:
+    nombreArchivo = sys.argv[1]
+    print("Usando ", nombreArchivo, " para las graficas...")
+data, plots = rawread(nombreArchivo)
 
 
 # %%
-# Store each column into separate vectors
-time = data["time"]
-vin = data["v(x)"]
-Vr1 = data["v(vr1)"]
-iVread = data["i(vread)"]
-hx = data["v(hx)"]
-x = data["v(x)"]
-
-# %%
-n = []
+fig, (ax1, ax2) = plt.subplots(2, figsize=(10,5))
 for k in range(4):
     nodo = "v(n" +  str(k+1) + ")"
-    n.append(data[nodo])
+    ax1.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"N{k+1}")
 
+ax1.legend()
+ax1.grid()
+ax1.set_xlabel("Time [ms]")
+ax1.set_ylabel("Spikes [V]")
+ax1.set_title("Input Layer Neural activity")
 
-fig, ax = plt.subplots(1, figsize=(10,2))
-for i in range(len(n)):
-    ax.plot(time, n[i]+(1.8*i), label = f"N{i+1}")
-ax.legend()
-ax.grid()
-ax.set_xlabel("Time [ms]")
-ax.set_ylabel("Spikes [V]")
-ax.set_title("Input Layer Neural activity")
+ax2.plot(data["time"][::intp], data["v(vin)"][::intp], label = "Vin")
+ax2.legend()
+ax2.grid()
+ax2.set_xlabel("Time [ms]")
+ax2.set_ylabel("Input Voltage [V]")
+
 fig.savefig('InputLayer.pdf')
 
 # %%
-j = []
-for k in range(8):
-    nodo = "v(j" +  str(k+1) + ")"
-    j.append(data[nodo])
+
 
 fig, ax = plt.subplots(1, figsize=(10,2))
-for i in range(len(j)):
-    ax.plot(time, j[i]+(1.8*i), label = f"J{i+1}")
+for k in range(8):
+    nodo = "v(j" +  str(k+1) + ")"
+    ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"J{k+1}")
 ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
@@ -133,15 +137,11 @@ fig.savefig('HiddenLayer.pdf')
 
 # %%
 
-m = []
-for k in range(4):
-    nodo = "v(m" +  str(k+1) + ")"
-    m.append(data[nodo])
-
 
 fig, ax = plt.subplots(1, figsize=(10,2))
-for i in range(len(m)):
-    ax.plot(time, m[i]+(1.8*i), label = f"M{i+1}")
+for k in range(4):
+    nodo = "v(m" +  str(k+1) + ")"
+    ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"M{k+1}")
 ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
@@ -151,19 +151,18 @@ fig.savefig('OutputLayer.pdf')
 
 # %%
 fig, ax = plt.subplots(1, figsize=(10,2))
-ax.plot(time, iVread, label = "Vin")
+ax.plot(data["time"][::intp], data["v(vr1)"][::intp], label = "Vr1")
 ax.set_xlabel("Time [ms]")
-ax.set_ylabel("Output Current [uA]")
-ax.set_title("OutputCurrent")
+ax.set_ylabel("Voltage [V]")
+ax.set_title("Reward Signal")
 ax.grid()
 fig.savefig('RewardSignal.pdf')
 
 # %%
 fig, ax = plt.subplots(1, figsize=(15,3))
 
-ax.plot(time, hx, label = "hx")
-ax.plot(time, x, label = "x")
-# ax.plot(time*1000, Vr1, label = "Vr1")
+ax.plot(data["time"][::intp], data["v(hx)"][::intp], label = "hx")
+ax.plot(data["time"][::intp], data["v(x)"][::intp], label = "x")
 ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
@@ -174,7 +173,7 @@ fig.savefig('xversushx.pdf')
 # %%
 fig, ax = plt.subplots(1, figsize=(5,3))
 
-ax.plot(time, x - hx, label = "error")
+ax.plot(data["time"][::intp], data["v(hx)"][::intp] - data["v(x)"][::intp], label = "error")
 ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
@@ -184,70 +183,87 @@ fig.savefig('errorxvxhx.pdf')
 
 # %%
 
-ij_i = []
-for k in range(32):
-    nodo = "i(v.x5.xstdp" +  str(k+1) + ".vmr)"
-    ij_i.append(data[nodo])
+fig, ax = plt.subplots(1, figsize=(10,3))
+for k in range(4):
+    Iext_label = "i(v.x1.x" + str(k+1)+ ".vext)"
+    ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
 
-ij_te = []
-for k in range(32):
-    nodo = "v(x5.xstdp" +  str(k+1) + ".te)"
-    ij_te.append(data[nodo])
+ax.grid()
+ax.set_xlabel("Time [ms]")
+ax.set_ylabel("Input Currrent[Amp]")
+ax.set_title("Input Current First Layer")
+#ax.set_ylim((-0, 0.3e-6))
+fig.savefig('Iext_I.pdf')
 
-ij_be = []
-for k in range(32):
-    nodo = "v(x5.xstdp" +  str(k+1) + ".be)"
-    ij_be.append(data[nodo])
-
-ij = []
-for j in range(32):
-    mem = (ij_te[k] - ij_be[k])/(ij_i[k])
-    ij.append(mem)
-
+# %%
 
 fig, ax = plt.subplots(1, figsize=(10,3))
-for i in range(len(ij)):
-    ax.plot(time, ij[i], label = f"ij{i+1}")
+for k in range(8):
+    Iext_label = "i(v.x4.x" + str(k+1)+ ".vext)"
+    ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
+
+ax.grid()
+ax.set_xlabel("Time [ms]")
+ax.set_ylabel("Input Currrent[Amp]")
+ax.set_title("Input Current Hidden Layer")
+ax.set_ylim((-0.5e-6, 15e-6))
+fig.savefig('Iext_J.pdf')
+
+# %%
+
+fig, ax = plt.subplots(1, figsize=(10,3))
+for k in range(4):
+    Iext_label = "i(v.x2.x" + str(k+1)+ ".vext)"
+    ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
+
+ax.grid()
+ax.set_xlabel("Time [ms]")
+ax.set_ylabel("Input Currrent[Amp]")
+ax.set_title("Input Current Output Layer")
+#ax.set_ylim((-0.5e-7, 15e-6))
+fig.savefig('Iext_K.pdf')
+
+# %%
+
+fig, ax = plt.subplots(1, figsize=(10,3))
+for k in range(32):
+    Imem_label = "i(v.x5.xstdp" +  str(k+1) + ".vmr)"
+    Vte_label = "v(x5.xstdp" +  str(k+1) + ".te)"
+    Vbe_label = "v(x5.xstdp" +  str(k+1) + ".be)"
+    Imem= data[Imem_label][::intp]
+    Vte = data[Vte_label][::intp]
+    Vbe = data[Vbe_label][::intp]
+    mem = (Vte - Vbe)/Imem 
+    ax.plot(data["time"][::intp], mem, label = f"ij{k+1}")
     
 # ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Memristance [Ohms]")
 ax.set_title("Memristance value ij")
+ax.set_ylim((0, 3.5e6))
+fig.savefig('wij.pdf')
 
 # %%
-
-jk_i = []
-for k in range(32):
-    nodo = "i(v.x6.xrstdp" +  str(k+1) + ".vmr)"
-    jk_i.append(data[nodo])
-
-
-jk_te = []
-for k in range(32):
-    nodo = "v(x6.xrstdp" +  str(k+1) + ".te)"
-    jk_te.append(data[nodo])
-
-jk_be = []
-for k in range(32):
-    nodo = "v(x6.xrstdp" +  str(k+1) + ".be)"
-    jk_be.append(data[nodo])
-
-jk = []
-for j in range(32):
-    mem = (jk_te[k] - jk_be[k])/(jk_i[k])
-    jk.append(mem)
-
-
 fig, ax = plt.subplots(1, figsize=(10,3))
-for i in range(len(jk)):
-    ax.plot(time, jk[i], label = f"jk{i+1}")
+for k in range(32):
+    Imem_label = "i(v.x6.xrstdp" +  str(k+1) + ".vmr)"
+    Vte_label =  "v(x6.xrstdp" +  str(k+1) + ".te)"
+    Vbe_label = "v(x6.xrstdp" +  str(k+1) + ".be)"
+    Imem= data[Imem_label][::intp]
+    Vte = data[Vte_label][::intp]
+    Vbe = data[Vbe_label][::intp]
+    mem = (Vte - Vbe)/Imem 
+    ax.plot(data["time"][::intp], mem, label = f"jk{k+1}")
+
 
 # ax.legend()
 ax.grid()
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Memristance [Ohms]")
 ax.set_title("Memristance value jk")
+ax.set_ylim((0, 3.5e6))
+fig.savefig('wjk.pdf')
 
 # %%
 

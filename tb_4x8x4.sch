@@ -135,7 +135,7 @@ value="
 ** opencircuitdesign pdks install
 .inc ~/pdk/sky130B/libs.tech/ngspice/rram_v0.spice
 **.inc ~/pdk/sky130B/libs.tech/ngspice/sky.spice
-*.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed_spice/wllpsd.spice
+**.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed_spice/wllpsd.spice
 *.inc /home/alex/EDA/SNN_IPN/memristor_models/wellposed_spice/wllpsd.spice
 "
 spice_ignore=false}
@@ -160,13 +160,13 @@ C {devices/isource.sym} 1365 -140 0 0 {name=I0 value=100u}
 C {devices/gnd.sym} 1465 -130 0 1 {name=l13 lab=GND}
 C {devices/vsource.sym} 1310 -40 0 1 {name=Vin1 value="SINE(0 0.3 2.5k 0 0 0)"
 spice_ignore=false}
-C {devices/vsource.sym} 1310 20 0 1 {name=Vin3 value="SINE(0 0.4 5k 0 0 90)"
+C {devices/vsource.sym} 1310 20 0 1 {name=Vin3 value="SINE(0 0.4 4.5k 0 0 90)"
 spice_ignore=false}
 C {devices/vsource.sym} 1310 80 0 1 {name=Vin4 value=0.7
 spice_ignore=false}
 C {devices/lab_pin.sym} 1310 -85 0 1 {name=p1 sig_type=std_logic lab=x
 }
-C {devices/vsource.sym} 150 -175 0 1 {name=Vin5 value="SINE(0.9 0.9 2k 0 0 0)"
+C {devices/vsource.sym} 150 -175 0 1 {name=Vin5 value="SINE(0.9 0.9 10k 0 0 0)"
 spice_ignore=false}
 C {layer/layer_hidden.sym} 400 -240 0 0 {name=x4}
 C {Synapse/stdp_4x8.sym} 390 -230 0 0 {name=x5}
@@ -419,7 +419,7 @@ value="
 .options method gear
 .options KLU
 .options noinit
-.options set num_threads=4
+.options set num_threads=8
 .options set ng_nomodcheck
 .options set skywaterpdk
 .options set wr_vecnames
@@ -429,7 +429,7 @@ value="
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8 
 
-.tran 20n 1m
+.tran 10n 10m 
 *.control
 *	run
 *	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
