@@ -5,9 +5,9 @@ K {}
 V {}
 S {}
 E {}
-B 2 -770 350 30 750 {flags=graph
-y1=0
-y2=0.01
+B 2 -770 340 30 740 {flags=graph
+y1=-0.00056
+y2=1.9
 ypos1=0
 ypos2=2
 divy=5
@@ -29,8 +29,8 @@ logx=0
 logy=0
 linewidth_mult=2}
 B 2 30 350 830 750 {flags=graph
-y1=-3.6e-07
-y2=0.00021
+y1=-0.017
+y2=1.4
 ypos1=0
 ypos2=2
 divy=5
@@ -42,13 +42,14 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="\\"Output Current Iout [A];i(vcurr)\\""
-color=6
+
+
 dataset=-1
 unitx=1
 logx=0
 logy=0
-}
+color=4
+node=vout}
 N 50 -60 50 -50 {
 lab=vsyn}
 N 50 -190 50 -140 {
@@ -163,7 +164,7 @@ N -10 50 260 50 {lab=vx}
 N -10 -20 -10 50 {lab=vx}
 C {sky130_fd_pr/nfet_01v8.sym} 30 130 0 0 {name=M1
 L=0.15
-W=5
+W=1
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -177,7 +178,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 30 -20 0 0 {name=M2
 L=0.15
-W=24.5
+W=5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -191,7 +192,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 30 -140 0 0 {name=M3
 L=0.15
-W=24.5
+W=75
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -205,7 +206,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 280 -30 0 0 {name=M4
 L=0.15
-W=24.5
+W=30
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -217,7 +218,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 170 -110 0 0 {name=C1 model=cap_mim_m3_1 W=22 L=22.5 MF=1 spiceprefix=X }
+C {sky130_fd_pr/cap_mim_m3_1.sym} 170 -110 0 0 {name=C1 model=cap_mim_m3_1 W=22.2 L=22.2 MF=1 spiceprefix=X }
 C {devices/gnd.sym} 300 200 0 0 {name=l1 lab=GND}
 C {devices/vdd.sym} 170 -190 0 0 {name=l2 lab=VDD}
 C {devices/lab_pin.sym} -30 130 1 0 {name=p1 sig_type=std_logic lab=spk1}
@@ -251,7 +252,7 @@ C {devices/code_shown.sym} -710 -420 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-.param vinput = 1.2
+.param vinput = 1.8
 .tran 100n 10m uic
 .save all
 .control
@@ -297,7 +298,7 @@ tclcommand="xschem raw_read $netlist_dir/tb_integrator.raw tran"
 }
 C {sky130_fd_pr/nfet_01v8.sym} 280 130 0 0 {name=M6
 L=0.15
-W=0.6
+W=0.5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
