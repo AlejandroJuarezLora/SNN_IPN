@@ -29,8 +29,8 @@ logx=0
 logy=0
 linewidth_mult=2}
 B 2 30 350 830 750 {flags=graph
-y1=-0.017
-y2=1.4
+y1=-0.009
+y2=1.1
 ypos1=0
 ypos2=2
 divy=5
@@ -164,7 +164,7 @@ N -10 50 260 50 {lab=vx}
 N -10 -20 -10 50 {lab=vx}
 C {sky130_fd_pr/nfet_01v8.sym} 30 130 0 0 {name=M1
 L=0.15
-W=1
+W=5
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -192,7 +192,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 30 -140 0 0 {name=M3
 L=0.15
-W=75
+W=50
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -206,7 +206,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 280 -30 0 0 {name=M4
 L=0.15
-W=30
+W=50
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -252,7 +252,7 @@ C {devices/code_shown.sym} -710 -420 0 0 {name=STIMULI
 only_toplevel=true
 place=end
 value="
-.param vinput = 1.8
+.param vinput = 1.5
 .tran 100n 10m uic
 .save all
 .control

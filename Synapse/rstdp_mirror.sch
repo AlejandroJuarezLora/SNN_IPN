@@ -193,12 +193,17 @@ N 245 -680 345 -680 {
 lab=A}
 N 205 -355 235 -355 {lab=be}
 N 295 -355 325 -355 {lab=#net1}
-N 525 -700 525 -675 {
-lab=I_post}
-N 525 -650 530 -650 {
-lab=I_post}
-N 525 -675 525 -650 {
-lab=I_post}
+N 520 -780 610 -780 {lab=vdd}
+N 460 -650 480 -650 {lab=A}
+N 525 -620 525 -610 {lab=I_post}
+N 525 -610 610 -610 {lab=I_post}
+N 480 -650 485 -650 {lab=A}
+N 460 -730 460 -650 {
+lab=A}
+N 525 -700 525 -680 {lab=#net2}
+N 525 -650 530 -650 {lab=vdd}
+N 530 -650 595 -650 {lab=vdd}
+N 595 -780 595 -650 {lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} -145 -455 0 0 {name=M2
 L=0.15
 W=7.5
@@ -260,11 +265,11 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/iopin.sym} 530 -650 2 1 {name=p15 lab=I_post}
+C {devices/iopin.sym} 610 -610 2 1 {name=p15 lab=I_post}
 C {devices/lab_pin.sym} -195 -215 0 0 {name=p9 sig_type=std_logic lab=vout_post}
 C {devices/lab_pin.sym} 660 -210 0 1 {name=p5 sig_type=std_logic lab=vout_pre}
 C {devices/lab_pin.sym} -70 -455 0 1 {name=p10 sig_type=std_logic lab=vss}
-C {sky130_fd_pr/rram_v0.sym} 175 -355 1 1 {name=R2
+C {sky130_fd_pr/rram_v0.sym} 175 -355 3 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }
@@ -296,8 +301,8 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 225 -355 3 0 {name=p13 sig_type=std_logic lab=be}
-C {devices/lab_pin.sym} 135 -355 3 0 {name=p14 sig_type=std_logic lab=te}
+C {devices/lab_pin.sym} 215 -355 3 0 {name=p13 sig_type=std_logic lab=be}
+C {devices/lab_pin.sym} 125 -355 0 0 {name=p14 sig_type=std_logic lab=te}
 C {sky130_fd_pr/pfet_01v8.sym} 65 -235 1 1 {name=M7
 L=0.15
 W=15
@@ -336,7 +341,7 @@ C {devices/lab_pin.sym} 535 -450 0 0 {name=p21 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -75 -345 3 0 {name=p22 sig_type=std_logic lab=vpre}
 C {devices/lab_pin.sym} 550 -340 3 0 {name=p23 sig_type=std_logic lab=vpost}
 C {sky130_fd_pr/pfet_01v8.sym} 505 -730 0 0 {name=M14
-L=2
+L=30
 W=0.5
 nf=1
 mult=1
@@ -368,3 +373,17 @@ C {devices/code_shown.sym} -110 -680 0 0 {name=s1 only_toplevel=false value="
 .save v(te) v(be) i(vmr)
 "}
 C {devices/vsource.sym} 265 -355 3 0 {name=Vmr value=0 savecurrent=true}
+C {sky130_fd_pr/pfet_01v8.sym} 505 -650 0 0 {name=M9
+L=30
+W=0.5
+nf=1
+mult=1
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_01v8
+spiceprefix=X
+}

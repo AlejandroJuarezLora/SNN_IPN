@@ -266,7 +266,7 @@ C {devices/lab_pin.sym} 700 -1280 1 1 {name=p35 sig_type=std_logic lab=Iext4}
 C {Neuron/ultralif/integrator.sym} 1140 -1770 0 0 {name=x14}
 C {sky130_fd_pr/nfet_01v8.sym} 1070 -2030 1 0 {name=M7
 L=0.15
-W=1
+W=1.25
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -280,7 +280,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 1070 -1890 1 0 {name=M8
 L=0.15
-W=1
+W=1.25
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -294,7 +294,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 1070 -1760 1 0 {name=M9
 L=0.15
-W=1
+W=1.25
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -308,7 +308,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 1070 -1590 1 0 {name=M10
 L=0.15
-W=1
+W=1.25
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 

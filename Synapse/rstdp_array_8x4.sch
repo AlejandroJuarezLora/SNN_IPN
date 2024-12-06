@@ -165,8 +165,6 @@ N 110 680 120 680 {
 lab=Vr}
 N -350 -320 130 -320 {
 lab=Vr}
-N 130 -320 130 680 {
-lab=Vr}
 N 120 680 130 680 {
 lab=Vr}
 N 120 430 130 430 {
@@ -179,11 +177,7 @@ N 560 -320 560 680 {
 lab=Vr}
 N 130 -320 560 -320 {
 lab=Vr}
-N 1010 -320 1010 680 {
-lab=Vr}
 N 560 -320 1010 -320 {
-lab=Vr}
-N 1440 -320 1440 680 {
 lab=Vr}
 N 1010 -320 1440 -320 {
 lab=Vr}
@@ -363,6 +357,18 @@ N 400 1760 400 1770 {
 lab=vssa}
 N 400 1630 400 1640 {
 lab=vdda}
+N 130 430 130 660 {lab=Vr}
+N 130 180 130 430 {lab=Vr}
+N 130 -70 130 180 {lab=Vr}
+N 130 -320 130 -70 {lab=Vr}
+N 1010 430 1010 660 {lab=Vr}
+N 1010 180 1010 430 {lab=Vr}
+N 1010 -70 1010 180 {lab=Vr}
+N 1010 -320 1010 -70 {lab=Vr}
+N 1440 430 1440 660 {lab=Vr}
+N 1440 180 1440 430 {lab=Vr}
+N 1440 -70 1440 180 {lab=Vr}
+N 1440 -320 1440 -70 {lab=Vr}
 C {Synapse/rstdp_mirror.sym} -40 -50 0 0 {name=xrstdp1}
 C {devices/ipin.sym} -300 -130 0 0 {name=p1 lab=vout_pre1}
 C {devices/opin.sym} 160 -200 3 0 {name=p5 lab=vout_post1}

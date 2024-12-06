@@ -22,10 +22,10 @@ module rram_v0_va(t, b);
     parameter real Ea = 1.500 from (0:inf);
     parameter real a0 = 0.25 from (0:inf);
     parameter real tox = 5.0 from (0:inf); //
-    parameter real smoothing = 1e-8 from (0:inf);
+    parameter real smoothing = 1e-6 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    parameter real maxslope = 1e18 from (0:inf);
+    parameter real maxslope = 1e17 from (0:inf);
     `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
     
@@ -58,19 +58,20 @@ module rram_v0_va(t, b);
     
     
     analog begin
+        // Set the initial gap voltage at the first timestep
         @(initial_step) begin
-            V(nGap, b) <= gap_initial;      // condicion inicial
-           // $strobe("Gap Inicial %f", gap_initial);
-	    end
+            V(nGap, b) <= gap_initial; // Set the initial gap value
+            $strobe("Gap Inicial %f", gap_initial);
+        end 
         Gap = V(nGap, b);
+        I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
         Gamma = gamma0 + Beta0 * pow(Gap, 3);
-        ddt_Gap =  -(maxGap-minGap)*Vel0 * safeexp(-Ea/$vt, maxslope)*safesinh(V(t, b)*Gamma*a0/(tox*$vt), maxslope);
+        ddt_Gap =  -Vel0 * safeexp(-Ea/$vt, maxslope)*safesinh(V(t, b)*Gamma*a0/(tox*$vt), maxslope);
         Fw1 = smoothstep(minGap-Gap, smoothing);
         Fw2 = smoothstep(Gap-maxGap, smoothing);
         clip_minGap = (safeexp(Kclip*(minGap-Gap), maxslope) - ddt_Gap) * Fw1; 
         clip_maxGap = (-safeexp(Kclip*(Gap-maxGap), maxslope) - ddt_Gap) * Fw2;
-        I(nGap, b) <+ ddt(-1e-9*Gap) + ddt_Gap + clip_minGap + clip_maxGap;
-        I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
+        I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;
+        I(nGap, b) <+ ddt(-1e-9*Gap);
     end
 endmodule
-
