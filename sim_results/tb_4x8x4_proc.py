@@ -6,7 +6,7 @@ import sys
 
 
 
-intp = 100  #tomar uno de cada cien valores, para graficar rapido
+intp = 200  #tomar uno de cada cien valores, para graficar rapido
 
 # Load data from the .txt file
 #ssh -Y cic@148.204.66.123
@@ -101,7 +101,6 @@ else:
 data, plots = rawread(nombreArchivo)
 
 
-# %%
 fig, (ax1, ax2) = plt.subplots(2, figsize=(10,5))
 for k in range(4):
     nodo = "v(n" +  str(k+1) + ")"
@@ -121,10 +120,8 @@ ax2.set_ylabel("Input Voltage [V]")
 
 fig.savefig('InputLayer.pdf')
 
-# %%
 
-
-fig, ax = plt.subplots(1, figsize=(10,2))
+fig, ax = plt.subplots(1, figsize=(10,4))
 for k in range(8):
     nodo = "v(j" +  str(k+1) + ")"
     ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"J{k+1}")
@@ -135,10 +132,9 @@ ax.set_ylabel("Spikes [V]")
 ax.set_title("Hidden Layer Neural activity")
 fig.savefig('HiddenLayer.pdf')
 
-# %%
 
 
-fig, ax = plt.subplots(1, figsize=(10,2))
+fig, ax = plt.subplots(1, figsize=(10,4))
 for k in range(4):
     nodo = "v(m" +  str(k+1) + ")"
     ax.plot(data["time"][::intp], data[nodo][::intp]+(1.8*k), label = f"M{k+1}")
@@ -150,7 +146,7 @@ ax.set_title("Output Layer Neural activity")
 fig.savefig('OutputLayer.pdf')
 
 # %%
-fig, ax = plt.subplots(1, figsize=(10,2))
+fig, ax = plt.subplots(1, figsize=(10,4))
 ax.plot(data["time"][::intp], data["v(vr1)"][::intp], label = "Vr1")
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Voltage [V]")
@@ -159,7 +155,7 @@ ax.grid()
 fig.savefig('RewardSignal.pdf')
 
 # %%
-fig, ax = plt.subplots(1, figsize=(15,3))
+fig, ax = plt.subplots(1, figsize=(10,4))
 
 ax.plot(data["time"][::intp], data["v(hx)"][::intp], label = "hx")
 ax.plot(data["time"][::intp], data["v(x)"][::intp], label = "x")
@@ -171,7 +167,7 @@ ax.set_title("Voltage signals")
 fig.savefig('xversushx.pdf')
 
 # %%
-fig, ax = plt.subplots(1, figsize=(5,3))
+fig, ax = plt.subplots(1, figsize=(10,4))
 
 ax.plot(data["time"][::intp], data["v(hx)"][::intp] - data["v(x)"][::intp], label = "error")
 ax.legend()
@@ -183,7 +179,7 @@ fig.savefig('errorxvxhx.pdf')
 
 # %%
 
-fig, ax = plt.subplots(1, figsize=(10,3))
+fig, ax = plt.subplots(1, figsize=(10,4))
 for k in range(4):
     Iext_label = "i(v.x1.x" + str(k+1)+ ".vext)"
     ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
@@ -197,7 +193,7 @@ fig.savefig('Iext_I.pdf')
 
 # %%
 
-fig, ax = plt.subplots(1, figsize=(10,3))
+fig, ax = plt.subplots(1, figsize=(10,4))
 for k in range(8):
     Iext_label = "i(v.x4.x" + str(k+1)+ ".vext)"
     ax.plot(data["time"][::intp], data[Iext_label][::intp], label = f"i{k+1}")
@@ -206,7 +202,7 @@ ax.grid()
 ax.set_xlabel("Time [ms]")
 ax.set_ylabel("Input Currrent[Amp]")
 ax.set_title("Input Current Hidden Layer")
-ax.set_ylim((-0.5e-6, 15e-6))
+# ax.set_ylim((-0.5e-6, 15e-6))
 fig.savefig('Iext_J.pdf')
 
 # %%
@@ -233,7 +229,7 @@ for k in range(32):
     Imem= data[Imem_label][::intp]
     Vte = data[Vte_label][::intp]
     Vbe = data[Vbe_label][::intp]
-    mem = (Vte - Vbe)/Imem 
+    mem = (Vbe - Vte)/Imem 
     ax.plot(data["time"][::intp], mem, label = f"ij{k+1}")
     
 # ax.legend()
@@ -253,7 +249,7 @@ for k in range(32):
     Imem= data[Imem_label][::intp]
     Vte = data[Vte_label][::intp]
     Vbe = data[Vbe_label][::intp]
-    mem = (Vte - Vbe)/Imem 
+    mem = (Vbe - Vte)/Imem 
     ax.plot(data["time"][::intp], mem, label = f"jk{k+1}")
 
 
@@ -266,6 +262,5 @@ ax.set_ylim((0, 3.5e6))
 fig.savefig('wjk.pdf')
 
 # %%
-
 
 

@@ -159,8 +159,7 @@ N 130 -345 800 -345 {
 lab=Ileak}
 N 130 -345 130 -330 {
 lab=Ileak}
-N 130 -290 130 -175 {
-lab=vdd}
+N 130 -290 130 -210 {lab=#net4}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -252,4 +251,4 @@ C {devices/vsource.sym} 210 -290 3 0 {name=vext value=0 }
 C {devices/code_shown.sym} 380 -440 0 0 {name=s1 only_toplevel=false value="
 .save i(vext)
 "}
-C {devices/lab_pin.sym} 130 -175 3 0 {name=p1 sig_type=std_logic lab=vdd}
+C {devices/lab_pin.sym} 130 -210 3 0 {name=p1 sig_type=std_logic lab=vdd}

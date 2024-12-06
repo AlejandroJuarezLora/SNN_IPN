@@ -1,12 +1,12 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
 V {}
 S {}
 E {}
-B 2 1290 -630 2090 -230 {flags=graph
-y1=-9e-05	
+B 2 1280 -630 2080 -230 {flags=graph
+y1=-7.1e-05	
 y2=7.3
 ypos1=-0.00012
 ypos2=3.7
@@ -26,13 +26,13 @@ logy=0
 digital=0
 
 color="6 8 4 7"
-node="\\"N1; voutn1 5.4 +\\"
-\\"N2; voutn2 3.6 +\\"
-\\"N3; voutp1 1.8 +\\"
-\\"N4; voutp2\\""
+node="\\"N1; N1 5.4 +\\"
+\\"N2; N2 3.6 +\\"
+\\"N3; N3 1.8 +\\"
+\\"N4; N4\\""
 linewidth_mult=1.5}
 B 2 1290 -1030 2090 -630 {flags=graph
-y1=1.4e-09	
+y1=3.2e-06	
 y2=1.8
 ypos1=-0.319016
 ypos2=2.49867
@@ -55,8 +55,8 @@ color=6
 node=vin
 linewidth_mult=2}
 B 2 360 290 1160 690 {flags=graph
-y1=7.812509e-08	
-y2=8.2812498e-07
+y1=4.1e-13	
+y2=7.6e-07
 ypos1=-0.319016
 ypos2=2.49867
 divy=5
@@ -79,8 +79,8 @@ node=i(@m.x6.xm6.msky130_fd_pr__pfet_01v8[id])
 subdivy=2
 linewidth_mult=1}
 B 2 1290 -230 2090 170 {flags=graph
-y1=-2.5e-07	
-y2=0.00016
+y1=-0.0034	
+y2=1.3
 ypos1=-0.319016
 ypos2=2.49867
 divy=5
@@ -98,9 +98,10 @@ logx=0
 logy=0
 digital=0
 linewidth_mult=2
+
 color=4
-node=i(vmeas)}
-B 2 1280 310 2080 710 {flags=graph
+node=vout}
+B 2 1290 180 2090 580 {flags=graph
 y1=2.9e-13	
 y2=4.6e-07
 ypos1=-0.319016
@@ -142,7 +143,7 @@ lab=GND}
 N 430 -430 430 -360 {
 lab=VDD}
 N 490 -310 550 -310 {
-lab=Voutp1}
+lab=N3}
 N -40 -310 70 -310 {
 lab=vin}
 N 340 -260 400 -260 {
@@ -164,7 +165,7 @@ lab=GND}
 N 430 -830 430 -760 {
 lab=VDD}
 N 490 -710 550 -710 {
-lab=Voutn2}
+lab=N2}
 N 340 -660 400 -660 {
 lab=#net3}
 N 340 -660 340 -630 {
@@ -180,7 +181,7 @@ lab=GND}
 N 430 -1180 430 -1110 {
 lab=VDD}
 N 490 -1060 550 -1060 {
-lab=Voutn1}
+lab=N1}
 N 340 -1010 400 -1010 {
 lab=#net5}
 N 340 -1010 340 -980 {
@@ -196,7 +197,7 @@ lab=GND}
 N 430 -60 430 10 {
 lab=VDD}
 N 490 60 550 60 {
-lab=Voutp2}
+lab=N4}
 N 340 110 400 110 {
 lab=#net7}
 N 340 110 340 140 {
@@ -254,50 +255,48 @@ lab=GND}
 N 1170 -440 1170 -410 {
 lab=GND}
 N 1080 -630 1130 -630 {
-lab=#net10}
-N 1130 -570 1130 -550 {
-lab=GND}
+lab=Vout}
 N 550 60 620 60 {
-lab=Voutp2}
+lab=N4}
 N 780 -490 1170 -490 {
 lab=#net9}
 N 1130 -440 1130 -350 {
-lab=Voutp2}
+lab=N4}
 N 620 -270 1130 -270 {
-lab=Voutp2}
+lab=N4}
 N 550 -310 590 -310 {
-lab=Voutp1}
+lab=N3}
 N 910 -630 910 -490 {
 lab=#net9}
 N 1130 -310 1130 -270 {
-lab=Voutp2}
+lab=N4}
 N 620 -270 620 60 {
-lab=Voutp2}
+lab=N4}
 N 1010 -440 1010 -410 {
-lab=Voutp1}
+lab=N3}
 N 1130 -350 1130 -310 {
-lab=Voutp2}
+lab=N4}
 N 590 -310 1010 -310 {
-lab=Voutp1}
+lab=N3}
 N 1010 -410 1010 -310 {
-lab=Voutp1}
+lab=N3}
 N 880 -440 880 -340 {
-lab=Voutn2}
+lab=N2}
 N 620 -340 880 -340 {
-lab=Voutn2}
+lab=N2}
 N 620 -710 620 -340 {
-lab=Voutn2}
+lab=N2}
 N 550 -710 620 -710 {
-lab=Voutn2}
+lab=N2}
 N 650 -440 740 -440 {
-lab=Voutn1}
+lab=N1}
 N 650 -1060 650 -440 {
-lab=Voutn1}
+lab=N1}
 N 550 -1060 650 -1060 {
-lab=Voutn1}
+lab=N1}
 C {devices/isource.sym} 340 -200 0 0 {name=I1 value=ileak3}
 C {devices/gnd.sym} 430 -160 0 0 {name=l3 lab=GND}
-C {devices/lab_pin.sym} 1010 -310 0 1 {name=p2 sig_type=std_logic lab=Voutp1
+C {devices/lab_pin.sym} 1010 -310 0 1 {name=p2 sig_type=std_logic lab=N3
 }
 C {devices/vsource.sym} -460 -20 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} -460 30 0 0 {name=l5 lab=GND}
@@ -307,6 +306,7 @@ only_toplevel=true
 place=end
 value="
 .options savecurrents
+.save vin Vout N1 N2 N3 N4
 .param ileak1 = 10n
 .param ileak2 = 10n
 .param ileak3 = 10n
@@ -314,6 +314,7 @@ value="
 .tran 1u 1m uic
 .control
 	run
+	
 	write tb_4n_layer.raw
 .endc
 "}
@@ -330,7 +331,7 @@ C {ul_tun.sym} 430 -310 0 0 {name=x1}
 C {devices/vdd.sym} 250 -370 0 0 {nname=l4 lab=VDD}
 C {devices/isource.sym} 340 -600 0 0 {name=I2 value=ileak2}
 C {devices/gnd.sym} 430 -560 0 0 {name=l6 lab=GND}
-C {devices/lab_pin.sym} 880 -340 0 1 {name=p3 sig_type=std_logic lab=Voutn2
+C {devices/lab_pin.sym} 880 -340 0 1 {name=p3 sig_type=std_logic lab=N2
 }
 C {devices/vdd.sym} 430 -830 0 0 {name=l9 lab=VDD}
 C {syn_neg.sym} 250 -790 0 0 {name=x3}
@@ -338,7 +339,7 @@ C {ul_tun.sym} 430 -710 0 0 {name=x4}
 C {devices/vdd.sym} 250 -770 0 0 {nname=l4 lab=VDD}
 C {devices/isource.sym} 340 -950 0 0 {name=I5 value=ileak1}
 C {devices/gnd.sym} 430 -910 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} 700 -440 1 1 {name=p4 sig_type=std_logic lab=Voutn1
+C {devices/lab_pin.sym} 700 -440 1 1 {name=p4 sig_type=std_logic lab=N1
 }
 C {devices/vdd.sym} 430 -1180 0 0 {name=l8 lab=VDD}
 C {syn_neg.sym} 250 -1140 0 0 {name=x5}
@@ -346,7 +347,7 @@ C {ul_tun.sym} 430 -1060 0 0 {name=x6}
 C {devices/vdd.sym} 250 -1120 0 0 {nname=l4 lab=VDD}
 C {devices/isource.sym} 340 170 0 0 {name=I7 value=ileak4}
 C {devices/gnd.sym} 430 210 0 0 {name=l14 lab=GND}
-C {devices/lab_pin.sym} 1130 -270 0 1 {name=p5 sig_type=std_logic lab=Voutp2
+C {devices/lab_pin.sym} 1130 -270 0 1 {name=p5 sig_type=std_logic lab=N4
 }
 C {devices/vdd.sym} 430 -60 0 0 {name=l15 lab=VDD}
 C {syn_pos.sym} 250 -20 0 0 {name=x7}
@@ -431,10 +432,12 @@ spiceprefix=X
 C {devices/gnd.sym} 780 -410 0 0 {name=l32 lab=GND}
 C {devices/vdd.sym} 1000 -690 0 0 {name=l33 lab=VDD}
 C {devices/gnd.sym} 1000 -570 0 0 {name=l34 lab=GND}
-C {devices/vsource.sym} 1130 -600 0 0 {name=Vmeas value=0}
-C {devices/gnd.sym} 1130 -550 0 0 {name=l35 lab=GND}
 C {devices/gnd.sym} 920 -410 0 0 {name=l11 lab=GND}
 C {devices/gnd.sym} 1050 -410 0 0 {name=l12 lab=GND}
 C {devices/gnd.sym} 1170 -410 0 0 {name=l13 lab=GND}
 C {devices/vsource.sym} -40 -260 0 0 {name=Vin2 value="SINE(0.9 0.9 1000 0 0 0)"
 spice_ignore=false}
+C {devices/gnd.sym} 250 -650 0 0 {name=l16 lab=GND}
+C {devices/gnd.sym} 250 -1000 0 0 {name=l17 lab=GND}
+C {devices/lab_pin.sym} 1100 -630 3 1 {name=p6 sig_type=std_logic lab=Vout
+}

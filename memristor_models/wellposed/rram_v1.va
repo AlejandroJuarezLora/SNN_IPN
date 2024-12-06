@@ -5,10 +5,12 @@
 `define IPRcc(nam,def,uni,lwr,upr,des) (*units=uni, type="instance", desc=des*) parameter real nam=def from [lwr:upr];
 
 
+//parametros de instancia
+
 module rram_v0_va(t, b);
     inout t, b;
     electrical t, b, nGap;
-
+    
     parameter real g0 = 0.2751 from (0:inf);  //Tox - Tfilament_ref = 5.0 - 4.7249 (Tox - filament thickness calibration parameter)[nano meters]
     parameter real V0 = 0.430 from (0:inf);   // voltage calibration parameter [Volts]
     parameter real I0 = 6.140e-5 from (0:inf); // current calibration parameter [Amps]
@@ -21,14 +23,15 @@ module rram_v0_va(t, b);
     parameter real a0 = 0.25 from (0:inf);
     parameter real tox = 5.0 from (0:inf); //
     parameter real smoothing = 1e-8 from (0:inf);
+    //parameter real smoothing = 1e-6 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    parameter real maxslope = 1e18 from (0:inf);
+    parameter real maxslope = 1e17 from (0:inf);
+    //parameter real maxslope = 1e15 from (0:inf);
     `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
     
-
-    real ddt_Gap, f1, f2, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
+    real ddt_Gap, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
     
     analog function real smoothstep;
         input x, smoothing; 
@@ -57,10 +60,11 @@ module rram_v0_va(t, b);
     
     
     analog begin
-         @(initial_step) begin
-            Gap = gap_initial;      // condicion inicial
+        @(initial_step) begin
+            V(nGap, b) <= gap_initial;      // condicion inicial
             $strobe("Gap Inicial %f", gap_initial);
-	    end
+        end
+        Gap = V(nGap, b);
         I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
         Gamma = gamma0 + Beta0 * pow(Gap, 3);
         ddt_Gap =  -Vel0 * safeexp(-Ea/$vt, maxslope)*safesinh(V(t, b)*Gamma*a0/(tox*$vt), maxslope);
@@ -68,7 +72,7 @@ module rram_v0_va(t, b);
         Fw2 = smoothstep(Gap-maxGap, smoothing);
         clip_minGap = (safeexp(Kclip*(minGap-Gap), maxslope) - ddt_Gap) * Fw1; 
         clip_maxGap = (-safeexp(Kclip*(Gap-maxGap), maxslope) - ddt_Gap) * Fw2;
-        Gap = ddt(-1e-9*Gap) + ddt_Gap + clip_minGap + clip_maxGap;
+        I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;
+        I(nGap, b) <+ ddt(-1e-9*Gap);
     end
-
 endmodule
