@@ -1,11 +1,11 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
 V {}
 S {}
 E {}
-B 2 1210 -480 2010 -80 {flags=graph
+B 2 1090 -200 1890 200 {flags=graph
 y1=-0.116221
 y2=3.00379
 ypos1=0
@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.02
+x2=0.004
 divx=5
 subdivx=1
 
@@ -28,16 +28,16 @@ node="\\"BL[V];BL\\"
 \\"SL[V];SL\\"
 \\"WL[V];WL\\""
 linewidth_mult=4}
-B 2 1210 -80 2010 320 {flags=graph
-y1=6000
-y2=3300000
+B 2 1090 200 1890 600 {flags=graph
+y1=-786683.9
+y2=4108236.1
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.02
+x2=0.004
 divx=5
 subdivx=1
 
@@ -49,16 +49,16 @@ logy=0
 color=4
 node="\\"Memristance [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
-B 2 1210 -880 2010 -480 {flags=graph
-y1=-0.00029
-y2=0.00021
+B 2 1090 -600 1890 -200 {flags=graph
+y1=-0.0028
+y2=0.0012
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.02
+x2=0.004
 divx=5
 subdivx=1
 
@@ -74,16 +74,16 @@ logy=0
 color=6
 node="\\"Current Memristor[A]; i(vread)\\"	"
 linewidth_mult=4}
-B 2 395 -880 1195 -480 {flags=graph
-y1=0.9
-y2=4.3
+B 2 175 -870 975 -470 {flags=graph
+y1=1.3181249
+y2=5.4281249
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
 x1=0
-x2=0.02
+x2=0.004
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -146,7 +146,7 @@ value="
 .control
   * Modify according to your specific location
   save all
-  tran 10u 20m
+  tran 10u 3m
   write tb_1T1R_pulses_ms_rram_v0.raw
 .endc
 
@@ -166,11 +166,11 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 9.9m 2 10m 3)"
+C {devices/vsource.sym} 290 10 0 0 {name=Vwl value="PWL(0 2 1.9m 2 2m 3)"
 }
-C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500u 1000u 10)"}
+C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 50u 100u 20)"}
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
-C {devices/launcher.sym} 840 20 0 0 {name=h5
+C {devices/launcher.sym} 840 10 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_1T1R_pulses_ms_rram_v0.raw tran"
 }
@@ -179,27 +179,28 @@ C {devices/lab_pin.sym} 470 -350 1 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 230 -330 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/lab_pin.sym} 540 -80 2 0 {name=wl1 sig_type=std_logic lab=SL}
 C {devices/vsource.sym} 370 -350 1 0 {name=Vread value=1e-5}
-C {devices/code.sym} 740 130 0 0 {name=MODELS2
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/rram_v0.spice
-"
-spice_ignore=false}
 C {sky130_fd_pr/rram_v0.sym} 540 -320 2 1 {name=R1
 model=rram_v0
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 540 -230 2 0 {name=be1 sig_type=std_logic lab=te}
-C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 10m 5n 5n 500u 1000u 10)"}
-C {devices/code.sym} 912.5 -177.5 0 0 {name=MODELS1
+C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 2m 5n 5n 50u 100u 20)"}
+C {devices/code_shown.sym} 112.5 347.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
 value="
-** opencircuitdesign pdks install
-**.inc $::SKYWATER_MODELS/rram_v0.spice
-.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
+*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
 
+.subckt rram_v0 TE BE
+*N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
+N1 TE BE rram_v0_model gap_initial=0.11
+.ends rram_v0
+
+.model rram_v0_model rram_v0_va
+
+
+.control
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+.endc
 "
-spice_ignore=true}
+spice_ignore=false}

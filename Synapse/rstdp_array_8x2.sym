@@ -1,0 +1,61 @@
+v {xschem version=3.4.6RC file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+L 4 -130 -80 130 -80 {}
+L 4 -130 80 130 80 {}
+L 4 -130 -80 -130 80 {}
+L 4 130 -80 130 80 {}
+L 4 130 40 150 40 {}
+L 4 130 20 150 20 {}
+L 4 -150 -70 -130 -70 {}
+L 4 -150 -50 -130 -50 {}
+L 4 -150 -30 -130 -30 {}
+L 4 -150 -10 -130 -10 {}
+L 4 -150 10 -130 10 {}
+L 4 -150 30 -130 30 {}
+L 4 -150 50 -130 50 {}
+L 4 -150 70 -130 70 {}
+L 7 130 -80 150 -80 {}
+L 7 0 -100 0 -80 {}
+L 7 130 -30 150 -30 {}
+L 7 130 -50 150 -50 {}
+L 7 0 80 0 100 {}
+B 5 147.5 -82.5 152.5 -77.5 {name=Vr dir=inout}
+B 5 -2.5 -102.5 2.5 -97.5 {name=vdda dir=inout}
+B 5 147.5 -32.5 152.5 -27.5 {name=i_post2 dir=inout}
+B 5 147.5 -52.5 152.5 -47.5 {name=i_post1 dir=inout}
+B 5 147.5 37.5 152.5 42.5 {name=vout_post2 dir=out}
+B 5 -2.5 97.5 2.5 102.5 {name=vssa dir=inout}
+B 5 147.5 17.5 152.5 22.5 {name=vout_post1 dir=out}
+B 5 -152.5 -72.5 -147.5 -67.5 {name=vout_pre1 dir=in}
+B 5 -152.5 -52.5 -147.5 -47.5 {name=vout_pre2 dir=in}
+B 5 -152.5 -32.5 -147.5 -27.5 {name=vout_pre3 dir=in}
+B 5 -152.5 -12.5 -147.5 -7.5 {name=vout_pre4 dir=in}
+B 5 -152.5 7.5 -147.5 12.5 {name=vout_pre5 dir=in}
+B 5 -152.5 27.5 -147.5 32.5 {name=vout_pre6 dir=in}
+B 5 -152.5 47.5 -147.5 52.5 {name=vout_pre7 dir=in}
+B 5 -152.5 67.5 -147.5 72.5 {name=vout_pre8 dir=in}
+T {@symname} -45.5 4 0 0 0.3 0.3 {}
+T {@name} -45 -22 0 0 0.2 0.2 {}
+T {Vr} 125 -74 0 1 0.2 0.2 {}
+T {vdda} 5 -74 0 1 0.2 0.2 {}
+T {i_post2} 125 -34 0 1 0.2 0.2 {}
+T {i_post1} 125 -54 0 1 0.2 0.2 {}
+T {vout_post2} 125 36 0 1 0.2 0.2 {}
+T {vssa} -5 66 0 1 0.2 0.2 {}
+T {vout_post1} 125 16 0 1 0.2 0.2 {}
+T {vout_pre1} -125 -74 0 0 0.2 0.2 {}
+T {vout_pre2} -125 -54 0 0 0.2 0.2 {}
+T {vout_pre3} -125 -34 0 0 0.2 0.2 {}
+T {vout_pre4} -125 -14 0 0 0.2 0.2 {}
+T {vout_pre5} -125 6 0 0 0.2 0.2 {}
+T {vout_pre6} -125 26 0 0 0.2 0.2 {}
+T {vout_pre7} -125 46 0 0 0.2 0.2 {}
+T {vout_pre8} -125 66 0 0 0.2 0.2 {}

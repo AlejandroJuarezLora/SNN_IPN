@@ -29,7 +29,7 @@ node="\\"BL[V];BL\\"
 \\"WL[V];WL\\""
 linewidth_mult=4}
 B 2 1210 -80 2010 320 {flags=graph
-y1=8200
+y1=1100
 y2=3400000
 ypos1=0
 ypos2=2
@@ -50,8 +50,8 @@ color=4
 node="\\"Memristance [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
 B 2 1210 -880 2010 -480 {flags=graph
-y1=-0.00029
-y2=0.00021
+y1=-1.7e-05
+y2=3.5e-05
 ypos1=0
 ypos2=2
 divy=5
@@ -162,6 +162,8 @@ N 230 -120 230 -60 {
 lab=GND}
 N 230 -350 230 -240 {
 lab=BL}
+N 540 -350 540 -340 {
+lab=be}
 C {devices/code_shown.sym} 100 160 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -202,38 +204,24 @@ C {devices/lab_pin.sym} 470 -350 1 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 230 -330 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/lab_pin.sym} 540 -80 2 0 {name=wl1 sig_type=std_logic lab=SL}
 C {devices/vsource.sym} 370 -350 1 0 {name=Vread value=1e-5}
-C {sky130_fd_pr/rram_v0.sym} 540 -320 2 1 {name=R1
+C {sky130_fd_pr/rram_v0.sym} 540 -310 2 1 {name=R1
 model=rram_v0
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 540 -230 2 0 {name=be1 sig_type=std_logic lab=te}
 C {devices/vsource.sym} 540 -30 0 1 {name=Vsl value="PULSE(0 2.6 10u 5n 5n 500n 1000n 10)"}
-C {devices/code.sym} 912.5 -177.5 0 0 {name=MODELS1
+C {devices/code_shown.sym} 110 380 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-**.inc $::SKYWATER_MODELS/rram_v0.spice
-.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
-
-"
-spice_ignore=true}
-C {devices/code_shown.sym} 112.5 347.5 0 0 {name=MODELS2
-only_toplevel=true
-format="tcleval( @value )"
-value="
-*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
-
+**N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=unif(4.1, 0.7)
 .subckt rram_v0 TE BE
-*N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
-N1 TE BE rram_v0_model gap_initial=0.11
+	N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=3.3
 .ends rram_v0
-
-.model rram_v0_model rram_v0_va
-
-
+.model sky130_fd_pr_reram__reram_cell_model sky130_fd_pr_reram__reram_cell
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+	pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky.osdi
 .endc
 "
 spice_ignore=false}

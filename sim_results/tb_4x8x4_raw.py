@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-intp = 10  #tomar uno de cada cien valores, para graficar rapido
+intp = 1  #tomar uno de cada cien valores, para graficar rapido
 nameFile = "data.raw"
 if len(sys.argv) > 1:
     print("Usando :", sys.argv[1])
@@ -24,7 +24,7 @@ if len(sys.argv) > 1:
 #scp alex@148.204.66.53:/home/alex/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt . 
 #scp cic@148.204.66.123:/home/cic/Desktop/EDA/SNN_IPN/sim_results/tb_4x8x4_data.txt  .
 
-BSIZE_SP = 512 # Max size of a line of data; we don't want to read the
+BSIZE_SP = 256 # Max size of a line of data; we don't want to read the
                # whole file to find a line, in case file does not have
                # expected structure.
 
@@ -118,7 +118,7 @@ ax2.grid()
 ax2.set_xlabel("Time [ms]")
 ax2.set_ylabel("Input Currrent[Amp]")
 ax2.set_title("Input Current First Layer")
-# ax.set_ylim((-0, 3e-6))
+ax2.set_ylim((-0.1e-6, 0.5e-6))
 
 fig.savefig('InputLayer.pdf')
 
@@ -144,7 +144,7 @@ ax2.grid()
 ax2.set_xlabel("Time [ms]")
 ax2.set_ylabel("Input Currrent[Amp]")
 ax2.set_title("Input Current Hidden Layer")
-# ax.set_ylim((-0.5e-6, 3e-6))
+ax2.set_ylim((-0.5e-6, 2e-6))
 fig.savefig('HiddenLayer.pdf')
 
 # %%
@@ -168,7 +168,7 @@ ax2.grid()
 ax2.set_xlabel("Time [ms]")
 ax2.set_ylabel("Input Currrent[Amp]")
 ax2.set_title("Input Current Output Layer")
-# ax.set_ylim((-0.5e-7, 5e-6))
+ax2.set_ylim((-0.5e-6, 2e-6))
 
 fig.savefig('OutputLayer.pdf')
 
@@ -216,7 +216,7 @@ ax1.grid()
 ax1.set_xlabel("Time [ms]")
 ax1.set_ylabel("Memristance [Ohms]")
 ax1.set_title("Memristance value ij")
-ax1.set_ylim((0, 3.5e6))
+ax1.set_ylim((-0.1e-6, 3.5e6))
 
 for k in range(32):
     Imem_label = "i(v.x6.xrstdp" +  str(k+1) + ".vmr)"
@@ -234,10 +234,6 @@ ax2.grid()
 ax2.set_xlabel("Time [ms]")
 ax2.set_ylabel("Memristance [Ohms]")
 ax2.set_title("Memristance value jk")
-ax2.set_ylim((0, 3.5e6))
+ax2.set_ylim((-0.1e-6, 3.5e6))
 fig.savefig('weights.pdf')
-
-# %%
-
-
 

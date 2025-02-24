@@ -1,7 +1,8 @@
 *MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
 
 .subckt rram_v0 TE BE
-N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
+*N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
+N1 TE BE rram_v0_model gap_initial=1.69
 .ends rram_v0
 
 .model rram_v0_model rram_v0_va

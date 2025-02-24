@@ -13,7 +13,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=5e-11
 x2=2e-05
 divx=5
 subdivx=1
@@ -29,14 +29,14 @@ node="\\"BL[V];BL\\"
 \\"WL[V];WL\\""
 linewidth_mult=4}
 B 2 1210 -80 2010 320 {flags=graph
-y1=8200
-y2=3400000
+y1=8100
+y2=3200000
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=5e-11
 x2=2e-05
 divx=5
 subdivx=1
@@ -46,18 +46,19 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=4
-node="\\"Memristance [Ohms];te be - i(Vread) / \\""
+color="4 7"
+node="\\"Memristance1 [Ohms]; te be - i(Vread) / \\"
+\\"Memristance2 [Ohms]; te2 be2 - i(Vread1) / \\""
 linewidth_mult=4}
 B 2 1210 -880 2010 -480 {flags=graph
-y1=-0.00029
-y2=0.00021
+y1=-0.0028
+y2=0.00062
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=5e-11
 x2=2e-05
 divx=5
 subdivx=1
@@ -82,7 +83,7 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0
+x1=5e-11
 x2=2e-05
 divx=5
 subdivx=1
@@ -99,29 +100,6 @@ logy=0
 color=4
 node="\\"ThicknessFill [nm]; 5 n.xr1.n1#ngap -\\""
 linewidth_mult=3.5}
-B 2 2100 -460 2900 -60 {flags=graph
-y1=-2.2
-y2=2.4
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=2e-05
-divx=5
-subdivx=1
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-
-
-linewidth_mult=4
-color=4
-node="\\"Vpot; be te -\\""}
 N 230 0 230 40 {
 lab=GND}
 N 230 40 540 40 {
@@ -162,6 +140,46 @@ N 230 -120 230 -60 {
 lab=GND}
 N 230 -350 230 -240 {
 lab=BL}
+N 260 740 260 780 {
+lab=GND}
+N 260 780 570 780 {
+lab=GND}
+N 570 740 570 780 {
+lab=GND}
+N 570 640 570 680 {
+lab=SL2}
+N 570 610 650 610 {
+lab=GND}
+N 380 610 530 610 {
+lab=WL2}
+N 570 560 570 580 {
+lab=te2}
+N 570 450 570 500 {
+lab=te2}
+N 650 610 650 660 {
+lab=GND}
+N 650 660 650 780 {
+lab=GND}
+N 570 780 650 780 {
+lab=GND}
+N 570 500 570 560 {
+lab=te2}
+N 260 390 370 390 {
+lab=BL2}
+N 430 390 570 390 {
+lab=be2}
+N 260 560 260 620 {
+lab=GND}
+N 320 610 380 610 {
+lab=WL2}
+N 320 610 320 720 {
+lab=WL2}
+N 260 680 260 740 {
+lab=GND}
+N 260 620 260 680 {
+lab=GND}
+N 260 390 260 500 {
+lab=BL2}
 C {devices/code_shown.sym} 100 160 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -170,7 +188,7 @@ value="
   * Modify according to your specific location
   save all
   tran 100n 20u
-  write tb_1T1R_pulses_rram_v0.raw
+  write tb_1T1R.raw
 .endc
 
 " }
@@ -195,7 +213,7 @@ C {devices/vsource.sym} 230 -210 0 0 {name=Vbl value="PULSE(0 2.4 0 5n 5n 500n 1
 C {devices/gnd.sym} 420 40 0 0 {name=l1 lab=GND}
 C {devices/launcher.sym} 840 20 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_1T1R_pulses_rram_v0.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_1T1R.raw tran"
 }
 C {devices/lab_pin.sym} 400 -130 1 0 {name=wl sig_type=std_logic lab=WL}
 C {devices/lab_pin.sym} 470 -350 1 0 {name=be sig_type=std_logic lab=be}
@@ -218,22 +236,50 @@ value="
 
 "
 spice_ignore=true}
-C {devices/code_shown.sym} 112.5 347.5 0 0 {name=MODELS2
+C {devices/code.sym} 982.5 147.5 0 0 {name=MODELS3
 only_toplevel=true
 format="tcleval( @value )"
 value="
-*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
-
 .subckt rram_v0 TE BE
-*N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
-N1 TE BE rram_v0_model gap_initial=0.11
+	N1 TE BE rram_v0_model gap_initial=0.11
 .ends rram_v0
 
+.subckt rram_v1 TE BE
+	N1 TE BE rram_v0_model gap_initial=1.68
+.ends rram_v1
+
 .model rram_v0_model rram_v0_va
-
-
 .control
 pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
 .endc
 "
 spice_ignore=false}
+C {sky130_fd_pr/nfet_01v8.sym} 550 610 0 0 {name=M2
+L=0.15
+W=7
+nf=1 
+mult=1
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=nfet_01v8
+spiceprefix=X
+}
+C {devices/vsource.sym} 320 750 0 0 {name=Vwl1 value="PWL(0 2 9.9u 2 10u 3)"
+}
+C {devices/vsource.sym} 260 530 0 0 {name=Vbl1 value="PULSE(0 2.4 0 5n 5n 500n 1000n 10)"}
+C {devices/gnd.sym} 450 780 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} 430 610 1 0 {name=wl2 sig_type=std_logic lab=WL2}
+C {devices/lab_pin.sym} 500 390 1 0 {name=be2 sig_type=std_logic lab=be2}
+C {devices/lab_pin.sym} 260 410 0 0 {name=p2 sig_type=std_logic lab=BL2}
+C {devices/lab_pin.sym} 570 660 2 0 {name=wl3 sig_type=std_logic lab=SL2}
+C {devices/vsource.sym} 400 390 1 0 {name=Vread1 value=1e-5}
+C {sky130_fd_pr/rram_v0.sym} 570 420 2 1 {name=R2
+model=rram_v1
+spiceprefix=X
+}
+C {devices/lab_pin.sym} 570 510 2 0 {name=be3 sig_type=std_logic lab=te2}
+C {devices/vsource.sym} 570 710 0 1 {name=Vsl1 value="PULSE(0 2.6 10u 5n 5n 500n 1000n 10)"}
