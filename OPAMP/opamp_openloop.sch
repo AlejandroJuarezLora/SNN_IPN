@@ -1,4 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
+v {xschem version=3.4.6RC file_version=1.2
 }
 G {}
 K {}
@@ -52,7 +52,7 @@ C {devices/lab_pin.sym} 1220 -100 3 0 {name=p18 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 1530 -210 3 0 {name=p19 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 1320 -100 3 0 {name=p20 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} 1320 -335 1 0 {name=p21 sig_type=std_logic lab=vin}
-C {devices/isource.sym} 1630 -280 0 0 {name=I0 value=DC\{iref\}}
+C {devices/isource.sym} 1630 -280 0 0 {name=I0 value=100u}
 C {devices/lab_pin.sym} 1630 -210 3 0 {name=p22 sig_type=std_logic lab=vss}
 C {devices/lab_wire.sym} 1320 -225 3 0 {name=p24 sig_type=std_logic lab=vsen}
 C {devices/res.sym} 1180 -430 1 0 {name=R1
@@ -149,7 +149,7 @@ C {devices/lab_wire.sym} 1572.5 -390 0 0 {name=p5 sig_type=std_logic lab=vcm
 C {devices/lab_wire.sym} 1522.5 -430 0 0 {name=p6 sig_type=std_logic lab=vin
 
 }
-C {devices/code.sym} 1900 -570 0 0 {name=TT_MODELS
+C {devices/code.sym} 920 -250 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="

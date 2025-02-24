@@ -50,8 +50,8 @@ color=4
 node="\\"Memristance [Ohms];te be - i(Vread) / \\""
 linewidth_mult=4}
 B 2 1210 -880 2010 -480 {flags=graph
-y1=-0.0028
-y2=0.00062
+y1=-0.00029
+y2=0.00021
 ypos1=0
 ypos2=2
 divy=5
@@ -75,8 +75,8 @@ color=6
 node="\\"Current Memristor[A]; i(vread)\\"	"
 linewidth_mult=4}
 B 2 395 -880 1195 -480 {flags=graph
-y1=0.9
-y2=4.3
+y1=1.1
+y2=4.9
 ypos1=0
 ypos2=2
 divy=5
@@ -99,6 +99,29 @@ logy=0
 color=4
 node="\\"ThicknessFill [nm]; 5 n.xr1.n1#ngap -\\""
 linewidth_mult=3.5}
+B 2 2100 -460 2900 -60 {flags=graph
+y1=-2.2
+y2=2.4
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=2e-05
+divx=5
+subdivx=1
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+linewidth_mult=4
+color=4
+node="\\"Vpot; be te -\\""}
 N 230 0 230 40 {
 lab=GND}
 N 230 40 540 40 {
@@ -195,11 +218,22 @@ value="
 
 "
 spice_ignore=true}
-C {devices/code.sym} 982.5 147.5 0 0 {name=MODELS3
+C {devices/code_shown.sym} 112.5 347.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
 value="
-** opencircuitdesign pdks install
-.inc $::SKYWATER_MODELS/rram_v0.spice
+*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
+
+.subckt rram_v0 TE BE
+*N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
+N1 TE BE rram_v0_model gap_initial=0.11
+.ends rram_v0
+
+.model rram_v0_model rram_v0_va
+
+
+.control
+pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+.endc
 "
 spice_ignore=false}

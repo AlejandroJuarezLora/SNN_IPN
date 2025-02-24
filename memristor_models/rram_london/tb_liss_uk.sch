@@ -31,7 +31,7 @@ color=4
 node=te}
 B 2 250 -560 1050 -160 {flags=graph
 y1=890
-y2=1700000
+y2=3400000
 ypos1=0
 ypos2=2
 divy=5
@@ -51,7 +51,7 @@ logy=0
 color=4
 node="\\"memristancia;0 te - i(v1) /\\""}
 B 2 1050 -960 1850 -560 {flags=graph
-y1=-1.4e-05
+y1=-6.7e-06
 y2=0.0023
 ypos1=0
 ypos2=2
@@ -72,8 +72,8 @@ logx=0
 logy=0
 }
 B 2 1050 -560 1850 -160 {flags=graph
-y1=-0.00081747226
-y2=0.001496528
+y1=-6.7e-06
+y2=0.0023
 ypos1=0
 ypos2=2
 divy=5
@@ -94,7 +94,7 @@ logy=0
 
 color=4
 node=n.xr1.n1#flow(te,be)
-sweep=TE}
+sweep=te}
 N -370 -330 -370 -300 {
 lab=TE}
 N -370 -240 -370 -210 {
@@ -121,7 +121,7 @@ N -370 -200 -370 -130 {
 lab=0}
 N -290 -330 -230 -330 {
 lab=TE}
-C {devices/vsource.sym} -300 -790 0 0 {name=V3 value="SINE(0 2 1k 0 0 0)"
+C {devices/vsource.sym} 20 -330 0 0 {name=V3 value="SINE(0 2 1k 0 0 0)"
 spice_ignore=true}
 C {devices/gnd.sym} -370 -110 0 0 {name=l2 lab=0}
 C {devices/launcher.sym} -40 -440 0 0 {name=h1
@@ -131,21 +131,18 @@ set rawfile [file tail [file rootname [xschem get schname]]]
 xschem raw_read $netlist_dir/$\{rawfile\}.raw
 unset rawfile
 "}
-C {devices/code.sym} -570 -250 0 0 {name=MODELS
+C {devices/code_shown.sym} -570 -970 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-*.inc $::SKYWATER_MODELS/sky.spice
+**N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=unif(4.1, 0.7)
 .subckt rram_v0 TE BE
-N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=3.5
+	N1 TE BE sky130_fd_pr_reram__reram_cell_model Tfilament_0=3.3
 .ends rram_v0
-
 .model sky130_fd_pr_reram__reram_cell_model sky130_fd_pr_reram__reram_cell
-
-
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky.osdi
+	pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/sky.osdi
 .endc
 "
 spice_ignore=false}
@@ -153,7 +150,7 @@ C {devices/code_shown.sym} -570 -540 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .option savecurrents
-.tran 1u 16m
+.tran 50u 16m
 .control
 	save all
 	run
