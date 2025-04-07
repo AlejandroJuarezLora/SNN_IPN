@@ -1,5 +1,4 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -95,8 +94,6 @@ N 480 -575 480 -485 {
 lab=#net2}
 N 480 -485 480 -480 {
 lab=#net2}
-N 705 -760 705 -650 {
-lab=vdd}
 N -25 -455 20 -455 {lab=vout_pre}
 N 520 -450 575 -450 {lab=vout_post}
 C {sky130_fd_pr/nfet_01v8.sym} 40 -455 0 0 {name=M2
@@ -147,7 +144,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {devices/iopin.sym} 625 -680 2 1 {name=p15 lab=I_post}
-C {sky130_fd_pr/rram_v0.sym} 220 -340 1 1 {name=R2
+C {/foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.sym} 220 -340 1 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }

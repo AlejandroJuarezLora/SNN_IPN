@@ -1,5 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -283,16 +282,6 @@ C {devices/vdd.sym} 620 -1100 0 0 {name=l22 lab=vg100}
 C {devices/vdd.sym} 620 -770 0 0 {name=l10 lab=vg100}
 C {devices/vdd.sym} 620 -400 0 0 {name=l2 lab=vg100}
 C {devices/vdd.sym} 620 -20 0 0 {name=l4 lab=vg100}
-C {devices/code.sym} -177.5 -937.5 0 0 {name=MODELS2
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-*.inc $::SKYWATER_MODELS/rram_v0.spice
-.inc /home/alex/Desktop/EDA/SNN_IPN/memristor_models/wellposed/wllpsd.spice
-
-"
-spice_ignore=false}
 C {devices/vsource.sym} 430 -1060 3 0 {name=Vi1 value=0}
 C {devices/vsource.sym} 430 -710 3 0 {name=Vi2 value=0}
 C {devices/vsource.sym} 430 -310 3 0 {name=Vi3 value=0}
