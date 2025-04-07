@@ -1,5 +1,4 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -142,7 +141,8 @@ N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
 
 
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+*pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+pre_osdi /foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.osdi
 .endc
 
 "
@@ -203,10 +203,10 @@ value="
 
 .param mc_mm_switch=0
 .param mc_pr_switch=0
-.include ~/pdk/sky130B/libs.tech/ngspice/corners/tt.spice
-.include ~/pdk/sky130B/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
-.include ~/pdk/sky130B/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
-.include ~/pdk/sky130B/libs.tech/ngspice/corners/tt/specialized_cells.spice
+.include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /foss/pdks/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /foss/pdks/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
 "
 spice_ignore=false}

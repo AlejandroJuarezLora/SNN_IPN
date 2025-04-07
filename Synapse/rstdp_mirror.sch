@@ -1,5 +1,4 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -266,7 +265,7 @@ C {devices/iopin.sym} 525 -600 2 1 {name=p15 lab=I_post}
 C {devices/lab_pin.sym} -195 -215 0 0 {name=p9 sig_type=std_logic lab=vout_post}
 C {devices/lab_pin.sym} 660 -210 0 1 {name=p5 sig_type=std_logic lab=vout_pre}
 C {devices/lab_pin.sym} -70 -455 0 1 {name=p10 sig_type=std_logic lab=vss}
-C {sky130_fd_pr/rram_v0.sym} 175 -355 1 1 {name=R2
+C {/foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.sym} 175 -355 1 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }
