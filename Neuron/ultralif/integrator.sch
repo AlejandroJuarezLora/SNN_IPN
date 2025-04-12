@@ -1,5 +1,4 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -86,7 +85,7 @@ C {sky130_fd_pr/pfet_01v8.sym} 70 -30 0 0 {name=M3
 L=0.15
 W=50
 nf=1
-mult=1
+mult=3
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -98,9 +97,9 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 320 100 0 0 {name=M4
 L=0.15
-W=50
+W=25
 nf=1
-mult=1
+mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 

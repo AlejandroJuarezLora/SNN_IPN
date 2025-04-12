@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {type=subcircuit
-format="@name @pinlist @symname"
-template="name=x1"
+lvs_format="@spiceprefix@name @pinlist @symname W_LEAK=@W_LEAK"
+format="@spiceprefix@name @pinlist @symname W_LEAK=@W_LEAK"
+template="name=x1 W_LEAK=0.95 spiceprefix=X"
 }
 V {}
 S {}
@@ -18,7 +18,7 @@ B 5 -62.5 -2.5 -57.5 2.5 {name=Iext dir=inout}
 B 5 -2.5 -52.5 2.5 -47.5 {name=vdd dir=inout}
 B 5 27.5 -42.5 32.5 -37.5 {name=g100n dir=inout}
 B 5 57.5 -2.5 62.5 2.5 {name=vout dir=inout}
-B 5 -32.5 47.5 -27.5 52.5 {name=Ileak dir=inout}
+B 5 -32.5 47.5 -27.5 52.5 {name=Vleak dir=inout}
 B 5 -2.5 57.5 2.5 62.5 {name=vss dir=inout}
 A 4 0 5 39.05124837953327 219.8055710922652 360 {}
 T {@symname} 37 44 0 0 0.3 0.3 {}
@@ -27,5 +27,6 @@ T {Iext} -35 -14 0 1 0.2 0.2 {}
 T {vdd} -5 -44 0 1 0.2 0.2 {}
 T {g100n} 65 -34 0 1 0.2 0.2 {}
 T {vout} 75 6 0 1 0.2 0.2 {}
-T {Ileak} -55 26 0 0 0.2 0.2 {}
+T {Vleak} -55 26 0 0 0.2 0.2 {}
 T {vss} 5 54 2 1 0.2 0.2 {}
+T {@W_LEAK} 37 74 0 0 0.3 0.3 {}
