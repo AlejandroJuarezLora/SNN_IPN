@@ -25,16 +25,25 @@ module rram_v0_va(t, b);
     parameter real smoothing = 1e-8 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    // parameter real maxslope = 1e16 from (0:inf);
+    //parameter real maxslope = 1e15 from (0:inf);
     parameter real maxslope = 1e18 from (0:inf);
     `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
     
     real ddt_Gap, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
 
+      
+    analog function real smoothstep;
+        input x, smoothing; 
+        real  x, smoothing;
+        begin
+            smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
+        end
+    endfunction // smoothstep
+    
     // analog function real smoothstep;
-    //     input x, smoothing;
-    //     real x, smoothing;
+    //     input x;
+    //     real x;
     //     begin
     //         if (x > 1) begin
     //             smoothstep = 1;
@@ -45,14 +54,7 @@ module rram_v0_va(t, b);
     //         end
     //     end
     // endfunction // soft_minmax
-    
-    analog function real smoothstep;
-        input x, smoothing; 
-        real  x, smoothing;
-        begin
-            smoothstep = 0.5*(x/sqrt(x*x + smoothing)+1);
-        end
-    endfunction // smoothstep
+  
 
     analog function real safeexp;
         input x, maxslope;
@@ -73,7 +75,7 @@ module rram_v0_va(t, b);
     
     
     analog begin
-        // Set the initial gap voltage at the first timestep
+        
         @(initial_step) begin
             V(nGap, b) <= gap_initial; // Set the initial gap value
             $strobe("Gap Inicial %f", gap_initial);
@@ -93,8 +95,8 @@ module rram_v0_va(t, b);
         // I(t,b) <+ I0 * exp(-(Gap)/g0) * sinh(V(t, b)/V0) + GMIN*V(t, b);
         // Gamma = gamma0 + Beta0 * pow(Gap, 3);
         // ddt_Gap =  -Vel0 * exp(-Ea/$vt)*sinh(V(t, b)*Gamma*a0/(tox*$vt));
-        // Fw1 = smoothstep(minGap-Gap, smoothing);
-        // Fw2 = smoothstep(Gap-maxGap, smoothing);
+        // Fw1 = smoothstep(minGap-Gap);
+        // Fw2 = smoothstep(Gap-maxGap);
         // clip_minGap = (exp(Kclip*(minGap-Gap)) - ddt_Gap) * Fw1; 
         // clip_maxGap = (-exp(Kclip*(Gap-maxGap)) - ddt_Gap) * Fw2;
         // I(nGap, b) <+ ddt_Gap + clip_minGap + clip_maxGap;

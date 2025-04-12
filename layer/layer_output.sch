@@ -1,5 +1,4 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -194,7 +193,7 @@ C {devices/lab_pin.sym} 840 -2040 1 0 {name=p16 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 870 -2030 1 0 {name=p17 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1840 0 0 {name=M3
 L=0.15
-W=1.1
+W=1.15
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -214,7 +213,7 @@ C {devices/lab_pin.sym} 840 -1710 1 0 {name=p23 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 870 -1700 1 0 {name=p24 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1510 0 0 {name=M5
 L=0.15
-W=1.1
+W=1.15
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -235,7 +234,7 @@ C {devices/lab_pin.sym} 840 -1370 1 0 {name=p30 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 870 -1360 1 0 {name=p31 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 790 -1170 0 0 {name=M6
 L=0.15
-W=1.1
+W=1.15
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -331,15 +330,15 @@ C {devices/iopin.sym} 220 -1940 0 0 {name=p38 lab=vout1}
 C {devices/iopin.sym} 220 -1910 0 0 {name=p44 lab=vout2}
 C {devices/iopin.sym} 220 -1880 0 0 {name=p45 lab=vout3}
 C {devices/iopin.sym} 220 -1850 0 0 {name=p46 lab=vout4}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/syn_bias.sym} 530 -2360 0 0 {name=x5}
+C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 530 -2360 0 0 {name=x5}
 C {devices/lab_pin.sym} 590 -2410 1 0 {name=p47 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 590 -2310 3 0 {name=p48 sig_type=std_logic lab=vss}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/syn_bias.sym} 520 -2010 0 0 {name=x6}
+C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 520 -2010 0 0 {name=x6}
 C {devices/lab_pin.sym} 580 -2060 1 0 {name=p49 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 580 -1960 3 0 {name=p50 sig_type=std_logic lab=vss}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/syn_bias.sym} 520 -1680 0 0 {name=x7}
+C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 520 -1680 0 0 {name=x7}
 C {devices/lab_pin.sym} 580 -1730 1 0 {name=p51 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 580 -1630 3 0 {name=p52 sig_type=std_logic lab=vss}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/syn_bias.sym} 510 -1340 0 0 {name=x8}
+C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 510 -1340 0 0 {name=x8}
 C {devices/lab_pin.sym} 570 -1390 1 0 {name=p53 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 570 -1290 3 0 {name=p54 sig_type=std_logic lab=vss}

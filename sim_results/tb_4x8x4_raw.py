@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import sys
 
 intp = 1  #tomar uno de cada cien valores, para graficar rapido
-nameFile = "data.raw"
+nameFile = "data15.raw"
 if len(sys.argv) > 1:
     print("Usando :", sys.argv[1])
     nameFile = sys.argv[1]

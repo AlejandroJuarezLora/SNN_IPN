@@ -186,13 +186,10 @@ N 245 -760 245 -730 {
 lab=vdd}
 N 245 -810 245 -760 {
 lab=vdd}
-N 245 -780 525 -780 {
-lab=vdd}
 N 245 -680 345 -680 {
 lab=A}
 N 205 -355 235 -355 {lab=te}
 N 295 -355 325 -355 {lab=#net1}
-N 520 -780 610 -780 {lab=vdd}
 N 525 -700 525 -680 {lab=#net2}
 N 525 -620 525 -600 {
 lab=I_post}
@@ -200,6 +197,7 @@ N 525 -650 620 -650 {
 lab=vss}
 N 450 -650 485 -650 {
 lab=vdd}
+N 245 -780 525 -780 {lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} -145 -455 0 0 {name=M2
 L=0.15
 W=7.5
@@ -337,7 +335,7 @@ C {devices/lab_pin.sym} 535 -450 0 0 {name=p21 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -75 -345 3 0 {name=p22 sig_type=std_logic lab=vpre}
 C {devices/lab_pin.sym} 550 -340 3 0 {name=p23 sig_type=std_logic lab=vpost}
 C {sky130_fd_pr/pfet_01v8.sym} 505 -730 0 0 {name=M14
-L=0.5
+L=0.15
 W=2
 nf=1
 mult=1
@@ -371,7 +369,7 @@ C {devices/code_shown.sym} -110 -680 0 0 {name=s1 only_toplevel=false value="
 C {devices/vsource.sym} 265 -355 3 0 {name=Vmr value=0 savecurrent=true}
 C {sky130_fd_pr/nfet_01v8.sym} 505 -650 0 0 {name=M9
 L=0.15
-W=1
+W=2
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
