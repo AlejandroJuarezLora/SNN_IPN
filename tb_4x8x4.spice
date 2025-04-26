@@ -9,8 +9,9 @@ x5 VDD net7 net6 net5 GND J1 J2 net1 net12 net3 J3 net4 net2 J8 J7 J6 J5 J4 N1 N
 x6 net9 net8 M2 net10 GND M1 M3 net11 M4 J1 J2 J3 J4 J5 J6 J7 J8 VDD stdp_8x4
 Vin2 in GND dc 0V ac 0mV trrandom(1 200u 0s 0.9 0.9)
 x2 VDD net8 GND net9 net10 hx net11 M1 M2 M3 M4 Vr1 layer_output_rew
-Vin1 x net14 SINE(0.9 0.3 2000 0 0)
-Vin4 net14 GND SINE(0 0.1 3000 0 90)
+Vin1 x net14 SINE(0.9 0.2 1000 0 0)
+Vin4 net14 net15 SINE(0 0.1 1500 0 30)
+Vin5 net15 GND SINE(0 0.1 600 0 65)
 **** begin user architecture code
 
 *MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
@@ -447,8 +448,8 @@ XM6 I_post net2 net3 vdd sky130_fd_pr__pfet_01v8 L=5 W=0.5 nf=1 ad='int((nf+1)/2
 XMIn Ispks vx vsyn vdd sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM3 vsyn vdd vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
-XM4 Vout vsyn vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=3 m=3
+XM4 Vout vsyn vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=25 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
 XCsyn vdd vsyn sky130_fd_pr__cap_mim_m3_1 W=22.2 L=22.2 MF=1 m=1
 XR2 vx vdd sky130_fd_pr__res_generic_po W=1 L=1 m=1
@@ -476,7 +477,7 @@ XM6 Vout vx gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) 
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8
 
-.tran 100n 5m
+.tran 50n 5m
 *.control
 *	run
 *	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
