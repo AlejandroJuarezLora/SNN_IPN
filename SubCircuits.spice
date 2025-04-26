@@ -1,74 +1,29 @@
-** sch_path: /foss/designs/SNN_IPN/tb_4x8x4.sch
-**.subckt tb_4x8x4
-Vdd VDD GND 1.8
-x1 VDD GND in N1 N2 N3 N4 layer_input
-x3 VDD net13 x hx Vr1 GND opamp_sky130
-I0 net13 GND 100u
-x4 VDD net7 GND net6 net5 J1 J2 net4 J3 net3 J4 net2 J5 net1 J6 J7 net12 J8 layer_hidden
-x5 VDD net7 net6 net5 GND J1 J2 net1 net12 net3 J3 net4 net2 J8 J7 J6 J5 J4 N1 N2 N3 N4 stdp_4x8
-x6 net9 net8 M2 net10 GND M1 M3 net11 M4 J1 J2 J3 J4 J5 J6 J7 J8 VDD stdp_8x4
-Vin2 in GND dc 0V ac 0mV trrandom(1 200u 0s 0.9 0.9)
-x2 VDD net8 GND net9 net10 hx net11 M1 M2 M3 M4 Vr1 layer_output_rew
-Vin1 x net14 SINE(0.9 0.2 1000 0 0)
-Vin4 net14 net15 SINE(0 0.1 1500 0 30)
-Vin5 net15 GND SINE(0 0.1 600 0 65)
-**** begin user architecture code
+
 
 *MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
 
 .subckt rram_v0 TE BE
-N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
-*N1 TE BE rram_v0_model gap_initial=1.69
+    N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
+    *N1 TE BE rram_v0_model gap_initial=1.69
 .ends rram_v0
 
 .model rram_v0_model rram_v0_va
 
-
 .control
-
-pre_osdi /foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.osdi
+    pre_osdi /foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.osdi
 .endc
-
-
-
 
 .param mc_mm_switch=0
 .param mc_pr_switch=0
 .include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt.spice
 .include /foss/pdks/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
 .include /foss/pdks/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
-*.include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+.include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
 
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  layer/layer_input.sym # of pins=7
-** sym_path: /foss/designs/SNN_IPN/layer/layer_input.sym
-** sch_path: /foss/designs/SNN_IPN/layer/layer_input.sch
-.subckt layer_input vdd vss vin vout1 vout2 vout3 vout4
-*.iopin vdd
-*.iopin vss
-*.ipin vin
-*.iopin vout1
-*.iopin vout2
-*.iopin vout3
-*.iopin vout4
-Xx2 net1 vdd vg100n vout1 vileak vss ul_tun W_LEAK=0.95
-x5 vdd vin net3 vss syn_pos
-x8 vdd vin net1 vss syn_neg
-I9 vg100n vss 100nA
-XM4 vg100n vg100n vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM2 vileak vileak vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-I1 vdd vileak 100nA
-Xx1 net2 vdd vg100n vout2 vileak vss ul_tun W_LEAK=1.1
-x53 vdd vin net2 vss syn_neg
-Xx3 net3 vdd vg100n vout3 vileak vss ul_tun W_LEAK=0.95
-x7 vdd vin net4 vss syn_pos
-Xx4 net4 vdd vg100n vout4 vileak vss ul_tun W_LEAK=1.1
-.ends
 
 
 * expanding   symbol:  OPAMP/opamp_sky130.sym # of pins=6
@@ -103,198 +58,6 @@ XM6 vout voe1 vss vss sky130_fd_pr__nfet_01v8 L=0.45 W=4.5 nf=1 ad='W * 0.29' as
 .ends
 
 
-* expanding   symbol:  layer/layer_hidden.sym # of pins=18
-** sym_path: /foss/designs/SNN_IPN/layer/layer_hidden.sym
-** sch_path: /foss/designs/SNN_IPN/layer/layer_hidden.sch
-.subckt layer_hidden vdd Iext1 vss Iext2 Iext3 vout1 vout2 Iext4 vout3 Iext5 vout4 Iext6 vout5 Iext7 vout6 vout7 Iext8 vout8
-*.iopin vdd
-*.iopin vss
-*.ipin Iext1
-*.ipin Iext2
-*.ipin Iext3
-*.ipin Iext4
-*.iopin vout1
-*.iopin vout2
-*.iopin vout3
-*.iopin vout4
-*.ipin Iext5
-*.ipin Iext6
-*.ipin Iext7
-*.iopin Iext8
-*.iopin vout5
-*.iopin vout6
-*.iopin vout7
-*.iopin vout8
-Xx6 Iext1 vdd vg100n vout1 vileak vss ul_tun W_LEAK=1.15
-I9 vg100n vss 100nA
-XM4 vg100n vg100n vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM2 vileak vileak vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-I1 vdd vileak 100nA
-Xx1 Iext2 vdd vg100n vout2 vileak vss ul_tun W_LEAK=1.1
-Xx2 Iext3 vdd vg100n vout3 vileak vss ul_tun W_LEAK=1.05
-Xx3 Iext4 vdd vg100n vout4 vileak vss ul_tun W_LEAK=1
-Xx8 Iext8 vdd vg100n vout8 vileak vss ul_tun W_LEAK=1
-Xx4 Iext5 vdd vg100n vout5 vileak vss ul_tun W_LEAK=1.15
-Xx5 Iext6 vdd vg100n vout6 vileak vss ul_tun W_LEAK=1.1
-Xx7 Iext7 vdd vg100n vout7 vileak vss ul_tun W_LEAK=1.05
-.ends
-
-
-* expanding   symbol:  Synapse/stdp_4x8.sym # of pins=22
-** sym_path: /foss/designs/SNN_IPN/Synapse/stdp_4x8.sym
-** sch_path: /foss/designs/SNN_IPN/Synapse/stdp_4x8.sch
-.subckt stdp_4x8 vdda i_post1 i_post2 i_post3 vssa vout_post1 vout_post2 i_post7 i_post8 i_post5 vout_post3 i_post4 i_post6
-+ vout_post8 vout_post7 vout_post6 vout_post5 vout_post4 vout_pre1 vout_pre2 vout_pre3 vout_pre4
-*.ipin vout_pre1
-*.opin vout_post1
-*.iopin vdda
-*.iopin vssa
-*.iopin i_post1
-*.iopin i_post3
-*.iopin i_post4
-*.ipin vout_pre2
-*.ipin vout_pre3
-*.ipin vout_pre4
-*.opin vout_post2
-*.opin vout_post3
-*.opin vout_post4
-*.iopin i_post2
-*.iopin i_post5
-*.opin vout_post5
-*.iopin i_post6
-*.opin vout_post6
-*.iopin i_post7
-*.opin vout_post7
-*.iopin i_post8
-*.opin vout_post8
-xstdp1 vdda vssa vout_pre1 vout_post1 i_post1 stdp
-xstdp2 vdda vssa vout_pre1 vout_post2 i_post2 stdp
-xstdp3 vdda vssa vout_pre1 vout_post3 i_post3 stdp
-xstdp4 vdda vssa vout_pre1 vout_post4 i_post4 stdp
-xstdp5 vdda vssa vout_pre2 vout_post1 i_post1 stdp
-xstdp6 vdda vssa vout_pre2 vout_post2 i_post2 stdp
-xstdp7 vdda vssa vout_pre2 vout_post3 i_post3 stdp
-xstdp8 vdda vssa vout_pre2 vout_post4 i_post4 stdp
-xstdp9 vdda vssa vout_pre3 vout_post1 i_post1 stdp
-xstdp10 vdda vssa vout_pre3 vout_post2 i_post2 stdp
-xstdp11 vdda vssa vout_pre3 vout_post3 i_post3 stdp
-xstdp12 vdda vssa vout_pre3 vout_post4 i_post4 stdp
-xstdp13 vdda vssa vout_pre4 vout_post1 i_post1 stdp
-xstdp14 vdda vssa vout_pre4 vout_post2 i_post2 stdp
-xstdp15 vdda vssa vout_pre4 vout_post3 i_post3 stdp
-xstdp16 vdda vssa vout_pre4 vout_post4 i_post4 stdp
-xstdp17 vdda vssa vout_pre1 vout_post5 i_post5 stdp
-xstdp18 vdda vssa vout_pre1 vout_post6 i_post6 stdp
-xstdp19 vdda vssa vout_pre1 vout_post7 i_post7 stdp
-xstdp20 vdda vssa vout_pre1 vout_post8 i_post8 stdp
-xstdp21 vdda vssa vout_pre2 vout_post5 i_post5 stdp
-xstdp22 vdda vssa vout_pre2 vout_post6 i_post6 stdp
-xstdp23 vdda vssa vout_pre2 vout_post7 i_post7 stdp
-xstdp24 vdda vssa vout_pre2 vout_post8 i_post8 stdp
-xstdp25 vdda vssa vout_pre3 vout_post5 i_post5 stdp
-xstdp26 vdda vssa vout_pre3 vout_post6 i_post6 stdp
-xstdp27 vdda vssa vout_pre3 vout_post7 i_post7 stdp
-xstdp28 vdda vssa vout_pre3 vout_post8 i_post8 stdp
-xstdp29 vdda vssa vout_pre4 vout_post5 i_post5 stdp
-xstdp30 vdda vssa vout_pre4 vout_post6 i_post6 stdp
-xstdp31 vdda vssa vout_pre4 vout_post7 i_post7 stdp
-xstdp32 vdda vssa vout_pre4 vout_post8 i_post8 stdp
-.ends
-
-
-* expanding   symbol:  Synapse/stdp_8x4.sym # of pins=18
-** sym_path: /foss/designs/SNN_IPN/Synapse/stdp_8x4.sym
-** sch_path: /foss/designs/SNN_IPN/Synapse/stdp_8x4.sch
-.subckt stdp_8x4 i_post2 i_post1 vout_post2 i_post3 vssa vout_post1 vout_post3 i_post4 vout_post4 vout_pre1 vout_pre2 vout_pre3
-+ vout_pre4 vout_pre5 vout_pre6 vout_pre7 vout_pre8 vdda
-*.ipin vout_pre1
-*.opin vout_post1
-*.iopin vdda
-*.iopin vssa
-*.iopin i_post1
-*.iopin i_post3
-*.iopin i_post4
-*.ipin vout_pre2
-*.ipin vout_pre3
-*.ipin vout_pre4
-*.opin vout_post2
-*.opin vout_post3
-*.opin vout_post4
-*.iopin i_post2
-*.ipin vout_pre5
-*.ipin vout_pre6
-*.ipin vout_pre7
-*.ipin vout_pre8
-xstdp2 vdda vssa vout_pre1 vout_post2 i_post2 stdp
-xstdp3 vdda vssa vout_pre1 vout_post3 i_post3 stdp
-xstdp4 vdda vssa vout_pre1 vout_post4 i_post4 stdp
-xstdp5 vdda vssa vout_pre2 vout_post1 i_post1 stdp
-xstdp6 vdda vssa vout_pre2 vout_post2 i_post2 stdp
-xstdp7 vdda vssa vout_pre2 vout_post3 i_post3 stdp
-xstdp8 vdda vssa vout_pre2 vout_post4 i_post4 stdp
-xstdp9 vdda vssa vout_pre3 vout_post1 i_post1 stdp
-xstdp10 vdda vssa vout_pre3 vout_post2 i_post2 stdp
-xstdp11 vdda vssa vout_pre3 vout_post3 i_post3 stdp
-xstdp12 vdda vssa vout_pre3 vout_post4 i_post4 stdp
-xstdp13 vdda vssa vout_pre4 vout_post1 i_post1 stdp
-xstdp14 vdda vssa vout_pre4 vout_post2 i_post2 stdp
-xstdp15 vdda vssa vout_pre4 vout_post3 i_post3 stdp
-xstdp16 vdda vssa vout_pre4 vout_post4 i_post4 stdp
-xstdp17 vdda vssa vout_pre5 vout_post1 i_post1 stdp
-xstdp18 vdda vssa vout_pre5 vout_post2 i_post2 stdp
-xstdp19 vdda vssa vout_pre5 vout_post3 i_post3 stdp
-xstdp20 vdda vssa vout_pre5 vout_post4 i_post4 stdp
-xstdp21 vdda vssa vout_pre6 vout_post1 i_post1 stdp
-xstdp22 vdda vssa vout_pre6 vout_post2 i_post2 stdp
-xstdp23 vdda vssa vout_pre6 vout_post3 i_post3 stdp
-xstdp24 vdda vssa vout_pre6 vout_post4 i_post4 stdp
-xstdp25 vdda vssa vout_pre7 vout_post1 i_post1 stdp
-xstdp26 vdda vssa vout_pre7 vout_post2 i_post2 stdp
-xstdp27 vdda vssa vout_pre7 vout_post3 i_post3 stdp
-xstdp28 vdda vssa vout_pre7 vout_post4 i_post4 stdp
-xstdp29 vdda vssa vout_pre8 vout_post1 i_post1 stdp
-xstdp30 vdda vssa vout_pre8 vout_post2 i_post2 stdp
-xstdp31 vdda vssa vout_pre8 vout_post3 i_post3 stdp
-xstdp32 vdda vssa vout_pre8 vout_post4 i_post4 stdp
-xstdp1 vdda vssa vout_pre1 vout_post1 i_post1 stdp
-.ends
-
-
-* expanding   symbol:  /foss/designs/SNN_IPN/layer/layer_output_rew.sym # of pins=12
-** sym_path: /foss/designs/SNN_IPN/layer/layer_output_rew.sym
-** sch_path: /foss/designs/SNN_IPN/layer/layer_output_rew.sch
-.subckt layer_output_rew vdd Iext1 vss Iext2 Iext3 Vout Iext4 vout1 vout2 vout3 vout4 Vreward
-*.iopin vdd
-*.iopin vss
-*.ipin Iext1
-*.iopin Vout
-*.ipin Iext2
-*.ipin Iext3
-*.ipin Iext4
-*.iopin vout1
-*.iopin vout2
-*.iopin vout3
-*.iopin vout4
-*.iopin Vreward
-Xx2 Iext1 vdd vg100n vout1 Vreward vss ul_tun W_LEAK=0.95
-I9 vg100n vss 100nA
-XM4 vg100n vg100n vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-Xx1 Iext2 vdd vg100n vout2 Vreward vss ul_tun W_LEAK=1.1
-Xx3 Iext3 vdd vg100n vout3 Vreward vss ul_tun W_LEAK=1.05
-Xx4 Iext4 vdd vg100n vout4 Vreward vss ul_tun W_LEAK=1.15
-x14 VDD Vout net1 GND integrator
-XM7 net1 vout1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM8 net1 vout2 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM9 net1 vout3 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM10 net1 vout4 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-.ends
 
 
 * expanding   symbol:  Neuron/ultralif/ul_tun.sym # of pins=6
@@ -415,8 +178,6 @@ XM15 net2 net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2
 
 
 .save v(te) v(be) i(vmr)
-
-
 **** end user architecture code
 Vmr te net1 0
 .save i(vmr)
@@ -448,8 +209,8 @@ XM6 I_post net2 net3 vdd sky130_fd_pr__pfet_01v8 L=5 W=0.5 nf=1 ad='int((nf+1)/2
 XMIn Ispks vx vsyn vdd sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM3 vsyn vdd vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=3 m=3
-XM4 Vout vsyn vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=25 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM4 Vout vsyn vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
 XCsyn vdd vsyn sky130_fd_pr__cap_mim_m3_1 W=22.2 L=22.2 MF=1 m=1
 XR2 vx vdd sky130_fd_pr__res_generic_po W=1 L=1 m=1
@@ -477,12 +238,6 @@ XM6 Vout vx gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) 
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8
 
-.tran 50n 5m
-*.control
-*	run
-*	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
-*.endc
+.tran 100n 5m
 
-
-**** end user architecture code
 .end

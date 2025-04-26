@@ -1,5 +1,5 @@
-** sch_path: /foss/designs/SNN_IPN/tb_4x8x4.sch
-**.subckt tb_4x8x4
+** sch_path: /foss/designs/SNN_IPN/tb_4x8x4_sq.sch
+**.subckt tb_4x8x4_sq
 Vdd VDD GND 1.8
 x1 VDD GND in N1 N2 N3 N4 layer_input
 x3 VDD net13 x hx Vr1 GND opamp_sky130
@@ -9,9 +9,12 @@ x5 VDD net7 net6 net5 GND J1 J2 net1 net12 net3 J3 net4 net2 J8 J7 J6 J5 J4 N1 N
 x6 net9 net8 M2 net10 GND M1 M3 net11 M4 J1 J2 J3 J4 J5 J6 J7 J8 VDD stdp_8x4
 Vin2 in GND dc 0V ac 0mV trrandom(1 200u 0s 0.9 0.9)
 x2 VDD net8 GND net9 net10 hx net11 M1 M2 M3 M4 Vr1 layer_output_rew
-Vin1 x net14 SINE(0.9 0.2 1000 0 0)
-Vin4 net14 net15 SINE(0 0.1 1500 0 30)
-Vin5 net15 GND SINE(0 0.1 600 0 65)
+Vin1 x net14 0.75
+Vin4 net14 net15 SINE(0 -0.44563 500 0 0)
+Vin5 net15 net16 SINE(0 -0.1485 1500 0 0)
+Vin6 net16 net17 SINE(0 -0.0891 2500 0 0)
+Vin7 net17 net18 SINE(0 -0.0636 3500 0 0)
+Vin8 net18 GND SINE(0 -0.0495 4500 0 0)
 **** begin user architecture code
 
 *MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
@@ -477,7 +480,7 @@ XM6 Vout vx gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) 
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8
 
-.tran 50n 5m
+.tran 100n 1m
 *.control
 *	run
 *	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
