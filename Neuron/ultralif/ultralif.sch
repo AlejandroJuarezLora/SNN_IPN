@@ -1,5 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -269,3 +268,9 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 542.5 -290 1 0 {name=p1 sig_type=std_logic lab=vm}
 C {devices/lab_pin.sym} 210 -260 3 0 {name=p4 sig_type=std_logic lab=vdd}
+C {devices/code_shown.sym} 232.5 -492.5 0 0 {name=STIMULI 
+only_toplevel=true
+place=end
+value="
+.save vm vout
+"}

@@ -1,5 +1,4 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
@@ -447,8 +446,8 @@ value="
 ** opencircuitdesign pdks install
 .inc $::SKYWATER_MODELS/rram_v0.spice
 "
-spice_ignore=false}
-C {sky130_fd_pr/rram_v0.sym} 470 -640 1 1 {name=R2
+spice_ignore=true}
+C {/foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.sym} 470 -640 1 1 {name=R2
 model=rram_v0
 spiceprefix=X
 }
@@ -528,10 +527,6 @@ C {devices/gnd.sym} -70 -600 0 0 {name=l12 lab=GND}
 C {devices/vdd.sym} -70 -700 0 0 {name=l13 lab=VDD}
 C {devices/vdd.sym} 270 -560 0 0 {name=l14 lab=VDD}
 C {devices/vdd.sym} 580 -560 0 0 {name=l15 lab=VDD}
-C {sky130_fd_pr/rram_v0.sym} 450 20 1 1 {name=R1
-model=rram_v0
-spiceprefix=X
-}
 C {sky130_fd_pr/nfet_01v8.sym} 250 -80 1 0 {name=M5
 L=0.15
 W=7.5
@@ -605,3 +600,28 @@ C {devices/gnd.sym} 250 -40 0 0 {name=l7 lab=GND}
 C {devices/gnd.sym} 560 -40 0 0 {name=l8 lab=GND}
 C {devices/vdd.sym} 250 100 0 0 {name=l9 lab=VDD}
 C {devices/vdd.sym} 560 100 0 0 {name=l16 lab=VDD}
+C {/foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.sym} 450 20 1 1 {name=R3
+model=rram_v0
+spiceprefix=X
+}
+C {devices/code_shown.sym} -817.5 -372.5 0 0 {name=MODELS1
+only_toplevel=true
+format="tcleval( @value )"
+value="
+*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
+
+.subckt rram_v0 TE BE
+N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
+*N1 TE BE rram_v0_model gap_initial=1.69
+.ends rram_v0
+
+.model rram_v0_model rram_v0_va
+
+
+.control
+
+pre_osdi /foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.osdi
+.endc
+
+"
+spice_ignore=false}
