@@ -1,42 +1,18 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.6 file_version=1.2}
 G {}
 K {}
 V {}
 S {}
 E {}
-B 2 1445 -435 3125 60 {flags=graph
-y1=3.3570747
-y2=5.0850747
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=1e-10
-x2=0.0012
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node="\\"Synapse 1; 5 n.x1.xr2.n1#ngap -\\"
-
-\\"Synapse 2; 5 n.x3.xr2.n1#ngap - \\""
-color="6 8"
-dataset=-1
-unitx=1
-logx=0
-logy=0
-linewidth_mult=4}
-B 2 270 465 1070 865 {flags=graph
-y1=-1.1
+B 2 1540 135 2340 535 {flags=graph
+y1=-1.2
 y2=1.2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -50,15 +26,15 @@ logx=0
 logy=0
 color=6
 node="\\"Vmem1; x1.BE x1.TE - \\""}
-B 2 -1587.5 -925 57.5 -625 {flags=graph
-y1=-0.35221097
-y2=2.3839289
-ypos1=0.21031407
-ypos2=1.1328548
+B 2 -297.5 -825 1347.5 -525 {flags=graph
+y1=-0.0023
+y2=1.9
+ypos1=-0.0023
+ypos2=1.9
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -71,21 +47,21 @@ unitx=1
 logx=0
 logy=0
 color="6 8 4"
-node="\\"Vout N1;vout_pre\\"
-\\"Vout N2;vout2_pre\\"
-\\"Vout Npost;vout_post\\""
+node="\\"Vout N1; vout_pre\\"
+\\"Vout N2; vout2_pre\\"
+\\"Vout Npost; vout_post\\""
 hilight_wave=0
 linewidth_mult=2
 digital=1}
-B 2 -1577.5 820 -32.5 1120 {flags=graph
+B 2 -207.5 810 1337.5 1110 {flags=graph
 y1=0.015
-y2=1.5
+y2=1.6
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -102,19 +78,18 @@ logy=0
 
 
 color="4 7"
-node="\\"Vm Neuron Layer 2;x7.vm\\"
-\\"Vth; 1.5\\"
-	"
+node="\\"Vm Neuron Layer 2;x5.vm\\"
+\\"Vth; 1.5\\""
 linewidth_mult=4}
-B 2 -1575 507.5 -30 817.5 {flags=graph
-y1=0.23158825
-y2=1.8165883
+B 2 -215 477.5 1330 787.5 {flags=graph
+y1=0.015
+y2=1.6
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -128,19 +103,19 @@ logx=0
 logy=0
 
 color="6 8 7"
-node="x6.vm
-x2.vm
+node="x2.vm
+x4.vm
 \\"Vth; 1.5\\""
 linewidth_mult=4}
-B 2 1260 475 2060 875 {flags=graph
-y1=-0.88
+B 2 2310 115 3110 515 {flags=graph
+y1=-1.1
 y2=1.1
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -154,7 +129,7 @@ logx=0
 logy=0
 color=8
 node="\\"Vmem2; x3.BE x3.TE - \\""}
-B 2 345 -940 2005 -735 {flags=graph
+B 2 1415 -530 3075 -325 {flags=graph
 y1=0
 y2=1e-07
 ypos1=7.2064205e-09
@@ -162,7 +137,7 @@ ypos2=4.2081407e-08
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -180,7 +155,7 @@ node="\\"Iext N1;i(@in2[current])\\"
 \\"Iext N3;i(@in3[current])\\""
 digital=1
 linewidth_mult=3}
-B 2 345 -735 2015 -595 {flags=graph
+B 2 1415 -325 3085 -185 {flags=graph
 y1=-1.8
 y2=1.8
 ypos1=-3.2630903e-08
@@ -188,7 +163,7 @@ ypos2=3.060046e-07
 divy=5
 subdivy=1
 unity=1
-x1=1e-10
+x1=6.25e-11
 x2=0.0012
 divx=5
 subdivx=1
@@ -352,14 +327,6 @@ N 940 -145 940 -105 {
 lab=#net6}
 N 920 -145 940 -145 {
 lab=#net6}
-N -60 40 400 40 {
-lab=#net3}
-N -80 340 400 340 {
-lab=#net1}
-N -60 -0 -60 40 {
-lab=#net3}
-N -80 300 -80 340 {
-lab=#net1}
 N 970 140 1055 140 {
 lab=#net7}
 N 300 -365 300 -345 {
@@ -401,28 +368,32 @@ lab=VR}
 C {devices/vsource.sym} -215 -355 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/vdd.sym} -215 -415 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -215 -295 0 0 {name=l2 lab=GND}
-C {sky130_fd_pr/corner.sym} -1517.5 -197.5 0 0 {name=CORNER only_toplevel=true corner=tt}
-C {devices/code_shown.sym} -1517.5 -382.5 0 0 {name=STIMULI 
+C {sky130_fd_pr/corner.sym} 1642.5 852.5 0 0 {name=CORNER only_toplevel=true corner=tt}
+C {devices/code_shown.sym} 1642.5 667.5 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
 value="
 .options savecurrents
+.save Vr vout_pre vout2_pre vout_post x2.vm x4.vm x5.vm
++ n.x1.xr2.n1#ngap n.x3.xr2.n1#ngap
 .tran 50n 1200u uic
 .control
 	run
 	write tb_2_1.raw
 .endc
 "}
-C {devices/code.sym} -1387.5 -197.5 0 0 {name=MODELS2
+C {devices/code.sym} 1772.5 852.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
 .inc $::SKYWATER_MODELS/rram_v0.spice
 "
-spice_ignore=false}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 150 0 0 0 {name=x6}
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 1155 140 0 0 {name=x7}
+spice_ignore=true}
+C {Neuron/ultralif/ultralif.sym} 150 0 0 0 {name=x2 
+W_LEAK=1}
+C {Neuron/ultralif/ultralif.sym} 1155 140 0 0 {name=x5 
+W_LEAK=1}
 C {sky130_fd_pr/nfet_01v8.sym} 320 -295 0 1 {name=M19
 L=0.15
 W=1
@@ -447,11 +418,12 @@ C {devices/vdd.sym} 1115 50 0 0 {name=l6 lab=VDD}
 C {devices/gnd.sym} 550 90 0 0 {name=l11 lab=GND}
 C {devices/lab_pin.sym} 315 0 1 0 {name=p1 sig_type=std_logic lab=vout_pre}
 C {devices/lab_pin.sym} 1285 140 0 1 {name=p3 sig_type=std_logic lab=vout_post}
-C {devices/launcher.sym} -1017.5 -292.5 0 0 {name=h5
+C {devices/launcher.sym} 2142.5 757.5 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_2_1.raw tran"
 }
-C {/home/alex/Desktop/EDA/SNN_IPN/Neuron/ultralif/ultralif.sym} 150 300 0 0 {name=x2}
+C {Neuron/ultralif/ultralif.sym} 150 300 0 0 {name=x4 
+W_LEAK=1}
 C {devices/gnd.sym} 190 400 0 0 {name=l7 lab=GND}
 C {devices/vdd.sym} 110 200 0 0 {name=l13 lab=VDD}
 C {devices/gnd.sym} 550 390 0 0 {name=l15 lab=GND}
@@ -476,8 +448,8 @@ C {devices/lab_pin.sym} 170 -380 3 0 {name=p7 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 190 -120 1 0 {name=p8 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 190 200 1 0 {name=p9 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 1195 40 1 0 {name=p11 sig_type=std_logic lab=vg100n}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 0 0 0 {name=x1}
-C {/home/alex/Desktop/EDA/SNN_IPN/Synapse/rstdp_mirror.sym} 550 300 0 0 {name=x3}
+C {Synapse/rstdp_mirror.sym} 550 0 0 0 {name=x1}
+C {Synapse/rstdp_mirror.sym} 550 300 0 0 {name=x3}
 C {devices/isource.sym} -190 -40 0 1 {name=In2 value="PWL(0 100n 599u 100n 600u 0n)"
 spice_ignore=false}
 C {devices/vsource.sym} 940 140 3 0 {name=Vsum value=0 }
@@ -593,3 +565,24 @@ C {devices/vsource.sym} 560 -295 0 0 {name=V3 value="PWL(0 1.8 299u 1.8 300u -1.
 spice_ignore=false}
 C {devices/vdd.sym} 550 -50 0 0 {name=l10 lab=VDD}
 C {devices/vdd.sym} 550 250 0 0 {name=l14 lab=VDD}
+C {devices/code_shown.sym} 2422.5 667.5 0 0 {name=MODELS1
+only_toplevel=true
+format="tcleval( @value )"
+value="
+*MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
+
+.subckt rram_v0 TE BE
+N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
+*N1 TE BE rram_v0_model gap_initial=1.69
+.ends rram_v0
+
+.model rram_v0_model rram_v0_va
+
+
+.control
+
+pre_osdi /foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.osdi
+.endc
+
+"
+spice_ignore=false}
