@@ -1,8 +1,9 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 180 -1670 180 -1640 {
 lab=vdd}
@@ -222,29 +223,9 @@ C {devices/iopin.sym} 220 -1940 0 0 {name=p38 lab=vout1}
 C {devices/iopin.sym} 220 -1910 0 0 {name=p44 lab=vout2}
 C {devices/iopin.sym} 220 -1880 0 0 {name=p45 lab=vout3}
 C {devices/iopin.sym} 220 -1850 0 0 {name=p46 lab=vout4}
-C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 530 -2360 0 0 {name=x5
-spice_ignore=true}
 C {devices/lab_pin.sym} 590 -2410 1 0 {name=p47 sig_type=std_logic lab=vdd
 spice_ignore=true}
 C {devices/lab_pin.sym} 590 -2310 3 0 {name=p48 sig_type=std_logic lab=vss
-spice_ignore=true}
-C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 520 -2010 0 0 {name=x6
-spice_ignore=true}
-C {devices/lab_pin.sym} 580 -2060 1 0 {name=p49 sig_type=std_logic lab=vdd
-spice_ignore=true}
-C {devices/lab_pin.sym} 580 -1960 3 0 {name=p50 sig_type=std_logic lab=vss
-spice_ignore=true}
-C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 520 -1680 0 0 {name=x7
-spice_ignore=true}
-C {devices/lab_pin.sym} 580 -1730 1 0 {name=p51 sig_type=std_logic lab=vdd
-spice_ignore=true}
-C {devices/lab_pin.sym} 580 -1630 3 0 {name=p52 sig_type=std_logic lab=vss
-spice_ignore=true}
-C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_bias.sym} 510 -1340 0 0 {name=x8
-spice_ignore=true}
-C {devices/lab_pin.sym} 570 -1390 1 0 {name=p53 sig_type=std_logic lab=vdd
-spice_ignore=true}
-C {devices/lab_pin.sym} 570 -1290 3 0 {name=p54 sig_type=std_logic lab=vss
 spice_ignore=true}
 C {devices/iopin.sym} 220 -1790 0 0 {name=p7 lab=Vreward}
 C {devices/lab_pin.sym} 810 -1200 0 0 {name=p13 sig_type=std_logic lab=Vreward}

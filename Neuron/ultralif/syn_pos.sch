@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 80 -210 80 -170 {
 lab=vdd}
@@ -86,7 +86,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -120 -40 0 0 {name=M12
 L=1
-W=0.4
+W=0.5
 nf=1 
 mult=1
 model=nfet_01v8

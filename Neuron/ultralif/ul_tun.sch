@@ -1,8 +1,9 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 700 -290 700 -280 {
 lab=#net1}
@@ -154,8 +155,6 @@ N 130 -345 800 -345 {
 lab=#net3}
 N 120 -345 120 -330 {
 lab=#net3}
-N 120 -290 120 -200 {
-lab=vdd}
 N 1090 -330 1090 -300 {lab=vdd}
 N 1090 -300 1090 -270 {lab=vdd}
 N 150 -290 160 -290 {lab=#net4}
@@ -164,6 +163,7 @@ N 320 -100 340 -100 {lab=Vleak}
 N 380 -70 380 -30 {lab=vss}
 N 380 -100 380 -70 {lab=vss}
 N 120 -345 130 -345 {lab=#net3}
+N 120 -290 120 -240 {lab=vdd}
 C {sky130_fd_pr/pfet_01v8.sym} 360 -240 0 0 {name=M1
 L=10
 W=1
@@ -255,7 +255,7 @@ C {devices/vsource.sym} 210 -290 3 0 {name=vext value=0 }
 C {devices/code_shown.sym} 380 -440 0 0 {name=s1 only_toplevel=false value="
 .save i(vext) v(vout)
 "}
-C {devices/lab_pin.sym} 120 -200 3 0 {name=p1 sig_type=std_logic lab=vdd}
+C {devices/lab_pin.sym} 120 -240 3 0 {name=p1 sig_type=std_logic lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} 360 -100 0 0 {name=M11
 L=0.15
 W=@W_LEAK

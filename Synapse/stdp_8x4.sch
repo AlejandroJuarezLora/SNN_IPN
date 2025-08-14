@@ -1,20 +1,21 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 1130 -130 1130 -50 {
 lab=vout_pre1}
 N 1130 110 1130 200 {
 lab=vout_pre2}
-N -300 110 1130 110 {
+N 700 110 1130 110 {
 lab=vout_pre2}
 N 1130 620 1130 700 {
 lab=vout_pre4}
-N -300 620 1130 620 {
+N 700 620 1130 620 {
 lab=vout_pre4}
-N -300 370 1130 370 {
+N 700 370 1130 370 {
 lab=vout_pre3}
 N 1130 370 1130 450 {
 lab=vout_pre3}
@@ -42,7 +43,7 @@ N 250 620 250 700 {
 lab=vout_pre4}
 N 700 620 700 700 {
 lab=vout_pre4}
-N 160 -200 160 710 {
+N 160 460 160 710 {
 lab=vout_post1}
 N 110 710 160 710 {
 lab=vout_post1}
@@ -52,7 +53,7 @@ N 110 210 160 210 {
 lab=vout_post1}
 N 110 -40 160 -40 {
 lab=vout_post1}
-N 590 -200 590 710 {
+N 590 460 590 710 {
 lab=vout_post2}
 N 550 710 590 710 {
 lab=vout_post2}
@@ -62,7 +63,7 @@ N 550 210 590 210 {
 lab=vout_post2}
 N 550 -40 590 -40 {
 lab=vout_post2}
-N 1040 -190 1040 710 {
+N 1040 460 1040 710 {
 lab=vout_post3}
 N 1000 710 1040 710 {
 lab=vout_post3}
@@ -72,7 +73,7 @@ N 1000 210 1040 210 {
 lab=vout_post3}
 N 1000 -40 1040 -40 {
 lab=vout_post3}
-N 1490 -180 1490 710 {
+N 1490 460 1490 710 {
 lab=vout_post4}
 N 1430 710 1490 710 {
 lab=vout_post4}
@@ -80,7 +81,7 @@ N 1430 460 1490 460 {
 lab=vout_post4}
 N 1430 -40 1490 -40 {
 lab=vout_post4}
-N 200 -210 200 740 {
+N 200 490 200 740 {
 lab=i_post1}
 N 110 740 200 740 {
 lab=i_post1}
@@ -90,7 +91,7 @@ N 110 240 200 240 {
 lab=i_post1}
 N 110 490 200 490 {
 lab=i_post1}
-N 640 -210 640 740 {
+N 640 490 640 740 {
 lab=i_post2}
 N 550 740 640 740 {
 lab=i_post2}
@@ -100,7 +101,7 @@ N 550 240 640 240 {
 lab=i_post2}
 N 550 -10 640 -10 {
 lab=i_post2}
-N 1080 -200 1080 740 {
+N 1080 490 1080 740 {
 lab=i_post3}
 N 1000 740 1080 740 {
 lab=i_post3}
@@ -110,7 +111,7 @@ N 1000 240 1080 240 {
 lab=i_post3}
 N 1000 -10 1080 -10 {
 lab=i_post3}
-N 1530 -190 1530 740 {
+N 1530 490 1530 740 {
 lab=i_post4}
 N 1430 740 1530 740 {
 lab=i_post4}
@@ -122,31 +123,31 @@ N -370 -250 -340 -250 {
 lab=vdda}
 N -370 -200 -340 -200 {
 lab=vssa}
-N 160 780 160 1690 {
+N 160 1440 160 1690 {
 lab=vout_post1}
-N 160 710 160 780 {
+N 160 710 160 940 {
 lab=vout_post1}
-N 590 780 590 1690 {
+N 590 1440 590 1690 {
 lab=vout_post2}
-N 590 710 590 780 {
+N 590 710 590 940 {
 lab=vout_post2}
-N 1040 780 1040 1690 {
+N 1040 1440 1040 1690 {
 lab=vout_post3}
-N 1040 710 1040 780 {
+N 1040 710 1040 940 {
 lab=vout_post3}
-N 1490 780 1490 1690 {
+N 1490 1440 1490 1690 {
 lab=vout_post4}
-N 1490 710 1490 780 {
+N 1490 710 1490 940 {
 lab=vout_post4}
-N 200 740 200 1720 {
+N 200 1470 200 1720 {
 lab=i_post1}
 N 110 1720 200 1720 {
 lab=i_post1}
-N 640 740 640 1720 {
+N 640 1470 640 1720 {
 lab=i_post2}
-N 1080 740 1080 1720 {
+N 1080 1470 1080 1720 {
 lab=i_post3}
-N 1530 740 1530 1720 {
+N 1530 1470 1530 1720 {
 lab=i_post4}
 N 110 940 160 940 {
 lab=vout_post1}
@@ -210,7 +211,7 @@ N 1430 940 1490 940 {
 lab=vout_post4}
 N 1430 970 1530 970 {
 lab=i_post4}
-N -300 880 1130 880 {
+N 700 880 1130 880 {
 lab=vout_pre5}
 N -190 880 -190 930 {
 lab=vout_pre5}
@@ -220,7 +221,7 @@ N 700 880 700 930 {
 lab=vout_pre5}
 N 1130 880 1130 930 {
 lab=vout_pre5}
-N -300 1100 1130 1100 {
+N 700 1100 1130 1100 {
 lab=vout_pre6}
 N -190 1100 -190 1180 {
 lab=vout_pre6}
@@ -230,7 +231,7 @@ N 700 1100 700 1180 {
 lab=vout_pre6}
 N 1130 1100 1130 1180 {
 lab=vout_pre6}
-N -300 1350 1130 1350 {
+N 700 1350 1130 1350 {
 lab=vout_pre7}
 N -190 1350 -190 1430 {
 lab=vout_pre7}
@@ -240,7 +241,7 @@ N 700 1350 700 1430 {
 lab=vout_pre7}
 N 1130 1350 1130 1430 {
 lab=vout_pre7}
-N -300 1620 1130 1620 {
+N 700 1620 1130 1620 {
 lab=vout_pre8}
 N -190 1620 -190 1680 {
 lab=vout_pre8}
@@ -258,9 +259,142 @@ N 400 1760 400 1770 {
 lab=vssa}
 N 400 1630 400 1640 {
 lab=vdda}
-N -300 -130 1130 -130 {lab=vout_pre1}
+N 700 -130 1130 -130 {lab=vout_pre1}
 N 1430 210 1490 210 {lab=vout_post4}
 N 1430 240 1530 240 {lab=i_post4}
+N -300 -130 -190 -130 {lab=vout_pre1}
+N -190 -130 250 -130 {lab=vout_pre1}
+N 250 -130 700 -130 {lab=vout_pre1}
+N 250 110 700 110 {
+lab=vout_pre2}
+N -190 110 250 110 {
+lab=vout_pre2}
+N -300 110 -190 110 {
+lab=vout_pre2}
+N -300 370 -190 370 {
+lab=vout_pre3}
+N -190 370 250 370 {
+lab=vout_pre3}
+N 250 370 700 370 {
+lab=vout_pre3}
+N -300 620 -190 620 {
+lab=vout_pre4}
+N -190 620 250 620 {
+lab=vout_pre4}
+N 250 620 700 620 {
+lab=vout_pre4}
+N 160 210 160 460 {
+lab=vout_post1}
+N 160 -40 160 210 {
+lab=vout_post1}
+N 160 -200 160 -40 {
+lab=vout_post1}
+N 590 210 590 460 {
+lab=vout_post2}
+N 590 -40 590 210 {
+lab=vout_post2}
+N 590 -200 590 -40 {
+lab=vout_post2}
+N 1040 210 1040 460 {
+lab=vout_post3}
+N 1040 -40 1040 210 {
+lab=vout_post3}
+N 1040 -190 1040 -40 {
+lab=vout_post3}
+N 1490 210 1490 460 {
+lab=vout_post4}
+N 1490 -180 1490 -40 {
+lab=vout_post4}
+N 200 -210 200 -10 {
+lab=i_post1}
+N 200 -10 200 240 {
+lab=i_post1}
+N 200 240 200 490 {
+lab=i_post1}
+N 640 240 640 490 {
+lab=i_post2}
+N 640 -10 640 240 {
+lab=i_post2}
+N 640 -210 640 -10 {
+lab=i_post2}
+N 1080 240 1080 490 {
+lab=i_post3}
+N 1080 -10 1080 240 {
+lab=i_post3}
+N 1080 -200 1080 -10 {
+lab=i_post3}
+N 1530 240 1530 490 {
+lab=i_post4}
+N 1530 -190 1530 -10 {
+lab=i_post4}
+N 200 740 200 970 {
+lab=i_post1}
+N 160 940 160 1190 {
+lab=vout_post1}
+N 200 970 200 1220 {
+lab=i_post1}
+N 160 1190 160 1440 {
+lab=vout_post1}
+N 200 1220 200 1470 {
+lab=i_post1}
+N 590 1190 590 1440 {
+lab=vout_post2}
+N 640 1220 640 1470 {
+lab=i_post2}
+N 590 940 590 1190 {
+lab=vout_post2}
+N 640 970 640 1220 {
+lab=i_post2}
+N 640 740 640 970 {
+lab=i_post2}
+N 1080 740 1080 970 {
+lab=i_post3}
+N 1040 940 1040 1190 {
+lab=vout_post3}
+N 1080 970 1080 1220 {
+lab=i_post3}
+N 1040 1190 1040 1440 {
+lab=vout_post3}
+N 1080 1220 1080 1470 {
+lab=i_post3}
+N 1490 1190 1490 1440 {
+lab=vout_post4}
+N 1530 1220 1530 1470 {
+lab=i_post4}
+N 1490 940 1490 1190 {
+lab=vout_post4}
+N 1530 970 1530 1220 {
+lab=i_post4}
+N 1530 740 1530 970 {
+lab=i_post4}
+N -300 880 -190 880 {
+lab=vout_pre5}
+N -190 880 250 880 {
+lab=vout_pre5}
+N 250 880 700 880 {
+lab=vout_pre5}
+N -300 1100 -190 1100 {
+lab=vout_pre6}
+N -190 1100 250 1100 {
+lab=vout_pre6}
+N 250 1100 700 1100 {
+lab=vout_pre6}
+N -300 1350 -190 1350 {
+lab=vout_pre7}
+N -190 1350 250 1350 {
+lab=vout_pre7}
+N 250 1350 700 1350 {
+lab=vout_pre7}
+N -300 1620 -190 1620 {
+lab=vout_pre8}
+N -190 1620 250 1620 {
+lab=vout_pre8}
+N 250 1620 700 1620 {
+lab=vout_pre8}
+N 1490 -40 1490 210 {
+lab=vout_post4}
+N 1530 -10 1530 240 {
+lab=i_post4}
 C {devices/ipin.sym} -300 -130 0 0 {name=p1 lab=vout_pre1}
 C {devices/opin.sym} 160 -200 3 0 {name=p5 lab=vout_post1}
 C {devices/iopin.sym} -370 -250 0 1 {name=p7 lab=vdda}

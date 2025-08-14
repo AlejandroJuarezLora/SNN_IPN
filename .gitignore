@@ -2,5 +2,6 @@
 /sim_results/*.pdf
 /sim_results/*.raw
 /Neuron/ultralif/sims/*.txt
+/Neuron/ultralif_final/*.txt
 /Neuron/ultralif/sims/*.zip
 /layer/*.txt
