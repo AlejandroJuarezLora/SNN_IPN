@@ -1,0 +1,57 @@
+* NGSPICE file created from ultralif_final.ext - technology: sky130A
+
+.subckt sky130_fd_pr__nfet_01v8_8CWFJ6 B D S G
+X0 S G D B sky130_fd_pr__nfet_01v8 ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=0.15
+.ends
+
+.subckt sky130_fd_pr__nfet_01v8_A8ARHG B D S G
+X0 S G D B sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_UAAMFL D S G B
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=1.55 pd=10.62 as=0.825 ps=5.33 w=5 l=0.15
+X1 S G D B sky130_fd_pr__pfet_01v8 ad=0.825 pd=5.33 as=1.55 ps=10.62 w=5 l=0.15
+X2 D a_n15_n509# S B sky130_fd_pr__pfet_01v8 ad=0.825 pd=5.33 as=0.825 ps=5.33 w=5 l=0.15
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_KCU4UF D S G B
+X0 S a_n63_n281# D B sky130_fd_pr__pfet_01v8 ad=0.33 pd=2.33 as=0.62 ps=4.62 w=2 l=0.15
+X1 D G S B sky130_fd_pr__pfet_01v8 ad=0.62 pd=4.62 as=0.33 ps=2.33 w=2 l=0.15
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_UVWACL B D S G
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=0.435 pd=3.58 as=0.435 ps=3.58 w=1.5 l=0.15
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_RCLJGL B D S G
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=0.15
+.ends
+
+.subckt sky130_fd_pr__cap_mim_m3_1_5PJWHD C2 C1
+X0 C1 C2 sky130_fd_pr__cap_mim_m3_1 l=10 w=25
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_6W5W95 B D S G
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=10
+.ends
+
+.subckt sky130_fd_pr__nfet_01v8_MFDSFG B D S G
+X0 S G D B sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=5
+.ends
+
+.subckt ultralif_final vss vout vdd Vleak
+Xsky130_fd_pr__nfet_01v8_8CWFJ6_1 vss vg vss Vleak sky130_fd_pr__nfet_01v8_8CWFJ6
+Xsky130_fd_pr__nfet_01v8_A8ARHG_1 vss vout vss vout_n sky130_fd_pr__nfet_01v8_A8ARHG
+Xsky130_fd_pr__nfet_01v8_A8ARHG_0 vss vout_n vss vg sky130_fd_pr__nfet_01v8_A8ARHG
+Xsky130_fd_pr__pfet_01v8_UAAMFL_0 sky130_fd_pr__pfet_01v8_UVWACL_0/G vss sky130_fd_pr__pfet_01v8_UVWACL_0/G
++ vdd sky130_fd_pr__pfet_01v8_UAAMFL
+Xsky130_fd_pr__pfet_01v8_KCU4UF_0 vss vss vout vdd sky130_fd_pr__pfet_01v8_KCU4UF
+Xsky130_fd_pr__pfet_01v8_UVWACL_0 vdd vg vss sky130_fd_pr__pfet_01v8_UVWACL_0/G sky130_fd_pr__pfet_01v8_UVWACL
+Xsky130_fd_pr__pfet_01v8_RCLJGL_0 vdd vout_n vdd vg sky130_fd_pr__pfet_01v8_RCLJGL
+Xsky130_fd_pr__cap_mim_m3_1_5PJWHD_0 vss sky130_fd_pr__cap_mim_m3_1_5PJWHD_0/C1 sky130_fd_pr__cap_mim_m3_1_5PJWHD
+Xsky130_fd_pr__pfet_01v8_RCLJGL_1 vdd vout vdd vout_n sky130_fd_pr__pfet_01v8_RCLJGL
+Xsky130_fd_pr__pfet_01v8_6W5W95_0 vdd vg vss vg sky130_fd_pr__pfet_01v8_6W5W95
+Xsky130_fd_pr__nfet_01v8_MFDSFG_0 vss sky130_fd_pr__pfet_01v8_UVWACL_0/G vss vg sky130_fd_pr__nfet_01v8_MFDSFG
+Xsky130_fd_pr__nfet_01v8_8CWFJ6_0 vss vss vss vout_n sky130_fd_pr__nfet_01v8_8CWFJ6
+.ends
+

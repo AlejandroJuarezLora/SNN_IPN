@@ -1,0 +1,91 @@
+| units: 500000 tech: sky130A format: MIT
+x Vleak vg vss vss s=23200,916 d=23200,916 l=30 w=400 x=655 y=-608 sky130_fd_pr__nfet_01v8
+x vout_n vout vss vss s=11600,516 d=11600,516 l=30 w=200 x=4195 y=-507 sky130_fd_pr__nfet_01v8
+x vg vout_n vss vss s=11600,516 d=11600,516 l=30 w=200 x=3773 y=-507 sky130_fd_pr__nfet_01v8
+x sky130_fd_pr__pfet_01v8_UVWACL_0/G sky130_fd_pr__pfet_01v8_UVWACL_0/G vss vdd s=33000,1066 d=62000,2124 l=30 w=1000 x=3319 y=-440 sky130_fd_pr__pfet_01v8
+x sky130_fd_pr__pfet_01v8_UVWACL_0/G sky130_fd_pr__pfet_01v8_UVWACL_0/G vss vdd s=62000,2124 d=33000,1066 l=30 w=1000 x=3128 y=-440 sky130_fd_pr__pfet_01v8
+x sky130_fd_pr__pfet_01v8_UAAMFL_0/a_n15_n509# vss sky130_fd_pr__pfet_01v8_UVWACL_0/G vdd s=33000,1066 d=33000,1066 l=30 w=1000 x=3224 y=-440 sky130_fd_pr__pfet_01v8
+x sky130_fd_pr__pfet_01v8_KCU4UF_0/a_n63_n281# vss vss vdd s=24800,924 d=13200,466 l=30 w=400 x=333 y=126 sky130_fd_pr__pfet_01v8
+x vout vss vss vdd s=13200,466 d=24800,924 l=30 w=400 x=238 y=126 sky130_fd_pr__pfet_01v8
+x sky130_fd_pr__pfet_01v8_UVWACL_0/G vg vss vdd s=17400,716 d=17400,716 l=30 w=300 x=2705 y=-270 sky130_fd_pr__pfet_01v8
+x vg vout_n vdd vdd s=23200,916 d=23200,916 l=30 w=400 x=3773 y=202 sky130_fd_pr__pfet_01v8
+x sky130_fd_pr__cap_mim_m3_1_5PJWHD_0/C1 vss s=11298560,15024 l=2000 w=5000 x=51 y=-953 sky130_fd_pr__cap_mim_m3_1
+x vout_n vout vdd vdd s=23200,916 d=23200,916 l=30 w=400 x=4195 y=202 sky130_fd_pr__pfet_01v8
+x vg vg vss vdd s=11600,516 d=11600,516 l=2000 w=200 x=732 y=398 sky130_fd_pr__pfet_01v8
+x vg sky130_fd_pr__pfet_01v8_UVWACL_0/G vss vss s=11600,516 d=11600,516 l=1000 w=200 x=2269 y=-293 sky130_fd_pr__nfet_01v8
+x vout_n vss vss vss s=23200,916 d=23200,916 l=30 w=400 x=233 y=-608 sky130_fd_pr__nfet_01v8
+C sky130_fd_pr__pfet_01v8_UVWACL_0/G vss 3.0
+C vss vg 4.2
+C vdd vss 2.5
+C vout vss 2.8
+C vdd vg 2.3
+C vss sky130_fd_pr__cap_mim_m3_1_5PJWHD_0/C1 22.4
+C vss0 10.7
+R vss 79850
+= vss sky130_fd_pr__cap_mim_m3_1_5PJWHD_0/C2
+= vss sky130_fd_pr__pfet_01v8_UAAMFL_0/S
+= vss sky130_fd_pr__pfet_01v8_UVWACL_0/S
+= vss sky130_fd_pr__pfet_01v8_KCU4UF_0/D
+= vss sky130_fd_pr__pfet_01v8_6W5W95_0/S
+= vss sky130_fd_pr__nfet_01v8_8CWFJ6_0/D
+= vss vm
+= vss sky130_fd_pr__pfet_01v8_UAAMFL_0/VSUBS
+= vss sky130_fd_pr__pfet_01v8_RCLJGL_1/VSUBS
+= vss sky130_fd_pr__pfet_01v8_RCLJGL_0/VSUBS
+= vss sky130_fd_pr__nfet_01v8_A8ARHG_1/B
+= vss sky130_fd_pr__nfet_01v8_A8ARHG_1/S
+= vss sky130_fd_pr__nfet_01v8_A8ARHG_0/B
+= vss sky130_fd_pr__nfet_01v8_A8ARHG_0/S
+= vss sky130_fd_pr__cap_mim_m3_1_5PJWHD_0/VSUBS
+= vss sky130_fd_pr__pfet_01v8_UVWACL_0/VSUBS
+= vss sky130_fd_pr__pfet_01v8_KCU4UF_0/VSUBS
+= vss sky130_fd_pr__pfet_01v8_KCU4UF_0/S
+= vss sky130_fd_pr__pfet_01v8_6W5W95_0/VSUBS
+= vss sky130_fd_pr__nfet_01v8_MFDSFG_0/B
+= vss sky130_fd_pr__nfet_01v8_MFDSFG_0/S
+= vss sky130_fd_pr__nfet_01v8_8CWFJ6_1/B
+= vss sky130_fd_pr__nfet_01v8_8CWFJ6_1/S
+= vss sky130_fd_pr__nfet_01v8_8CWFJ6_0/B
+= vss VSUBS
+= vss Iext
+= vss sky130_fd_pr__nfet_01v8_8CWFJ6_0/S
+R vout_n 4543
+= vout_n sky130_fd_pr__pfet_01v8_RCLJGL_1/G
+= vout_n sky130_fd_pr__nfet_01v8_A8ARHG_1/G
+= vout_n sky130_fd_pr__pfet_01v8_RCLJGL_0/D
+= vout_n sky130_fd_pr__nfet_01v8_A8ARHG_0/D
+= vout_n sky130_fd_pr__nfet_01v8_8CWFJ6_0/G
+R sky130_fd_pr__pfet_01v8_UVWACL_0/G 12488
+= sky130_fd_pr__pfet_01v8_UVWACL_0/G sky130_fd_pr__pfet_01v8_UAAMFL_0/G
+= sky130_fd_pr__pfet_01v8_UVWACL_0/G sky130_fd_pr__pfet_01v8_UAAMFL_0/D
+= sky130_fd_pr__pfet_01v8_UVWACL_0/G sky130_fd_pr__nfet_01v8_MFDSFG_0/D
+= sky130_fd_pr__pfet_01v8_UVWACL_0/G m1_2278_n293#
+C vdd0 11.9
+R vdd 72693
+= vdd sky130_fd_pr__pfet_01v8_UAAMFL_0/B
+= vdd sky130_fd_pr__pfet_01v8_RCLJGL_1/S
+= vdd sky130_fd_pr__pfet_01v8_RCLJGL_1/B
+= vdd sky130_fd_pr__pfet_01v8_RCLJGL_0/S
+= vdd sky130_fd_pr__pfet_01v8_RCLJGL_0/B
+= vdd sky130_fd_pr__pfet_01v8_UVWACL_0/B
+= vdd sky130_fd_pr__pfet_01v8_KCU4UF_0/B
+= vdd sky130_fd_pr__pfet_01v8_6W5W95_0/B
+C sky130_fd_pr__cap_mim_m3_1_5PJWHD_0/C10 2.1
+C vout0 2.0
+R vout 2934
+= vout sky130_fd_pr__pfet_01v8_RCLJGL_1/D
+= vout sky130_fd_pr__nfet_01v8_A8ARHG_1/D
+= vout sky130_fd_pr__pfet_01v8_KCU4UF_0/G
+R sky130_fd_pr__pfet_01v8_KCU4UF_0/a_n63_n281# 787
+R sky130_fd_pr__pfet_01v8_UAAMFL_0/a_n15_n509# 1751
+C vg0 4.7
+R vg 5641
+= vg sky130_fd_pr__pfet_01v8_RCLJGL_0/G
+= vg sky130_fd_pr__nfet_01v8_A8ARHG_0/G
+= vg sky130_fd_pr__pfet_01v8_UVWACL_0/D
+= vg sky130_fd_pr__pfet_01v8_6W5W95_0/G
+= vg sky130_fd_pr__pfet_01v8_6W5W95_0/D
+= vg sky130_fd_pr__nfet_01v8_MFDSFG_0/G
+= vg sky130_fd_pr__nfet_01v8_8CWFJ6_1/D
+R Vleak 837
+= Vleak sky130_fd_pr__nfet_01v8_8CWFJ6_1/G
