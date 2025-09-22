@@ -1,14 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1755201682
-<< error_p >>
-rect -125 -530 -67 -524
-rect 67 -530 125 -524
-rect -125 -564 -113 -530
-rect 67 -564 79 -530
-rect -125 -570 -67 -564
-rect 67 -570 125 -564
+timestamp 1757008927
 << nwell >>
 rect -311 -703 311 703
 << pmos >>
@@ -86,48 +79,64 @@ rect 127 -325 161 359
 rect -113 -564 -79 -530
 rect 79 -564 113 -530
 << metal1 >>
-rect -167 505 -121 517
+rect -163 517 69 539
+rect -167 505 71 517
 rect -167 -471 -161 505
-rect -127 -471 -121 505
-rect 25 505 71 517
+rect -127 491 31 505
+rect -127 -471 -121 491
 rect -71 359 -25 371
-rect -71 -325 -65 359
-rect -31 -325 -25 359
+rect -71 -248 -65 359
+rect -76 -254 -65 -248
+rect -31 -248 -25 359
+rect -31 -254 -24 -248
+rect -76 -312 -65 -306
+rect -71 -325 -65 -312
+rect -31 -312 -24 -306
+rect -31 -325 -25 -312
 rect -71 -337 -25 -325
 rect -167 -483 -121 -471
-rect 25 -471 31 505
+rect 25 -471 31 491
 rect 65 -471 71 505
 rect 121 359 167 371
-rect 121 -325 127 359
-rect 161 -325 167 359
+rect 121 -254 127 359
+rect 161 -248 167 359
+rect 161 -254 177 -248
+rect 121 -306 125 -254
+rect 177 -298 187 -262
+rect 121 -325 127 -306
+rect 161 -312 177 -306
+rect 161 -325 167 -312
 rect 121 -337 167 -325
 rect 25 -483 71 -471
 rect -125 -530 -67 -524
-rect -125 -564 -113 -530
-rect -79 -564 -67 -530
-rect -125 -570 -67 -564
 rect 67 -530 125 -524
-rect 67 -564 79 -530
+rect -125 -564 -113 -530
+rect -79 -564 79 -530
 rect 113 -564 125 -530
+rect -125 -570 -67 -564
 rect 67 -570 125 -564
+<< via1 >>
+rect -76 -306 -65 -254
+rect -65 -306 -31 -254
+rect -31 -306 -24 -254
+rect 125 -306 127 -254
+rect 127 -306 161 -254
+rect 161 -306 177 -254
+<< metal2 >>
+rect -82 -306 -76 -254
+rect -24 -262 -18 -254
+rect 119 -262 125 -254
+rect -24 -298 125 -262
+rect -24 -306 -18 -298
+rect 119 -306 125 -298
+rect 177 -306 183 -254
 << labels >>
-rlabel nsubdiff 0 -650 0 -650 0 B
+flabel metal1 s -143 20 -143 20 0 FreeSans 320 0 0 0 D
+port 0 nsew
+flabel metal1 s 146 32 146 32 0 FreeSans 320 0 0 0 S
 port 1 nsew
-rlabel pdiffc -144 17 -144 17 0 D0
+flabel metal1 s 0 -546 0 -546 0 FreeSans 320 0 0 0 G
 port 2 nsew
-rlabel polycont -96 -547 -96 -547 0 G0
+flabel locali s 6 650 6 650 0 FreeSans 320 0 0 0 B
 port 3 nsew
-rlabel pdiffc -48 17 -48 17 0 S1
-port 4 nsew
-rlabel pdiffc 48 17 48 17 0 D2
-port 5 nsew
-rlabel pdiffc 144 17 144 17 0 S2
-port 6 nsew
-rlabel polycont 96 -547 96 -547 0 G2
-port 7 nsew
-<< properties >>
-string FIXED_BBOX -258 -650 258 650
-string gencell sky130_fd_pr__pfet_01v8
-string library sky130
-string parameters w 5 l 0.15 m 1 nf 3 diffcov 100 polycov 100 guard 1 glc 0 grc 0 gtc 1 gbc 0 tbcov 100 rlcov 100 topc 0 botc 1 poverlap 0 doverlap 1 lmin 0.15 wmin 0.42 class mosfet compatible {sky130_fd_pr__pfet_01v8  sky130_fd_pr__pfet_01v8_lvt sky130_fd_pr__pfet_01v8_hvt  sky130_fd_pr__pfet_g5v0d10v5} full_metal 0 viasrc 70 viadrn 100 viagate 100 viagb 0 viagr 0 viagl 0 viagt 0 doports 1
 << end >>
