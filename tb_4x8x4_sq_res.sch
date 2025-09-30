@@ -1,8 +1,9 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 135 -440 135 -410 {
 lab=VDD}
@@ -123,8 +124,8 @@ value="
 *MADE BY JORGE ALEJANDRO JUAREZ LORA IPN
 
 .subckt rram_v0 TE BE
-N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
-*N1 TE BE rram_v0_model gap_initial=1.69
+*N1 TE BE rram_v0_model gap_initial=unif(0.9,0.79)
+N1 TE BE rram_v0_model gap_initial=0.9
 .ends rram_v0
 
 .model rram_v0_model rram_v0_va
@@ -209,14 +210,14 @@ value="
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8 
 
-.tran 10n 10m
+.tran 80n 10m
 *.control
 *	run
 *	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
 *.endc
 "
 spice_ignore = false}
-C {devices/vsource.sym} 150 -175 0 1 {name=Vin2 value="dc 0V ac 0mV trrandom(1 200u 0s 0.9 0.9) "
+C {devices/vsource.sym} 150 -175 0 1 {name=Vin2 value="dc 0V ac 0mV trrandom(1 500u 0s 0.9 0.9) "
 spice_ignore=false}
 C {devices/vsource.sym} 1600 25 0 1 {name=Vin3 value="PULSE(0.4 1.2 0 10u 10u 100u 200u)"
 spice_ignore=true}
