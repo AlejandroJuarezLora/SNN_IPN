@@ -181,7 +181,7 @@ value="
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8 
 
-.tran 100n 1m
+.tran 50n 10m
 *.control
 *	run
 *	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw

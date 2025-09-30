@@ -1,21 +1,10 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
-N 360 -1670 360 -1640 {
-lab=vdd}
-N 400 -1640 420 -1640 {
-lab=vg100n}
-N 360 -1550 360 -1530 {
-lab=vss}
-N 360 -1610 420 -1610 {
-lab=vg100n}
-N 420 -1640 420 -1610 {
-lab=vg100n}
-N 420 -1640 460 -1640 {
-lab=vg100n}
 N 360 -1410 360 -1380 {
 lab=vileak}
 N 400 -1350 450 -1350 {
@@ -66,26 +55,14 @@ N 620 -1320 640 -1320 {
 lab=vin}
 N 590 -1840 620 -1840 {
 lab=vin}
-C {Neuron/ultralif/ul_tun.sym} 840 -2340 0 0 {name=x2
-spiceprefix=X}
+C {Neuron/ultralif_final/ul_tun_final.sym} 840 -2340 0 0 {name=x2
+spiceprefix=X
+CM=0.8p}
 C {devices/iopin.sym} 400 -2030 0 0 {name=p1 lab=vdd}
 C {devices/lab_pin.sym} 840 -2390 1 0 {name=p2 sig_type=std_logic lab=vdd}
 C {devices/iopin.sym} 400 -2000 0 0 {name=p3 lab=vss}
 C {Neuron/ultralif/syn_pos.sym} 690 -1740 0 0 {name=x5}
 C {Neuron/ultralif/syn_neg.sym} 690 -2420 0 0 {name=x8}
-C {devices/isource.sym} 360 -1580 0 0 {name=I9 value=100nA
-
-spice_ignore=false}
-C {sky130_fd_pr/pfet_01v8.sym} 380 -1640 0 1 {name=M4
-L=0.15
-W=2
-nf=1
-mult=1
-model=pfet_01v8
-spiceprefix=X
-}
-C {devices/lab_pin.sym} 460 -1640 1 0 {name=p4 sig_type=std_logic lab=vg100n}
-C {devices/lab_pin.sym} 870 -2380 1 0 {name=p5 sig_type=std_logic lab=vg100n}
 C {sky130_fd_pr/nfet_01v8.sym} 380 -1350 0 1 {name=M2
 L=0.15
 W=10
@@ -103,36 +80,34 @@ spiceprefix=X
 C {devices/isource.sym} 360 -1440 0 0 {name=I1 value=100nA
 
 spice_ignore=false}
-C {devices/lab_pin.sym} 360 -1670 1 0 {name=p6 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 360 -1470 1 0 {name=p7 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 360 -1530 2 0 {name=p8 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 360 -1320 3 0 {name=p9 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 840 -2280 3 0 {name=p11 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 450 -1350 1 0 {name=p12 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 810 -2220 0 0 {name=p13 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 690 -2280 3 0 {name=p14 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 690 -2400 1 0 {name=p15 sig_type=std_logic lab=vdd}
-C {Neuron/ultralif/ul_tun.sym} 840 -1990 0 0 {name=x1 
-W_LEAK=1.1}
+C {Neuron/ultralif_final/ul_tun_final.sym} 840 -1990 0 0 {name=x1 
+W_LEAK=1.1
+CM=0.8p}
 C {devices/lab_pin.sym} 840 -2040 1 0 {name=p16 sig_type=std_logic lab=vdd}
 C {Neuron/ultralif/syn_neg.sym} 690 -2070 0 0 {name=x53}
-C {devices/lab_pin.sym} 870 -2030 1 0 {name=p17 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 840 -1930 3 0 {name=p19 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 810 -1870 2 1 {name=p20 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 690 -1930 3 0 {name=p21 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 690 -2050 1 0 {name=p22 sig_type=std_logic lab=vdd}
-C {Neuron/ultralif/ul_tun.sym} 840 -1660 0 0 {name=x3}
+C {Neuron/ultralif_final/ul_tun_final.sym} 840 -1660 0 0 {name=x3
+CM=0.8p}
 C {devices/lab_pin.sym} 840 -1710 1 0 {name=p23 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 870 -1700 1 0 {name=p24 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 840 -1600 3 0 {name=p26 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 810 -1540 2 1 {name=p27 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 690 -1600 3 0 {name=p28 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 690 -1720 1 0 {name=p29 sig_type=std_logic lab=vdd}
 C {Neuron/ultralif/syn_pos.sym} 690 -1400 0 0 {name=x7}
-C {Neuron/ultralif/ul_tun.sym} 840 -1320 0 0 {name=x4 
-W_LEAK=1.1}
+C {Neuron/ultralif_final/ul_tun_final.sym} 840 -1320 0 0 {name=x4 
+W_LEAK=1.1
+CM=0.8p}
 C {devices/lab_pin.sym} 840 -1370 1 0 {name=p30 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 870 -1360 1 0 {name=p31 sig_type=std_logic lab=vg100n}
 C {devices/lab_pin.sym} 840 -1260 3 0 {name=p33 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 810 -1200 2 1 {name=p34 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 690 -1260 3 0 {name=p35 sig_type=std_logic lab=vss}
