@@ -1,6 +1,8 @@
 /sim_results/*.txt
 /sim_results/*.pdf
 /sim_results/*.raw
+/sim_results/cutted/*.raw
+/sim_results/cutted_signalAtStart/*.raw
 /Neuron/ultralif/sims/*.txt
 /Neuron/ultralif_final/*.txt
 /Neuron/ultralif/sims/*.zip

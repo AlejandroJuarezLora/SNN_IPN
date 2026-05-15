@@ -21,10 +21,8 @@ N 1465 -230 1495 -230 {
 lab=Vr1}
 N 1120 -250 1125 -250 {
 lab=hx}
-N 1310 -210 1310 -165 {
-lab=x}
 N 1310 -210 1325 -210 {
-lab=x}
+lab=#net1}
 N 310 -300 370 -300 {
 lab=N1}
 N 310 -260 370 -260 {
@@ -34,19 +32,19 @@ lab=N3}
 N 310 -180 370 -180 {
 lab=N4}
 N 540 -90 570 -90 {
-lab=#net1}
-N 540 -110 570 -110 {
 lab=#net2}
-N 540 -130 570 -130 {
+N 540 -110 570 -110 {
 lab=#net3}
-N 540 -150 570 -150 {
+N 540 -130 570 -130 {
 lab=#net4}
-N 540 -170 570 -170 {
+N 540 -150 570 -150 {
 lab=#net5}
-N 540 -190 570 -190 {
+N 540 -170 570 -170 {
 lab=#net6}
-N 540 -210 570 -210 {
+N 540 -190 570 -190 {
 lab=#net7}
+N 540 -210 570 -210 {
+lab=#net8}
 N 540 -380 740 -380 {
 lab=J1}
 N 540 -360 740 -360 {
@@ -82,19 +80,19 @@ lab=J8}
 N 930 -320 960 -320 {
 lab=M1}
 N 930 -300 960 -300 {
-lab=#net8}
+lab=#net9}
 N 930 -280 960 -280 {
 lab=M2}
 N 930 -260 960 -260 {
-lab=#net9}
+lab=#net10}
 N 930 -240 960 -240 {
 lab=M3}
 N 930 -220 960 -220 {
-lab=#net10}
+lab=#net11}
 N 930 -200 960 -200 {
 lab=M4}
 N 930 -180 960 -180 {
-lab=#net11}
+lab=#net12}
 N 1190 -250 1255 -250 {
 lab=hx}
 N 1405 -290 1465 -290 {
@@ -102,22 +100,29 @@ lab=GND}
 N 1465 -330 1465 -290 {
 lab=GND}
 N 540 -70 570 -70 {
-lab=#net12}
+lab=#net13}
 N 150 -230 200 -230 {lab=in}
 N 150 -230 150 -205 {lab=in}
 N 1495 -230 1525 -230 {lab=Vr1}
 N 1125 -250 1130 -250 {lab=hx}
 N 1130 -250 1190 -250 {
 lab=hx}
-N 150 -145 150 -115 {lab=GND}
+N 150 -145 150 -115 {lab=#net14}
 N 1050 -390 1050 -370 {lab=Vr1}
 N 1050 -390 1500 -390 {lab=Vr1}
 N 1500 -390 1500 -230 {lab=Vr1}
+N 915 -10 915 85 {lab=#net15}
+N 915 -10 1010 -10 {lab=#net15}
+N -590 -575 -590 -550 {lab=ctrl}
+N -720 -575 -590 -575 {lab=ctrl}
+N -715 -575 -715 -460 {lab=ctrl}
+N -715 -465 -715 -455 {lab=ctrl}
+N 1225 -210 1310 -210 {lab=#net1}
+N 1225 -210 1225 -105 {lab=#net1}
 C {devices/vsource.sym} 135 -380 0 0 {name=Vdd value=1.8}
 C {devices/gnd.sym} 135 -330 0 0 {name=l5 lab=GND}
 C {devices/vdd.sym} 135 -440 0 0 {nname=l4 lab=VDD}
-C {devices/gnd.sym} 150 -115 0 0 {name=l18 lab=GND}
-C {devices/code_shown.sym} 182.5 67.5 0 0 {name=MODELS2
+C {devices/code_shown.sym} 982.5 342.5 0 0 {name=MODELS2
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -156,7 +161,7 @@ C {devices/lab_pin.sym} 1525 -230 2 0 {name=p11 sig_type=std_logic lab=Vr1
 }
 C {devices/isource.sym} 1365 -320 2 1 {name=I0 value=100u}
 C {devices/gnd.sym} 1465 -330 2 0 {name=l13 lab=GND}
-C {devices/lab_pin.sym} 1310 -185 0 0 {name=p1 sig_type=std_logic lab=x
+C {devices/lab_pin.sym} 1225 -195 0 0 {name=p1 sig_type=std_logic lab=x
 }
 C {layer/layer_hidden.sym} 400 -240 0 0 {name=x4}
 C {Synapse/no_stdp_4x8.sym} 390 -230 0 0 {name=x5}
@@ -206,34 +211,53 @@ value="
 .options set wr_vecnames
 .options set wr_singlescale
 .options numdgt = 2
-.save in Vr1 I(Vread) hx x
+.save in Vr1 I(Vread) hx x ctrl
 +N1 N2 N3 N4 M1 M2 M3 M4
 +J1 J2 J3 J4 J5 J6 J7 J8 
 
-.tran 10n 50m
+.tran 30n 30m
 *.control
 *	run
 *	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
 *.endc
 "
 spice_ignore = false}
-C {devices/vsource.sym} 150 -175 0 1 {name=Vin2 value="dc 0V ac 0mV trrandom(1 500u 0s 0.9 0.9) "
+C {devices/vsource.sym} 150 -175 0 1 {name=Vin2 value="dc 0V ac 0mV trrandom(1 10n 0 0.7 0.2) "
 spice_ignore=false}
-C {devices/vsource.sym} 1600 25 0 1 {name=Vin3 value="PULSE(0.4 1.2 0 10u 10u 100u 200u)"
-spice_ignore=true}
 C {devices/lab_pin.sym} 160 -230 3 1 {name=p21 sig_type=std_logic lab=in
 }
-C {devices/gnd.sym} 1310 195 0 1 {name=l2 lab=GND}
+C {devices/gnd.sym} 150 245 0 1 {name=l2 lab=GND}
 C {/foss/designs/SNN_IPN/layer/layer_output_rew.sym} 980 -150 0 0 {name=x2}
-C {devices/vsource.sym} 1310 -135 0 1 {name=Vin1 value=0.75
+C {devices/vsource.sym} 150 -85 0 1 {name=Vin1 value=0.75
 spice_ignore=false}
-C {devices/vsource.sym} 1310 -75 0 1 {name=Vin4 value="SINE(0 -0.44563 500 0 0)"
+C {devices/vsource.sym} 150 -25 0 1 {name=Vin4 value="SINE(0 -0.44563 500 0 0)"
 spice_ignore=false}
-C {devices/vsource.sym} 1310 -15 0 1 {name=Vin5 value="SINE(0 -0.1485 1500 0 0)"
+C {devices/vsource.sym} 150 35 0 1 {name=Vin5 value="SINE(0 -0.1485 1500 0 0)"
 spice_ignore=false}
-C {devices/vsource.sym} 1310 45 0 1 {name=Vin6 value="SINE(0 -0.0891 2500 0 0)"
+C {devices/vsource.sym} 150 95 0 1 {name=Vin6 value="SINE(0 -0.0891 2500 0 0)"
 spice_ignore=false}
-C {devices/vsource.sym} 1310 105 0 1 {name=Vin7 value="SINE(0 -0.0636 3500 0 0)"
+C {devices/vsource.sym} 150 155 0 1 {name=Vin7 value="SINE(0 -0.0636 3500 0 0)"
 spice_ignore=false}
-C {devices/vsource.sym} 1310 165 0 1 {name=Vin8 value="SINE(0 -0.0495 4500 0 0)"
+C {devices/vsource.sym} 150 215 0 1 {name=Vin8 value="SINE(0 -0.0495 4500 0 0)"
+spice_ignore=false}
+C {sw.sym} -645 -375 0 0 {name=x7}
+C {devices/gnd.sym} -645 -295 0 0 {name=l10 lab=GND}
+C {devices/vdd.sym} -645 -455 0 0 {name=l16 lab=VDD}
+C {devices/vdd.sym} 1010 50 2 0 {name=l17 lab=VDD}
+C {devices/vsource.sym} -590 -520 0 1 {name=Vin3 value="PWL(0 1.8 19.9m 1.8 20m 0)"
+spice_ignore=false}
+C {devices/gnd.sym} -590 -490 0 0 {name=l20 lab=GND}
+C {devices/lab_pin.sym} -660 -575 3 1 {name=p12 sig_type=std_logic lab=ctrl}
+C {devices/gnd.sym} 1225 255 0 1 {name=l21 lab=GND}
+C {devices/vsource.sym} 1225 -75 0 1 {name=Vin9 value=0.75
+spice_ignore=false}
+C {devices/vsource.sym} 1225 -15 0 1 {name=Vin10 value="SINE(0 -0.44563 500 0 0)"
+spice_ignore=false}
+C {devices/vsource.sym} 1225 45 0 1 {name=Vin11 value="SINE(0 -0.1485 1500 0 0)"
+spice_ignore=false}
+C {devices/vsource.sym} 1225 105 0 1 {name=Vin12 value="SINE(0 -0.0891 2500 0 0)"
+spice_ignore=false}
+C {devices/vsource.sym} 1225 165 0 1 {name=Vin13 value="SINE(0 -0.0636 3500 0 0)"
+spice_ignore=false}
+C {devices/vsource.sym} 1225 225 0 1 {name=Vin14 value="SINE(0 -0.0495 4500 0 0)"
 spice_ignore=false}
