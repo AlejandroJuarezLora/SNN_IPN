@@ -1,0 +1,15 @@
+
+18-05-26
+En esta prueba, se movio la señal a aprender al inicio de la red, y al opamp del ul_tun_final
+
+a la mitad de la simulacion, la señal a aprender, en el opamp, se corta a 0.75V, en ves del diente de sierra
+
+
+NUevamente, la red logra replicar la señal en lazo cerrado, hasta que se corta. 
+
+Los pesos sinapticos no se modifican despues de la edicion. 
+
+
+Se procede a probar la red en lazo abierto, pasandole la señal a aprender y asignando vlk de las neuronas de capa de salida como las de entrada
+
+Tambien, se procede a sustituir la synapses de 8 transistores, por la sinapsis de 11 transistores con el doble puente H

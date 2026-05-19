@@ -3,6 +3,8 @@
 /sim_results/*.raw
 /sim_results/cutted/*.raw
 /sim_results/cutted_signalAtStart/*.raw
+/sim_results/open_loop/*.raw
+/sim_results/double_h_synapsis/*.raw
 /Neuron/ultralif/sims/*.txt
 /Neuron/ultralif_final/*.txt
 /Neuron/ultralif/sims/*.zip
