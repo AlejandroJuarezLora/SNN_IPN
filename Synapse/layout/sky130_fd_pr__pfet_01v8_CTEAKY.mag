@@ -1,0 +1,80 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1764617035
+<< nwell >>
+rect -696 -284 696 284
+<< pmos >>
+rect -500 -64 500 136
+<< pdiff >>
+rect -558 124 -500 136
+rect -558 -52 -546 124
+rect -512 -52 -500 124
+rect -558 -64 -500 -52
+rect 500 124 558 136
+rect 500 -52 512 124
+rect 546 -52 558 124
+rect 500 -64 558 -52
+<< pdiffc >>
+rect -546 -52 -512 124
+rect 512 -52 546 124
+<< nsubdiff >>
+rect -660 214 -564 248
+rect 564 214 660 248
+rect -660 -214 -626 214
+rect 626 -214 660 214
+rect -660 -248 660 -214
+<< nsubdiffcont >>
+rect -564 214 564 248
+<< poly >>
+rect -500 136 500 162
+rect -500 -111 500 -64
+rect -500 -145 -484 -111
+rect 484 -145 500 -111
+rect -500 -161 500 -145
+<< polycont >>
+rect -484 -145 484 -111
+<< locali >>
+rect -660 214 -564 248
+rect 564 214 660 248
+rect -660 -214 -626 214
+rect -546 124 -512 140
+rect -546 -68 -512 -52
+rect 512 124 546 140
+rect 512 -68 546 -52
+rect -500 -145 -484 -111
+rect 484 -145 500 -111
+rect 626 -214 660 214
+rect -660 -248 660 -214
+<< viali >>
+rect -546 -52 -512 124
+rect 512 -34 546 106
+rect -484 -145 484 -111
+<< metal1 >>
+rect -552 124 -506 136
+rect -552 -52 -546 124
+rect -512 -52 -506 124
+rect 506 106 552 118
+rect 506 -34 512 106
+rect 546 -34 552 106
+rect 506 -46 552 -34
+rect -552 -64 -506 -52
+rect -496 -111 496 -105
+rect -496 -145 -484 -111
+rect 484 -145 496 -111
+rect -496 -151 496 -145
+<< labels >>
+rlabel nsubdiff 0 -231 0 -231 0 B
+port 1 nsew
+rlabel pdiffc -529 36 -529 36 0 D
+port 2 nsew
+rlabel pdiffc 529 36 529 36 0 S
+port 3 nsew
+rlabel polycont 0 -128 0 -128 0 G
+port 4 nsew
+<< properties >>
+string FIXED_BBOX -643 -231 643 231
+string gencell sky130_fd_pr__pfet_01v8
+string library sky130
+string parameters w 1 l 5 m 1 nf 1 diffcov 100 polycov 100 guard 1 glc 0 grc 0 gtc 1 gbc 0 tbcov 100 rlcov 100 topc 0 botc 1 poverlap 0 doverlap 1 lmin 0.15 wmin 0.42 class mosfet compatible {sky130_fd_pr__pfet_01v8  sky130_fd_pr__pfet_01v8_lvt sky130_fd_pr__pfet_01v8_hvt  sky130_fd_pr__pfet_g5v0d10v5} full_metal 1 viasrc 80 viadrn 100 viagate 100 viagb 0 viagr 0 viagl 0 viagt 0 doports 1
+<< end >>
