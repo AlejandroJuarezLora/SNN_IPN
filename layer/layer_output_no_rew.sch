@@ -234,3 +234,4 @@ C {devices/lab_pin.sym} 450 -1450 1 0 {name=p6 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 810 -1870 0 0 {name=p8 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 810 -1540 0 0 {name=p9 sig_type=std_logic lab=vileak}
 C {devices/lab_pin.sym} 810 -1200 0 0 {name=p10 sig_type=std_logic lab=vileak}
+C {devices/lab_pin.sym} 810 -2220 0 0 {name=p7 sig_type=std_logic lab=vileak}
