@@ -1,4 +1,4 @@
-v {xschem version=3.4.8RC file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
@@ -50,7 +50,7 @@ C {devices/launcher.sym} 90 -120 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tc_oneNeuron.raw tran"
 }
-C {ul_tun_final.sym} 160 80 0 0 {name=x1 W_LEAK=Wlk_test CM=CM_test spiceprefix=X}
+C {ul_tun_final.sym} 160 80 0 0 {name=x1 W_LEAK=1 CM=0.8 spiceprefix=X}
 C {devices/vsource.sym} 50 200 0 0 {name=Vlk value=0.5}
 C {devices/gnd.sym} 50 250 0 0 {name=l2 lab=GND}
 C {devices/vdd.sym} 160 10 0 0 {name=l3 lab=VDD}
@@ -95,7 +95,7 @@ value="
 
 .endc
 "
-spice_ignore=false}
+spice_ignore=true}
 C {devices/code_shown.sym} 410 0 0 0 {name=STIMULI2 
 only_toplevel=true
 place=end
@@ -108,4 +108,4 @@ value="
 	write tc_oneNeuron.raw
 .endc
 "
-spice_ignore=true}
+}

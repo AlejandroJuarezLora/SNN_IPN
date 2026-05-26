@@ -25,9 +25,7 @@ N 80 10 170 10 {lab=j1}
 N 70 200 170 200 {lab=j2}
 N -90 200 -50 200 {lab=#net2}
 N -100 10 -40 10 {lab=#net3}
-N -230 10 -200 10 {lab=vin}
 N -230 10 -230 200 {lab=vin}
-N -230 200 -190 200 {lab=vin}
 N -290 100 -230 100 {lab=vin}
 N 800 90 840 90 {lab=k1}
 N 880 40 880 60 {lab=#net4}
@@ -49,24 +47,31 @@ N 560 -60 1395 -60 {lab=vr}
 N 1395 -60 1395 80 {lab=vr}
 N 1380 80 1395 80 {lab=vr}
 N -455 -50 -455 -20 {
-lab=vlk}
+lab=vlk
+spice_ignore=true}
 N -415 10 -365 10 {
-lab=vlk}
+lab=vlk
+spice_ignore=true}
 N -455 -40 -385 -40 {
-lab=vlk}
+lab=vlk
+spice_ignore=true}
 N -385 -40 -385 10 {
-lab=vlk}
+lab=vlk
+spice_ignore=true}
 N -455 10 -455 40 {
-lab=vss}
-C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 20 10 0 0 {name=x1 W_LEAK=1 CM=1p spiceprefix=X}
-C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 10 200 0 0 {name=x2 W_LEAK=1 CM=1p spiceprefix=X}
+lab=vss
+spice_ignore=true}
+N -230 -40 -230 10 {lab=vin}
+N -230 -40 -140 -40 {lab=vin}
+N -230 150 -130 150 {lab=vin}
+N -40 60 -10 60 {lab=#net7}
+C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 20 10 0 0 {name=x1 W_LEAK=1 CM=0.8p spiceprefix=X}
+C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 10 200 0 0 {name=x2 W_LEAK=1 CM=0.8p spiceprefix=X}
 C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 650 90 0 0 {name=x3 W_LEAK=1 CM=1p spiceprefix=X}
 C {/foss/designs/SNN_IPN/Synapse/rstdp_mirror.sym} 320 10 0 0 {name=xrstdp1}
 C {/foss/designs/SNN_IPN/Synapse/rstdp_mirror.sym} 320 200 0 0 {name=xrstdp2}
-C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_pos.sym} -150 -70 0 0 {name=x4}
-C {/foss/designs/SNN_IPN/Neuron/ultralif/syn_neg.sym} -140 120 0 0 {name=x5}
-C {vdd.sym} -150 -50 0 0 {name=l1 lab=VDD}
-C {vdd.sym} -140 140 0 0 {name=l2 lab=VDD}
+C {vdd.sym} -100 -50 0 0 {name=l1 lab=VDD}
+C {vdd.sym} -90 140 0 0 {name=l2 lab=VDD}
 C {vdd.sym} 20 -40 0 0 {name=l3 lab=VDD}
 C {vdd.sym} 10 150 0 0 {name=l4 lab=VDD}
 C {vdd.sym} 320 -30 0 0 {name=l5 lab=VDD}
@@ -93,8 +98,8 @@ C {gnd.sym} 880 150 0 0 {name=l10 lab=GND}
 C {gnd.sym} 320 280 0 0 {name=l11 lab=GND}
 C {gnd.sym} 10 260 0 0 {name=l12 lab=GND}
 C {gnd.sym} 20 70 0 0 {name=l13 lab=GND}
-C {gnd.sym} -150 70 0 0 {name=l14 lab=GND}
-C {gnd.sym} -140 260 0 0 {name=l15 lab=GND}
+C {gnd.sym} -140 0 0 0 {name=l14 lab=GND}
+C {gnd.sym} -130 190 0 0 {name=l15 lab=GND}
 C {gnd.sym} -290 160 0 0 {name=l16 lab=GND}
 C {vsource_arith.sym} -290 130 0 1 {name=E1 VOL="0.800+0.254648*sin(2*3.1416*1*time/0.005)-0.127324*sin(2*3.1416*2*time/0.005)+0.084882*sin(2*3.1416*3*time/0.005)-0.063662*sin(2*3.1416*4*time/0.005)+0.051000*sin(2*3.1416*5*time/0.005)-0.042441*sin(2*3.1416*6*time/0.005)+0.036378*sin(2*3.1416*7*time/0.005)-0.031831*sin(2*3.1416*8*time/0.005)+0.028294*sin(2*3.1416*9*time/0.005)-0.025465*sin(2*3.1416*10*time/0.005)"}
 C {/foss/designs/SNN_IPN/OPAMP/opamp_mini.sym} 1180 160 0 0 {name=x7}
@@ -135,12 +140,11 @@ value="
 .save vin vr hx x ctrl 
 +J1 J2 K1 
 
-.tran 1n 30m uic
-*hola
-*.control
-*	run
-*	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/data.raw
-*.endc
+.tran 50n 30m uic
+.control
+	run
+	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/triangular_2x1/data.raw
+.endc
 
 "
 spice_ignore = false}
@@ -181,7 +185,7 @@ value="
 spice_ignore=false}
 C {sky130_fd_pr/nfet_01v8.sym} -435 10 0 1 {name=M2
 L=0.15
-W=10
+W=1
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -192,13 +196,26 @@ nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
-}
-C {devices/isource.sym} -455 -80 0 0 {name=I1 value=100nA
+spice_ignore=true}
+C {devices/isource.sym} -455 -80 0 0 {name=I1 value=10nA
 
-spice_ignore=false}
-C {devices/lab_pin.sym} -455 -110 1 0 {name=p8 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} -455 40 3 0 {name=p9 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -365 10 1 0 {name=p12 sig_type=std_logic lab=vlk}
-C {devices/lab_pin.sym} -10 60 0 0 {name=p10 sig_type=std_logic lab=vlk}
-C {devices/lab_pin.sym} -20 250 0 0 {name=p11 sig_type=std_logic lab=vlk}
+spice_ignore=true}
+C {devices/lab_pin.sym} -455 -110 1 0 {name=p8 sig_type=std_logic lab=vdd
+spice_ignore=true}
+C {devices/lab_pin.sym} -455 40 3 0 {name=p9 sig_type=std_logic lab=vss
+spice_ignore=true}
+C {devices/lab_pin.sym} -365 10 1 0 {name=p12 sig_type=std_logic lab=vlk
+spice_ignore=true}
 C {devices/lab_pin.sym} 620 140 0 0 {name=p13 sig_type=std_logic lab=vlk}
+C {vccs.sym} -100 -20 0 0 {name=G1 value="value='max(0, 235.29e-9 * (V(vin) - 0.4))'"}
+C {vccs.sym} -90 170 0 0 {name=G2 value="value='max(0, 235.29e-9 * (1.25 - V(vin)))'"}
+C {devices/vsource.sym} -415 285 0 1 {name=Vin2 value=1.8
+spice_ignore=false}
+C {devices/gnd.sym} -415 315 0 0 {name=l22 lab=GND}
+C {vdd.sym} -415 255 0 0 {name=l26 lab=VDD}
+C {devices/vsource.sym} -20 280 0 1 {name=Vin3 value=0.5
+spice_ignore=false}
+C {gnd.sym} -20 310 0 0 {name=l27 lab=GND}
+C {devices/vsource.sym} -40 90 0 1 {name=Vin4 value=0.5
+spice_ignore=false}
+C {gnd.sym} -40 120 0 0 {name=l28 lab=GND}
