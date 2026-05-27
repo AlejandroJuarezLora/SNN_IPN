@@ -1,9 +1,9 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 1210 -480 2010 -80 {flags=graph
 y1=-0.116221
@@ -202,7 +202,7 @@ C {devices/lab_pin.sym} 470 -350 1 0 {name=be sig_type=std_logic lab=be}
 C {devices/lab_pin.sym} 230 -330 0 0 {name=p1 sig_type=std_logic lab=BL}
 C {devices/lab_pin.sym} 540 -80 2 0 {name=wl1 sig_type=std_logic lab=SL}
 C {devices/vsource.sym} 370 -350 1 0 {name=Vread value=1e-5}
-C {sky130_fd_pr/rram_v0.sym} 540 -320 2 1 {name=R1
+C {rram_v0.sym} 540 -320 2 1 {name=R1
 model=rram_v0
 spiceprefix=X
 }
@@ -226,14 +226,14 @@ value="
 
 .subckt rram_v0 TE BE
 *N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
-N1 TE BE rram_v0_model gap_initial=0.11
+N1 TE BE rram_v0_model 
 .ends rram_v0
 
 .model rram_v0_model rram_v0_va
 
 
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+pre_osdi /foss/designs/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
 .endc
 "
 spice_ignore=false}

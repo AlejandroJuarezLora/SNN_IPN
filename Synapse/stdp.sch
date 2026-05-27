@@ -69,8 +69,6 @@ N 245 -760 245 -730 {
 lab=vdd}
 N 245 -810 245 -760 {
 lab=vdd}
-N 345 -760 625 -760 {
-lab=vdd}
 N 60 -340 120 -340 {
 lab=be}
 N 170 -580 435 -580 {
@@ -81,7 +79,6 @@ N 110 -580 170 -580 {lab=#net2}
 N 110 -145 170 -145 {lab=vss}
 N 290 -340 350 -340 {lab=te}
 N 410 -340 450 -340 {lab=#net1}
-N 245 -760 345 -760 {lab=vdd}
 N 285 -730 585 -730 {lab=#net2}
 N 60 -580 60 -485 {
 lab=#net2}
@@ -100,7 +97,9 @@ N 625 -650 750 -650 {lab=vdd}
 N 540 -650 585 -650 {lab=#net2}
 N 540 -730 540 -650 {lab=#net2}
 N 750 -760 750 -650 {lab=vdd}
-N 620 -760 750 -760 {lab=vdd}
+N 245 -790 750 -790 {lab=vdd}
+N 750 -790 750 -760 {lab=vdd}
+N 625 -790 625 -760 {lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} 40 -215 0 0 {name=M3
 L=0.15
 W=5
@@ -143,7 +142,7 @@ C {devices/lab_pin.sym} 275 -340 3 0 {name=p14 sig_type=std_logic lab=te }
 C {devices/lab_pin.sym} 115 -215 0 1 {name=p6 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 420 -210 0 0 {name=p20 sig_type=std_logic lab=vss}
 C {sky130_fd_pr/pfet_01v8.sym} 605 -730 0 0 {name=M14
-L=5
+L=0.15
 W=1
 nf=1
 mult=1
@@ -205,7 +204,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 605 -650 0 0 {name=M6
-L=5
+L=0.15
 W=1
 nf=1
 mult=1
