@@ -1,9 +1,9 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 670 -810 1470 -410 {flags=graph
 y1=2300
@@ -151,7 +151,7 @@ value="
 
 " }
 C {devices/lab_wire.sym} 130 -170 0 0 {name=l3 sig_type=std_logic lab=TE}
-C {sky130_fd_pr/rram_v0.sym} 350 -100 0 0 {name=R1
+C {rram_v0.sym} 350 -100 0 0 {name=R1
 model=rram_v0
 spiceprefix=X
 }
@@ -169,14 +169,14 @@ value="
 
 .subckt rram_v0 TE BE
 *N1 TE BE rram_v0_model gap_initial=unif(0.9,0.8)
-N1 TE BE rram_v0_model gap_initial=0.11
+N1 TE BE rram_v0_model
 .ends rram_v0
 
 .model rram_v0_model rram_v0_va
 
 
 .control
-pre_osdi /home/alex/pdk/sky130B/libs.tech/ngspice/rram_v0.osdi
+pre_osdi /foss/designs/SNN_IPN/memristor_models/wellposed/rram_v0.osdi
 .endc
 "
 spice_ignore=false}
