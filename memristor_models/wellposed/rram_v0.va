@@ -25,9 +25,8 @@ module rram_v0_va(t, b);
     parameter real smoothing = 1e-8 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
     parameter real Kclip = 50 from (0:inf);
-    // parameter real maxslope = 1e15 from (0:inf);
     parameter real maxslope = 1e18 from (0:inf);
-    `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
+    // `IPRcc(gap_initial, 0.9, "V", minGap, maxGap, "Initial Gap distance between tip of the filament and bottom electrode, represented as a voltage between 0.1 and 1.7")
 
     
     real ddt_Gap, Gap, Gamma, Fw1, Fw2, clip_maxGap, clip_minGap;
@@ -76,10 +75,10 @@ module rram_v0_va(t, b);
     
     analog begin
         
-        @(initial_step) begin
-            V(nGap, b) <= gap_initial; // Set the initial gap value
-            $strobe("Gap Inicial %f", gap_initial);
-        end 
+        // @(initial_step) begin
+        //     V(nGap, b) <= gap_initial; // Set the initial gap value
+        //     $strobe("Gap Inicial %f", gap_initial);
+        // end 
         Gap = V(nGap, b);
         I(t,b) <+ I0 * safeexp(-(Gap)/g0,maxslope) * safesinh(V(t, b)/V0, maxslope) + GMIN*V(t, b);
         Gamma = gamma0 + Beta0 * pow(Gap, 3);

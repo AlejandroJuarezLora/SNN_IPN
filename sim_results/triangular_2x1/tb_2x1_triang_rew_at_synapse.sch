@@ -25,46 +25,62 @@ N 80 10 170 10 {lab=j1}
 N 70 200 170 200 {lab=j2}
 N -90 200 -50 200 {lab=#net2}
 N -100 10 -40 10 {lab=#net3}
-N -230 10 -230 200 {lab=vin}
-N -290 100 -230 100 {lab=vin}
+N -230 10 -230 200 {lab=x}
+N -290 100 -230 100 {lab=x}
 N 800 90 840 90 {lab=k1}
 N 880 40 880 60 {lab=#net4}
 N 880 40 920 40 {lab=#net4}
 N 880 120 880 150 {lab=GND}
 N 1090 40 1160 40 {lab=hx}
 N 880 90 880 120 {lab=GND}
-N 1110 120 1160 120 {lab=x}
-N 1130 120 1130 420 {lab=x}
-N 895 305 910 305 {lab=#net5}
-N 910 305 910 340 {lab=#net5}
-N 815 305 815 320 {lab=GND}
-N 815 305 835 305 {lab=GND}
-N -230 390 830 390 {lab=vin}
-N -230 200 -230 390 {lab=vin}
-N 755 450 755 475 {lab=#net6}
-N 755 450 830 450 {lab=#net6}
+N 1110 120 1160 120 {lab=#net5}
+N 875 300 890 300 {lab=#net6
+}
+N 890 300 890 335 {lab=#net6
+}
+N 795 300 795 315 {lab=GND
+}
+N 795 300 815 300 {lab=GND
+}
+N -230 200 -230 390 {lab=x}
+N 735 445 735 470 {lab=#net7
+}
+N 735 445 810 445 {lab=#net7
+}
 N 560 -60 1395 -60 {lab=vr}
 N 1395 -60 1395 80 {lab=vr}
 N 1380 80 1395 80 {lab=vr}
 N -455 -50 -455 -20 {
 lab=vlk
-spice_ignore=true}
+}
 N -415 10 -365 10 {
 lab=vlk
-spice_ignore=true}
+}
 N -455 -40 -385 -40 {
 lab=vlk
-spice_ignore=true}
+}
 N -385 -40 -385 10 {
 lab=vlk
-spice_ignore=true}
+}
 N -455 10 -455 40 {
-lab=vss
-spice_ignore=true}
-N -230 -40 -230 10 {lab=vin}
-N -230 -40 -140 -40 {lab=vin}
-N -230 150 -130 150 {lab=vin}
-N -40 60 -10 60 {lab=#net7}
+lab=GND
+}
+N -230 -40 -230 10 {lab=x}
+N -230 -40 -140 -40 {lab=x}
+N -230 150 -130 150 {lab=x}
+N 80 20 135 20 {lab=#net8}
+N 135 20 135 40 {lab=#net8}
+N 135 40 170 40 {lab=#net8}
+N 70 210 130 210 {lab=#net9}
+N 130 210 130 230 {lab=#net9}
+N 130 230 170 230 {lab=#net9}
+N 470 225 710 225 {lab=#net10}
+N 470 35 505 35 {lab=#net10}
+N 505 35 505 225 {lab=#net10}
+N 710 100 710 225 {lab=#net10}
+N 1110 120 1110 390 {lab=#net5}
+N 1110 390 1110 415 {lab=#net5}
+N -230 385 810 385 {lab=x}
 C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 20 10 0 0 {name=x1 W_LEAK=1 CM=0.8p spiceprefix=X}
 C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 10 200 0 0 {name=x2 W_LEAK=1 CM=0.8p spiceprefix=X}
 C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} 650 90 0 0 {name=x3 W_LEAK=1 CM=1p spiceprefix=X}
@@ -103,21 +119,25 @@ C {gnd.sym} -130 190 0 0 {name=l15 lab=GND}
 C {gnd.sym} -290 160 0 0 {name=l16 lab=GND}
 C {vsource_arith.sym} -290 130 0 1 {name=E1 VOL="0.800+0.254648*sin(2*3.1416*1*time/0.005)-0.127324*sin(2*3.1416*2*time/0.005)+0.084882*sin(2*3.1416*3*time/0.005)-0.063662*sin(2*3.1416*4*time/0.005)+0.051000*sin(2*3.1416*5*time/0.005)-0.042441*sin(2*3.1416*6*time/0.005)+0.036378*sin(2*3.1416*7*time/0.005)-0.031831*sin(2*3.1416*8*time/0.005)+0.028294*sin(2*3.1416*9*time/0.005)-0.025465*sin(2*3.1416*10*time/0.005)"}
 C {/foss/designs/SNN_IPN/OPAMP/opamp_mini.sym} 1180 160 0 0 {name=x7}
-C {lab_pin.sym} -230 50 0 0 {name=p1 sig_type=std_logic lab=vin}
-C {lab_pin.sym} 1110 120 0 0 {name=p2 sig_type=std_logic lab=x}
-C {/foss/designs/SNN_IPN/sw.sym} 980 420 0 0 {name=x8}
+C {lab_pin.sym} -230 50 0 0 {name=p1 sig_type=std_logic lab=x}
+C {/foss/designs/SNN_IPN/sw.sym} 960 415 0 0 {name=x8
+}
 C {lab_pin.sym} 1120 40 1 0 {name=p3 sig_type=std_logic lab=hx}
-C {vdd.sym} 980 340 0 0 {name=l17 lab=VDD}
+C {vdd.sym} 960 335 0 0 {name=l17 lab=VDD
+}
 C {gnd.sym} 650 150 0 0 {name=l18 lab=GND}
 C {gnd.sym} 1250 150 0 0 {name=l19 lab=GND}
-C {gnd.sym} 980 500 0 0 {name=l20 lab=GND}
+C {gnd.sym} 960 495 0 0 {name=l20 lab=GND
+}
 C {gnd.sym} 320 90 0 0 {name=l21 lab=GND}
-C {devices/vsource.sym} 865 305 1 1 {name=Vin1 value="PWL(0 1.8 19.9m 1.8 20m 0)"
-spice_ignore=false}
-C {devices/gnd.sym} 815 320 0 0 {name=l23 lab=GND}
-C {devices/vsource.sym} 755 505 0 1 {name=Vin9 value=0.75
-spice_ignore=false}
-C {devices/gnd.sym} 755 535 0 0 {name=l24 lab=GND}
+C {devices/vsource.sym} 845 300 1 1 {name=Vin1 value="PWL(0 1.8 19.9m 1.8 20m 0)"
+}
+C {devices/gnd.sym} 795 315 0 0 {name=l23 lab=GND
+}
+C {devices/vsource.sym} 735 500 0 1 {name=Vin9 value=0.75
+}
+C {devices/gnd.sym} 735 530 0 0 {name=l24 lab=GND
+}
 C {vdd.sym} 1250 10 0 0 {name=l25 lab=VDD}
 C {lab_pin.sym} 490 -60 0 0 {name=p4 sig_type=std_logic lab=vr}
 C {lab_pin.sym} 120 10 1 0 {name=p5 sig_type=std_logic lab=j1}
@@ -137,10 +157,10 @@ value="
 .options set wr_vecnames
 .options set wr_singlescale
 .options numdgt = 2
-.save vin vr hx x ctrl 
+.save vr hx x vlk  
 +J1 J2 K1 
 
-.tran 50n 30m uic
+.tran 50n 1m uic
 .control
 	run
 	write /home/alex/Desktop/EDA/SNN_IPN/sim_results/triangular_2x1/data.raw
@@ -196,16 +216,12 @@ nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
-spice_ignore=true}
+}
 C {devices/isource.sym} -455 -80 0 0 {name=I1 value=10nA
 
-spice_ignore=true}
-C {devices/lab_pin.sym} -455 -110 1 0 {name=p8 sig_type=std_logic lab=vdd
-spice_ignore=true}
-C {devices/lab_pin.sym} -455 40 3 0 {name=p9 sig_type=std_logic lab=vss
-spice_ignore=true}
+}
 C {devices/lab_pin.sym} -365 10 1 0 {name=p12 sig_type=std_logic lab=vlk
-spice_ignore=true}
+}
 C {devices/lab_pin.sym} 620 140 0 0 {name=p13 sig_type=std_logic lab=vlk}
 C {vccs.sym} -100 -20 0 0 {name=G1 value="value='max(0, 235.29e-9 * (V(vin) - 0.4))'"}
 C {vccs.sym} -90 170 0 0 {name=G2 value="value='max(0, 235.29e-9 * (1.25 - V(vin)))'"}
@@ -213,9 +229,9 @@ C {devices/vsource.sym} -415 285 0 1 {name=Vin2 value=1.8
 spice_ignore=false}
 C {devices/gnd.sym} -415 315 0 0 {name=l22 lab=GND}
 C {vdd.sym} -415 255 0 0 {name=l26 lab=VDD}
-C {devices/vsource.sym} -20 280 0 1 {name=Vin3 value=0.5
-spice_ignore=false}
-C {gnd.sym} -20 310 0 0 {name=l27 lab=GND}
-C {devices/vsource.sym} -40 90 0 1 {name=Vin4 value=0.5
-spice_ignore=false}
-C {gnd.sym} -40 120 0 0 {name=l28 lab=GND}
+C {vdd.sym} -455 -110 0 0 {name=l27 lab=VDD}
+C {devices/gnd.sym} -455 40 0 0 {name=l29 lab=GND}
+C {devices/lab_pin.sym} -10 60 0 0 {name=p2 sig_type=std_logic lab=vlk
+}
+C {devices/lab_pin.sym} -20 250 0 0 {name=p8 sig_type=std_logic lab=vlk
+}
