@@ -1,9 +1,9 @@
-v {xschem version=3.4.6RC file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 -770 340 30 740 {flags=graph
 y1=-0.00056
@@ -65,7 +65,7 @@ lab=vsyn}
 N 170 -190 170 -140 {
 lab=VDD}
 N -40 -20 10 -20 {
-lab=vx}
+lab=#net1}
 N 50 160 50 180 {
 lab=GND}
 N 50 -20 130 -20 {
@@ -85,11 +85,11 @@ lab=VDD}
 N -130 130 10 130 {
 lab=spk1}
 N -280 180 -220 180 {
-lab=#net1}
-N -280 180 -280 210 {
-lab=#net1}
-N -320 130 -250 130 {
 lab=#net2}
+N -280 180 -280 210 {
+lab=#net2}
+N -320 130 -250 130 {
+lab=#net3}
 N -370 190 -370 280 {
 lab=GND}
 N -370 280 -280 280 {
@@ -111,9 +111,9 @@ lab=vg100}
 N 300 180 300 200 {
 lab=GND}
 N -500 130 -500 190 {
-lab=#net3}
+lab=#net4}
 N -500 130 -420 130 {
-lab=#net3}
+lab=#net4}
 N -500 280 -370 280 {
 lab=GND}
 N -500 250 -500 280 {
@@ -126,18 +126,8 @@ N -30 -190 -30 -140 {
 lab=VDD}
 N -30 -190 50 -190 {
 lab=VDD}
-N -80 -190 -80 -140 {
-lab=VDD}
-N -80 -190 -30 -190 {
-lab=VDD}
-N -40 -60 -40 -20 {
-lab=vx}
 N 50 10 50 100 {
-lab=#net4}
-N -80 -60 -40 -60 {
-lab=vx}
-N -80 -60 -80 -10 {
-lab=vx}
+lab=#net5}
 N 170 -60 170 -30 {
 lab=vsyn}
 N 50 -110 50 -60 {
@@ -150,18 +140,17 @@ N 50 180 140 180 {
 lab=GND}
 N 300 160 300 180 {
 lab=GND}
-N -80 -80 -80 -60 {
-lab=vx}
 N -505 190 -500 190 {
-lab=#net3}
+lab=#net4}
 N -505 250 -500 250 {
 lab=GND}
 N 300 0 300 100 {lab=vout}
 N 300 60 350 60 {lab=vout}
 N 300 130 300 160 {lab=GND}
-N 260 50 260 130 {lab=vx}
-N -10 50 260 50 {lab=vx}
-N -10 -20 -10 50 {lab=vx}
+N 190 80 190 100 {lab=#net6}
+N 190 80 240 80 {lab=#net6}
+N 240 80 240 130 {lab=#net6}
+N 240 130 260 130 {lab=#net6}
 C {sky130_fd_pr/nfet_01v8.sym} 30 130 0 0 {name=M1
 L=0.15
 W=5
@@ -192,7 +181,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 30 -140 0 0 {name=M3
 L=0.15
-W=50
+W=10
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -206,7 +195,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 280 -30 0 0 {name=M4
 L=0.15
-W=50
+W=30
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -248,35 +237,30 @@ spiceprefix=X
 }
 C {devices/gnd.sym} -510 30 0 0 {name=l20 lab=GND}
 C {devices/vdd.sym} -370 -80 0 0 {name=l21 lab=vg100}
-C {devices/code_shown.sym} -710 -420 0 0 {name=STIMULI 
+C {devices/code_shown.sym} -840 -460 0 0 {name=STIMULI 
 only_toplevel=true
 place=end
 value="
 .param vinput = 1.5
+.param vpmos = 0
 .tran 100n 10m uic
 .save all
 .control
-	run
-	plot spk1
-	plot v(vout)
+	set plot_vout = ' '
+	foreach val1 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8
+		alterparam vpmos = $val1
+		reset
+	 	run
+		set plot_vout ($plot_vout $\{curplot\}.v(vout))
+	end
+	plot $plot_vout vs spk1
+	rusage
 	write tb_integrator.raw
 .endc
 "
 spice_ignore=false}
 C {devices/vsource.sym} -505 220 0 1 {name=vin1 value="PWL(0 vinput 5000u vinput 5001u 0)" savecurrent=false}
 C {syn_pos.sym} -370 50 0 0 {name=x2}
-C {devices/lab_pin.sym} -80 -60 0 0 {name=p2 sig_type=std_logic lab=vx}
-C {devices/gnd.sym} -80 50 0 0 {name=l6 lab=GND}
-C {sky130_fd_pr/res_generic_po.sym} -80 -110 0 0 {name=R3
-W=1
-L=1
-model=res_generic_po
-mult=1}
-C {sky130_fd_pr/res_generic_po.sym} -80 20 0 0 {name=R1
-W=1
-L=1
-model=res_generic_po
-mult=1}
 C {devices/code_shown.sym} -110 -420 0 0 {name=STIMULI1 
 only_toplevel=true
 place=end
@@ -298,7 +282,7 @@ tclcommand="xschem raw_read $netlist_dir/tb_integrator.raw tran"
 }
 C {sky130_fd_pr/nfet_01v8.sym} 280 130 0 0 {name=M6
 L=0.15
-W=0.5
+W=1
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -311,3 +295,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 350 60 0 1 {name=p4 sig_type=std_logic lab=vout}
+C {devices/vsource.sym} 190 130 0 0 {name=V2 value=1.6 savecurrent=false}
+C {devices/gnd.sym} 190 160 0 0 {name=l5 lab=GND}
+C {devices/vsource.sym} -40 10 0 0 {name=V3 value=vpmos savecurrent=false}
+C {devices/gnd.sym} -40 40 0 0 {name=l6 lab=GND}

@@ -1,0 +1,27 @@
+.subckt stdp_4x2 avdd avss vout_pre_1 n_vout_pre_1 vout_pre_2 n_vout_pre_2 vout_pre_3 n_vout_pre_3 vout_pre_4 n_vout_pre_4
++ vout_post_1 n_vout_post_1 vout_post_2 n_vout_post_2 iext1 iext2
+*.iopin avdd
+*.iopin avss
+*.ipin vout_pre_1
+*.ipin n_vout_pre_1
+*.ipin vout_pre_2
+*.ipin n_vout_pre_2
+*.ipin vout_pre_3
+*.ipin n_vout_pre_3
+*.ipin vout_pre_4
+*.ipin n_vout_pre_4
+*.ipin n_vout_post_1
+*.ipin vout_post_1
+*.ipin n_vout_post_2
+*.ipin vout_post_2
+*.iopin iext1
+*.iopin iext2
+xstdp1 avdd avss vout_pre_1 vout_post_1 iext1 n_vout_pre_1 n_vout_post_1 stdp
+xstdp2 avdd avss vout_pre_1 vout_post_2 iext2 n_vout_pre_1 n_vout_post_2 stdp
+xstdp3 avdd avss vout_pre_2 vout_post_1 iext1 n_vout_pre_2 n_vout_post_1 stdp
+xstdp4 avdd avss vout_pre_2 vout_post_2 iext2 n_vout_pre_2 n_vout_post_2 stdp
+xstdp5 avdd avss vout_pre_3 vout_post_1 iext1 n_vout_pre_3 n_vout_post_1 stdp
+xstdp6 avdd avss vout_pre_3 vout_post_2 iext2 n_vout_pre_3 n_vout_post_2 stdp
+xstdp7 avdd avss vout_pre_4 vout_post_1 iext1 n_vout_pre_4 n_vout_post_1 stdp
+xstdp8 avdd avss vout_pre_4 vout_post_2 iext2 n_vout_pre_4 n_vout_post_2 stdp
+.ends
