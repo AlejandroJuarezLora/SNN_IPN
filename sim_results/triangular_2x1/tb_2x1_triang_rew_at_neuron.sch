@@ -47,12 +47,12 @@ N 520 -320 520 -290 {lab=GND
 }
 N 750 -290 800 -290 {lab=vin
 }
-N 1140 -10 1140 25 {lab=#net5
+N 1460 20 1460 55 {lab=#net5
 spice_ignore=true}
 N -590 -210 -590 -20 {lab=vin}
-N 985 135 985 160 {lab=#net6
+N 1305 165 1305 190 {lab=#net6
 spice_ignore=true}
-N 985 135 1060 135 {lab=#net6
+N 1305 165 1380 165 {lab=#net6
 spice_ignore=true}
 N 200 -470 1035 -470 {lab=vr
 }
@@ -96,15 +96,15 @@ N 145 -375 145 -185 {lab=#net7
 }
 N 350 -310 350 -185 {lab=#net7
 }
-N 1360 80 1360 105 {lab=x
+N 1680 110 1680 135 {lab=x
 spice_ignore=true}
 N 210 -270 260 -270 {lab=vr
 }
 N 210 -470 210 -270 {lab=vr
 }
-N 1045 -40 1140 -40 {lab=#net5
+N 1365 -10 1460 -10 {lab=#net5
 spice_ignore=true}
-N 1140 -40 1140 -10 {lab=#net5
+N 1460 -10 1460 20 {lab=#net5
 spice_ignore=true}
 N 750 -290 750 -70 {lab=vin}
 N -590 -70 750 -70 {lab=vin}
@@ -160,27 +160,27 @@ C {vsource_arith.sym} -650 -280 0 1 {name=E1 VOL="0.800+0.254648*sin(2*3.1416*1*
 C {/foss/designs/SNN_IPN/OPAMP/opamp_mini.sym} 820 -250 0 0 {name=x7
 }
 C {lab_pin.sym} -590 -360 0 0 {name=p1 sig_type=std_logic lab=vin}
-C {/foss/designs/SNN_IPN/sw.sym} 1210 105 0 0 {name=x8
+C {/foss/designs/SNN_IPN/sw.sym} 1530 135 0 0 {name=x8
 spice_ignore=true}
 C {lab_pin.sym} 760 -370 1 0 {name=p3 sig_type=std_logic lab=hx
 }
-C {vdd.sym} 1210 25 0 0 {name=l17 lab=VDD
+C {vdd.sym} 1530 55 0 0 {name=l17 lab=VDD
 spice_ignore=true}
 C {gnd.sym} 290 -260 0 0 {name=l18 lab=GND
 }
 C {gnd.sym} 890 -260 0 0 {name=l19 lab=GND
 }
-C {gnd.sym} 1210 185 0 0 {name=l20 lab=GND
+C {gnd.sym} 1530 215 0 0 {name=l20 lab=GND
 spice_ignore=true}
 C {gnd.sym} -40 -320 0 0 {name=l21 lab=GND
 }
-C {devices/vsource.sym} 1045 -10 2 0 {name=Vin1 value="PWL(0 0 14.9m 0 15m 1.8)"
+C {devices/vsource.sym} 1365 20 2 0 {name=Vin1 value="PWL(0 0 14.9m 0 15m 1.8)"
 spice_ignore=true}
-C {devices/gnd.sym} 1045 20 0 0 {name=l23 lab=GND
+C {devices/gnd.sym} 1365 50 0 0 {name=l23 lab=GND
 spice_ignore=true}
-C {devices/vsource.sym} 985 190 0 1 {name=Vin9 value=0.75
+C {devices/vsource.sym} 1305 220 0 1 {name=Vin9 value=0.75
 spice_ignore=true}
-C {devices/gnd.sym} 985 220 0 0 {name=l24 lab=GND
+C {devices/gnd.sym} 1305 250 0 0 {name=l24 lab=GND
 spice_ignore=true}
 C {vdd.sym} 890 -400 0 0 {name=l25 lab=VDD
 }
