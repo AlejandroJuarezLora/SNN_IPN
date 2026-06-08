@@ -1,5 +1,5 @@
-.subckt stdp_4x2 avdd avss vout_pre_1 n_vout_pre_1 vout_pre_2 n_vout_pre_2 vout_pre_3 n_vout_pre_3 vout_pre_4 n_vout_pre_4
-+ vout_post_1 n_vout_post_1 vout_post_2 n_vout_post_2 iext1 iext2
+.subckt stdp_10x10 avdd avss vout_pre_1 n_vout_pre_1 vout_pre_2 n_vout_pre_2 vout_pre_3 n_vout_pre_3 vout_pre_4 n_vout_pre_4 vout_pre_5 n_vout_pre_5 vout_pre_6 n_vout_pre_6 vout_pre_7 n_vout_pre_7 vout_pre_8 n_vout_pre_8 vout_pre_9 n_vout_pre_9 vout_pre_10 n_vout_pre_10
++ vout_post_1 n_vout_post_1 vout_post_2 n_vout_post_2 vout_post_3 n_vout_post_3 vout_post_4 n_vout_post_4 vout_post_5 n_vout_post_5 vout_post_6 n_vout_post_6 vout_post_7 n_vout_post_7 vout_post_8 n_vout_post_8 vout_post_9 n_vout_post_9 vout_post_10 n_vout_post_10 iext1 iext2 iext3 iext4 iext5 iext6 iext7 iext8 iext9 iext10
 *.iopin avdd
 *.iopin avss
 *.ipin vout_pre_1
@@ -10,18 +10,146 @@
 *.ipin n_vout_pre_3
 *.ipin vout_pre_4
 *.ipin n_vout_pre_4
+*.ipin vout_pre_5
+*.ipin n_vout_pre_5
+*.ipin vout_pre_6
+*.ipin n_vout_pre_6
+*.ipin vout_pre_7
+*.ipin n_vout_pre_7
+*.ipin vout_pre_8
+*.ipin n_vout_pre_8
+*.ipin vout_pre_9
+*.ipin n_vout_pre_9
+*.ipin vout_pre_10
+*.ipin n_vout_pre_10
 *.ipin n_vout_post_1
 *.ipin vout_post_1
 *.ipin n_vout_post_2
 *.ipin vout_post_2
+*.ipin n_vout_post_3
+*.ipin vout_post_3
+*.ipin n_vout_post_4
+*.ipin vout_post_4
+*.ipin n_vout_post_5
+*.ipin vout_post_5
+*.ipin n_vout_post_6
+*.ipin vout_post_6
+*.ipin n_vout_post_7
+*.ipin vout_post_7
+*.ipin n_vout_post_8
+*.ipin vout_post_8
+*.ipin n_vout_post_9
+*.ipin vout_post_9
+*.ipin n_vout_post_10
+*.ipin vout_post_10
 *.iopin iext1
 *.iopin iext2
+*.iopin iext3
+*.iopin iext4
+*.iopin iext5
+*.iopin iext6
+*.iopin iext7
+*.iopin iext8
+*.iopin iext9
+*.iopin iext10
 xstdp1 avdd avss vout_pre_1 vout_post_1 iext1 n_vout_pre_1 n_vout_post_1 stdp
 xstdp2 avdd avss vout_pre_1 vout_post_2 iext2 n_vout_pre_1 n_vout_post_2 stdp
-xstdp3 avdd avss vout_pre_2 vout_post_1 iext1 n_vout_pre_2 n_vout_post_1 stdp
-xstdp4 avdd avss vout_pre_2 vout_post_2 iext2 n_vout_pre_2 n_vout_post_2 stdp
-xstdp5 avdd avss vout_pre_3 vout_post_1 iext1 n_vout_pre_3 n_vout_post_1 stdp
-xstdp6 avdd avss vout_pre_3 vout_post_2 iext2 n_vout_pre_3 n_vout_post_2 stdp
-xstdp7 avdd avss vout_pre_4 vout_post_1 iext1 n_vout_pre_4 n_vout_post_1 stdp
-xstdp8 avdd avss vout_pre_4 vout_post_2 iext2 n_vout_pre_4 n_vout_post_2 stdp
+xstdp3 avdd avss vout_pre_1 vout_post_3 iext3 n_vout_pre_1 n_vout_post_3 stdp
+xstdp4 avdd avss vout_pre_1 vout_post_4 iext4 n_vout_pre_1 n_vout_post_4 stdp
+xstdp5 avdd avss vout_pre_1 vout_post_5 iext5 n_vout_pre_1 n_vout_post_5 stdp
+xstdp6 avdd avss vout_pre_1 vout_post_6 iext6 n_vout_pre_1 n_vout_post_6 stdp
+xstdp7 avdd avss vout_pre_1 vout_post_7 iext7 n_vout_pre_1 n_vout_post_7 stdp
+xstdp8 avdd avss vout_pre_1 vout_post_8 iext8 n_vout_pre_1 n_vout_post_8 stdp
+xstdp9 avdd avss vout_pre_1 vout_post_9 iext9 n_vout_pre_1 n_vout_post_9 stdp
+xstdp10 avdd avss vout_pre_1 vout_post_10 iext10 n_vout_pre_1 n_vout_post_10 stdp
+xstdp11 avdd avss vout_pre_2 vout_post_1 iext1 n_vout_pre_2 n_vout_post_1 stdp
+xstdp12 avdd avss vout_pre_2 vout_post_2 iext2 n_vout_pre_2 n_vout_post_2 stdp
+xstdp13 avdd avss vout_pre_2 vout_post_3 iext3 n_vout_pre_2 n_vout_post_3 stdp
+xstdp14 avdd avss vout_pre_2 vout_post_4 iext4 n_vout_pre_2 n_vout_post_4 stdp
+xstdp15 avdd avss vout_pre_2 vout_post_5 iext5 n_vout_pre_2 n_vout_post_5 stdp
+xstdp16 avdd avss vout_pre_2 vout_post_6 iext6 n_vout_pre_2 n_vout_post_6 stdp
+xstdp17 avdd avss vout_pre_2 vout_post_7 iext7 n_vout_pre_2 n_vout_post_7 stdp
+xstdp18 avdd avss vout_pre_2 vout_post_8 iext8 n_vout_pre_2 n_vout_post_8 stdp
+xstdp19 avdd avss vout_pre_2 vout_post_9 iext9 n_vout_pre_2 n_vout_post_9 stdp
+xstdp20 avdd avss vout_pre_2 vout_post_10 iext10 n_vout_pre_2 n_vout_post_10 stdp
+xstdp21 avdd avss vout_pre_3 vout_post_1 iext1 n_vout_pre_3 n_vout_post_1 stdp
+xstdp22 avdd avss vout_pre_3 vout_post_2 iext2 n_vout_pre_3 n_vout_post_2 stdp
+xstdp23 avdd avss vout_pre_3 vout_post_3 iext3 n_vout_pre_3 n_vout_post_3 stdp
+xstdp24 avdd avss vout_pre_3 vout_post_4 iext4 n_vout_pre_3 n_vout_post_4 stdp
+xstdp25 avdd avss vout_pre_3 vout_post_5 iext5 n_vout_pre_3 n_vout_post_5 stdp
+xstdp26 avdd avss vout_pre_3 vout_post_6 iext6 n_vout_pre_3 n_vout_post_6 stdp
+xstdp27 avdd avss vout_pre_3 vout_post_7 iext7 n_vout_pre_3 n_vout_post_7 stdp
+xstdp28 avdd avss vout_pre_3 vout_post_8 iext8 n_vout_pre_3 n_vout_post_8 stdp
+xstdp29 avdd avss vout_pre_3 vout_post_9 iext9 n_vout_pre_3 n_vout_post_9 stdp
+xstdp30 avdd avss vout_pre_3 vout_post_10 iext10 n_vout_pre_3 n_vout_post_10 stdp
+xstdp31 avdd avss vout_pre_4 vout_post_1 iext1 n_vout_pre_4 n_vout_post_1 stdp
+xstdp32 avdd avss vout_pre_4 vout_post_2 iext2 n_vout_pre_4 n_vout_post_2 stdp
+xstdp33 avdd avss vout_pre_4 vout_post_3 iext3 n_vout_pre_4 n_vout_post_3 stdp
+xstdp34 avdd avss vout_pre_4 vout_post_4 iext4 n_vout_pre_4 n_vout_post_4 stdp
+xstdp35 avdd avss vout_pre_4 vout_post_5 iext5 n_vout_pre_4 n_vout_post_5 stdp
+xstdp36 avdd avss vout_pre_4 vout_post_6 iext6 n_vout_pre_4 n_vout_post_6 stdp
+xstdp37 avdd avss vout_pre_4 vout_post_7 iext7 n_vout_pre_4 n_vout_post_7 stdp
+xstdp38 avdd avss vout_pre_4 vout_post_8 iext8 n_vout_pre_4 n_vout_post_8 stdp
+xstdp39 avdd avss vout_pre_4 vout_post_9 iext9 n_vout_pre_4 n_vout_post_9 stdp
+xstdp40 avdd avss vout_pre_4 vout_post_10 iext10 n_vout_pre_4 n_vout_post_10 stdp
+xstdp41 avdd avss vout_pre_5 vout_post_1 iext1 n_vout_pre_5 n_vout_post_1 stdp
+xstdp42 avdd avss vout_pre_5 vout_post_2 iext2 n_vout_pre_5 n_vout_post_2 stdp
+xstdp43 avdd avss vout_pre_5 vout_post_3 iext3 n_vout_pre_5 n_vout_post_3 stdp
+xstdp44 avdd avss vout_pre_5 vout_post_4 iext4 n_vout_pre_5 n_vout_post_4 stdp
+xstdp45 avdd avss vout_pre_5 vout_post_5 iext5 n_vout_pre_5 n_vout_post_5 stdp
+xstdp46 avdd avss vout_pre_5 vout_post_6 iext6 n_vout_pre_5 n_vout_post_6 stdp
+xstdp47 avdd avss vout_pre_5 vout_post_7 iext7 n_vout_pre_5 n_vout_post_7 stdp
+xstdp48 avdd avss vout_pre_5 vout_post_8 iext8 n_vout_pre_5 n_vout_post_8 stdp
+xstdp49 avdd avss vout_pre_5 vout_post_9 iext9 n_vout_pre_5 n_vout_post_9 stdp
+xstdp50 avdd avss vout_pre_5 vout_post_10 iext10 n_vout_pre_5 n_vout_post_10 stdp
+xstdp51 avdd avss vout_pre_6 vout_post_1 iext1 n_vout_pre_6 n_vout_post_1 stdp
+xstdp52 avdd avss vout_pre_6 vout_post_2 iext2 n_vout_pre_6 n_vout_post_2 stdp
+xstdp53 avdd avss vout_pre_6 vout_post_3 iext3 n_vout_pre_6 n_vout_post_3 stdp
+xstdp54 avdd avss vout_pre_6 vout_post_4 iext4 n_vout_pre_6 n_vout_post_4 stdp
+xstdp55 avdd avss vout_pre_6 vout_post_5 iext5 n_vout_pre_6 n_vout_post_5 stdp
+xstdp56 avdd avss vout_pre_6 vout_post_6 iext6 n_vout_pre_6 n_vout_post_6 stdp
+xstdp57 avdd avss vout_pre_6 vout_post_7 iext7 n_vout_pre_6 n_vout_post_7 stdp
+xstdp58 avdd avss vout_pre_6 vout_post_8 iext8 n_vout_pre_6 n_vout_post_8 stdp
+xstdp59 avdd avss vout_pre_6 vout_post_9 iext9 n_vout_pre_6 n_vout_post_9 stdp
+xstdp60 avdd avss vout_pre_6 vout_post_10 iext10 n_vout_pre_6 n_vout_post_10 stdp
+xstdp61 avdd avss vout_pre_7 vout_post_1 iext1 n_vout_pre_7 n_vout_post_1 stdp
+xstdp62 avdd avss vout_pre_7 vout_post_2 iext2 n_vout_pre_7 n_vout_post_2 stdp
+xstdp63 avdd avss vout_pre_7 vout_post_3 iext3 n_vout_pre_7 n_vout_post_3 stdp
+xstdp64 avdd avss vout_pre_7 vout_post_4 iext4 n_vout_pre_7 n_vout_post_4 stdp
+xstdp65 avdd avss vout_pre_7 vout_post_5 iext5 n_vout_pre_7 n_vout_post_5 stdp
+xstdp66 avdd avss vout_pre_7 vout_post_6 iext6 n_vout_pre_7 n_vout_post_6 stdp
+xstdp67 avdd avss vout_pre_7 vout_post_7 iext7 n_vout_pre_7 n_vout_post_7 stdp
+xstdp68 avdd avss vout_pre_7 vout_post_8 iext8 n_vout_pre_7 n_vout_post_8 stdp
+xstdp69 avdd avss vout_pre_7 vout_post_9 iext9 n_vout_pre_7 n_vout_post_9 stdp
+xstdp70 avdd avss vout_pre_7 vout_post_10 iext10 n_vout_pre_7 n_vout_post_10 stdp
+xstdp71 avdd avss vout_pre_8 vout_post_1 iext1 n_vout_pre_8 n_vout_post_1 stdp
+xstdp72 avdd avss vout_pre_8 vout_post_2 iext2 n_vout_pre_8 n_vout_post_2 stdp
+xstdp73 avdd avss vout_pre_8 vout_post_3 iext3 n_vout_pre_8 n_vout_post_3 stdp
+xstdp74 avdd avss vout_pre_8 vout_post_4 iext4 n_vout_pre_8 n_vout_post_4 stdp
+xstdp75 avdd avss vout_pre_8 vout_post_5 iext5 n_vout_pre_8 n_vout_post_5 stdp
+xstdp76 avdd avss vout_pre_8 vout_post_6 iext6 n_vout_pre_8 n_vout_post_6 stdp
+xstdp77 avdd avss vout_pre_8 vout_post_7 iext7 n_vout_pre_8 n_vout_post_7 stdp
+xstdp78 avdd avss vout_pre_8 vout_post_8 iext8 n_vout_pre_8 n_vout_post_8 stdp
+xstdp79 avdd avss vout_pre_8 vout_post_9 iext9 n_vout_pre_8 n_vout_post_9 stdp
+xstdp80 avdd avss vout_pre_8 vout_post_10 iext10 n_vout_pre_8 n_vout_post_10 stdp
+xstdp81 avdd avss vout_pre_9 vout_post_1 iext1 n_vout_pre_9 n_vout_post_1 stdp
+xstdp82 avdd avss vout_pre_9 vout_post_2 iext2 n_vout_pre_9 n_vout_post_2 stdp
+xstdp83 avdd avss vout_pre_9 vout_post_3 iext3 n_vout_pre_9 n_vout_post_3 stdp
+xstdp84 avdd avss vout_pre_9 vout_post_4 iext4 n_vout_pre_9 n_vout_post_4 stdp
+xstdp85 avdd avss vout_pre_9 vout_post_5 iext5 n_vout_pre_9 n_vout_post_5 stdp
+xstdp86 avdd avss vout_pre_9 vout_post_6 iext6 n_vout_pre_9 n_vout_post_6 stdp
+xstdp87 avdd avss vout_pre_9 vout_post_7 iext7 n_vout_pre_9 n_vout_post_7 stdp
+xstdp88 avdd avss vout_pre_9 vout_post_8 iext8 n_vout_pre_9 n_vout_post_8 stdp
+xstdp89 avdd avss vout_pre_9 vout_post_9 iext9 n_vout_pre_9 n_vout_post_9 stdp
+xstdp90 avdd avss vout_pre_9 vout_post_10 iext10 n_vout_pre_9 n_vout_post_10 stdp
+xstdp91 avdd avss vout_pre_10 vout_post_1 iext1 n_vout_pre_10 n_vout_post_1 stdp
+xstdp92 avdd avss vout_pre_10 vout_post_2 iext2 n_vout_pre_10 n_vout_post_2 stdp
+xstdp93 avdd avss vout_pre_10 vout_post_3 iext3 n_vout_pre_10 n_vout_post_3 stdp
+xstdp94 avdd avss vout_pre_10 vout_post_4 iext4 n_vout_pre_10 n_vout_post_4 stdp
+xstdp95 avdd avss vout_pre_10 vout_post_5 iext5 n_vout_pre_10 n_vout_post_5 stdp
+xstdp96 avdd avss vout_pre_10 vout_post_6 iext6 n_vout_pre_10 n_vout_post_6 stdp
+xstdp97 avdd avss vout_pre_10 vout_post_7 iext7 n_vout_pre_10 n_vout_post_7 stdp
+xstdp98 avdd avss vout_pre_10 vout_post_8 iext8 n_vout_pre_10 n_vout_post_8 stdp
+xstdp99 avdd avss vout_pre_10 vout_post_9 iext9 n_vout_pre_10 n_vout_post_9 stdp
+xstdp100 avdd avss vout_pre_10 vout_post_10 iext10 n_vout_pre_10 n_vout_post_10 stdp
 .ends
