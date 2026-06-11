@@ -6,6 +6,7 @@
 /sim_results/open_loop/*.raw
 /sim_results/double_h_synapsis/*.raw
 /sim_results/*/*.raw
+/sim_results/mnist/mnist_manipulated_flat.txt
 /Neuron/ultralif/sims/*.txt
 /Neuron/ultralif_final/*.txt
 /Neuron/ultralif/sims/*.zip

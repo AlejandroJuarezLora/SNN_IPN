@@ -49,7 +49,6 @@ N 750 -290 800 -290 {lab=vin
 }
 N 1460 20 1460 55 {lab=#net5
 spice_ignore=true}
-N -590 -210 -590 -20 {lab=vin}
 N 1305 165 1305 190 {lab=#net6
 spice_ignore=true}
 N 1305 165 1380 165 {lab=#net6
@@ -108,6 +107,7 @@ N 1460 -10 1460 20 {lab=#net5
 spice_ignore=true}
 N 750 -290 750 -70 {lab=vin}
 N -590 -70 750 -70 {lab=vin}
+N -590 -210 -590 -70 {lab=vin}
 C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} -340 -400 0 0 {name=x1 W_LEAK=1 CM=0.8p spiceprefix=X}
 C {/foss/designs/SNN_IPN/Neuron/ultralif_final/ul_tun_final.sym} -350 -210 0 0 {name=x2 W_LEAK=1 CM=0.8p spiceprefix=X
 }

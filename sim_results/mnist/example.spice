@@ -1,0 +1,39 @@
+* Corrected Multi-column PWL from file using XSPICE filesource
+
+* 1. Define the File Models (One for each column output)
+* Note: amploffset and amplscale must match the number of output columns 
+* you are pulling (1 for each individual source here).
+* .model fsrc_col1 filesource(file="waveforms.txt" amplstep=false timerelative=false
+* +                           amploffset=[0] amplscale=[1.0])
+
+* .model fsrc_col2 filesource(file="waveforms.txt" amplstep=false timerelative=false
+* +                           amploffset=[0 0] amplscale=[0 1.0])
+
+.model fsrc_col3 filesource(file="waveforms.txt" amplstep=false timerelative=false
++                           amploffset=[0 0 0] amplscale=[1.0 1.0 1.0])
+
+* 2. Instantiate the Sources using 'A' devices
+* %v[...] tells the simulator these are analog voltage outputs
+* We pass all columns into the device, but the amplscale handles which one is active.
+* Acol1 %v[node_v1] fsrc_col1
+* Acol2 %v[0 node_v2] fsrc_col2
+* Acol3 %v[0 0 node_v3] fsrc_col3
+
+Acol1 %v[node_v1 0 0] fsrc_col3
+Acol2 %v[0 node_v2 0] fsrc_col3
+Acol3 %v[0 0 node_v3] fsrc_col3
+
+* Dummy loads to keep the matrix happy
+R1 node_v1 0 1k
+R2 node_v2 0 1k
+R3 node_v3 0 1k
+
+* 3. Simulation Controls
+.tran 0.1m 5m
+
+.control
+  run
+  plot v(node_v1) v(node_v2) v(node_v3)
+.endc
+
+.end
