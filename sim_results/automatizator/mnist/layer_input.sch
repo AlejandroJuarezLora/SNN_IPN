@@ -205,5 +205,18 @@ C {lab_pin.sym} 480 970 0 1 {name=p107 sig_type=std_logic lab=avss}
 C {lab_pin.sym} 110 860 0 0 {name=p108 lab=vin9}
 C {lab_pin.sym} 110 900 0 0 {name=p109 sig_type=std_logic lab=avss}
 C {lab_pin.sym} 150 850 1 0 {name=p110 sig_type=std_logic lab=avdd}
-C {opin.sym} -20 -500 0 0 {name=p111 lab=vout11}
-C {opin.sym} 560 -480 0 0 {name=p112 lab=vout11}
+C {opin.sym} -20 -500 0 0 {name=p111 lab=vout1}
+C {opin.sym} 560 -480 0 0 {name=p112 lab=vout2}
+C {opin.sym} -30 -330 0 0 {name=p113 lab=vout3}
+C {opin.sym} 550 -310 0 0 {name=p114 lab=vout4}
+C {opin.sym} -20 -140 0 0 {name=p115 lab=vout5}
+C {opin.sym} 560 -120 0 0 {name=p116 lab=vout6}
+C {opin.sym} -30 30 0 0 {name=p117 lab=vout7}
+C {opin.sym} 550 50 0 0 {name=p118 lab=vout8}
+C {opin.sym} -30 190 0 0 {name=p119 lab=vout9}
+C {opin.sym} 550 210 0 0 {name=p120 lab=vout10}
+C {opin.sym} -40 360 0 0 {name=p121 lab=vout11}
+C {opin.sym} 540 380 0 0 {name=p122 lab=vout12}
+C {opin.sym} -30 550 0 0 {name=p123 lab=vout13}
+C {opin.sym} 550 570 0 0 {name=p124 lab=vout14}
+C {opin.sym} -40 720 0 0 {name=p125 lab=vout15}
